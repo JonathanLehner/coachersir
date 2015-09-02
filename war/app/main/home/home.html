@@ -1,0 +1,25 @@
+<div ng-controller="homeCtrl">
+        <div></div>
+        <div>
+        </div>
+        <div class="homeProperties" >
+            <ul>
+                <li ng-repeat="vid in allVideos" class="homeli">
+                    <div>
+                        <div class = "homeTitle">
+                            {{vid.title}}
+                        </div>
+                        <div  class="explainText">
+                            <p >
+                                {{vid.explain}}
+                            </p>
+                            </div>
+                     <video  class="homeVid" src={{vid.Video}} controls>
+                    </video>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>

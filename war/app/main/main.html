@@ -1,0 +1,33 @@
+<div  ng-controller="menuCtrl" style="position: relative;">
+    <div style="margin-bottom: -5%">
+        <video ng-show="isHome" muted autoplay loop="loop"  style=" position: relative;
+        width: 101%;
+        height: auto;
+        float: right;
+        margin: -8px;">
+                <source src="../../photos/Coachers/ADI/VIDEO/VID-20150823-WA0040.mp4" visability="hidden" type="video/mp4">
+        </video>
+
+        <Img src="../../photos/coachers.png" ng-hide="isHome"/>
+    </div>
+    <div class="mainPosition">
+
+        <div class="MainTitle">
+
+            <div class="users">התחבר/הירשם</div>
+            <div >
+        <ul ng-class="{'menu': isHome, 'menuCoach': !isHome}">
+            <li ><a class="HomeTitle" href ng-click="goHome()">דף הבית</a></li>
+            <li ><a class="CoachTitle" href ng-click="goCoach()">מאמנים </a>
+            <li><a class="CoachArticleTitle" href ng-click="goArticle()">מאמנים כותבים</a></li>
+            <li><a class="AboutUsTitle" href ng-click="goAbout()">קצת עלינו</a></li>
+            <li><a class="ContactUsTitle"> צור קשר</a></li>
+
+        </ul>
+
+            <div class="section1"  class="ui" ui-view="app">
+            </div>
+    </div>
+</div>
+        </div>
+    </div>

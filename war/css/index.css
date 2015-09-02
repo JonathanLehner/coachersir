@@ -1,0 +1,80 @@
+body{
+    background-color: #ffffff;
+}
+
+.ui{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.backgroundVideo{
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+
+@media (min-width: 1100px) {
+    .backgroundVideo video {
+        height: auto;
+        width: 100%;
+    }
+}
+
+
+    .hero__background video {
+        bottom: 0;
+        height: 100%;
+        position: absolute;
+        width: auto;
+    }
+
+
+.MainTitle{
+    position: static;
+    height: 52px;
+    padding-bottom: 20%;
+    margin: 7%;
+}
+
+.menu{
+    display: -webkit-box;
+    padding: 41% 5% 5%;
+}
+
+.menuCoach{
+    display: -webkit-box;
+    padding: 0% 0% 5%;
+}
+
+
+.MainTitle a{
+    display: block;
+    padding: 12.7px 48px;
+    text-decoration: blink;
+    color: #ffffff;
+}
+
+.MainTitle li{
+    font-size: x-large;
+    display: -webkit-box;
+}
+
+.MainTitle a:hover{
+    background-color: #888888;
+}
+.MainTitle a:focus{
+    background-color: #555555;
+}
+
+.MainTitle a{
+    background-color: gray;
+}
+
+.mainPosition{
+    width:100%;
+    position: absolute;
+}
