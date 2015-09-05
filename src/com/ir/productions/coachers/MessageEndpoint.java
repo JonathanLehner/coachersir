@@ -45,7 +45,7 @@ import com.ir.productions.coachers.entities.MessageData;
  * If this app is deployed, anyone can access this endpoint! If you'd like to
  * add authentication, take a look at the documentation.
  */
-@Api(name = "messageEndpoint", root="/msg/",
+@Api(name = "messageEndpoint", 
 	 namespace = @ApiNamespace(ownerDomain = "ir.com", 
 	 						   ownerName = "ir.com", 
 	 						   packagePath="productions.coachers"))

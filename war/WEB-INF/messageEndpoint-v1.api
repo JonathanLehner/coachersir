@@ -1,7 +1,7 @@
 {
   "extends" : "thirdParty.api",
   "abstract" : false,
-  "root" : "/msg/",
+  "root" : "https://myapp.appspot.com/_ah/api",
   "name" : "messageEndpoint",
   "version" : "v1",
   "defaultVersion" : false,

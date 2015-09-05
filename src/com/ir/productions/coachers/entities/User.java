@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class User {
 	
 	private static int TYPE_COACH = 1;
-	private static int TYPE_USER = 2;
+	private static int TYPE_TRAINED = 2;
 	
 	@Id
 	private Long id;
@@ -100,5 +100,10 @@ public class User {
 
 	public void setPrice_per_hour(Long price_per_hour) {
 		this.price_per_hour = price_per_hour;
+	}
+	
+	public boolean isCoach()
+	{
+		return this.type == TYPE_COACH;
 	}
 }
