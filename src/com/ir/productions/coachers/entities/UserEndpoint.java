@@ -1,5 +1,6 @@
 package com.ir.productions.coachers.entities;
 
+import com.ir.productions.coachers.EMF;
 import com.ir.productions.coachers.entities.User;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;

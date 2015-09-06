@@ -1,6 +1,11 @@
 package com.ir.productions.coachers.entities;
 
-public enum Location
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public enum Locations
 {
 	Central_District(1, "אזור המרכז", null), 
 	Haifa_District(2, "אזור חיפה", null),
@@ -77,15 +82,68 @@ public enum Location
 	Ariel	(27, "אריאל", 7),	
 	MaaleAdumim	(27, "מעלה-אדומים", 7);	
 
-	
-	
 	private final Integer id;
 	private final String name;
 	private final Integer parent_location_id;
 
-	Location(Integer id, String name, Integer parent_location_id){
+	Locations(Integer id, String name, Integer parent_location_id){
 		this.id = id;
 		this.name = name;
 		this.parent_location_id = parent_location_id;
+	}
+	
+	public static Map<Locations, List<Locations>> getAllLocations()
+	{
+		Map<Locations, List<Locations>> map = new HashMap<Locations, List<Locations>>();
+		
+		Locations[] list = values();
+		
+		boolean continueLoop = true;
+		
+		for(int i=0; i < list.length && continueLoop; i++)
+		{
+			Locations l = list[i];
+			
+			if(l.getParent_location_id() == null)
+			{
+				map.put(l, l.getSons());
+			}
+			else
+			{
+				continueLoop = false;
+			}
+		}
+		
+		return map;
+	}
+
+	private List<Locations> getSons()
+	{
+		List<Locations> list = new ArrayList<Locations>();
+		
+		for(Locations l : values())
+		{
+			if(this.getId() == l.getParent_location_id())
+			{
+				list.add(l);
+			}
+		}
+		
+		return list;
+	}
+	
+	public Integer getId()
+	{
+		return id;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public Integer getParent_location_id()
+	{
+		return parent_location_id;
 	}
 }

@@ -1,13 +1,22 @@
 package com.ir.productions.coachers;
 
-import com.google.api.server.spi.config.Api;
-import com.google.api.server.spi.config.ApiNamespace;
+import java.util.List;
+import java.util.Map;
 
-@Api(name = "locationEndpoint", 
+import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.ApiNamespace;
+import com.ir.productions.coachers.entities.Locations;
+
+@Api(name = "locationsEndpoint", 
 namespace = @ApiNamespace(ownerDomain = "ir.com", 
 						   ownerName = "ir.com", 
 						   packagePath="productions.coachers"))
 public class LocationEndpoint
 {
-
+	@ApiMethod(path="all")
+	public Map<Locations, List<Locations>> getAll()
+	{
+		return Locations.getAllLocations();
+	}
 }
