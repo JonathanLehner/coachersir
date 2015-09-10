@@ -1,4 +1,4 @@
-package com.ir.productions.coachers;
+package com.ir.productions.coachers.examples;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,8 +18,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
 import com.google.appengine.api.datastore.Cursor;
 import com.google.appengine.datanucleus.query.JPACursorHelper;
-import com.ir.productions.coachers.entities.DeviceInfo;
-import com.ir.productions.coachers.entities.MessageData;
+import com.ir.productions.coachers.EMF;
 
 
 /**

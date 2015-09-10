@@ -1,4 +1,4 @@
-package com.ir.productions.coachers;
+package com.ir.productions.coachers.examples;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -6,7 +6,7 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.CollectionResponse;
 import com.google.appengine.api.datastore.Cursor;
 import com.google.appengine.datanucleus.query.JPACursorHelper;
-import com.ir.productions.coachers.entities.DeviceInfo;
+import com.ir.productions.coachers.EMF;
 
 import java.util.List;
 

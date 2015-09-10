@@ -12,7 +12,7 @@ import com.ir.productions.coachers.entities.Locations;
 namespace = @ApiNamespace(ownerDomain = "ir.com", 
 						   ownerName = "ir.com", 
 						   packagePath="productions.coachers"))
-public class LocationEndpoint
+public class LocationEndpoint extends Endpoint
 {
 	@ApiMethod(path="all")
 	public Map<Locations, List<Locations>> getAll()

@@ -6,13 +6,19 @@ import javax.persistence.Id;
 @Entity
 public class Content
 {
+	public static int TYPE_IMAGE = 1;
+	public static int TYPE_VIDEO = 2;
+	public static int TYPE_article = 3;
+	
 	@Id
 	private Long id;
 	
 	private Long user_id;
 	
-	private String url;
+	private String content;
 
+	private String headline;
+	
 	public Long getId()
 	{
 		return id;
@@ -33,13 +39,23 @@ public class Content
 		this.user_id = user_id;
 	}
 
-	public String getUrl()
+	public String getContent()
 	{
-		return url;
+		return content;
 	}
 
-	public void setUrl(String url)
+	public void setContent(String content)
 	{
-		this.url = url;
+		this.content = content;
+	}
+
+	public String getHeadline()
+	{
+		return headline;
+	}
+
+	public void setHeadline(String headline)
+	{
+		this.headline = headline;
 	}
 }

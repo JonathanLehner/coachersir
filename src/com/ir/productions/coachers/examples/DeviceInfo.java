@@ -1,4 +1,4 @@
-package com.ir.productions.coachers.entities;
+package com.ir.productions.coachers.examples;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -5,7 +5,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.ir.productions.coachers.ContentEndpoint,com.ir.productions.coachers.DeviceInfoEndpoint,com.ir.productions.coachers.LocationEndpoint,com.ir.productions.coachers.MessageEndpoint,com.ir.productions.coachers.UserEndpoint,com.ir.productions.coachers.entities.UserEndpoint</param-value>
+   <param-value>com.ir.productions.coachers.ContentEndpoint,com.ir.productions.coachers.LocationEndpoint,com.ir.productions.coachers.UserEndpoint,com.ir.productions.coachers.examples.DeviceInfoEndpoint,com.ir.productions.coachers.examples.MessageEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>

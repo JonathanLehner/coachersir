@@ -18,7 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 @Api(name = "contentendpoint", namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers.entities"))
-public class ContentEndpoint
+public class ContentEndpoint extends Endpoint
 {
 
 	/**
@@ -182,10 +182,5 @@ public class ContentEndpoint
 			mgr.close();
 		}
 		return contains;
-	}
-
-	private static EntityManager getEntityManager()
-	{
-		return EMF.get().createEntityManager();
 	}
 }
