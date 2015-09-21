@@ -1,0 +1,107 @@
+<div class="container loginModal">
+    <div class="row" style="transition: width 6s ease">
+        <div class="main main-modal" ng-class="{'signUp-modal': !signIn}">
+
+            <div  ng-if="signIn">
+
+                <a href="#" ng-click="close()"><span class="glyphicon glyphicon-remove" style="font-size:1.5em"></span></a>
+                <br/>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a class="btn btn-block btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i>  Facebook
+                    </a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a class="btn btn-block btn-social btn-google">
+                        <i class="fa fa-google-plus"></i>  Google+
+                    </a>
+                </div>
+            </div>
+                <br>
+
+            <form role="form">
+                <div class="form-group">
+                    <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
+                    <input type="email" class="form-control" id="inputUsernameEmail">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
+
+                    <input type="password" class="form-control" id="inputPassword">
+
+                    <a class="pull-right" href="#">{{'Login.Forget_Password' | translate}} </a>
+                </div>
+                    <button type="submit" class="btn btn btn-primary">
+                        {{'Login.Login' | translate}}
+                    </button>
+                <hr>
+                <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInCoach()">{{'Login.Coach' | translate}}</a>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInTrainer()">{{'Login.Trainer' | translate}}</a>
+                    </div>
+                </div>
+
+
+            </form>
+            </div>
+
+
+
+                <div class="row" ng-if="!signIn">
+                    <div style="transition: width 0.6s ease">
+                        <a href="#" class="btn btn-lg" ng-click="backPressed()">
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </a>
+                        <legend></a> {{'SignUp.Welcome' | translate}}</legend>
+                        <form class="form-horizontal" role="form" action='' method="POST">
+                            <fieldset>
+                                <div class="form-signUp">
+                                    <label for="inputUsernameEmail">{{'SignUp.Email' | translate}} </label>
+                                    <input type="email" class="form-control" id="SignUpUsernameEmail">
+                                </div>
+                                <div class="form-signUp">
+                                    <label for="inputPassword"> {{'SignUp.Password' | translate}}   </label>
+
+                                    <input type="password" class="form-control" id="SignUpPassword">
+
+                                </div>
+                                <div class="form-signUp">
+                                    <label for="inputPassword"> {{'SignUp.Password_Confirm' | translate}}   </label>
+
+                                    <input type="password" class="form-control" id="SignUpConfirmPassword">
+                                </div>
+                                <div class="form-signUp">
+                                    {{'SignUp.Gender' | translate}}
+                                    <div>
+                                        <label class="radio-inline"><input type="radio" name="gender" id="inputMale"> {{'SignUp.Male' | translate}} </label>
+                                        <label class="radio-inline"><input type="radio" name="gender" id="inputFemale">{{'SignUp.Female' | translate}}</label>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="date-picker-2" class="control-label">B</label>
+                                    <div class="controls">
+                                        <div class="input-group">
+                                            <input id="date-picker-2" type="text" class="date-picker form-control" />
+                                            <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                    <input type="submit" value="Search" class="btn">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

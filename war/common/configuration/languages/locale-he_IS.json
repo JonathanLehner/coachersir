@@ -1,0 +1,30 @@
+{
+  "Login":{
+    "Email":"דוא''ל",
+    "Password":"סיסמה",
+    "Coach":"מאמן",
+    "Trainer":"מתאמן",
+    "Remember_Me":"זכור אותי",
+    "Login":"התחבר",
+    "Not_Member":"חדש באתר? הרשם!",
+    "Forget_Password":"שכחת סיסמה?"
+  },
+"SignUp":{
+  "Welcome":"ברוכים הבאים!",
+  "First_Name":"שם פרטי",
+  "Last_Name":"שם משפחה",
+  "Email":"דוא''ל",
+  "Password":"סיסמה",
+  "Password_Confirm":"סיסמה (אימות)",
+  "Birth_Day":"תאריך לידה",
+  "Address":"מקום מגורים",
+  "Male":"זכר",
+  "Female":"נקבה",
+  "Gender":"מין"
+
+},
+  "Menu":{
+    "Home":"בית"
+  }
+
+}
