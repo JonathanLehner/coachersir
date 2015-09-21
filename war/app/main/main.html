@@ -1,33 +1,37 @@
 <div  ng-controller="menuCtrl" style="position: relative;">
     <div style="margin-bottom: -5%">
-        <video ng-show="isHome" muted autoplay loop="loop"  style=" position: relative;
-        width: 101%;
+        <video ng-show="isHome.flag" muted autoplay loop="loop"  style=" position: relative;
+        width: 100.65%;
         height: auto;
         float: right;
         margin: -8px;">
                 <source src="../../photos/Coachers/ADI/VIDEO/VID-20150823-WA0040.mp4" visability="hidden" type="video/mp4">
         </video>
+        <Img src="../../photos/coachers.png" ng-hide="isHome.flag"/>
 
-        <Img src="../../photos/coachers.png" ng-hide="isHome"/>
     </div>
     <div class="mainPosition">
 
+
+
         <div class="MainTitle">
+           <div style="color:#ffffff; display: flex;">
+               <a href="" ng-click="signIn()" style="width:20px">SignIn </a>
+               <span><a style="width:20px">SignUp </a></span></div>
 
-            <div class="users">התחבר/הירשם</div>
-            <div >
-        <ul ng-class="{'menu': isHome, 'menuCoach': !isHome}">
-            <li ><a class="HomeTitle" href ng-click="goHome()">דף הבית</a></li>
-            <li ><a class="CoachTitle" href ng-click="goCoach()">מאמנים </a>
-            <li><a class="CoachArticleTitle" href ng-click="goArticle()">מאמנים כותבים</a></li>
-            <li><a class="AboutUsTitle" href ng-click="goAbout()">קצת עלינו</a></li>
-            <li><a class="ContactUsTitle"> צור קשר</a></li>
+            <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
 
-        </ul>
+                <li><a class="HomeTitle" ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
+                <li><a class="CoachTitle" ui-sref="main.coach">מאמנים</a></li>
+                <li><a class="CoachArticleTitle" ui-sref="main.articles">מאמנים כותבים</a></li>
+                <li><a class="AboutUsTitle" ui-sref="main.aboutUs">קצת עלינו</a></li>
+                <li><a class="ContactUsTitle">צור קשר</a></li>
 
-            <div class="section1"  class="ui" ui-view="app">
-            </div>
-    </div>
-</div>
+                        </ul>
+                    </nav>
+
+                <div class="section1"  class="ui" ui-view="app">
+                </div>
         </div>
     </div>
+</div>

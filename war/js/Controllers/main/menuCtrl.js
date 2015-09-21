@@ -6,28 +6,14 @@
  */
 
 angular.module('myApp.controllers')
-    .controller('menuCtrl',['$scope','$state',function($scope,$state){
+    .controller('menuCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
         'use strict';
+        $scope.isHome = {}
+        $scope.isHome.flag = true;
 
-        $scope.goCoach = function(){
-            $state.go("main.coach");
-            $scope.isHome = false;
+        $scope.signIn = function(){
+            loginService.login();
         }
-
-        $scope.goHome = function(){
-            $state.go("main.home");
-            $scope.isHome = true;
-        }
-
-        $scope.goArticle = function(){
-            $scope.isHome = false;
-            $state.go("main.articles");
-        }
-
-       /* $scope.goAbout = function(){
-            $state.go("main.aboutUs");
-            $scope.isHome = false;
-        }*/
 
     }]);
 

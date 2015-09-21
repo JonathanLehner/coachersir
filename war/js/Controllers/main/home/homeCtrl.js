@@ -1,6 +1,8 @@
 angular.module('myApp.controllers.main')
     .controller('homeCtrl',['$scope',function($scope)
     {
+        $scope.isHome.flag = true;
+
         $scope.allVideos = [{
             title:"עבודה קשה",
             explain:"bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " +
@@ -114,5 +116,7 @@ angular.module('myApp.controllers.main')
 
         ];
     }
+
+
 
 ]);

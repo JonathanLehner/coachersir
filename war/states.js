@@ -3,7 +3,7 @@ angular.module('myApp')
     .config(function($stateProvider,$urlRouterProvider){
         'use strict';
         $urlRouterProvider
-            .otherwise('/');
+            .otherwise('/home');
 
         $stateProvider
             .state('main',{
@@ -23,14 +23,16 @@ angular.module('myApp')
                 }
             })
             .state('main.home',{
-                url:'',
+                url:'home',
                 parent:'main',
                 controller: 'homeCtrl',
                 views:{
                     app:{
-                        templateUrl: 'app/main/home/home.html'}
+                        templateUrl:'app/'
+                       /* templateUrl: 'app/main/home/home.html'*/}
                 }
             })
+
         .state('main.articles',{
             url:'articles',
             controller: 'articlesController',
