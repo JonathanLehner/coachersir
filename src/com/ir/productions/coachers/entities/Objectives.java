@@ -1,7 +1,9 @@
 package com.ir.productions.coachers.entities;
 
-public enum Objectives
-{
+import java.util.ArrayList;
+import java.util.List;
+
+public enum Objectives {
 	Gain_Weight(1, "עלייה במשקל"), Lose_Weight(2, "ירידה במשקל"), Body_Pump(3,
 			"פיתוח הגוף"), Musle_Strength(4, "חיזוק השרירים"), Fat_Lose(5,
 			"הפחתת שומנים"), Body_Shape(6, "עיצוב וחיטוב הגוף"), Stress_Lose(7,
@@ -28,6 +30,23 @@ public enum Objectives
 		return null;
 	}
 
+	public static List<String> getAllNames()
+	{
+		List<String> list = new ArrayList<String>();
+
+		for (Objectives obj : values())
+		{
+			list.add(obj.getName());
+		}
+
+		return list;
+	}
+
+	public String getNameById(Integer id)
+	{
+		return getById(id).getName();
+	}
+
 	public Integer getId()
 	{
 		return id;
@@ -37,5 +56,4 @@ public enum Objectives
 	{
 		return name;
 	}
-
 }

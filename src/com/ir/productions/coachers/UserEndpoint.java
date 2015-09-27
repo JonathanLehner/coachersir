@@ -30,12 +30,6 @@ public class UserEndpoint extends Endpoint
 		userDAO = new UserDAO();
 	}
 
-	@ApiMethod(path = "listUsers")
-	public List<User> listUsers()
-	{
-		return userDAO.findAll();
-	}
-
 	/**
 	 * This method lists all the entities inserted in datastore. It uses HTTP
 	 * GET method and paging support.
@@ -89,6 +83,12 @@ public class UserEndpoint extends Endpoint
 				.setNextPageToken(cursorString).build();
 	}
 
+	@ApiMethod(path = "listUsersDao")
+	public List<User> listUserDAO()
+	{
+		return userDAO.findAll();
+	}
+
 	/**
 	 * This method gets the entity having primary key id. It uses HTTP GET
 	 * method.
@@ -105,11 +105,20 @@ public class UserEndpoint extends Endpoint
 		try
 		{
 			user = mgr.find(User.class, id);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
 		} finally
 		{
 			mgr.close();
 		}
 		return user;
+	}
+
+	@ApiMethod(name = "getUserDAO")
+	public User getUserDAO(@Named("id") Long id)
+	{
+		return userDAO.findById(id);
 	}
 
 	/**
@@ -139,6 +148,12 @@ public class UserEndpoint extends Endpoint
 		return user;
 	}
 
+	@ApiMethod(name = "insertUserDAO")
+	public User insertUserDAO(User user)
+	{
+		return userDAO.insert(user);
+	}
+
 	/**
 	 * This method is used for updating an existing entity. If the entity does
 	 * not exist in the datastore, an exception is thrown. It uses HTTP PUT
@@ -166,6 +181,12 @@ public class UserEndpoint extends Endpoint
 		return user;
 	}
 
+	@ApiMethod(name = "updateUserDAO")
+	public User updateUserDAO(User user)
+	{
+		return userDAO.update(user);
+	}
+
 	/**
 	 * This method removes the entity with primary key id. It uses HTTP DELETE
 	 * method.
@@ -185,6 +206,12 @@ public class UserEndpoint extends Endpoint
 		{
 			mgr.close();
 		}
+	}
+
+	@ApiMethod(name = "removeUserDAO")
+	public void removeUserDAO(@Named("id") Long id)
+	{
+		userDAO.delete(id);
 	}
 
 	private boolean containsUser(User user)

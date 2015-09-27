@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public enum Locations
-{
+public enum Locations {
 	Central_District(1, "אזור המרכז", null), Haifa_District(2, "אזור חיפה",
 			null), Jerusalem_District(3, "אזור ירושלים", null), Northern_District(
 			4, "אזור הצפון", null), Southern_District(5, "אזור הדרום", null), TelAviv_District(
@@ -58,9 +57,9 @@ public enum Locations
 		this.parent_location_id = parent_location_id;
 	}
 
-	public static Map<Locations, List<Locations>> getAllLocations()
+	public static Map<String, List<String>> getAllLocations()
 	{
-		Map<Locations, List<Locations>> map = new HashMap<Locations, List<Locations>>();
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
 
 		Locations[] list = values();
 
@@ -72,7 +71,7 @@ public enum Locations
 
 			if (l.getParent_location_id() == null)
 			{
-				map.put(l, l.getSons());
+				map.put(l.getName(), l.getSons());
 			} else
 			{
 				continueLoop = false;
@@ -82,15 +81,15 @@ public enum Locations
 		return map;
 	}
 
-	private List<Locations> getSons()
+	private List<String> getSons()
 	{
-		List<Locations> list = new ArrayList<Locations>();
+		List<String> list = new ArrayList<String>();
 
 		for (Locations l : values())
 		{
 			if (this.getId() == l.getParent_location_id())
 			{
-				list.add(l);
+				list.add(l.getName());
 			}
 		}
 
