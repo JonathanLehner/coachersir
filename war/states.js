@@ -28,8 +28,8 @@ angular.module('myApp')
                 controller: 'homeCtrl',
                 views:{
                     app:{
-                        templateUrl:'app/'
-                       /* templateUrl: 'app/main/home/home.html'*/}
+                        /*templateUrl:'app/'*/
+                        templateUrl: 'app/main/home/home.html'}
                 }
             })
 

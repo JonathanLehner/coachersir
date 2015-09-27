@@ -1,10 +1,11 @@
-<div class="container loginModal">
-    <div class="row" style="transition: width 6s ease">
-        <div class="main main-modal" ng-class="{'signUp-modal': !signIn}">
+<div class="container loginModal" style="">
+    <div class="row">
+        <div class="main main-modal" style="transition: width 1s;" ng-class="{'signUp-modal': !signIn}">
 
             <div  ng-if="signIn">
 
                 <a href="#" ng-click="close()"><span class="glyphicon glyphicon-remove" style="font-size:1.5em"></span></a>
+
                 <br/>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -18,7 +19,7 @@
                     </a>
                 </div>
             </div>
-                <br>
+                <br/>
 
             <form role="form">
                 <div class="form-group">
@@ -32,9 +33,11 @@
 
                     <a class="pull-right" href="#">{{'Login.Forget_Password' | translate}} </a>
                 </div>
-                    <button type="submit" class="btn btn btn-primary">
+                <div class="form-group">
+                    <button type="submit" class="btn btn btn-primary submit">
                         {{'Login.Login' | translate}}
                     </button>
+                </div>
                 <hr>
                 <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
                 <div class="row">
@@ -78,24 +81,29 @@
                                 <div class="form-signUp">
                                     {{'SignUp.Gender' | translate}}
                                     <div>
-                                        <label class="radio-inline"><input type="radio" name="gender" id="inputMale"> {{'SignUp.Male' | translate}} </label>
-                                        <label class="radio-inline"><input type="radio" name="gender" id="inputFemale">{{'SignUp.Female' | translate}}</label>
+                                        <label ><input type="radio" name="gender" id="inputMale"> {{'SignUp.Male' | translate}} </label>
+                                        <label><input type="radio" name="gender" id="inputFemale">{{'SignUp.Female' | translate}}</label>
                                     </div>
                                 </div>
 
-                                <div class="control-group">
-                                    <label for="date-picker-2" class="control-label">B</label>
-                                    <div class="controls">
-                                        <div class="input-group">
-                                            <input id="date-picker-2" type="text" class="date-picker form-control" />
-                                            <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                              <div class="form-signUp">
+                                  <label>{{'SignUp.Birth_Day' | translate}}</label>
+                                  <select name="Day">
+                                        <option ng-repeat="day in days" value="{{day}}">{{day | daysTrans}}</option>
 
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
-                    <input type="submit" value="Search" class="btn">
+                                  </select>
+
+                                  <select name="Month">
+                                      <option ng-repeat="month in months" value={{month}}>{{month | monthTrans}}</option>
+
+                                  </select>
+
+                                  <select name="Year" >
+                                      <option ng-repeat="year in years" value={{year}}>{{year | yearTrans}}</option>
+
+                                  </select>
+                              </div>
+
                             </fieldset>
                         </form>
                     </div>

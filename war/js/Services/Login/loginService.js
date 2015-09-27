@@ -14,7 +14,7 @@ angular.module('myApp.services')
                 controller:'loginCtrl',
                 backdrop:true
             });
-        }
+        };
 
         return serv;
 

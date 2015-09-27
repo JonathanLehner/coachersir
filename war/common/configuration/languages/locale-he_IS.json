@@ -20,7 +20,22 @@
   "Address":"מקום מגורים",
   "Male":"זכר",
   "Female":"נקבה",
-  "Gender":"מין"
+  "Gender":"מין",
+  "Year":"שנה",
+  "Day":"יום",
+  "Month":{"Month":"חודש",
+          "January":"ינואר",
+          "February":"פברואר",
+          "March":"מרץ",
+          "April":"אפריל",
+          "May":"מאי",
+          "June":"יוני",
+          "July":"יולי",
+          "August":"אוגוסט",
+          "September":"ספטמבר",
+          "October":"אוקטובר",
+          "November":"נובמבר",
+          "December":"דצמבר"}
 
 },
   "Menu":{

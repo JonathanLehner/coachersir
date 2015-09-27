@@ -15,5 +15,10 @@ angular.module('myApp.controllers')
             loginService.login();
         }
 
+        $(document).ready(function() {
+            $(".dropdown-toggle").dropdown();
+        });
+
+
     }]);
 
