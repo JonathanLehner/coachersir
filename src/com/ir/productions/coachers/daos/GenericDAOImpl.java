@@ -27,41 +27,115 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 	}
 
 	@Override
-	public T create(T t)
+	public T findById(ID id)
 	{
-		getEM().persist(t);
+		EntityManager mgr = getEM();
+		T t = null;
+
+		try
+		{
+			t = mgr.find(entityClass, id);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
 		return t;
 	}
 
 	@Override
-	public T findById(ID id)
+	public T insert(T t)
 	{
-		return getEM().find(entityClass, id);
+		EntityManager mgr = getEM();
+
+		try
+		{
+			mgr.persist(t);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return t;
 	}
 
 	@Override
 	public T update(T t)
 	{
-		return getEM().merge(t);
+		EntityManager mgr = getEM();
+
+		try
+		{
+			// mgr.persist(t);
+			t = getEM().merge(t);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return t;
 	}
 
 	@Override
 	public void delete(T t)
 	{
-		t = getEM().merge(t);
-		getEM().remove(t);
+		EntityManager mgr = getEM();
+
+		try
+		{
+			t = mgr.merge(t);
+			mgr.remove(t);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+	}
+
+	@Override
+	public void delete(ID id)
+	{
+		EntityManager mgr = getEM();
+		try
+		{
+			T t = mgr.find(entityClass, id);
+			mgr.remove(t);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<T> findAll()
 	{
-		return getEM().createQuery(
+		EntityManager mgr = getEM();
+
+		List<T> list = getEM().createQuery(
 				"Select t from " + entityClass.getSimpleName() + " t")
 				.getResultList();
+
+		mgr.close();
+
+		return list;
 	}
 
-	protected EntityManager getEM()
+	public EntityManager getEM()
 	{
 		return EMF.get().createEntityManager();
 	}
