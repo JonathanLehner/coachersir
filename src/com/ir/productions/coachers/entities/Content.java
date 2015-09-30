@@ -8,17 +8,19 @@ public class Content
 {
 	public static int TYPE_IMAGE = 1;
 	public static int TYPE_VIDEO = 2;
-	public static int TYPE_article = 3;
-	
+	public static int TYPE_ARTICLE = 3;
+
 	@Id
 	private Long id;
-	
+
 	private Long user_id;
-	
+
+	private Long type;
+
 	private String content;
 
 	private String headline;
-	
+
 	public Long getId()
 	{
 		return id;
@@ -27,6 +29,16 @@ public class Content
 	public void setId(Long id)
 	{
 		this.id = id;
+	}
+
+	public Long getType()
+	{
+		return type;
+	}
+
+	public void setType(Long type)
+	{
+		this.type = type;
 	}
 
 	public Long getUser_id()
