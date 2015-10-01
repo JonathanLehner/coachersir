@@ -1,5 +1,6 @@
 package com.ir.productions.coachers.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User
+public class User implements Serializable
 {
 
 	private static int TYPE_COACH = 1;

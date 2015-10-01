@@ -47,7 +47,7 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.createNewUser = function(){
-            loginService.insertUser(this.user.email,this.user.password);
+            loginService.insertUser(this.user);
         };
 
 

@@ -2,7 +2,7 @@
  * Created by itay on 9/15/2015.
  */
 angular.module('myApp.services')
-    .factory('loginService',['$modal','$http','$resource', function ($modal,$http,$resource) {
+    .factory('loginService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
         "use strict";
 
         var serv={};
@@ -16,16 +16,17 @@ angular.module('myApp.services')
             });
         };
 
-        serv.insertUser = function(email,password){
+        serv.insertUser = function(user){
+            var data = {email:user.email,
+                        password:user.password};
+
             return $http({
                 method: 'POST',
                 url: '_ah/api/userEndpoint/v1/user',
-                data: {
-                    email: email,
-                    password: password
-                },headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(data)
 
-            })
+            }).success(function () {});
         };
 
         return serv;
