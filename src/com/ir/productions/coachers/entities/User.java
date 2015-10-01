@@ -3,6 +3,7 @@ package com.ir.productions.coachers.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.jdo.annotations.Index;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,8 +26,10 @@ public class User
 
 	private String last_name;
 
+	@Index
 	private String email;
 
+	@Index
 	private String password;
 
 	private Date birth_date;
@@ -34,6 +37,8 @@ public class User
 	private Long location_id;
 
 	private Long price_per_hour;
+
+	private String img_link;
 
 	private List<Integer> objectives;
 
@@ -140,5 +145,15 @@ public class User
 	public void setObjectives(List<Integer> objectives)
 	{
 		this.objectives = objectives;
+	}
+
+	public String getImg_link()
+	{
+		return img_link;
+	}
+
+	public void setImg_link(String img_link)
+	{
+		this.img_link = img_link;
 	}
 }

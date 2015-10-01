@@ -1,8 +1,41 @@
 package com.ir.productions.coachers.daos;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import com.ir.productions.coachers.entities.User;
 
 public class UserDAO extends GenericDAOImpl<User, Long>
 {
+
+	public User login(String email, String password)
+	{
+		EntityManager mgr = getEM();
+		User user = null;
+
+		try
+		{
+			List<User> list = mgr
+					.createQuery(
+							"select from User as User where email=:email and password=:password")
+					.setParameter("email", email)
+					.setParameter("password", password).setMaxResults(1)
+					.getResultList();
+
+			if (list != null && !list.isEmpty())
+			{
+				user = list.get(0);
+			}
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return user;
+	}
 
 }

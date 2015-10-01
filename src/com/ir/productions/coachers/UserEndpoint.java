@@ -30,6 +30,13 @@ public class UserEndpoint extends Endpoint
 		userDAO = new UserDAO();
 	}
 
+	@ApiMethod(path = "login", httpMethod = "post")
+	public User login(@Named("email") String email,
+			@Named("password") String password)
+	{
+		return userDAO.login(email, password);
+	}
+
 	/**
 	 * This method lists all the entities inserted in datastore. It uses HTTP
 	 * GET method and paging support.
