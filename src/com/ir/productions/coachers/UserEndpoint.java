@@ -115,7 +115,7 @@ public class UserEndpoint extends Endpoint
 		return user;
 	}
 
-	@ApiMethod(name = "getUserDAO")
+	@ApiMethod(path = "getUserDAO")
 	public User getUserDAO(@Named("id") Long id)
 	{
 		return userDAO.findById(id);
@@ -148,7 +148,7 @@ public class UserEndpoint extends Endpoint
 		return user;
 	}
 
-	@ApiMethod(name = "insertUserDAO")
+	@ApiMethod(path = "insertUserDAO")
 	public User insertUserDAO(User user)
 	{
 		return userDAO.insert(user);
@@ -181,7 +181,7 @@ public class UserEndpoint extends Endpoint
 		return user;
 	}
 
-	@ApiMethod(name = "updateUserDAO")
+	@ApiMethod(path = "updateUserDAO")
 	public User updateUserDAO(User user)
 	{
 		return userDAO.update(user);
@@ -208,7 +208,7 @@ public class UserEndpoint extends Endpoint
 		}
 	}
 
-	@ApiMethod(name = "removeUserDAO")
+	@ApiMethod(path = "removeUserDAO")
 	public void removeUserDAO(@Named("id") Long id)
 	{
 		userDAO.delete(id);
