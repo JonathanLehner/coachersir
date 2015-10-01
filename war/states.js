@@ -33,6 +33,17 @@ angular.module('myApp')
                 }
             })
 
+            .state('main.login',{
+                url:'login',
+                parent:'main',
+                controller: 'loginCtrl',
+                views:{
+                    app:{
+                        /*templateUrl:'app/'*/
+                        templateUrl: 'app/Login/login.html'}
+                }
+            })
+
         .state('main.articles',{
             url:'articles',
             controller: 'articlesController',

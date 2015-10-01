@@ -11,13 +11,13 @@
 
     </div>
     <div class="mainPosition">
-
         <div class="MainTitle">
            <div style="color:#ffffff; display: flex;">
                <a href="" ng-click="signIn()" style="width:20px">SignIn </a>
                <span><a style="width:20px">SignUp </a></span></div>
 
             <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
+
 
                 <li><a class="HomeTitle" ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
                 <li><a class="CoachTitle" ui-sref="main.coach">מאמנים</a></li>
@@ -26,10 +26,14 @@
                 <li><a class="ContactUsTitle">צור קשר</a></li>
 
                         </ul>
+
+
+
                     </nav>
 
 
-                <div class="section1"  class="ui" ui-view="app">
+
+            <div class="section1"  class="ui" ui-view="app">
                 </div>
         </div>
     </div>

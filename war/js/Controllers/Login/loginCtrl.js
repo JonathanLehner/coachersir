@@ -1,8 +1,8 @@
 /**
  * Created by itay on 9/15/2015.
  */
-angular.module('myApp.controllers')
-    .controller('loginCtrl',['$scope','$modalInstance','$translate',function($scope,$modalInstance,$translate){
+angular.module('myApp.controllers.main')
+    .controller('loginCtrl',['$scope','$modalInstance','$translate','loginService',function($scope,$modalInstance,$translate,loginService){
         $scope.signIn = true;
         $scope.isTrainer=false;
         $scope.isCoach = false;
@@ -10,13 +10,12 @@ angular.module('myApp.controllers')
         $scope.months = ["Month","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ];
         $scope.years = ["Year"];
 
+        $scope.user = undefined;
+
         var init = function(){
             setYears();
         };
 
-        var setDays = function(){
-              $$translate
-        };
 
         var setYears = function(){
             var d = new Date();
@@ -46,6 +45,11 @@ angular.module('myApp.controllers')
         $scope.close = function(){
             $modalInstance.dismiss();
         };
+
+        $scope.createNewUser = function(){
+            loginService.insertUser(this.user.email,this.user.password);
+        };
+
 
         init();
 

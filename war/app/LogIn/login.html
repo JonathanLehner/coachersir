@@ -6,6 +6,7 @@
 
                 <a href="#" ng-click="close()"><span class="glyphicon glyphicon-remove" style="font-size:1.5em"></span></a>
 
+
                 <br/>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -60,26 +61,46 @@
                         <a href="#" class="btn btn-lg" ng-click="backPressed()">
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </a>
-                        <legend></a> {{'SignUp.Welcome' | translate}}</legend>
+
+                        <legend>{{'SignUp.Welcome' | translate}}</legend>
                         <form class="form-horizontal" role="form" action='' method="POST">
+
                             <fieldset>
+
+
+                                <div action="" class="dropzone" dropzone="" id="dropzone">
+                                    <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
+                                    </div>
+                                </div>
+
                                 <div class="form-signUp">
-                                    <label for="inputUsernameEmail">{{'SignUp.Email' | translate}} </label>
-                                    <input type="email" class="form-control" id="SignUpUsernameEmail">
+                                    <label for="inputUsername">*{{'SignUp.First_Name' | translate}}* </label>
+                                    <input type="text" required="true" class="form-control" id="inputUsername" ng-model="user.firstName">
+                                </div>
+
+                                <div class="form-signUp">
+                                    <label for="inputUserLastName">*{{'SignUp.Last_Name' | translate}}* </label>
+                                    <input type="text" class="form-control" id="inputUserLastName" ng-model="user.LastName">
+                                </div>
+
+                                <div class="form-signUp">
+                                    <label for="inputUsernameEmail">*{{'SignUp.Email' | translate}}* </label>
+                                    <input type="email" class="form-control" id="SignUpUsernameEmail" ng-model="user.email">
+                                    {{user.email}}
                                 </div>
                                 <div class="form-signUp">
-                                    <label for="inputPassword"> {{'SignUp.Password' | translate}}   </label>
+                                    <label for="inputPassword"> *{{'SignUp.Password' | translate}}*   </label>
 
-                                    <input type="password" class="form-control" id="SignUpPassword">
+                                    <input type="password" class="form-control" id="SignUpPassword" ng-model="user.password">
 
                                 </div>
                                 <div class="form-signUp">
-                                    <label for="inputPassword"> {{'SignUp.Password_Confirm' | translate}}   </label>
+                                    <label for="inputPassword"> {{'SignUp.Password_Confirm' | translate}}*   </label>
 
-                                    <input type="password" class="form-control" id="SignUpConfirmPassword">
+                                    <input type="password" class="form-control" id="SignUpConfirmPassword" ng-model="user.passwordConfirm">
                                 </div>
                                 <div class="form-signUp">
-                                    {{'SignUp.Gender' | translate}}
+                                    {{'SignUp.Gender' | translate}}*
                                     <div>
                                         <label ><input type="radio" name="gender" id="inputMale"> {{'SignUp.Male' | translate}} </label>
                                         <label><input type="radio" name="gender" id="inputFemale">{{'SignUp.Female' | translate}}</label>
@@ -103,6 +124,18 @@
 
                                   </select>
                               </div>
+
+                                <div class="form-signUp">
+                                    <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
+
+                                    <textarea type="text" class="form-control" id="inputAbout" ng-model="user.about"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn btn-primary submit" ng-click="createNewUser()">
+                                        {{'Login.Login' | translate}}
+                                    </button>
+                                </div>
 
                             </fieldset>
                         </form>

@@ -8,16 +8,13 @@
 angular.module('myApp.controllers')
     .controller('menuCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
         'use strict';
-        $scope.isHome = {}
+        $scope.isHome = {};
         $scope.isHome.flag = true;
 
         $scope.signIn = function(){
             loginService.login();
-        }
+        };
 
-        $(document).ready(function() {
-            $(".dropdown-toggle").dropdown();
-        });
 
 
     }]);

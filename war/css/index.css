@@ -115,3 +115,33 @@ hr {
 body.modal-open .datepicker {
     z-index: 1200 !important;
 }
+
+div[dropzone] {
+    border: 2px dashed #bbb;
+    border-radius: 5px;
+    text-align: center;
+    font: 20pt bold;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.dropzone {
+    min-height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    padding: 20px 20px;
+    background: #bbb;
+    /* height: 57px; */
+    margin-right: 20px;
+    margin-top: 27px;
+    width: 26%;
+    /* height: 50px; */
+    float: left;
+}
+
+.dz-progress{
+    display: none;
+}
+
+.dropzone .dz-preview {
+    margin: auto;
+}

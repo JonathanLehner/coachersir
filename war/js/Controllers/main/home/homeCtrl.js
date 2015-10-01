@@ -5,7 +5,7 @@ angular.module('myApp.controllers.main')
 
         $scope.allVideos = [{
             title:"עבודה קשה",
-            explain:"bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " +
+            explain:"ala bla cla dla ela fla gla hla ila bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " +
             "bla bla bla bla bla bla bla bla bla " +
             "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla " +
             "bla bla bla bla bla bla bla bla bla " +
