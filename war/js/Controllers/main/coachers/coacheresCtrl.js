@@ -101,7 +101,7 @@ angular.module('myApp.controllers.main')
                     console.log("Something wrong with the locations")
                 }
             );
-        }
+        };
 
         $scope.isHome.flag = false;
 

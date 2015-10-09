@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 public enum Locations {
-	Central_District(1, "אזור המרכז", null), Haifa_District(2, "אזור חיפה",
-			null), Jerusalem_District(3, "אזור ירושלים", null), Northern_District(
-			4, "אזור הצפון", null), Southern_District(5, "אזור הדרום", null), TelAviv_District(
-			6, "אזור תל אביב", null), Yosh_District(7, "אזור יהודה ושומרון",
-			null),
+	root(0, "root", null),
+
+	Central_District(1, "אזור המרכז", 0), Haifa_District(2, "אזור חיפה", 0), Jerusalem_District(
+			3, "אזור ירושלים", 0), Northern_District(4, "אזור הצפון", 0), Southern_District(
+			5, "אזור הדרום", 0), TelAviv_District(6, "אזור תל אביב", 0), Yosh_District(
+			7, "אזור יהודה ושומרון", 0),
 
 	NesZiona(8, "נס ציונה", 1), Rehovot(9, "רחובות", 1), RishonLezion(10,
 			"ראשון לציון", 1), RoshHaayin(11, "ראש העין", 1), Yavne(12, "יבנה",
@@ -57,9 +58,9 @@ public enum Locations {
 		this.parent_location_id = parent_location_id;
 	}
 
-	public static Map<String, List<String>> getAllLocations()
+	public static Map<String, List<Locations>> getAllLocations()
 	{
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		Map<String, List<Locations>> map = new HashMap<String, List<Locations>>();
 
 		Locations[] list = values();
 
@@ -72,6 +73,12 @@ public enum Locations {
 			if (l.getParent_location_id() == null)
 			{
 				map.put(l.getName(), l.getSons());
+
+				List<Locations> sons = l.getSons();
+				for (int j = 0; j < sons.size(); j++)
+				{
+					map.put(sons.get(j).getName(), sons.get(j).getSons());
+				}
 			} else
 			{
 				continueLoop = false;
@@ -81,15 +88,15 @@ public enum Locations {
 		return map;
 	}
 
-	private List<String> getSons()
+	private List<Locations> getSons()
 	{
-		List<String> list = new ArrayList<String>();
+		List<Locations> list = new ArrayList<Locations>();
 
 		for (Locations l : values())
 		{
 			if (this.getId() == l.getParent_location_id())
 			{
-				list.add(l.getName());
+				list.add(l);
 			}
 		}
 

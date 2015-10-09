@@ -17,12 +17,23 @@ angular.module('myApp.services')
         };
 
         serv.insertUser = function(user){
-            var data = {email:user.email,
-                        password:user.password};
+            var data = user;
 
             return $http({
                 method: 'POST',
                 url: '_ah/api/userEndpoint/v1/user',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(data)
+
+            }).success(function () {});
+        };
+
+        serv.UserSignIn = function(user){
+            var data = user;
+
+            return $http({
+                method: 'POST',
+                url: '_ah/api/userEndpoint/v1/login',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $httpParamSerializerJQLike(data)
 

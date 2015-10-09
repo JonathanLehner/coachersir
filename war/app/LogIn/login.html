@@ -1,6 +1,6 @@
 <div class="container loginModal" style="">
     <div class="row">
-        <div class="main main-modal" style="transition: width 1s;" ng-class="{'signUp-modal': !signIn}">
+        <div class="main main-modal" style="transition: width 1s ease;" ng-class="{'signUp-modal': !signIn}">
 
             <div  ng-if="signIn">
 
@@ -25,28 +25,30 @@
             <form role="form">
                 <div class="form-group">
                     <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
-                    <input type="email" class="form-control" id="inputUsernameEmail">
+                    <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
 
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="password" class="form-control" id="inputPassword" ng-model="user.password">
 
                     <a class="pull-right" href="#">{{'Login.Forget_Password' | translate}} </a>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn btn-primary submit">
+                    <button type="submit" class="btn btn btn-primary submit" ng-click="userSignIn()">
                         {{'Login.Login' | translate}}
                     </button>
+                    <label style="color: red" ng-if="errorSignIn"> {{'Login.SignIn_Incorrect' | translate}}   </label>
+                    <label ng-if="!errorSignIn">    </label>
                 </div>
                 <hr>
                 <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInCoach()">{{'Login.Coach' | translate}}</a>
+                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInTraining()">{{'Login.Trainer' | translate}}</a>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInTrainer()">{{'Login.Trainer' | translate}}</a>
+                        <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signInCoach()">{{'Login.Coach' | translate}}</a>
                     </div>
                 </div>
 
@@ -57,7 +59,7 @@
 
 
                 <div class="row" ng-if="!signIn">
-                    <div style="transition: width 0.6s ease">
+                    <div style="transition: width 1s ease;">
                         <a href="#" class="btn btn-lg" ng-click="backPressed()">
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </a>
@@ -74,68 +76,116 @@
                                 </div>
 
                                 <div class="form-signUp">
-                                    <label for="inputUsername">*{{'SignUp.First_Name' | translate}}* </label>
-                                    <input type="text" required="true" class="form-control" id="inputUsername" ng-model="user.firstName">
+                                    <label for="inputUsername">*{{'SignUp.First_Name' | translate}} </label>
+                                    <input type="text" class="form-control" id="inputUsername" ng-model="user.first_name">
                                 </div>
 
                                 <div class="form-signUp">
-                                    <label for="inputUserLastName">*{{'SignUp.Last_Name' | translate}}* </label>
-                                    <input type="text" class="form-control" id="inputUserLastName" ng-model="user.LastName">
+                                    <label for="inputUserLastName">*{{'SignUp.Last_Name' | translate}} </label>
+                                    <input type="text" class="form-control" id="inputUserLastName" ng-model="user.last_name">
                                 </div>
 
                                 <div class="form-signUp">
-                                    <label for="inputUsernameEmail">*{{'SignUp.Email' | translate}}* </label>
+                                    <label for="inputUsernameEmail">*{{'SignUp.Email' | translate}} </label>
                                     <input type="email" class="form-control" id="SignUpUsernameEmail" ng-model="user.email">
                                     {{user.email}}
                                 </div>
                                 <div class="form-signUp">
-                                    <label for="inputPassword"> *{{'SignUp.Password' | translate}}*   </label>
-
+                                    <label for="inputPassword">*{{'SignUp.Password' | translate}}   </label>
                                     <input type="password" class="form-control" id="SignUpPassword" ng-model="user.password">
-
                                 </div>
-                                <div class="form-signUp">
-                                    <label for="inputPassword"> {{'SignUp.Password_Confirm' | translate}}*   </label>
 
+                                <div class="form-signUp">
+                                    <label for="inputPassword">*{{'SignUp.Password_Confirm' | translate}}   </label>
                                     <input type="password" class="form-control" id="SignUpConfirmPassword" ng-model="user.passwordConfirm">
+                                    <div ng-if="user.passwordConfirm !== user.password" style = "color:red"> {{'SignUp.Password_Match' | translate}}   </div>
                                 </div>
+
                                 <div class="form-signUp">
-                                    {{'SignUp.Gender' | translate}}*
-                                    <div>
-                                        <label ><input type="radio" name="gender" id="inputMale"> {{'SignUp.Male' | translate}} </label>
-                                        <label><input type="radio" name="gender" id="inputFemale">{{'SignUp.Female' | translate}}</label>
+                                    <label>*{{'SignUp.Gender' | translate}}</label>
+                                    <div class="col-sm-9">
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-default" ng-click="user.gender = 'Male'"> {{'SignUp.Male' | translate}}</button>
+                                            <button type="button" class="btn btn-default" ng-click="user.gender = 'Female'"> {{'SignUp.Female' | translate}}</button>
+                                         </div>
                                     </div>
                                 </div>
 
                               <div class="form-signUp">
-                                  <label>{{'SignUp.Birth_Day' | translate}}</label>
-                                  <select name="Day">
-                                        <option ng-repeat="day in days" value="{{day}}">{{day | daysTrans}}</option>
+                                  <label>*{{'SignUp.Birth_Day' | translate}}</label>
+                                  <div class="dropdown">
+                                      <button class="btn  btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"><label ng-show="day === undefined ">{{'SignUp.Day' | translate}}</label>
+                                          <label ng-show="day !== undefined ">{{day}}</label>
+                                          <span class="caret"></span></button>
 
-                                  </select>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                          <li role="presentation" ng-repeat="day in days" value="{{day}}"><a role="menuitem" tabindex="-1" href="#" ng-click="setDay(day)">{{day}}</a></li>
+                                      </ul>
+                                  </div>
 
-                                  <select name="Month">
-                                      <option ng-repeat="month in months" value={{month}}>{{month | monthTrans}}</option>
+                                  <div class="dropdown">
+                                      <button class="btn  btn-default dropdown-toggle" id="menu2" type="button" data-toggle="dropdown"><label ng-show="month === undefined ">{{'SignUp.Month' | translate}}</label>
+                                          <label ng-show="month !== undefined ">{{month | monthTrans}}</label>
+                                          <span class="caret"></span></button>
 
-                                  </select>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+                                          <li role="presentation" ng-repeat="month in months" value="{{month}}"><a role="menuitem" tabindex="-1" href="#" ng-click="setMonth(month)">{{month | monthTrans}}</a></li>
+                                      </ul>
+                                  </div>
 
-                                  <select name="Year" >
-                                      <option ng-repeat="year in years" value={{year}}>{{year | yearTrans}}</option>
+                                  <div class="dropdown">
+                                      <button class="btn  btn-default dropdown-toggle" id="menu3" type="button" data-toggle="dropdown"><label ng-show="year === undefined ">{{'SignUp.Year' | translate}}</label>
+                                          <label ng-show="year !== undefined ">{{year}}</label>
+                                          <span class="caret"></span></button>
 
-                                  </select>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu3">
+                                          <li role="presentation" ng-repeat="year in years" value="{{year}}"><a role="menuitem" tabindex="-1" href="#" ng-click="setYear(year)">{{year}}</a></li>
+                                      </ul>
+                                  </div>
                               </div>
 
                                 <div class="form-signUp">
-                                    <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
+                                    <div style="display: list-item;">
+                                        <label ng-show = "isCoach"> {{'SignUp.Objectives' | translate}}</label>
+                                        <label ng-show = "isTrainer"> {{'SignUp.Degrees' | translate}}</label>
+                                        </br>
+                                        <label class="label-checkbox" ng-repeat="item in items">
+                                            <input
+                                                    type="checkbox"
+                                                    name="selectedItems[]"
+                                                    value="{{item}}"
+                                                    ng-checked="selection.indexOf(item) > -1"
+                                                    ng-click="togglePropertiesSelection(item)"
+                                                    > {{item}}
+                                        </label>
+                                    </div>
+                                </div>
 
+
+                                <div class="form-signUp">
+                                    <label ng-show="isTrainer">{{'SignUp.Trainer_Location' | translate}}</label>
+                                    <label ng-show="isCoach">{{'SignUp.Coach_Location' | translate}}</label>
+                                    <div class="dropdown">
+                                        <button class="btn  btn-default dropdown-toggle" id="menu4" type="button" data-toggle="dropdown"><label ng-show="location === undefined">locations[1]</label>
+                                             <span class="caret"></span></button>
+
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu4">
+                                            <li role="presentation" ng-repeat="city in locations" value="{{year}}"><a role="menuitem" tabindex="-1" href="#" ng-click="setLocation(city)">{{city}}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="form-signUp">
+                                    <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
                                     <textarea type="text" class="form-control" id="inputAbout" ng-model="user.about"/>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-signUp">
                                     <button type="submit" class="btn btn btn-primary submit" ng-click="createNewUser()">
                                         {{'Login.Login' | translate}}
                                     </button>
                                 </div>
+
 
                             </fieldset>
                         </form>

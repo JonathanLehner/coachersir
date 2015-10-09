@@ -3,7 +3,7 @@
  */
 
 angular.module('myApp.controllers')
-    .controller('mainController',['$scope',function($scope) {
+    .controller('mainController',['$scope',function($scope,$timeout,commonService) {
         'use strict';
 
         Dropzone.autoDiscover = false;
@@ -18,6 +18,8 @@ angular.module('myApp.controllers')
         $scope.reset = function() {
             $scope.resetDropzone();
         };
+
+
 
     }]);
 

@@ -145,3 +145,20 @@ div[dropzone] {
 .dropzone .dz-preview {
     margin: auto;
 }
+
+.dropdown-menu{
+    text-align: right;
+    overflow: overlay;
+    max-height: 106px;
+    left: inherit;
+    min-width: 10px;
+}
+
+.dropdown{
+    padding-left: 10px;
+}
+
+.modal{
+    position: absolute;
+}
+

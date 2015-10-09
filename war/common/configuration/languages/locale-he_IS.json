@@ -7,7 +7,8 @@
     "Remember_Me":"זכור אותי",
     "Login":"התחבר",
     "Not_Member":"חדש באתר? הרשם!",
-    "Forget_Password":"שכחת סיסמה?"
+    "Forget_Password":"שכחת סיסמה?",
+    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים"
   },
 "SignUp":{
   "Welcome":"ברוכים הבאים!",
@@ -23,8 +24,13 @@
   "Female":"נקבה",
   "Gender":"מין",
   "Drop_Img":"גרור תמונה או הקלק",
+  "Required_Message":"שכחת למלא שדה זה..",
+  "Password_Match":"הסיסמה לא תואמת",
+  "Trainer_Location":"מקום מגורים",
+  "Coach_Location":"מאמן באזור",
   "Year":"שנה",
   "Day":"יום",
+
   "Month":{"Month":"חודש",
           "January":"ינואר",
           "February":"פברואר",
@@ -37,7 +43,9 @@
           "September":"ספטמבר",
           "October":"אוקטובר",
           "November":"נובמבר",
-          "December":"דצמבר"}
+          "December":"דצמבר"},
+  "Objectives":"הכשרות והסמכות",
+  "Degrees":"יעדים ומטרות"
 
 },
   "Menu":{

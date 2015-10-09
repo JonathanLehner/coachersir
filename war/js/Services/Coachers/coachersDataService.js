@@ -3,9 +3,6 @@ angular.module('myApp.services')
         'use strict';
         var serv = {};
 
-        serv.getLocations = function(){
-            return $resource('_ah/api/locationsEndpoint/v1/all').get().$promise;
-        };
 
         return serv;
     }]);

@@ -15,7 +15,5 @@ angular.module('myApp.controllers')
             loginService.login();
         };
 
-
-
     }]);
 
