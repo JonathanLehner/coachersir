@@ -51,9 +51,6 @@ RawBlameHistory     96 lines (82 sloc)  3.8 KB
       var scopes = 'https://www.googleapis.com/auth/plus.me';
       // Use a button to handle authentication the first time.
       
-			var url = data.url + "&output=embed";
-			window.location.replace(url);
-			
 			function handleClientLoad() {
         gapi.client.setApiKey(apiKey);
         window.setTimeout(checkAuth,1);
