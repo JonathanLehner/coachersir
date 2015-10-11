@@ -1,30 +1,37 @@
 <html>
-  <head>
-		<script src="\VideoUpload.js"></script>
-    <script>
-      function appendResults(text) {
-        var results = document.getElementById('results');
-        results.appendChild(document.createElement('P'));
-        results.appendChild(document.createTextNode(text));
-      }
+	<head>
+	<script src="C:\Users\dell\Desktop\Development\projects\Coachersir\war\VideoUpload.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script>
+	</head>
 
-      function makeRequest() {
-        var request = gapi.client.urlshortener.url.get({
-          'shortUrl': 'http://goo.gl/fbsS'
-        });
-        request.then(function(response) {
-          appendResults(response.result.longUrl);
-        }, function(reason) {
-          console.log('Error: ' + reason.result.error.message);
-        });
-      }
+	<body>
+	<div id="results"></div>
+		<input type="file" id="files"/>
+	</body>
+	
+	<script>
+		function appendResults(text) {
+		var results = document.getElementById('results');
+		results.appendChild(document.createElement('P'));
+		results.appendChild(document.createTextNode(text));
+		}
 
-      function init() {
-        gapi.client.setApiKey('AIzaSyDV347aqOUbpx3WzZmotlrOe637REIbjkQ');
-        gapi.client.load('urlshortener', 'v1').then(makeRequest);
-				UploadVideo();
-      }
+			function makeRequest() {
+				var request = gapi.client.urlshortener.url.get({'shortUrl': 'http://goo.gl/fbsS'});
 			
+				request.then(function(response) {
+					appendResults(response.result.longUrl);
+				}, function(reason) {
+					console.log('Error: ' + reason.result.error.message);
+				});
+			}
+
+			function init() {
+				gapi.client.setApiKey('AIzaSyDV347aqOUbpx3WzZmotlrOe637REIbjkQ');
+				gapi.client.load('urlshortener', 'v1').then(makeRequest);
+				UploadVideo();
+			}
+				
 			//--files
 			function handleFileSelect(evt) {
 				var files = evt.target.files; // FileList object
@@ -38,11 +45,5 @@
 			document.getElementById('files').addEventListener('change', handleFileSelect, false);
 			
     </script>
-    <script src="https://apis.google.com/js/client.js?onload=init"></script>
-  </head>
-  <body>
-    <div id="results"></div>
-		<input type="file" id="files"/>
-  </body>
 </html>
 
