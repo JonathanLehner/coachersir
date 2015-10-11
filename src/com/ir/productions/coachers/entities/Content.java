@@ -21,6 +21,8 @@ public class Content
 
 	private String headline;
 
+	private String description;
+
 	public Long getId()
 	{
 		return id;
@@ -69,5 +71,15 @@ public class Content
 	public void setHeadline(String headline)
 	{
 		this.headline = headline;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 }
