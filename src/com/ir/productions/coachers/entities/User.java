@@ -27,6 +27,8 @@ public class User implements Serializable
 
 	private String last_name;
 
+	private String phone;
+
 	@Index
 	private String email;
 
@@ -133,6 +135,16 @@ public class User implements Serializable
 	public void setPrice_per_hour(Long price_per_hour)
 	{
 		this.price_per_hour = price_per_hour;
+	}
+
+	public String getPhone()
+	{
+		return phone;
+	}
+
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
 	}
 
 	public boolean isCoach()
