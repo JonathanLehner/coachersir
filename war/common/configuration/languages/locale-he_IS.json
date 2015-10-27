@@ -8,7 +8,8 @@
     "Login":"התחבר",
     "Not_Member":"חדש באתר? הרשם!",
     "Forget_Password":"שכחת סיסמה?",
-    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים"
+    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
+    "Fill_The_Inputs":"מלא בבקשה את השדות המודגשים באדום"
   },
 "SignUp":{
   "Welcome":"ברוכים הבאים!",
@@ -50,6 +51,28 @@
 },
   "Menu":{
     "Home":"בית"
+  },
+  "User":{
+    "Detailed":"פרטים",
+    "Images":"תמונות",
+    "Video":"וידאו",
+    "Article":"מאמרים",
+    "BeforeAnd":"לפני ואחרי",
+    "Details":{
+      "Name":"שם מלא",
+      "First_Name":"שם פרטי",
+      "Last_Name":"שם משפחה",
+      "Birth_Day":"תאריך לידה",
+      "Age":"גיל",
+      "About":"קצת על עצמי",
+      "Address":"מקום מגורים",
+      "Gender":"מין",
+      "Coach_Location":"מאמן באזור",
+      "Objectives":"הכשרות והסמכות",
+      "Contact":"צור קשר"
+    }
+
+
   }
 
 }

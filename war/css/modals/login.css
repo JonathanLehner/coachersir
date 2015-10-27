@@ -77,3 +77,7 @@ h3 {
 .form-signUp .label-checkbox{
     width: 30%;
 }
+
+.missingInput{
+    border-color: red;
+}

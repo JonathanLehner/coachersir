@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','coachersDataService',function($scope,CoachersDataService)
+    .controller('coachersCtrl',['$scope','$state',function($scope,$state)
     {
         $scope.gender = "undefined";
 
@@ -90,24 +90,16 @@ angular.module('myApp.controllers.main')
             }else{
                 $scope.gender =  "בן";
             }
-         }
+         };
 
-        var setLocations = function(){
-            CoachersDataService.getLocations().then(
-                function(data){
-                    $scope.locations = data;
-                },
-                function(error){
-                    console.log("Something wrong with the locations")
-                }
-            );
+        $scope.coachersClicked = function(){
+            $state.go('detailed');
         };
 
         $scope.isHome.flag = false;
 
         var init = function(){
-            setLocations();
-        }
+        };
 
         init();
     }

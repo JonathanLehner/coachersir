@@ -17,21 +17,13 @@
                <span><a style="width:20px">SignUp </a></span></div>
 
             <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
-
-
-                <li><a class="HomeTitle" ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
+                <li><a class="HomeTitle active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
                 <li><a class="CoachTitle" ui-sref="main.coach">מאמנים</a></li>
                 <li><a class="CoachArticleTitle" ui-sref="main.articles">מאמנים כותבים</a></li>
                 <li><a class="AboutUsTitle" ui-sref="main.aboutUs">קצת עלינו</a></li>
                 <li><a class="ContactUsTitle">צור קשר</a></li>
 
-                        </ul>
-
-
-
-                    </nav>
-
-
+            </ul>
 
             <div class="section1"  class="ui" ui-view="app">
                 </div>

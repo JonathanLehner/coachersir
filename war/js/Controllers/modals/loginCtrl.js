@@ -10,18 +10,32 @@ angular.module('myApp.controllers.main')
         $scope.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ];
         $scope.years = [];
         $scope.items;
-        $scope.errorSignIn = false;
-        $scope.user = undefined;
+
+        $scope.date = {day:undefined,
+                        month:undefined,
+                        year:undefined};
+
+        $scope.passwordConfirm = undefined;
+
         // selected fruits
         $scope.itemSelection = [];
         $scope.day = undefined;
         $scope.month = undefined;
         $scope.year = undefined;
 
-        $scope.user = undefined;
-
         var init = function(){
-            setYears();
+            $scope.user = {email: undefined,
+                password: undefined,
+                first_name:undefined,
+                last_name:undefined,
+                gender:undefined,
+                birth_date:undefined,
+                type:undefined,
+                objectives:undefined
+            };
+
+            $scope.inputIsEmpty = false;
+            $scope.errorSignIn = false;
         };
 
         var setYears = function(){
@@ -33,17 +47,25 @@ angular.module('myApp.controllers.main')
             }
         };
 
+
+        setYears();
+
         $scope.signInTraining =  function(){
             $scope.signIn = false;
             $scope.isTrainer = true;
             $scope.items = $scope.objectives;
 
+            init();
+            $scope.user.type=2;
         };
 
         $scope.signInCoach =  function(){
             $scope.signIn = false;
             $scope.isCoach = true;
             $scope.items = $scope.degrees;
+
+            init();
+            $scope.user.type=1;
         };
 
         $scope.backPressed =  function(){
@@ -51,6 +73,8 @@ angular.module('myApp.controllers.main')
             $scope.isTrainer=false;
             $scope.isCoach = false;
             $scope.errorSignIn = false;
+
+            init();
         };
 
         $scope.close = function(){
@@ -126,35 +150,35 @@ angular.module('myApp.controllers.main')
         $scope.createNewUser = function(){
             if($scope.month !== undefined && $scope.year !== undefined && $scope.day !== undefined)
             {
-                this.user.birth_date = new Date($scope.month + " " + $scope.day + ", " + $scope.year + " 01:00:00");
-                this.user.objectives = $scope.itemSelection;
-                if ($scope.isCoach) {
-                    this.user.type = 1;
-                } else {
-                    this.user.type = 2;
-                }
+                $scope.user.birth_date = new Date($scope.month + " " + $scope.day + ", " + $scope.year + " 01:00:00");
+                $scope.user.objectives = $scope.itemSelection;
 
-                loginService.insertUser(this.user);
+                loginService.insertUser($scope.user);
             }
         };
 
         $scope.userSignIn = function(){
 
-          loginService.UserSignIn(this.user).then(
-              function (data) {
-                  $scope.user = data.data;
+            if($scope.user.password !== "" && $scope.user.password !== undefined && $scope.user.email !== "" && $scope.user.email !== undefined){
+                  loginService.UserSignIn($scope.user).then(
+                      function (data) {
+                          $scope.UserObject = data.data;
 
-                  if($scope.user !== ''){
-                      $scope.close();
-                      $scope.errorSignIn = false;
-                  }else{
-                      $scope.errorSignIn = true;
-                  }
-              },
-              function (error) {
-                  console.log("Something wrong with the login")
-              }
-          );
+                          if($scope.UserObject !== ''){
+                              $scope.close();
+                              $scope.errorSignIn = false;
+                          }else{
+                              $scope.errorSignIn = true;
+                          }
+                      },
+                      function (error) {
+                          console.log("Something wrong with the login")
+                      }
+                  );
+            }else{
+                $scope.inputIsEmpty = true;
+            }
+
         };
 
         init();

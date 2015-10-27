@@ -2,10 +2,14 @@
     <div></div>
     <div>
         </div>
+
+    <div class="section1"  class="ui" ui-view="">
+    </div>
+
         <div class="coachProperties" >
             {{locations}}
             <ul>
-                <li ng-repeat="coach in coachers">
+                <li ng-repeat="coach in coachers" ng-click="coachersClicked()">
                     <div class="coacherShadow"><a href style="background-color: inherit; width: auto; padding: 0px">
                         <img src={{coach.mainPhoto}} class="coachImg">
                     </a>

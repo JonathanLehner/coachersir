@@ -9,7 +9,7 @@ angular.module('myApp.services')
 
         serv.login = function(){
             var modalLogin = $modal.open({
-                templateUrl:'/app/Login/login.html',
+                templateUrl:'/app/modals/login.html',
                 keyboard: true,
                 controller:'loginCtrl',
                 backdrop:'static'

@@ -1,0 +1,19 @@
+
+.userImg{
+    margin:auto;
+    width: 600px;
+}
+#slides_control {
+    width: 530px;
+    /* left: 50%; */
+    /* top: 20px; */
+    margin-right: 20%;
+    margin-top: 25px;
+    height: 199%;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+}

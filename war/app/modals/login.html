@@ -25,12 +25,12 @@
             <form role="form">
                 <div class="form-group">
                     <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
-                    <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email">
+                    <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email" ng-class="{'missingInput': ((user === undefined || user.email === '' || user.email === undefined) && inputIsEmpty)}">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
 
-                    <input type="password" class="form-control" id="inputPassword" ng-model="user.password">
+                    <input type="password" class="form-control" id="inputPassword" ng-model="user.password" ng-class="{'missingInput': ((user === undefined || user.password === '' || user.password === undefined) && inputIsEmpty)}">
 
                     <a class="pull-right" href="#">{{'Login.Forget_Password' | translate}} </a>
                 </div>
@@ -40,6 +40,8 @@
                     </button>
                     <label style="color: red" ng-if="errorSignIn"> {{'Login.SignIn_Incorrect' | translate}}   </label>
                     <label ng-if="!errorSignIn">    </label>
+                    <label style="color: red" ng-if="inputIsEmpty"> {{'Login.Fill_The_Inputs' | translate}}   </label>
+                    <label ng-if="!inputIsEmpty">    </label>
                 </div>
                 <hr>
                 <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
@@ -97,17 +99,20 @@
 
                                 <div class="form-signUp">
                                     <label for="inputPassword">*{{'SignUp.Password_Confirm' | translate}}   </label>
-                                    <input type="password" class="form-control" id="SignUpConfirmPassword" ng-model="user.passwordConfirm">
+                                    <input type="password" class="form-control" id="SignUpConfirmPassword" ng-model="passwordConfirm">
                                     <div ng-if="user.passwordConfirm !== user.password" style = "color:red"> {{'SignUp.Password_Match' | translate}}   </div>
                                 </div>
 
                                 <div class="form-signUp">
                                     <label>*{{'SignUp.Gender' | translate}}</label>
-                                    <div class="col-sm-9">
-                                        <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-default" ng-click="user.gender = 'Male'"> {{'SignUp.Male' | translate}}</button>
-                                            <button type="button" class="btn btn-default" ng-click="user.gender = 'Female'"> {{'SignUp.Female' | translate}}</button>
-                                         </div>
+                                        <div class="btn-group" data-toggle="buttons" style="display: inline-flex">
+                                            <label class="btn btn-default" style="width: 45px; margin-left: 10px; border-radius: 3px;">
+                                                <input type="radio" value="1" ng-model="user.gender" /> {{'SignUp.Male' | translate}}
+                                            </label>
+                                            <label class="btn btn-default" style="width: 45px; margin-left: 10px; border-radius: 3px;">
+                                                <input type="radio" value="2" ng-model="user.gender" /> {{'SignUp.Female' | translate}}
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -144,7 +149,7 @@
                                   </div>
                               </div>
 
-                                <div class="form-signUp">
+                                <div class="form-signUp" ng-show = "isTrainer">
                                     <div style="display: list-item;">
                                         <label ng-show = "isCoach"> {{'SignUp.Objectives' | translate}}</label>
                                         <label ng-show = "isTrainer"> {{'SignUp.Degrees' | translate}}</label>
@@ -175,7 +180,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-signUp">
+                                <div class="form-signUp" ng-show = "isTrainer">
                                     <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
                                     <textarea type="text" class="form-control" id="inputAbout" ng-model="user.about"/>
                                 </div>

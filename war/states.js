@@ -3,6 +3,7 @@ angular.module('myApp')
     .config(function($stateProvider,$urlRouterProvider){
         'use strict';
         $urlRouterProvider
+            .when('/home1',function(){})
             .otherwise('/home');
 
         $stateProvider
@@ -60,5 +61,40 @@ angular.module('myApp')
                         templateUrl: 'app/main/aboutUs/aboutUs.html'}
                 }
             })
-
+            .state('modal', {
+                parent: 'main.coach',
+                abstract:true,
+                url: '/user',
+                onEnter: ['$modal', '$state', function($modal, $state) {
+                    console.log('Open modal');
+                    $modal.open({
+                        windowClass: 'right fade',
+                        templateUrl:'/app/modals/user.html',
+                        keyboard: true,
+                        controller:'userCtrl',
+                        backdrop:'static'
+                        }).result.finally(function() {
+                            $state.go('main.coach');
+                        });
+                }]
+            }
+        )
+            .state('detailed',{
+                url:'/detailed',
+                parent:'modal',
+                controller: 'userDetailedCtrl',
+                views:{
+                    'userView@':{
+                        templateUrl: 'app/user/detailed.html'}
+                }
+            })
+            .state('images',{
+                url:'/images',
+                parent:'modal',
+                controller: 'UserImagesCtrl',
+                views:{
+                    'userView@':{
+                        templateUrl: 'app/user/Img.html'}
+                }
+            })
 });
