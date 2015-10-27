@@ -43,6 +43,8 @@ public class User implements Serializable
 
 	private List<Integer> objectives;
 
+	private String description;
+
 	public Long getId()
 	{
 		return id;
@@ -156,5 +158,15 @@ public class User implements Serializable
 	public void setImg_link(String img_link)
 	{
 		this.img_link = img_link;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 }
