@@ -1,9 +1,3 @@
-/**
- * Created by itay on 10/15/2015.
- */
-/**
- * Created by itay on 9/15/2015.
- */
 angular.module('myApp.controllers')
     .controller('userDetailedCtrl',['$scope','commonService',function($scope,commonService){
 

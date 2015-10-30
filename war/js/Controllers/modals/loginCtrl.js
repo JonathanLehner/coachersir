@@ -3,7 +3,8 @@
  */
 angular.module('myApp.controllers.main')
     .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','commonService','loginService',function($scope,$modalInstance,$translate,$timeout,commonService,loginService){
-        $scope.signIn = true;
+        
+    	$scope.signIn = true;
         $scope.isTrainer=false;
         $scope.isCoach = false;
         $scope.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
@@ -24,7 +25,8 @@ angular.module('myApp.controllers.main')
         $scope.year = undefined;
 
         var init = function(){
-            $scope.user = {email: undefined,
+            $scope.user = {
+        		email: undefined,
                 password: undefined,
                 first_name:undefined,
                 last_name:undefined,
@@ -46,7 +48,6 @@ angular.module('myApp.controllers.main')
                 $scope.years.push(i);
             }
         };
-
 
         setYears();
 
@@ -145,7 +146,6 @@ angular.module('myApp.controllers.main')
         };
 
         $timeout( function(){ callAtTimeout(); }, 100);
-
 
         $scope.createNewUser = function(){
             if($scope.month !== undefined && $scope.year !== undefined && $scope.day !== undefined)
