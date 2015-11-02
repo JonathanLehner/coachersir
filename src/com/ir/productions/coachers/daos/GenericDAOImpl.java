@@ -12,7 +12,6 @@ import com.ir.productions.coachers.EMF;
 public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 		GenericDAO<T, ID>
 {
-
 	protected Class<T> entityClass;
 
 	@PersistenceContext(unitName = "transactions-optional", name = "transactions-optional")
@@ -138,29 +137,5 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 	public EntityManager getEM()
 	{
 		return EMF.get().createEntityManager();
-	}
-
-	private boolean containsEntity(T t, Object id)
-	{
-		EntityManager mgr = getEM();
-		boolean contains = true;
-		try
-		{
-			// If no ID was set, the entity doesn't exist yet.
-			if (id == null)
-				contains = false;
-			else
-			{
-				T item = mgr.find(entityClass, id);
-				if (item == null)
-				{
-					contains = false;
-				}
-			}
-		} finally
-		{
-			mgr.close();
-		}
-		return contains;
 	}
 }

@@ -1,6 +1,3 @@
-/**
- * Created by itay on 9/15/2015.
- */
 angular.module('myApp.controllers.main')
     .controller('userCtrl',['$scope','$translate','$timeout','userService','commonService',function($scope,$translate,$timeout,userService,commonService){
 

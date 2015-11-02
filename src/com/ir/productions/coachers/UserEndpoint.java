@@ -2,20 +2,12 @@ package com.ir.productions.coachers;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityExistsException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Query;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-import com.google.api.server.spi.response.CollectionResponse;
-import com.google.appengine.api.datastore.Cursor;
-import com.google.appengine.datanucleus.query.JPACursorHelper;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
 
@@ -37,211 +29,33 @@ public class UserEndpoint extends Endpoint
 		return userDAO.login(email, password);
 	}
 
-	/**
-	 * This method lists all the entities inserted in datastore. It uses HTTP
-	 * GET method and paging support.
-	 * 
-	 * @return A CollectionResponse class containing the list of all entities
-	 *         persisted and a cursor to the next page.
-	 */
-	@SuppressWarnings({ "unchecked", "unused" })
-	@ApiMethod(name = "listUser")
-	public CollectionResponse<User> listUser(
-			@Nullable @Named("cursor") String cursorString,
-			@Nullable @Named("limit") Integer limit)
-	{
-
-		EntityManager mgr = null;
-		Cursor cursor = null;
-		List<User> execute = null;
-
-		try
-		{
-			mgr = getEntityManager();
-			Query query = mgr.createQuery("select from User as User");
-			if (cursorString != null && cursorString != "")
-			{
-				cursor = Cursor.fromWebSafeString(cursorString);
-				query.setHint(JPACursorHelper.CURSOR_HINT, cursor);
-			}
-
-			if (limit != null)
-			{
-				query.setFirstResult(0);
-				query.setMaxResults(limit);
-			}
-
-			execute = (List<User>) query.getResultList();
-			cursor = JPACursorHelper.getCursor(execute);
-			if (cursor != null)
-				cursorString = cursor.toWebSafeString();
-
-			// Tight loop for fetching all entities from datastore and
-			// accomodate
-			// for lazy fetch.
-			for (User obj : execute)
-				;
-		} finally
-		{
-			mgr.close();
-		}
-
-		return CollectionResponse.<User> builder().setItems(execute)
-				.setNextPageToken(cursorString).build();
-	}
-
-	@ApiMethod(path = "listUsersDao")
-	public List<User> listUserDAO()
+	@ApiMethod(path = "list")
+	public List<User> list()
 	{
 		return userDAO.findAll();
 	}
 
-	/**
-	 * This method gets the entity having primary key id. It uses HTTP GET
-	 * method.
-	 * 
-	 * @param id
-	 *            the primary key of the java bean.
-	 * @return The entity with primary key id.
-	 */
-	@ApiMethod(name = "getUser")
-	public User getUser(@Named("id") Long id)
-	{
-		EntityManager mgr = getEntityManager();
-		User user = null;
-		try
-		{
-			user = mgr.find(User.class, id);
-		} catch (Exception e)
-		{
-			System.out.println(e.getMessage());
-		} finally
-		{
-			mgr.close();
-		}
-		return user;
-	}
-
-	@ApiMethod(path = "getUserDAO")
-	public User getUserDAO(@Named("id") Long id)
+	@ApiMethod(path = "get")
+	public User get(@Named("id") Long id)
 	{
 		return userDAO.findById(id);
 	}
 
-	/**
-	 * This inserts a new entity into App Engine datastore. If the entity
-	 * already exists in the datastore, an exception is thrown. It uses HTTP
-	 * POST method.
-	 * 
-	 * @param user
-	 *            the entity to be inserted.
-	 * @return The inserted entity.
-	 */
-	@ApiMethod(name = "insertUser")
-	public User insertUser(User user)
-	{
-		EntityManager mgr = getEntityManager();
-		try
-		{
-			if (containsUser(user))
-			{
-				throw new EntityExistsException("Object already exists");
-			}
-			mgr.persist(user);
-		} finally
-		{
-			mgr.close();
-		}
-		return user;
-	}
-
-	@ApiMethod(path = "insertUserDAO")
-	public User insertUserDAO(User user)
+	@ApiMethod(path = "insert")
+	public User insert(User user)
 	{
 		return userDAO.insert(user);
 	}
 
-	/**
-	 * This method is used for updating an existing entity. If the entity does
-	 * not exist in the datastore, an exception is thrown. It uses HTTP PUT
-	 * method.
-	 * 
-	 * @param user
-	 *            the entity to be updated.
-	 * @return The updated entity.
-	 */
-	@ApiMethod(name = "updateUser")
-	public User updateUser(User user)
-	{
-		EntityManager mgr = getEntityManager();
-		try
-		{
-			if (!containsUser(user))
-			{
-				throw new EntityNotFoundException("Object does not exist");
-			}
-			mgr.persist(user);
-		} finally
-		{
-			mgr.close();
-		}
-		return user;
-	}
-
-	@ApiMethod(path = "updateUserDAO")
-	public User updateUserDAO(User user)
+	@ApiMethod(path = "update")
+	public User update(User user)
 	{
 		return userDAO.update(user);
 	}
 
-	/**
-	 * This method removes the entity with primary key id. It uses HTTP DELETE
-	 * method.
-	 * 
-	 * @param id
-	 *            the primary key of the entity to be deleted.
-	 */
-	@ApiMethod(name = "removeUser")
-	public void removeUser(@Named("id") Long id)
-	{
-		EntityManager mgr = getEntityManager();
-		try
-		{
-			User user = mgr.find(User.class, id);
-			mgr.remove(user);
-		} finally
-		{
-			mgr.close();
-		}
-	}
-
-	@ApiMethod(path = "removeUserDAO")
-	public void removeUserDAO(@Named("id") Long id)
+	@ApiMethod(path = "remove")
+	public void remove(@Named("id") Long id)
 	{
 		userDAO.delete(id);
-	}
-
-	private boolean containsUser(User user)
-	{
-		EntityManager mgr = getEntityManager();
-		boolean contains = true;
-		try
-		{
-			// If no ID was set, the entity doesn't exist yet.
-			if (user.getId() == null)
-				contains = false;
-			else
-			{
-				User item = mgr.find(User.class, user.getId());
-				if (item == null)
-				{
-					contains = false;
-				}
-			}
-		} finally
-		{
-			mgr.close();
-		}
-		return contains;
 	}
 }
