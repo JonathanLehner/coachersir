@@ -1,12 +1,13 @@
 <div  ng-controller="menuCtrl" style="position: relative;">
     <div style="margin-bottom: -5%">
-        <!-- <video ng-show="isHome.flag" muted autoplay loop="loop"  style="position: relative;
+         <video ng-show="isHome.flag" muted autoplay loop="loop"  style="position: relative;
 	        width: 100.65%;
 	        height: auto;
 	        float: right;
 	        margin: -8px;">
-            <source src="https://www.youtube.com/embed/TNBq077wlmc" visability="hidden" type="video/mp4">
-        </video> 
+            <source src="https://www.youtube.com/watch?v=TNBq077wlmc" visability="hidden" type="video/youtube">
+        </video>
+        <!--
         <iframe id="ytplayer"
         		style="position: relative;
 				       width: 100.65%;
@@ -23,7 +24,7 @@
   		</iframe>
   		-->
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-	    <div id="player"></div>
+	 <!--   <div id="player"></div>
 	
 	    <script>
 			// 2. This code loads the IFrame Player API code asynchronously.
@@ -68,7 +69,7 @@
 			function stopVideo() {
 			  player.stopVideo();
 			}
-	    </script>
+	    </script>-->
     
     <Img src="../../photos/coachers.png" ng-hide="isHome.flag"/>
 
@@ -82,10 +83,10 @@
 
             <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
                 <li><a class="HomeTitle active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
-                <li><a class="CoachTitle" ui-sref="main.coach">׳�׳�׳�׳ ׳™׳�</a></li>
-                <li><a class="CoachArticleTitle" ui-sref="main.articles">׳�׳�׳�׳ ׳™׳� ׳›׳•׳×׳‘׳™׳�</a></li>
-                <li><a class="AboutUsTitle" ui-sref="main.aboutUs">׳§׳¦׳× ׳¢׳�׳™׳ ׳•</a></li>
-                <li><a class="ContactUsTitle">׳¦׳•׳¨ ׳§׳©׳¨</a></li>
+                <li><a class="CoachTitle" ui-sref="main.coach">{{'Menu.Coachers' | translate}}</a></li>
+                <li><a class="CoachArticleTitle" ui-sref="main.articles">{{'Menu.Article' | translate}}</a></li>
+                <li><a class="AboutUsTitle" ui-sref="main.aboutUs">{{'Menu.About' | translate}}</a></li>
+                <li><a class="ContactUsTitle">{{'Menu.Contact' | translate}}</a></li>
 
             </ul>
 

@@ -85,7 +85,7 @@ angular.module('myApp')
             controller: 'userDetailedCtrl',
             views:{
                 'userView@':{
-                    templateUrl: 'app/user/detailed.html'}
+                    templateUrl: 'app/modals/user/view/detailed.html'}
             }
         })
         .state('images',{
@@ -94,7 +94,7 @@ angular.module('myApp')
             controller: 'UserImagesCtrl',
             views:{
                 'userView@':{
-                    templateUrl: 'app/user/Img.html'}
+                    templateUrl: 'app/modals/user/view/Img.html'}
             }
         })
 });

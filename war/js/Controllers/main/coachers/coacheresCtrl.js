@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state',function($scope,$state)
+    .controller('coachersCtrl',['$scope','$state','$translate',function($scope,$state,$translate)
     {
         $scope.gender = "undefined";
 
@@ -86,9 +86,9 @@ angular.module('myApp.controllers.main')
 
         $scope.getGender = function( gender ){
             if(gender === 'F'){
-                $scope.gender = "׳‘׳×";
+                $scope.gender = $translate.$inject("Coach.Gender.Female");
             }else{
-                $scope.gender =  "׳‘׳�";
+                $scope.gender =   $translate.$inject("Coach.Gender.Male");
             }
          };
 
