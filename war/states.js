@@ -60,7 +60,7 @@ angular.module('myApp')
             controller: 'articlesController',
             views: {
                 app: {
-                	templateUrl: 'app/main/article/articles.html'
+                	templateUrl: 'app/main/articles/articles.html'
         		}
             }
         })

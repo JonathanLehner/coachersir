@@ -24,25 +24,25 @@ public class ContentEndpoint extends Endpoint
 	}
 
 	@ApiMethod(path = "listByUser")
-	public List<Content> listByUser(Long userId)
+	public List<Content> listByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, null);
 	}
 
 	@ApiMethod(path = "articlesByUser")
-	public List<Content> articlesByUser(Long userId)
+	public List<Content> articlesByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_ARTICLE);
 	}
 
 	@ApiMethod(path = "imagesByUser")
-	public List<Content> imagesByUser(Long userId)
+	public List<Content> imagesByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_IMAGE);
 	}
 
 	@ApiMethod(path = "videosByUser")
-	public List<Content> videosByUser(Long userId)
+	public List<Content> videosByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_VIDEO);
 	}
