@@ -57,7 +57,7 @@ angular.module('myApp')
         .state('main.articles',{
             url:'articles',
                 parent:'main',
-            controller: 'articlesController',
+            controller: 'articlesCtrl',
             views: {
                 app: {
                 	templateUrl: 'app/main/articles/articles.html'
