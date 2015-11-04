@@ -50,7 +50,11 @@
 
 },
   "Menu":{
-    "Home":"בית"
+    "Home":"בית",
+    "Coachers":"מאמנים",
+    "Article":"מאמרים",
+    "About":"קצת עלינו",
+    "Contact":"צור קשר"
   },
   "User":{
     "Detailed":"פרטים",
@@ -73,6 +77,13 @@
     }
 
 
+  },
+  "Coach":{
+    "Gender":{
+      "Female":"נקבה",
+      "Male":"זכר"
+    }
   }
+
 
 }

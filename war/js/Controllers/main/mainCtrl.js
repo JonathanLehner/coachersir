@@ -6,7 +6,7 @@
  */
 
 angular.module('myApp.controllers')
-    .controller('menuCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
+    .controller('mainCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
         'use strict';
         $scope.isHome = {};
         $scope.isHome.flag = true;

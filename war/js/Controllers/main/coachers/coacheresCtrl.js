@@ -86,9 +86,9 @@ angular.module('myApp.controllers.main')
 
         $scope.getGender = function( gender ){
             if(gender === 'F'){
-                $scope.gender = $translate.$inject("Coach.Gender.Female");
+                $scope.gender = $translate.instant("Coach.Gender.Female");
             }else{
-                $scope.gender =   $translate.$inject("Coach.Gender.Male");
+                $scope.gender =   $translate.instant("Coach.Gender.Male");
             }
          };
 

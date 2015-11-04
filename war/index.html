@@ -50,41 +50,38 @@
     <script src="app.js"></script>
     <script src="js/Configuration/Common/translation.js"></script>
     <script src="js/Configuration/FIlters/filters.js"></script>
-    <script src="js/Services/Coachers/coachersDataService.js"></script>
 
     <script src="js/Configuration/Common/dropzone.js"></script>
     <script src="js/Configuration/Common/dropzone-amd-module.js"></script>
 
     <link rel="stylesheet" href="css/dropzone.css">
 
-    <script src="js/Services/Login/loginService.js"></script>
-    <script src="js/Services/User/userService.js"></script>
-    <script src="js/Services/Common/commonService.js"></script>
+    <script src="js/Services/login/loginService.js"></script>
+    <script src="js/Services/user/userService.js"></script>
+    <script src="js/Services/common/staticDataService.js"></script>
 
 
     <script src="states.js"></script>
-    <script src="mainController.js"></script>
-    <script src="js/Controllers/modals/loginCtrl.js"></script>
-    <script src="js/Controllers/modals/userCtrl.js"></script>
+    <script src="js/Controllers/modals/login/loginCtrl.js"></script>
+    <script src="js/Controllers/modals/user/userCtrl.js"></script>
     <script src="js/Controllers/main/coachers/coacheresCtrl.js"></script>
-    <script src="js/Controllers/main/menuCtrl.js"></script>
+    <script src="js/Controllers/main/mainCtrl.js"></script>
 
 
-    <script src="js/Controllers/user/userDetailedCtrl.js"></script>
-    <script src="js/Controllers/user/userChangesCtrl.js"></script>
-    <script src="js/Controllers/user/userImagesCtrl.js"></script>
-    <script src="js/Controllers/user/userOpenModalCtrl.js"></script>
-    <script src="js/Controllers/user/userVideosCtrl.js"></script>
+    <script src="js/Controllers/modals/user/userDetailedCtrl.js"></script>
+    <script src="js/Controllers/modals/user/userImagesCtrl.js"></script>
+    <script src="js/Controllers/modals/user/userOpenModalCtrl.js"></script>
+    <script src="js/Controllers/modals/user/userVideosCtrl.js"></script>
 
     <script src="js/Directives/Files/dropzone.js"></script>
 
-    <script src="js/Controllers/main/home/homeCtrl.js"></script>
+    <script src="js/Controllers/main/video/videoCtrl.js"></script>
 
 
 
 
 </head>
-<body ng-app="myApp" ng-controller="mainController">
-<div ui-view></div>
+<body ng-app="myApp">
+    <div ui-view></div>
 </body>
 </html>
