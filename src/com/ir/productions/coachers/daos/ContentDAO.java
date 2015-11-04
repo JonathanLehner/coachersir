@@ -41,4 +41,27 @@ public class ContentDAO extends GenericDAOImpl<Content, Long>
 
 		return returnList;
 	}
+
+	public List<Content> findByType(Integer type)
+	{
+		EntityManager mgr = getEM();
+		List<Content> returnList = null;
+
+		try
+		{
+			returnList = mgr
+					.createQuery(
+							"select from Content as Content where type=:type")
+					.setParameter("type", type).getResultList();
+
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return returnList;
+	}
 }

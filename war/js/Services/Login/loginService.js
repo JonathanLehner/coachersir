@@ -1,6 +1,3 @@
-/**
- * Created by itay on 9/15/2015.
- */
 angular.module('myApp.services')
     .factory('loginService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
         "use strict";

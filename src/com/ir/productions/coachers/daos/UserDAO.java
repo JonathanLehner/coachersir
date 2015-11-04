@@ -38,4 +38,24 @@ public class UserDAO extends GenericDAOImpl<User, Long>
 		return user;
 	}
 
+	public List<User> findByType(Integer type)
+	{
+		EntityManager mgr = getEM();
+		List<User> list = null;
+
+		try
+		{
+			list = mgr.createQuery("select from User as User where type=:type")
+					.setParameter("type", type).getResultList();
+
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return list;
+	}
 }

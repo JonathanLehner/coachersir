@@ -6,7 +6,7 @@ angular.module('myApp.services')
 
         serv.openUserModal = function(){
             var userModal = $modal.open({
-                templateUrl:'/app/modals/user.html',
+                templateUrl:'/app/modals/user/user.html',
                 keyboard: true,
                 controller:'userCtrl',
                 backdrop:'static'

@@ -13,15 +13,14 @@ import javax.persistence.Id;
 @Entity
 public class User implements Serializable
 {
-
-	private static int TYPE_COACH = 1;
-	private static int TYPE_TRAINED = 2;
+	public static Integer TYPE_COACH = 1;
+	public static Integer TYPE_TRAINED = 2;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private int type;
+	private Integer type;
 
 	private String first_name;
 
@@ -57,12 +56,12 @@ public class User implements Serializable
 		this.id = id;
 	}
 
-	public int getType()
+	public Integer getType()
 	{
 		return type;
 	}
 
-	public void setType(int type)
+	public void setType(Integer type)
 	{
 		this.type = type;
 	}

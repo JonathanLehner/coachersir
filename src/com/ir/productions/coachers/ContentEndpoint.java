@@ -47,6 +47,24 @@ public class ContentEndpoint extends Endpoint
 		return contentDAO.findByUser(userId, Content.TYPE_VIDEO);
 	}
 
+	@ApiMethod(path = "listArticles")
+	public List<Content> listArticles()
+	{
+		return contentDAO.findByType(Content.TYPE_ARTICLE);
+	}
+
+	@ApiMethod(path = "listImages")
+	public List<Content> listImages()
+	{
+		return contentDAO.findByType(Content.TYPE_IMAGE);
+	}
+
+	@ApiMethod(path = "listVideos")
+	public List<Content> listVideos()
+	{
+		return contentDAO.findByType(Content.TYPE_VIDEO);
+	}
+
 	@ApiMethod(path = "insertArticle")
 	public Content insertArticle(Content content)
 	{

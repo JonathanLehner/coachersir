@@ -29,6 +29,32 @@ public class UserEndpoint extends Endpoint
 		return userDAO.login(email, password);
 	}
 
+	@ApiMethod(path = "listCoachers")
+	public List<User> listCoachers()
+	{
+		return userDAO.findByType(User.TYPE_COACH);
+	}
+
+	@ApiMethod(path = "listTrained")
+	public List<User> listTrained()
+	{
+		return userDAO.findByType(User.TYPE_TRAINED);
+	}
+
+	@ApiMethod(path = "insertCoach")
+	public User insertCoach(User user)
+	{
+		user.setType(user.TYPE_COACH);
+		return userDAO.insert(user);
+	}
+
+	@ApiMethod(path = "insertTrained")
+	public User insertTrained(User user)
+	{
+		user.setType(user.TYPE_TRAINED);
+		return userDAO.insert(user);
+	}
+
 	@ApiMethod(path = "list")
 	public List<User> list()
 	{
