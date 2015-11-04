@@ -14,7 +14,7 @@ import com.ir.productions.coachers.entities.Objectives;
 public class StaticDataEndpoint extends Endpoint
 {
 	@ApiMethod(path = "allLocations")
-	public Map<String, List<Locations>> getAllLocations()
+	public Map<Integer, List<String>> getAllLocations()
 	{
 		return Locations.getAllLocations();
 	}
@@ -22,12 +22,12 @@ public class StaticDataEndpoint extends Endpoint
 	@ApiMethod(path = "allObjectives")
 	public List<String> getAllObjectives()
 	{
-		return Objectives.getAllNames();
+		return Objectives.getAllObjectives();
 	}
 
 	@ApiMethod(path = "allDegrees")
 	public List<String> getAllDegrees()
 	{
-		return Degrees.getAllNames();
+		return Degrees.getAllDegrees();
 	}
 }

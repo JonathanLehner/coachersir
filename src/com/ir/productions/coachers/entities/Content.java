@@ -8,9 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class Content
 {
-	public static int TYPE_IMAGE = 1;
-	public static int TYPE_VIDEO = 2;
-	public static int TYPE_ARTICLE = 3;
+	public static final Integer TYPE_IMAGE = 1;
+	public static final Integer TYPE_VIDEO = 2;
+	public static final Integer TYPE_ARTICLE = 3;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +18,7 @@ public class Content
 
 	private Long user_id;
 
-	private Long type;
+	private Integer type;
 
 	private String content;
 
@@ -36,12 +36,12 @@ public class Content
 		this.id = id;
 	}
 
-	public Long getType()
+	public Integer getType()
 	{
 		return type;
 	}
 
-	public void setType(Long type)
+	public void setType(Integer type)
 	{
 		this.type = type;
 	}

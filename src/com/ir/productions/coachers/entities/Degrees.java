@@ -23,7 +23,7 @@ public enum Degrees {
 		this.name = name;
 	}
 
-	public Degrees getById(Integer id)
+	public static Degrees getById(Integer id)
 	{
 		for (Degrees obj : values())
 		{
@@ -34,7 +34,18 @@ public enum Degrees {
 		return null;
 	}
 
-	public static List<String> getAllNames()
+	public static Degrees getByName(String name)
+	{
+		for (Degrees obj : values())
+		{
+			if (obj.getName().equals(name))
+				return obj;
+		}
+
+		return null;
+	}
+
+	public static List<String> getAllDegrees()
 	{
 		List<String> list = new ArrayList<String>();
 
@@ -44,11 +55,6 @@ public enum Degrees {
 		}
 
 		return list;
-	}
-
-	public String getNameById(Integer id)
-	{
-		return getById(id).getName();
 	}
 
 	public Integer getId()

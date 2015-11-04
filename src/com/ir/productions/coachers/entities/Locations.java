@@ -58,56 +58,61 @@ public enum Locations {
 		this.parent_location_id = parent_location_id;
 	}
 
-	public static Map<String, List<Locations>> getAllLocations()
+	public static Map<Integer, List<String>> getAllLocations()
 	{
-		Map<String, List<Locations>> map = new HashMap<String, List<Locations>>();
+		Map<Integer, List<String>> map = new HashMap<Integer, List<String>>();
 
 		Locations[] list = values();
+		List<String> locations;
 
-		boolean continueLoop = true;
-
-		for (int i = 0; i < list.length && continueLoop; i++)
+		for (int i = 0; i < list.length; i++)
 		{
 			Locations l = list[i];
 
 			if (l.getParent_location_id() == null)
 			{
-				map.put(l.getName(), l.getSons());
+				locations = new ArrayList<String>();
+				locations.add(l.getName());
+				locations.addAll(l.getSons());
 
-				List<Locations> sons = l.getSons();
-				for (int j = 0; j < sons.size(); j++)
-				{
-					map.put(sons.get(j).getName(), sons.get(j).getSons());
-				}
-			} else
-			{
-				continueLoop = false;
+				map.put(l.getId(), locations);
 			}
 		}
 
 		return map;
 	}
 
-	private List<Locations> getSons()
+	private List<String> getSons()
 	{
-		List<Locations> list = new ArrayList<Locations>();
+		List<String> list = new ArrayList<String>();
 
 		for (Locations l : values())
 		{
 			if (this.getId() == l.getParent_location_id())
 			{
-				list.add(l);
+				list.add(l.getName());
 			}
 		}
 
 		return list;
 	}
 
-	public Locations getById(Integer id)
+	public static Locations getById(Integer id)
 	{
 		for (Locations loc : values())
 		{
 			if (loc.getId().equals(id))
+				return loc;
+		}
+
+		return null;
+	}
+
+	public static Locations getByName(String name)
+	{
+		for (Locations loc : values())
+		{
+			if (loc.getName().equals(name))
 				return loc;
 		}
 

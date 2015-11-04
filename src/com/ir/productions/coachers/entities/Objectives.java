@@ -19,7 +19,7 @@ public enum Objectives {
 		this.name = name;
 	}
 
-	public Objectives getById(Integer id)
+	public static Objectives getById(Integer id)
 	{
 		for (Objectives obj : values())
 		{
@@ -30,7 +30,18 @@ public enum Objectives {
 		return null;
 	}
 
-	public static List<String> getAllNames()
+	public static Objectives getByName(String name)
+	{
+		for (Objectives obj : values())
+		{
+			if (obj.getName().equals(name))
+				return obj;
+		}
+
+		return null;
+	}
+
+	public static List<String> getAllObjectives()
 	{
 		List<String> list = new ArrayList<String>();
 
@@ -40,11 +51,6 @@ public enum Objectives {
 		}
 
 		return list;
-	}
-
-	public String getNameById(Integer id)
-	{
-		return getById(id).getName();
 	}
 
 	public Integer getId()
