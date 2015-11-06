@@ -26,7 +26,7 @@ angular.module('myApp')
         .state('main.home',{
             url:'home',
             parent:'main',
-            controller: 'videoCtrl',
+            controller: 'videosCtrl',
             views:{
                 app:{
                     /*templateUrl:'app/'*/
@@ -56,7 +56,7 @@ angular.module('myApp')
         })
         .state('main.articles',{
             url:'articles',
-                parent:'main',
+            parent:'main',
             controller: 'articlesCtrl',
             views: {
                 app: {
@@ -66,7 +66,7 @@ angular.module('myApp')
         })
         .state('main.aboutUs',{
             url:'aboutUs',
-                parent:'main',
+            parent:'main',
             controller: 'aboutUs',
             views: {
                 app: {
@@ -102,10 +102,28 @@ angular.module('myApp')
         .state('images',{
             url:'/images',
             parent:'modal',
-            controller: 'UserImagesCtrl',
+            controller: 'userImagesCtrl',
             views:{
                 'userView@':{
                     templateUrl: 'app/modals/user/view/userImages.html'}
+            }
+        })
+        .state('articles',{
+        	url:'/articles',
+        	parent:'modal',
+        	controller: 'userArticlesCtrl',
+        	views:{
+                'userView@':{
+                    templateUrl: 'app/modals/user/view/userArticles.html'}
+            }
+        })
+        .state('addArticle',{
+        	url:'/addArticle',
+        	parent:'modal',
+        	controller: 'addArticleCtrl',
+        	views:{
+                'userView@':{
+                    templateUrl: 'app/modals/user/addArticle.html'}
             }
         })
 });
