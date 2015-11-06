@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="rtl">
+	<head>
+			<meta charset="utf-8">
+			<title>A Simple Page with CKEditor</title>
+			<!-- Make sure the path to CKEditor is correct. -->
+			<script src="../ckeditor.js"></script>
+	</head>
+	<body>
+		<form>
+				<label>כותרת המאמר <input id="headline" type="text"></label>
+				<textarea name="articleEditor" id="editor1" rows="10" cols="80">
+						הכנס את הטקסט כאן.
+				</textarea>
+				<button type="button" onclick="buttonClicked()">
+					שמור
+				</button>
+				<script>
+						CKEDITOR.replace( 'articleEditor', {
+								language: 'he',
+								uiColor: '#9AB8F3'
+						});
+						
+						CKEDITOR.instances.articleEditor.setData('Ronny!');
+						
+						var buttonClicked = function() {
+							
+							var data = CKEDITOR.instances.articleEditor.getData();
+							
+							alert(data);
+						};
+						
+				</script>
+		</form>
+	</body>
+</html>
