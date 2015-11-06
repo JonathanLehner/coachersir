@@ -6,20 +6,4 @@
 	<button type="button" onclick="buttonClicked()">
 		щоеш
 	</button>
-	<script>
-			CKEDITOR.replace( 'articleEditor', {
-					language: 'he',
-					uiColor: '#9AB8F3'
-			});
-			
-			CKEDITOR.instances.articleEditor.setData('Ronny!');
-			
-			var buttonClicked = function() {
-				
-				var data = CKEDITOR.instances.articleEditor.getData();
-				
-				alert(data);
-			};
-			
-	</script>
 </div>
