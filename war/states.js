@@ -90,10 +90,10 @@ angular.module('myApp')
                     });
             }]
         })
-        .state('detailed',{
-            url:'/detailed',
+        .state('details',{
+            url:'/details',
             parent:'modal',
-            controller: 'userDetailedCtrl',
+            controller: 'userDetailsCtrl',
             views:{
                 'userView@':{
                     templateUrl: 'app/modals/user/view/userDetails.html'}

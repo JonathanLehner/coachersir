@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userDetailedCtrl',['$scope','commonService',function($scope,commonService){
+    .controller('userDetailsCtrl',['$scope','commonService',function($scope,commonService){
 
         $scope.somthing = 1;
         $scope.age = undefined;

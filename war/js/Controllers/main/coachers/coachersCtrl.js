@@ -4,80 +4,80 @@ angular.module('myApp.controllers.main')
         $scope.gender = "undefined";
 
         $scope.coachers = [{
-            "name":"׳¢׳“׳™",
+            "name":"׳³ֲ¢׳³ג€�׳³ג„¢",
             "age":"22",
             "gender":"F",
-            "location":"׳ ׳™׳¨ ׳‘׳ ׳™׳�",
+            "location":"׳³ֲ ׳³ג„¢׳³ֲ¨ ׳³ג€˜׳³ֲ ׳³ג„¢׳³ן¿½",
             "mainPhoto":"../photos/coachers/ADI/ADI1.jpg",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "photos": ["../photos/coachers/ADI/ADI1.jpg","../photos/coachers/ADI/ADI2.jpg"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
         },
         {
-            "name":"׳�׳™׳×׳™",
+            "name":"׳³ן¿½׳³ג„¢׳³ֳ—׳³ג„¢",
             "age":"26",
             "gender":"M",
-            "location":"׳—׳•׳�׳•׳�",
-            "experience":["׳§׳™׳§׳‘׳•׳§׳¡", "׳–׳•׳�׳‘׳”", "׳¢׳™׳¦׳•׳‘", "׳¢׳™׳¦׳•׳‘ ׳“׳™׳ ׳�׳�׳™", "TRX"],
+            "location":"׳³ג€”׳³ג€¢׳³ן¿½׳³ג€¢׳³ן¿½",
+            "experience":["׳³ֲ§׳³ג„¢׳³ֲ§׳³ג€˜׳³ג€¢׳³ֲ§׳³ֲ¡", "׳³ג€“׳³ג€¢׳³ן¿½׳³ג€˜׳³ג€�", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜", "׳³ֲ¢׳³ג„¢׳³ֲ¦׳³ג€¢׳³ג€˜ ׳³ג€�׳³ג„¢׳³ֲ ׳³ן¿½׳³ן¿½׳³ג„¢", "TRX"],
             "mainPhoto":"../photos/coachers/ADI/ADI3.jpg",
             "photos": ["../photos/coachers/ADI/ADI3.jpg","../photos/coachers/ADI/ADI2.jpg"],
             videos:["../photos/coachers/ADI/VIDEO/20150118_112227.mp4"]
@@ -93,7 +93,7 @@ angular.module('myApp.controllers.main')
          };
 
         $scope.coachersClicked = function(){
-            $state.go('detailed');
+            $state.go('details');
         };
 
         $scope.isHome.flag = false;
