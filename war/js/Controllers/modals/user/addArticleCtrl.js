@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('addArticleCtrl',['$scope',,function($scope){
+    .controller('addArticleCtrl',['$scope','articleService',function($scope, articleService){
 
         var init = function(){
         	
@@ -12,7 +12,7 @@ angular.module('myApp.controllers')
 		
 		CKEDITOR.instances.articleEditor.setData('Ronny!');
 		
-		var buttonClicked = function() {
+		$scope.saveButtonClicked = function() {
 			
 			var data = CKEDITOR.instances.articleEditor.getData();
 			
