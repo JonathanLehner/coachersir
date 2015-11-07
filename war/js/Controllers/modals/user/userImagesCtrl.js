@@ -1,8 +1,7 @@
-/**
- * Created by itay on 10/15/2015.
- */
 angular.module('myApp.controllers')
     .controller('userImagesCtrl',['$scope','commonService',function($scope,commonService) {
+    	
+    	var user = $scope.$parent.user;
     	
     	$scope.slides = [{image:"../photos/coachers/ADI/ADI3.jpg"},
     	                 {image:"../photos/coachers/ADI/ADI2.jpg"},

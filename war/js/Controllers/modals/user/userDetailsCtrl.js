@@ -1,6 +1,8 @@
 angular.module('myApp.controllers')
     .controller('userDetailsCtrl',['$scope','commonService',function($scope,commonService){
 
+    	var user = $scope.$parent.user;
+    	
         $scope.somthing = 1;
         $scope.age = undefined;
 

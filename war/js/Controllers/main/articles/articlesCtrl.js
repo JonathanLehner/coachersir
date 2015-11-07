@@ -1,11 +1,13 @@
-angular.module('myApp.controllers')
-    .controller('articlesCtrl',[$scope, articleService,function($scope, articleService){
+angular.module('myApp.controllers.main')
+    .controller('articlesCtrl',['$scope', 'articleService',function($scope, articleService){
     	
-    	$scope.articles = articleService.getAll();
+    	$scope.articles = undefined;
     	
     	var init = function(){
-    		
-    	}
+    		articleService.getAll().then(function(data){
+                $scope.articles = data.items;
+    		});
+    	};
     	
     	init();
 }]);

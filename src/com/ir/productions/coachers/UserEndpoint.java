@@ -29,13 +29,13 @@ public class UserEndpoint extends Endpoint
 		return userDAO.login(email, password);
 	}
 
-	@ApiMethod(path = "listCoachers")
+	@ApiMethod(path = "listCoachers", httpMethod = "GET")
 	public List<User> listCoachers()
 	{
 		return userDAO.findByType(User.TYPE_COACH);
 	}
 
-	@ApiMethod(path = "listTrained")
+	@ApiMethod(path = "listTrained", httpMethod = "GET")
 	public List<User> listTrained()
 	{
 		return userDAO.findByType(User.TYPE_TRAINED);

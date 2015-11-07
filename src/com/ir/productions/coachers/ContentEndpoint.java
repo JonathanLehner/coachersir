@@ -29,37 +29,37 @@ public class ContentEndpoint extends Endpoint
 		return contentDAO.findByUser(userId, null);
 	}
 
-	@ApiMethod(path = "articlesByUser")
+	@ApiMethod(path = "articlesByUser", httpMethod = "GET")
 	public List<Content> articlesByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_ARTICLE);
 	}
 
-	@ApiMethod(path = "imagesByUser")
+	@ApiMethod(path = "imagesByUser", httpMethod = "GET")
 	public List<Content> imagesByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_IMAGE);
 	}
 
-	@ApiMethod(path = "videosByUser")
+	@ApiMethod(path = "videosByUser", httpMethod = "GET")
 	public List<Content> videosByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, Content.TYPE_VIDEO);
 	}
 
-	@ApiMethod(path = "listArticles")
+	@ApiMethod(path = "listArticles", httpMethod = "GET")
 	public List<Content> listArticles()
 	{
 		return contentDAO.findByType(Content.TYPE_ARTICLE);
 	}
 
-	@ApiMethod(path = "listImages")
+	@ApiMethod(path = "listImages", httpMethod = "GET")
 	public List<Content> listImages()
 	{
 		return contentDAO.findByType(Content.TYPE_IMAGE);
 	}
 
-	@ApiMethod(path = "listVideos")
+	@ApiMethod(path = "listVideos", httpMethod = "GET")
 	public List<Content> listVideos()
 	{
 		return contentDAO.findByType(Content.TYPE_VIDEO);
@@ -86,13 +86,13 @@ public class ContentEndpoint extends Endpoint
 		return contentDAO.insert(content);
 	}
 
-	@ApiMethod(path = "list")
+	@ApiMethod(path = "list", httpMethod = "GET")
 	public List<Content> list()
 	{
 		return contentDAO.findAll();
 	}
 
-	@ApiMethod(path = "get")
+	@ApiMethod(path = "get", httpMethod = "GET")
 	public Content get(@Named("id") Long id)
 	{
 		return contentDAO.findById(id);

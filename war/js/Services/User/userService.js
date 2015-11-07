@@ -2,6 +2,8 @@ angular.module('myApp.services')
     .factory('userService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike)  {
         'use strict';
 
+        var url_prefix = '_ah/api/userEndpoint/v1';
+        
         var serv={};
 
         serv.openUserModal = function(){
@@ -14,7 +16,7 @@ angular.module('myApp.services')
         };
 
         serv.getUser = function(userId){
-            return $resource('_ah/api/userEndpoint/v1/user/:id',{id: userId}).get().$promise;
+            return $resource(url_prefix + '/get?id='+ userId).get().$promise;
         }
 
         return serv;

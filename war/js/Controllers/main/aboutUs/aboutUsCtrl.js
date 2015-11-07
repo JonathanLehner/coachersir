@@ -1,5 +1,5 @@
-angular.module('myApp.controllers')
-    .controller('aboutUsCtrl',[$scope,function($scope)
+angular.module('myApp.controllers.main')
+    .controller('aboutUsCtrl',['$scope',function($scope)
     {
 
     }

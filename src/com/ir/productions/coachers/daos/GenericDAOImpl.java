@@ -71,8 +71,7 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 
 		try
 		{
-			// mgr.persist(t);
-			t = getEM().merge(t);
+			t = mgr.merge(t);
 		} catch (Exception e)
 		{
 			System.out.println(e.getMessage());

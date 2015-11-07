@@ -20,6 +20,7 @@ public class User implements Serializable
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Index
 	private Integer type;
 
 	private String first_name;

@@ -12,11 +12,11 @@ angular.module('myApp.services')
 	    }
 	    
 	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/list').get().$promise;
+	    	return $resource(url_prefix + '/listArticles').get().$promise;
 	    }
 	    
 	    serv.getByUser = function(userId){
-	    	
+	    	return $resource(url_prefix + '/articlesByUser?userId=' + userId).get().$promise;
 	    }
 	    
 	    serv.insert = function(article){

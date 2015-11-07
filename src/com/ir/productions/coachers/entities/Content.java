@@ -1,5 +1,6 @@
 package com.ir.productions.coachers.entities;
 
+import javax.jdo.annotations.Index;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Content
 
 	private Long user_id;
 
+	@Index
 	private Integer type;
 
 	private String content;
