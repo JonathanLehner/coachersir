@@ -67,10 +67,19 @@ angular.module('myApp')
         .state('main.aboutUs',{
             url:'aboutUs',
             parent:'main',
-            controller: 'aboutUs',
+            controller: 'aboutUsCtrl',
             views: {
                 app: {
                     templateUrl: 'app/main/aboutUs/aboutUs.html'}
+            }
+        })
+        .state('main.contactUs',{
+            url:'contactUs',
+            parent:'main',
+            controller: 'contactUsCtrl',
+            views: {
+                app: {
+                    templateUrl: 'app/main/contactUs/contactUs.html'}
             }
         })
         .state('modal', {
