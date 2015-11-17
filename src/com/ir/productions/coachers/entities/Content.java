@@ -22,6 +22,8 @@ public class Content
 	@Index
 	private Integer type;
 
+	private String extra_type;
+
 	private String content;
 
 	private String headline;
@@ -56,6 +58,16 @@ public class Content
 	public void setUser_id(Long user_id)
 	{
 		this.user_id = user_id;
+	}
+
+	public String getExtra_type()
+	{
+		return extra_type;
+	}
+
+	public void setExtra_type(String extra_type)
+	{
+		this.extra_type = extra_type;
 	}
 
 	public String getContent()
