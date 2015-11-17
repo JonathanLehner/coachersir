@@ -6,18 +6,9 @@ angular.module('myApp.services')
         
         var serv={};
 
-        serv.openUserModal = function(){
-            var userModal = $modal.open({
-                templateUrl:'/app/modals/user/user.html',
-                keyboard: true,
-                controller:'userCtrl',
-                backdrop:'static'
-            });
-        };
-
         serv.getUser = function(userId){
             return $resource(url_prefix + '/get?id='+ userId).get().$promise;
-        }
+        };
 
         return serv;
 

@@ -6,7 +6,16 @@ angular.module('myApp.services')
 
         serv.login = function(){
             var modalLogin = $modal.open({
-                templateUrl:'/app/modals/login.html',
+                templateUrl:'/app/modals/login/login.html',
+                keyboard: true,
+                controller:'loginCtrl',
+                backdrop:'static'
+            });
+        };
+
+        serv.signUp = function(parameter){
+            var modalLogin = $modal.open({
+                templateUrl:'/app/modals/login/login.html',
                 keyboard: true,
                 controller:'loginCtrl',
                 backdrop:'static'
