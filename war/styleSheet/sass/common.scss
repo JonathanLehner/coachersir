@@ -7,10 +7,37 @@ $font-style: "Helvetica Neue" , Helvetica, Arial, sans-serif;
 
 label{
   font: $font-style;
+  padding-left: 10px;
+  width: 150px;
+
+  .title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .details{
+    font-size: 16px;
+  }
 }
 
 input{
   font: $font-style;
+  max-width: 250px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  border-radius: 4px;
+
+  .missing{
+    border-color: red;
+  }
+}
+
+button{
+  max-width: 150px;
+  color: #286090 ;
+  label{
+    width: 100%;
+  }
 }
 
 .font-large{
