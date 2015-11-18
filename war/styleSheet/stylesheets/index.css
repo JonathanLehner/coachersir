@@ -1,0 +1,159 @@
+/* line 2, ../sass/index.scss */
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* line 7, ../sass/index.scss */
+.ui {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+/* line 12, ../sass/index.scss */
+.modal {
+  display: flex;
+}
+
+/* line 16, ../sass/index.scss */
+.backgroundVideo {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media (min-width: 1100px) {
+  /* line 27, ../sass/index.scss */
+  .backgroundVideo video {
+    height: auto;
+    width: 100%;
+  }
+}
+/* line 34, ../sass/index.scss */
+.hero__background video {
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  width: auto;
+}
+
+/* line 40, ../sass/index.scss */
+.users {
+  position: absolute;
+}
+
+/* line 44, ../sass/index.scss */
+.MainTitle {
+  position: static;
+  height: 52px;
+  padding-bottom: 20%;
+  margin: 7%;
+}
+
+/* line 51, ../sass/index.scss */
+.menu {
+  display: -webkit-box;
+  padding: 41% 5% 5%;
+}
+
+/* line 56, ../sass/index.scss */
+.menuCoach {
+  display: -webkit-box;
+  padding: 0% 0% 5%;
+}
+
+/* line 62, ../sass/index.scss */
+.MainTitle a {
+  display: block;
+  padding: 12.7px 48px;
+  text-decoration: blink;
+  color: #ffffff;
+}
+
+/* line 69, ../sass/index.scss */
+.MainTitle li {
+  font-size: x-large;
+  display: -webkit-box;
+}
+
+/* line 74, ../sass/index.scss */
+.MainTitle a:hover {
+  background-color: #888888;
+}
+
+/* line 77, ../sass/index.scss */
+.MainTitle a:focus {
+  background-color: #555555;
+}
+
+/* line 81, ../sass/index.scss */
+.MainTitle a {
+  background-color: gray;
+}
+
+/* line 85, ../sass/index.scss */
+.mainPosition {
+  width: 100%;
+  position: absolute;
+}
+
+/* line 92, ../sass/index.scss */
+body.modal-open .datepicker {
+  z-index: 1200 !important;
+}
+
+/* line 96, ../sass/index.scss */
+div[dropzone] {
+  border: 2px dashed #bbb;
+  border-radius: 5px;
+  text-align: center;
+  font: 20pt bold;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+/* line 105, ../sass/index.scss */
+.dropzone {
+  min-height: 150px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  padding: 20px 20px;
+  background: #bbb;
+  /* height: 57px; */
+  margin-right: 20px;
+  margin-top: 27px;
+  width: 26%;
+  /* height: 50px; */
+  float: left;
+}
+
+/* line 118, ../sass/index.scss */
+.dz-progress {
+  display: none;
+}
+
+/* line 122, ../sass/index.scss */
+.dropzone .dz-preview {
+  margin: auto;
+}
+
+/* line 126, ../sass/index.scss */
+.dropdown-menu {
+  text-align: right;
+  overflow: overlay;
+  max-height: 106px;
+  left: inherit;
+  min-width: 10px;
+}
+
+/* line 134, ../sass/index.scss */
+.dropdown {
+  padding-left: 10px;
+}
+
+/* line 138, ../sass/index.scss */
+.modal {
+  position: absolute;
+}
