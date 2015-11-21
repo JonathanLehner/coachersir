@@ -4,22 +4,27 @@ angular.module('myApp.services')
 
         var serv={};
         var url_prefix = '_ah/api/userEndpoint/v1';
-        
-        serv.login = function(){
+
+        serv.signIn = function(parameter){
             var modalLogin = $modal.open({
-                templateUrl:'/app/modals/login/login.html',
+                templateUrl:'/app/modals/login/logIn.html',
                 keyboard: true,
-                controller:'loginCtrl',
+                controller:'logInCtrl',
                 backdrop:'static'
             });
         };
 
         serv.signUp = function(parameter){
             var modalLogin = $modal.open({
-                templateUrl:'/app/modals/login/login.html',
+                templateUrl:'/app/modals/login/signUp.html',
                 keyboard: true,
-                controller:'loginCtrl',
-                backdrop:'static'
+                controller:'signUpCtrl',
+                backdrop:'static',
+                resolve: {
+                    type: function () {
+                        return parameter;
+                    }
+                }
             });
         };
 

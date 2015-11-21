@@ -2,7 +2,7 @@
  * Created by itay on 9/15/2015.
  */
 angular.module('myApp.controllers.main')
-    .controller('signInCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService){
+    .controller('logInCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService){
 
         var init = function(){
             $scope.user = {
@@ -29,9 +29,9 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.signUp = function(type){
-            $timeout(function(){
+            /*$timeout(function(){
                 $modalInstance.close()},
-                1000);
+                1000);*/
             loginService.signUp(type);
 
         };

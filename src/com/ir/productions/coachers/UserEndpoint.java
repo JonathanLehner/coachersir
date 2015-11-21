@@ -86,12 +86,6 @@ public class UserEndpoint extends Endpoint
 		return userDAO.findById(id);
 	}
 
-	@ApiMethod(path = "insert")
-	public User insert(User user)
-	{
-		return userDAO.insert(user);
-	}
-
 	@ApiMethod(path = "update")
 	public User update(User user)
 	{

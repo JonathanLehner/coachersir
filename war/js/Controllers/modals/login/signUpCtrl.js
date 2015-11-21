@@ -134,7 +134,13 @@ angular.module('myApp.controllers.main')
                 $scope.user.birth_date = new Date($scope.month + " " + $scope.day + ", " + $scope.year + " 01:00:00");
                 $scope.user.objectives = $scope.itemSelection;
 
-                loginService.insertUser($scope.user);
+
+                if($scope.isCoach){
+                    loginService.insertCoach($scope.user);
+                }else
+                {
+                    loginService.insertTrained($scope.user);
+                }
             }
         };
 
