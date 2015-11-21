@@ -34,10 +34,9 @@ angular.module('myApp.services')
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertCoach',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).success(function () {});
+                headers: {'Content-type': 'application/json; charset=utf-8'},
+                data: data
+            });
         };
 
         serv.insertTrained = function(user){
@@ -46,10 +45,10 @@ angular.module('myApp.services')
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertTrained',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
                 data: $httpParamSerializerJQLike(data)
 
-            }).success(function () {});
+            }).$promise();
         };
 
         serv.UserSignIn = function(user){
