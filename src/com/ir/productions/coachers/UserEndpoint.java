@@ -4,14 +4,18 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import com.google.api.server.spi.config.AnnotationBoolean;
 import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiAuth;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
 
-@Api(name = "userEndpoint", namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers.entities"))
+@Api(name = "userEndpoint", auth = @ApiAuth(allowCookieAuth = AnnotationBoolean.TRUE), namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers.entities"))
 public class UserEndpoint extends Endpoint
 {
 	@Inject
@@ -23,10 +27,25 @@ public class UserEndpoint extends Endpoint
 	}
 
 	@ApiMethod(path = "login", httpMethod = "post")
-	public User login(@Named("email") String email,
+	public User login(HttpServletRequest req, @Named("email") String email,
 			@Named("password") String password)
 	{
-		return userDAO.login(email, password);
+		HttpSession session = req.getSession();
+
+		User authUser = userDAO.login(email, password);
+
+		// in your authentication method
+		if (authUser != null)
+		{
+			session.setAttribute(SESSION_USER_ID_ATTRIBUTE, authUser.getId());
+		}
+
+		return authUser;
+	}
+
+	public void logout(HttpServletRequest req)
+	{
+		req.getSession().setAttribute(SESSION_USER_ID_ATTRIBUTE, null);
 	}
 
 	@ApiMethod(path = "listCoachers", httpMethod = "GET")

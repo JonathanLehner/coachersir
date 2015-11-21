@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
 
@@ -66,10 +68,20 @@ public class ContentEndpoint extends Endpoint
 	}
 
 	@ApiMethod(path = "insertArticle")
-	public Content insertArticle(Content content)
+	public Content insertArticle(HttpServletRequest req, Content content)
+			throws UnauthorizedException
 	{
-		content.setType(Content.TYPE_ARTICLE);
-		return contentDAO.insert(content);
+		Object session_var = req.getSession().getAttribute(
+				SESSION_USER_ID_ATTRIBUTE);
+
+		if (content.getUser_id().equals(session_var))
+		{
+			content.setType(Content.TYPE_ARTICLE);
+			return contentDAO.insert(content);
+		} else
+		{
+			throw new UnauthorizedException("the user is not connected");
+		}
 	}
 
 	@ApiMethod(path = "insertImage")
