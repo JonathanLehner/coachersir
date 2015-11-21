@@ -12,8 +12,13 @@ angular.module('myApp.controllers')
         $scope.isHome.flag = true;
 
         $scope.signIn = function(){
-            loginService.login();
+            loginService.signIn();
         };
+
+        $scope.signUp = function(){
+            loginService.signUp();
+        };
+
 
     }]);
 

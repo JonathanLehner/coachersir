@@ -1,0 +1,29 @@
+/* line 3, ../../sass/modals/user.scss */
+.userModal {
+  margin-top: 5%;
+  font-size: 12px;
+  /*height: 80%;*/
+  height: 800px;
+  background: white;
+  width: 75%;
+}
+
+/* line 12, ../../sass/modals/user.scss */
+.modal {
+  overflow: visible;
+}
+
+/* line 15, ../../sass/modals/user.scss */
+.userLi {
+  float: right;
+}
+
+/* line 19, ../../sass/modals/user.scss */
+.nav {
+  padding-right: 0px;
+}
+
+/* line 23, ../../sass/modals/user.scss */
+.nav-tabs > li {
+  float: right;
+}

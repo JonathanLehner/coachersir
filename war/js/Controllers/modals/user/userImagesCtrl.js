@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userImagesCtrl',['$scope','commonService',function($scope,commonService) {
+    .controller('userImagesCtrl',['$scope','staticDataService',function($scope,staticDataService) {
     	
     	var user = $scope.$parent.user;
     	

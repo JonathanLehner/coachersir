@@ -1,0 +1,67 @@
+/* line 2, ../../../sass/main/home/home.scss */
+.homeVid {
+  border: 1px solid black;
+  width: 60%;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+  height: 80%;
+  float: left;
+}
+
+/* line 11, ../../../sass/main/home/home.scss */
+.explainText {
+  float: right;
+}
+
+/* line 14, ../../../sass/main/home/home.scss */
+.explainText p {
+  overflow: hidden;
+  white-space: normal;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 150px;
+  height: 1.2em;
+  line-height: 15px;
+  max-height: 45px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* line 29, ../../../sass/main/home/home.scss */
+.homeli {
+  width: 45%;
+}
+
+/* line 33, ../../../sass/main/home/home.scss */
+.homeProperties {
+  right: 10%;
+  max-height: 30%;
+  width: 100%;
+}
+
+/* line 39, ../../../sass/main/home/home.scss */
+.homeProperties li:hover {
+  -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  /* background: #fff;*/
+}
+
+/* line 49, ../../../sass/main/home/home.scss */
+.homeProperties ul {
+  display: inline-block;
+  position: absolute;
+  right: 10%;
+  border-color: #002a80;
+}
+
+/* line 56, ../../../sass/main/home/home.scss */
+.homeProperties li {
+  display: inline-block;
+  margin: 0 auto -2px auto;
+  border: 1px solid transparent;
+  width: 40%;
+}

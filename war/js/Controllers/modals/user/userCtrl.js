@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('userCtrl',['$scope','$translate','$timeout','userService','commonService',function($scope,$translate,$timeout,userService,commonService){
+    .controller('userCtrl',['$scope','$translate','$timeout','userService','staticDataService',function($scope,$translate,$timeout,userService,staticDataService){
 
         $scope.user = undefined;
 

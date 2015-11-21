@@ -1,5 +1,5 @@
 angular.module('myApp.services')
-    .factory('commonService',['$resource',function($resource) {
+    .factory('staticDataService',['$resource',function($resource) {
         'use strict';
         var serv = {};
 

@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','commonService',function($scope,commonService){
+    .controller('userDetailsCtrl',['$scope','staticDataService',function($scope,staticDataService){
 
     	var user = $scope.$parent.user;
     	
@@ -13,7 +13,7 @@ angular.module('myApp.controllers')
 
         var callAtTimeout =  function() {
             if ($scope.objectives !== null || $scope.objectives !== undefined) {
-                commonService.getObjectives().then(
+                staticDataService.getObjectives().then(
                     function (data) {
                         $scope.items = data.items;
                     },
@@ -24,7 +24,7 @@ angular.module('myApp.controllers')
             }
 
             if ($scope.locations !== null || $scope.locations !== undefined) {
-                commonService.getLocations().then(
+                staticDataService.getLocations().then(
                     function (data) {
                         $scope.locations = data;
                     },
