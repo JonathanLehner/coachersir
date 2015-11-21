@@ -2,7 +2,7 @@ application: coachersir-1045
 version: 1
 runtime: php55
 api_version: 1
-module: video-php-module
+module: image-php-module
 
 handlers:
 # Serve images as static resources.
