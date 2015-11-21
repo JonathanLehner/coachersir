@@ -1,0 +1,54 @@
+<div class="container loginModal">
+    <div class="row">
+         <a href="#" ng-click="close()"><span class="glyphicon glyphicon-remove" style="font-size:1.5em"></span></a>
+
+        <br/>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a class="btn btn-block btn-social btn-facebook">
+                    <i class="fa fa-facebook"></i>  Facebook
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a class="btn btn-block btn-social btn-google">
+                    <i class="fa fa-google-plus"></i>  Google+
+                </a>
+            </div>
+        </div>
+        <br/>
+
+        <form role="form">
+            <div class="form-group">
+                <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
+                <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email" ng-class="{'missingInput': ((user === undefined || user.email === '' || user.email === undefined) && inputIsEmpty)}">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
+
+                <input type="password" class="form-control" id="inputPassword" ng-model="user.password" ng-class="{'missingInput': ((user === undefined || user.password === '' || user.password === undefined) && inputIsEmpty)}">
+
+                <a class="pull-right" href="#">{{'Login.Forget_Password' | translate}} </a>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn btn-primary submit" ng-click="userSignIn()">
+                    {{'Login.Login' | translate}}
+                </button>
+                <label style="color: red" ng-if="errorSignIn"> {{'Login.SignIn_Incorrect' | translate}}   </label>
+                <label ng-if="!errorSignIn">    </label>
+                <label style="color: red" ng-if="inputIsEmpty"> {{'Login.Fill_The_Inputs' | translate}}   </label>
+                <label ng-if="!inputIsEmpty">    </label>
+            </div>
+            <hr>
+            <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signUp(2)">{{'Login.Trainer' | translate}}</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signUp(1)">{{'Login.Coach' | translate}}</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

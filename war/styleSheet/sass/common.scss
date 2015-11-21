@@ -5,6 +5,13 @@ $font-style: "Helvetica Neue" , Helvetica, Arial, sans-serif;
   font-family: $font-style;
 }
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
 label{
   font: $font-style;
   padding-left: 10px;
@@ -61,4 +68,12 @@ hr {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.modal{
+  margin: 25px auto 0;
+   .container{
+   background-color: #ffffff;
+    @include border-radius(5px);
+  }
 }

@@ -1,4 +1,4 @@
-<div  style="position: relative;">
+<div  style="position: relative;" ng-controller="mainCtrl">
     <div style="margin-bottom: -5%">
          <video ng-show="isHome.flag" muted autoplay loop="loop"  style="position: relative;
 	        width: 100.65%;
@@ -16,7 +16,7 @@
         <div class="MainTitle">
            <div style="color:#ffffff; display: flex;">
                <a href="" ng-click="signIn()" style="width:20px">SignIn </a>
-               <span><a style="width:20px">SignUp </a></span></div>
+               <span><a href="" style="width:20px" ng-click="signUp()" style="width:20px">SignUp </a></span></div>
 
             <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
                 <li><a class="HomeTitle active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
