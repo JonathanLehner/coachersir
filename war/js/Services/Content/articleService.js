@@ -8,7 +8,7 @@ angular.module('myApp.services')
 	    var serv={};
 	    
 	    serv.getById = function(id){
-	    	
+	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
 	    }
 	    
 	    serv.getAll = function(){
@@ -20,7 +20,16 @@ angular.module('myApp.services')
 	    }
 	    
 	    serv.insert = function(article){
-	    	
+	    	var data = article;
+
+            return $http({
+                method: 'POST',
+                url: url_prefix + '/insertArticle',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(data)
+
+            }).$promise;
+
 	    }
 	    
 	    serv.update = function(article){
