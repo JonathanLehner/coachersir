@@ -29,15 +29,30 @@ angular.module('myApp.services')
                 data: $httpParamSerializerJQLike(data)
 
             }).$promise;
-
 	    }
 	    
 	    serv.update = function(article){
-	    	
+	    	var data = article;
+
+            return $http({
+                method: 'POST',
+                url: url_prefix + '/update',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(data)
+
+            }).$promise;
 	    }
 	    
 	    serv.remove = function(id){
-	    	
+	    	var data = {id: id};
+
+            return $http({
+                method: 'POST',
+                url: url_prefix + '/remove',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(data)
+
+            }).$promise;
 	    }
 	
 	    return serv;

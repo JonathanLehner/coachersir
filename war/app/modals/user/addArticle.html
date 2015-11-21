@@ -1,9 +1,10 @@
 <div dir="rtl" ng-controller="addArticleCtrl">
-	<label>כותרת המאמר <input id="headline" type="text"></label>
+	<label>{{'General.Headline' | translate}} 
+		<input id="headline" type="text">
+	</label>
 	<textarea name="articleEditor" id="articleEditor" rows="10" cols="80">
-		הכנס את הטקסט כאן.
 	</textarea>
 	<button type="button" ng-click="saveButtonClicked()">
-		שמור
+		{{'General.Save' | translate}}
 	</button>
 </div>

@@ -1,89 +1,94 @@
 {
-  "Login":{
-    "Email":"דוא''ל",
-    "Password":"סיסמה",
-    "Coach":"מאמן",
-    "Trainer":"מתאמן",
-    "Remember_Me":"זכור אותי",
-    "Login":"התחבר",
-    "Not_Member":"חדש באתר? הרשם!",
-    "Forget_Password":"שכחת סיסמה?",
-    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
-    "Fill_The_Inputs":"מלא בבקשה את השדות המודגשים באדום"
-  },
-"SignUp":{
-  "Welcome":"ברוכים הבאים!",
-  "First_Name":"שם פרטי",
-  "Last_Name":"שם משפחה",
-  "Email":"דוא''ל",
-  "Password":"סיסמה",
-  "Password_Confirm":"סיסמה (אימות)",
-  "Birth_Day":"תאריך לידה",
-  "About":"קצת עליך:",
-  "Address":"מקום מגורים",
-  "Male":"זכר",
-  "Female":"נקבה",
-  "Gender":"מין",
-  "Drop_Img":"גרור תמונה או הקלק",
-  "Required_Message":"שכחת למלא שדה זה..",
-  "Password_Match":"הסיסמה לא תואמת",
-  "Trainer_Location":"מקום מגורים",
-  "Coach_Location":"מאמן באזור",
-  "Year":"שנה",
-  "Day":"יום",
-
-  "Month":{"Month":"חודש",
-          "January":"ינואר",
-          "February":"פברואר",
-          "March":"מרץ",
-          "April":"אפריל",
-          "May":"מאי",
-          "June":"יוני",
-          "July":"יולי",
-          "August":"אוגוסט",
-          "September":"ספטמבר",
-          "October":"אוקטובר",
-          "November":"נובמבר",
-          "December":"דצמבר"},
-  "Objectives":"הכשרות והסמכות",
-  "Degrees":"יעדים ומטרות"
-
-},
-  "Menu":{
-    "Home":"בית",
-    "Coachers":"מאמנים",
-    "Articles":"מאמרים",
-    "AboutUs":"קצת עלינו",
-    "ContactUs":"צור קשר"
-  },
-  "User":{
-    "Detailed":"פרטים",
-    "Images":"תמונות",
-    "Video":"וידאו",
-    "Article":"מאמרים",
-    "BeforeAnd":"לפני ואחרי",
-    "Details":{
-      "Name":"שם מלא",
-      "First_Name":"שם פרטי",
-      "Last_Name":"שם משפחה",
-      "Birth_Day":"תאריך לידה",
-      "Age":"גיל",
-      "About":"קצת על עצמי",
-      "Address":"מקום מגורים",
-      "Gender":"מין",
-      "Coach_Location":"מאמן באזור",
-      "Objectives":"הכשרות והסמכות",
-      "Contact":"צור קשר"
-    }
-
-
-  },
-  "Coach":{
-    "Gender":{
-      "Female":"נקבה",
-      "Male":"זכר"
-    }
-  }
-
-
+	"General":{
+		"Save": "שמור",
+		"Delete": "מחק",
+		"Edit": "ערוך",
+		"Headline": "כותרת",
+		"Description": "תיאור",
+		"Content": "תוכן",
+		"Articles": "מאמרים",
+		"Images": "תמונות",
+		"Videos": "סרטונים"
+	},
+	"Login":{
+	    "Email":"דוא''ל",
+	    "Password":"סיסמה",
+	    "Coach":"מאמן",
+	    "Trainer":"מתאמן",
+	    "Remember_Me":"זכור אותי",
+	    "Login":"התחבר",
+	    "Not_Member":"חדש באתר? הרשם!",
+	    "Forgot_Password":"שכחת סיסמה?",
+	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
+	    "Fill_The_Inputs":"מלא בבקשה את השדות המודגשים באדום"
+  	},
+	"SignUp":{
+		"Welcome":"ברוכים הבאים!",
+		"First_Name":"שם פרטי",
+		"Last_Name":"שם משפחה",
+		"Email":"דוא''ל",
+		"Password":"סיסמה",
+		"Password_Confirm":"סיסמה (אימות)",
+		"Birth_Day":"תאריך לידה",
+		"About":"קצת עליך:",
+		"Address":"מקום מגורים",
+		"Male":"זכר",
+		"Female":"נקבה",
+		"Gender":"מין",
+		"Drop_Img":"גרור תמונה או הקלק",
+		"Required_Message":"שכחת למלא שדה זה..",
+		"Password_Match":"הסיסמה לא תואמת",
+		"Trainer_Location":"מקום מגורים",
+		"Coach_Location":"מאמן באזור",
+		"Year":"שנה",
+		"Day":"יום",
+		"Month":{"Month":"חודש",
+			"January":"ינואר",
+			"February":"פברואר",
+			"March":"מרץ",
+			"April":"אפריל",
+			"May":"מאי",
+			"June":"יוני",
+			"July":"יולי",
+			"August":"אוגוסט",
+			"September":"ספטמבר",
+			"October":"אוקטובר",
+			"November":"נובמבר",
+			"December":"דצמבר"},
+		"Objectives":"הכשרות והסמכות",
+		"Degrees":"יעדים ומטרות"
+	},
+  	"Menu":{
+    	"Home":"בית",
+    	"Coachers":"מאמנים",
+    	"Articles":"מאמרים",
+    	"AboutUs":"קצת עלינו",
+    	"ContactUs":"צור קשר"
+  	},
+  	"User":{
+    	"Detailed":"פרטים",
+    	"Images":"תמונות",
+    	"Video":"וידאו",
+    	"Article":"מאמרים",
+    	"BeforeAnd":"לפני ואחרי",
+    	"Details":{
+      	"Name":"שם מלא",
+      	"First_Name":"שם פרטי",
+      	"Last_Name":"שם משפחה",
+      	"Birth_Day":"תאריך לידה",
+      	"Age":"גיל",
+      	"About":"קצת על עצמי",
+	  	"Address":"מקום מגורים",
+	    "Gender":"מין",
+	    "Coach_Location":"מאמן באזור",
+	    "Objectives":"הכשרות והסמכות",
+	    "Contact":"צור קשר"
+    	}
+	},
+  	"Coach":{
+    	"Gender":{
+      		"Female":"נקבה",
+      		"Male":"זכר"
+    	}
+  	}
 }

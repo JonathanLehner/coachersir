@@ -10,7 +10,7 @@ angular.module('myApp.controllers')
 			uiColor: '#9AB8F3'
 		});
 		
-		CKEDITOR.instances.articleEditor.setData('Ronny!');
+		CKEDITOR.instances.articleEditor.setData('הכנס תוכן כאן.');
 		
 		$scope.saveButtonClicked = function() {
 			
@@ -18,7 +18,10 @@ angular.module('myApp.controllers')
 			
 			alert(data);
 		};
-
+		
+		$scope.deleteButtonClicked = function() {
+			articleService.update({id: 7});
+		};
 
         init();
 
