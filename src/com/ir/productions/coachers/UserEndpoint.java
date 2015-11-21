@@ -12,6 +12,7 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiAuth;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.response.NotFoundException;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
 
@@ -43,58 +44,69 @@ public class UserEndpoint extends Endpoint
 		return authUser;
 	}
 
+	@ApiMethod(path = "logout", httpMethod = "post")
 	public void logout(HttpServletRequest req)
 	{
 		req.getSession().setAttribute(SESSION_USER_ID_ATTRIBUTE, null);
 	}
 
-	@ApiMethod(path = "listCoachers", httpMethod = "GET")
+	@ApiMethod(path = "listCoachers", httpMethod = "get")
 	public List<User> listCoachers()
 	{
 		return userDAO.findByType(User.TYPE_COACH);
 	}
 
-	@ApiMethod(path = "listTrained", httpMethod = "GET")
+	@ApiMethod(path = "listTrained", httpMethod = "get")
 	public List<User> listTrained()
 	{
 		return userDAO.findByType(User.TYPE_TRAINED);
 	}
 
-	@ApiMethod(path = "insertCoach")
+	@ApiMethod(path = "insertCoach", httpMethod = "post")
 	public User insertCoach(User user)
 	{
 		user.setType(user.TYPE_COACH);
 		return userDAO.insert(user);
 	}
 
-	@ApiMethod(path = "insertTrained")
+	@ApiMethod(path = "insertTrained", httpMethod = "post")
 	public User insertTrained(User user)
 	{
 		user.setType(user.TYPE_TRAINED);
 		return userDAO.insert(user);
 	}
 
-	@ApiMethod(path = "list")
+	@ApiMethod(path = "list", httpMethod = "get")
 	public List<User> list()
 	{
 		return userDAO.findAll();
 	}
 
-	@ApiMethod(path = "get")
+	@ApiMethod(path = "get", httpMethod = "get")
 	public User get(@Named("id") Long id)
 	{
 		return userDAO.findById(id);
 	}
 
-	@ApiMethod(path = "update")
-	public User update(User user)
+	@ApiMethod(path = "update", httpMethod = "post")
+	public User update(User user) throws NotFoundException
 	{
-		return userDAO.update(user);
+		if (user.getId() != null)
+		{
+			return userDAO.update(user);
+		}
+		throw new NotFoundException("User sent to update not found.");
 	}
 
-	@ApiMethod(path = "remove")
-	public void remove(@Named("id") Long id)
+	@ApiMethod(path = "remove", httpMethod = "post")
+	public void remove(@Named("id") Long id) throws NotFoundException
 	{
-		userDAO.delete(id);
+		if (id != null)
+		{
+			userDAO.delete(id);
+		} else
+		{
+			throw new NotFoundException("User sent to remove not found.");
+		}
 	}
 }

@@ -6,7 +6,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.api.server.spi.config.AnnotationBoolean;
 import com.google.api.server.spi.config.Api;
+import com.google.api.server.spi.config.ApiAuth;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.NotFoundException;
@@ -14,7 +16,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
 
-@Api(name = "contentEndpoint", namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers.entities"))
+@Api(name = "contentEndpoint", auth = @ApiAuth(allowCookieAuth = AnnotationBoolean.TRUE), namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers.entities"))
 public class ContentEndpoint extends Endpoint
 {
 

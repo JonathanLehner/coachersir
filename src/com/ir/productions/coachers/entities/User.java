@@ -13,8 +13,8 @@ import javax.persistence.Id;
 @Entity
 public class User implements Serializable
 {
-	public static Integer TYPE_COACH = 1;
-	public static Integer TYPE_TRAINED = 2;
+	public static final Integer TYPE_COACH = 1;
+	public static final Integer TYPE_TRAINED = 2;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,8 +40,6 @@ public class User implements Serializable
 	private Long location_id;
 
 	private Long price_per_hour;
-
-	private String img_link;
 
 	private List<Integer> objectives;
 
@@ -160,16 +158,6 @@ public class User implements Serializable
 	public void setObjectives(List<Integer> objectives)
 	{
 		this.objectives = objectives;
-	}
-
-	public String getImg_link()
-	{
-		return img_link;
-	}
-
-	public void setImg_link(String img_link)
-	{
-		this.img_link = img_link;
 	}
 
 	public String getDescription()
