@@ -7,11 +7,10 @@
     </div>
 
         <div class="coachProperties" >
-            {{locations}}
             <ul>
-                <li ng-repeat="coach in coachers" ng-click="coachersClicked()">
+                <li ng-repeat="coach in coachers" ng-click="coachersClicked(coach)">
                     <div class="coacherShadow"><a href style="background-color: inherit; width: auto; padding: 0px">
-                        <img src={{coach.mainPhoto}} class="coachImg">
+                        <img src={{coach.content}} class="coachImg">
                     </a>
                         <div>
                             <span ng-value="getGender(coach.gender)">{{coach.name}}</span>

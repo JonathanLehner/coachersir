@@ -85,7 +85,7 @@ angular.module('myApp')
         .state('modal', {
             parent: 'main.coach',
             abstract:true,
-            url: '/coach/id',
+            url: '/coach/:id',
             onEnter: ['$modal', '$state', function($modal, $state) {
                 console.log('Open modal');
                 $modal.open({
