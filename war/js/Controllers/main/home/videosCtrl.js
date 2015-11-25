@@ -1,11 +1,12 @@
 angular.module('myApp.controllers.main')
-    .controller('homeCtrl',['$scope',function($scope)
+    .controller('homeCtrl',['$scope','articleService',function($scope, videoService)
     {
         $scope.isHome.flag = true;
 
-        $scope.allVideos = [];
+        $scope.videos = undefined;
+        
+        videoService.getAll().then(function(data){
+            $scope.videos = data.items;
+		});
     }
-
-
-
 ]);
