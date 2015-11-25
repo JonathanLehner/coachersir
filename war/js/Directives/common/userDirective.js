@@ -1,6 +1,3 @@
-/**
- * Created by itay on 8/28/2015.
- */
 angular.module('myApp.directives').directive('userDirective', function(current) {
     return {
         restrict: 'A',

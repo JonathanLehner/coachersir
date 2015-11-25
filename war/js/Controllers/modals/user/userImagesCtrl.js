@@ -9,7 +9,6 @@ angular.module('myApp.controllers')
     	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
     	                 {image:"../photos/coachers/ADI/ADI2.jpg"}];
 
-
         $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
         $scope.filename = '';
 
