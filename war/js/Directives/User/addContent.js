@@ -1,8 +1,3 @@
-/**
- * Created by itay on 11/23/2015.
- */
-/* Created by itay on 8/28/2015.
-*/
 angular.module('myApp.directives').directive('addContent', function() {
     return {
         restrict: 'E',

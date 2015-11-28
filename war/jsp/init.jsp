@@ -3,6 +3,7 @@
 <%@page import="com.ir.productions.coachers.daos.UserDAO"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.ir.productions.coachers.entities.User"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head><title>Init JSP</title></head>
 <body>

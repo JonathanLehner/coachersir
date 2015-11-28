@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('homeCtrl',['$scope','articleService',function($scope, videoService)
+    .controller('homeCtrl',['$scope','videoService',function($scope, videoService)
     {
         $scope.isHome.flag = true;
 
