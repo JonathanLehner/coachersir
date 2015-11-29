@@ -1,25 +1,22 @@
 <div ng-controller="homeCtrl">
-	<div class="homeProperties" >
-	    <ul>
-	    	<li ng-repeat="vid in videos" class="homeli">
-	            <div class="coacherShadow">
-	                
-	                <div class = "homeTitle">
-	                    {{vid.headline}}
-	                </div>
-	                
-	                <div class="check">
-		                <div  class="explainText">
-		                    <p>{{vid.description}}</p>
-	                    </div>
-	                </div>
- 	            	
- 	            	<!-- <video class="homeVid" src={{vid.content}} controls></video> -->
-					<iframe src={{vid.content}} 
-							width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen>
-					</iframe>
-            	</div>
-	        </li>
-	    </ul>
+	<div class="homeProperties">
+		<ul>
+			<li ng-repeat="vid in videos" class="homeli">
+				<div class="coacherShadow">
+
+					<div class="homeTitle">{{vid.headline}}</div>
+
+					<div class="check">
+						<div class="explainText">
+							<p>{{vid.description}}</p>
+						</div>
+					</div>
+
+					<!-- <video class="homeVid" src={{vid.content}} controls></video> -->
+					<iframe src={{vid.content}} width="480" height="270"
+						frameborder="0" scrolling="auto" allowfullscreen> </iframe>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>

@@ -3,11 +3,7 @@ angular.module('myApp.controllers.main')
     	
     	$scope.articles = undefined;
     	
-    	var init = function(){
-    		articleService.getAll().then(function(data){
-                $scope.articles = data.items;
-    		});
-    	};
-    	
-    	init();
+		articleService.getAll().then(function(data){
+            $scope.articles = data.items;
+		});
 }]);

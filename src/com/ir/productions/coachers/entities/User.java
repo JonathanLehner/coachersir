@@ -35,6 +35,8 @@ public class User implements Serializable
 	@Index
 	private String password;
 
+	private String gender;
+
 	private Date birth_date;
 
 	private Long location_id;
@@ -103,6 +105,16 @@ public class User implements Serializable
 	public void setPassword(String password)
 	{
 		this.password = password;
+	}
+
+	public String getGender()
+	{
+		return gender;
+	}
+
+	public void setGender(String gender)
+	{
+		this.gender = gender;
 	}
 
 	public Date getBirth_date()

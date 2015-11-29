@@ -1,6 +1,3 @@
-/**
- * Created by itay on 9/27/2015.
- */
 angular.module('myApp.filters')
     .filter('daysTrans',['$translate',function($translate){
          return function(input){
@@ -34,4 +31,21 @@ angular.module('myApp.filters')
             else return input;
         }
 
-    }]);
+    }])
+    .filter('ageFilter', [function() {
+	     
+    	function calculateAge(birthday) { // birthday is a date
+    		
+    		var dateParse = Date.parse(birthday);
+    		var ageDifMs = Date.now() - dateParse;
+    		var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	        return Math.abs(ageDate.getUTCFullYear() - 1970);
+	     }
+	
+	     return function(birthdate) { 
+	           return calculateAge(birthdate);
+	     };
+     }]);
+    
+    
+    
