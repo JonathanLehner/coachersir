@@ -15,7 +15,7 @@ angular.module('myApp.controllers.main')
             }
          };
 
-        $scope.coachersClicked = function(){
+        $scope.coacherClicked = function(){
             $state.go('details');
         };
 

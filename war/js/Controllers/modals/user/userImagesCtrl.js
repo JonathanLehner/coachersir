@@ -1,15 +1,18 @@
 angular.module('myApp.controllers')
-    .controller('userImagesCtrl',['$scope','staticDataService',function($scope,staticDataService) {
+    .controller('userImagesCtrl',['$scope','imageService',function($scope,imageService) {
     	
     	var user = $scope.$parent.user;
     	
-    	$scope.slides = [{image:"../photos/coachers/ADI/ADI3.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"}];
+//    	$scope.slides = [{image:"../photos/coachers/ADI/ADI3.jpg"},
+//    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
+//    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
+//    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
+//    	                 {image:"../photos/coachers/ADI/ADI2.jpg"}];
 
-        $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
+    	imageService.getByUser(user.id).then(function(data){
+            $scope.slides = data.items;
+		});
+    	
         $scope.filename = '';
 
         $scope.uploadFile = function() {
