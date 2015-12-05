@@ -1,11 +1,8 @@
 angular.module('myApp.controllers.main')
     .controller('coachersCtrl',['$scope','$state','$translate','userService',function($scope,$state,$translate,userService)
     {
-        $scope.gender = "undefined";
 
-        userService.getCoachers().then(function(data){
-        	$scope.coachers = data.items;
-		});
+        $scope.gender = "undefined";
         
         $scope.getGender = function( gender ){
             if(gender === 'F'){
@@ -15,13 +12,17 @@ angular.module('myApp.controllers.main')
             }
          };
 
-        $scope.coachersClicked = function(){
-            $state.go('details');
+        $scope.coachersClicked = function(coach){
+            $state.go('details',{ id: coach.id});
         };
 
         $scope.isHome.flag = false;
 
         var init = function(){
+            userService.getAll().
+                                then(function(data){
+                                 $scope.coachers =  data.items
+                                });
         };
 
         init();

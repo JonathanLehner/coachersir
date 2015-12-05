@@ -1,13 +1,7 @@
 angular.module('myApp.controllers')
-    .controller('userImagesCtrl',['$scope','staticDataService',function($scope,staticDataService) {
-    	
-    	var user = $scope.$parent.user;
-    	
-    	$scope.slides = [{image:"../photos/coachers/ADI/ADI3.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"},
-    	                 {image:"../photos/coachers/ADI/ADI2.jpg"}];
+    .controller('userImagesCtrl',['$scope','staticDataService','$stateParams','imageService',function($scope,staticDataService,$stateParams,imageService) {
+
+        $scope.id = $stateParams.id;
 
         $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
         $scope.filename = '';
@@ -19,6 +13,16 @@ angular.module('myApp.controllers')
         $scope.reset = function() {
             $scope.resetDropzone();
         };
+
+        var init = function(){
+            imageService.getById($scope.id).then(
+                function(data){
+                    $scope.slides = data.items;
+                }
+            )
+        };
+
+        init();
 
     }]);
 

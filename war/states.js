@@ -86,17 +86,24 @@ angular.module('myApp')
             parent: 'main.coach',
             abstract:true,
             url: '/coach/:id',
-            onEnter: ['$modal', '$state', function($modal, $state) {
-                console.log('Open modal');
-                $modal.open({
-                    windowClass: 'right fade',
-                    templateUrl:'/app/modals/user/user.html',
-                    keyboard: true,
-                    controller:'userCtrl',
-                    backdrop:'static'
-                    }).result.finally(function() {
+            onEnter: ['$modal', '$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
+                userService.getById($stateParams.id).then(function(data){
+                    if(data.id == null || data.id === undefined){
+                        alert('You\'ve selected the alert tab!');
                         $state.go('main.coach');
-                    });
+                    }else{
+                        $modal.open({
+                            windowClass: 'right fade',
+                            templateUrl:'/app/modals/user/user.html',
+                            keyboard: true,
+                            controller:'userCtrl',
+                            backdrop:'static'
+                        }).result.finally(function() {
+                                $state.go('main.coach');
+                            });
+                    }
+                });
+
             }]
         })
         .state('details',{

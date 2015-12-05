@@ -1,11 +1,12 @@
 angular.module('myApp.controllers.main')
-    .controller('userCtrl',['$scope','$translate','$timeout','userService','staticDataService',function($scope,$translate,$timeout,userService,staticDataService){
+    .controller('userCtrl',['$scope','$state','$translate','$timeout','userService','staticDataService','$stateParams',function($scope,$state,$translate,$timeout,userService,staticDataService,$stateParams){
 
-        $scope.user = undefined;
+        var id = $stateParams.id;
 
         var init = function(){
-            userService.getUser(5).then(function(data){
-                 $scope.user = data;
+            userService.getById(id).
+                then(function(data){
+                    $scope.coach = data;
             })
         };
 
