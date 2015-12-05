@@ -1,13 +1,14 @@
 angular.module('myApp.controllers')
     .controller('addVideoCtrl',['$scope','videoService',function($scope, videoService){
 
-    	//$scope.uploadClicked = function(){ 
-    	
 		var filename;
     	// Have the server perform an API call to create the video.
     	// This can not be done beforehand, because it depends on whether
     	// resumable uploads are supported.
     	var data = {};
+    	
+    	$scope.isUploading = false;
+    	
     	if(BotrUpload.resumeSupported()) {
     		data['resumable'] = 'resumable';
     	}
@@ -15,20 +16,21 @@ angular.module('myApp.controllers')
 		$.get("http://localhost:8080/create.php", data, function(data) {
 			
 			//Attach a BotrUpload instance to the form.
-			var uploadBotr = new BotrUpload(data.link, data.session_id, {
-				"url": "http://localhost:8080/show.php",// todo: change to my redirect
-				params: {
-					"video_key": data.media.key,
-					"data": data
-				}
-			});
+			var uploadBotr = new BotrUpload(data.link, data.session_id
+				/*,{
+					"url": "http://localhost:8080/show.php",// todo: change to my redirect
+					params: {
+						"video_key": data.media.key//,
+					}
+				}*/
+			);
 
 			uploadBotr.useForm($("#uploadFile").get(0));
 			$("#addVideoDiv").append(uploadBotr.getIframe());
 			uploadBotr.pollInterval = 1000;
 	
 			// 	Create a pause button if resume is available
-			var pauseButton;
+			/*var pauseButton;
 			if(BotrUpload.resumeSupported()) {
 				pauseButton = $('<button disabled>').text('Pause');
 				pauseButton.toggle(function() {
@@ -42,7 +44,7 @@ angular.module('myApp.controllers')
 					return false;
 				});
 				$('#uploadButton').after(pauseButton);
-			}
+			}*/
 	
 			//When the upload starts, we hide the input, show the progress and disable the button.
 			uploadBotr.onStart = function() {
@@ -63,6 +65,5 @@ angular.module('myApp.controllers')
 				$("#uploadText").html('Uploading ' + filename + ' (' + pct + '%) ...');
 			};
 		}, 'json');
-    	//};
 
     }]);
