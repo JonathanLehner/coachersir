@@ -3,10 +3,10 @@
     </div>
 	<div class="coachProperties" >
 	    <ul>
-	        <li ng-repeat="coach in coachers" ng-click="coacherClicked()">
+	        <li ng-repeat="coach in coachers" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
-	                	<!-- <img src={{coach.main_img}} class="coachImg"> -->
+	                	 <img src={{coach.main_img}} class="coachImg">
                 		{{coach.first_name}}
 	            	</a>
 	                <div>
