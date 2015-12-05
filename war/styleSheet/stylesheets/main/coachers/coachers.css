@@ -1,0 +1,40 @@
+/* line 3, ../../../sass/main/coachers/coachers.scss */
+.coachProperties {
+  position: absolute;
+  right: 10%;
+}
+
+/* line 8, ../../../sass/main/coachers/coachers.scss */
+.coacherShadow {
+  margin: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+/* line 15, ../../../sass/main/coachers/coachers.scss */
+.coachProperties li:hover {
+  -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  /* background: #fff;*/
+}
+
+/* line 23, ../../../sass/main/coachers/coachers.scss */
+.coachProperties ul {
+  display: inline-block;
+}
+
+/* line 27, ../../../sass/main/coachers/coachers.scss */
+.coachProperties li {
+  display: inline-block;
+  border: 1px solid transparent;
+  margin: 0 auto 0 20px;
+}
+
+/* line 35, ../../../sass/main/coachers/coachers.scss */
+.coachImg {
+  height: 163px;
+  width: 235px;
+  border: 1px solid black;
+}
