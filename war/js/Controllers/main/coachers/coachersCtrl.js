@@ -12,7 +12,7 @@ angular.module('myApp.controllers.main')
             }
          };
 
-        $scope.coachersClicked = function(coach){
+        $scope.coacherClicked = function(coach){
             $state.go('details',{ id: coach.id});
         };
 

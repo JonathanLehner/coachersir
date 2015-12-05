@@ -2,6 +2,7 @@
 	"General":{
 		"Save": "שמור",
 		"Delete": "מחק",
+		"Add": "הוסף",
 		"Edit": "ערוך",
 		"Headline": "כותרת",
 		"Description": "תיאור",
@@ -72,17 +73,17 @@
     	"Article":"מאמרים",
     	"BeforeAnd":"לפני ואחרי",
     	"Details":{
-      	"Name":"שם מלא",
-      	"First_Name":"שם פרטי",
-      	"Last_Name":"שם משפחה",
-      	"Birth_Day":"תאריך לידה",
-      	"Age":"גיל",
-      	"About":"קצת על עצמי",
-	  	"Address":"מקום מגורים",
-	    "Gender":"מין",
-	    "Coach_Location":"מאמן באזור",
-	    "Objectives":"הכשרות והסמכות",
-	    "Contact":"צור קשר"
+	      	"Name":"שם מלא",
+	      	"First_Name":"שם פרטי",
+	      	"Last_Name":"שם משפחה",
+	      	"Birth_Day":"תאריך לידה",
+	      	"Age":"גיל",
+	      	"About":"קצת על עצמי",
+		  	"Address":"מקום מגורים",
+		    "Gender":"מין",
+		    "Coach_Location":"מאמן באזור",
+		    "Objectives":"הכשרות והסמכות",
+		    "Contact":"צור קשר"
     	}
 	},
   	"Coach":{

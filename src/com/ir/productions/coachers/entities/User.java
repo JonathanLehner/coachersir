@@ -39,6 +39,8 @@ public class User implements Serializable
 
 	private Date birth_date;
 
+	private String main_img;
+
 	private Long location_id;
 
 	private Long price_per_hour;
@@ -125,6 +127,16 @@ public class User implements Serializable
 	public void setBirth_date(Date birth_date)
 	{
 		this.birth_date = birth_date;
+	}
+
+	public String getMain_img()
+	{
+		return main_img;
+	}
+
+	public void setMain_img(String main_img)
+	{
+		this.main_img = main_img;
 	}
 
 	public Long getLocation_id()

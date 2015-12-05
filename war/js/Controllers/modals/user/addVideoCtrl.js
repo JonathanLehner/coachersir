@@ -15,6 +15,8 @@ angular.module('myApp.controllers')
     	
 		$.get("http://localhost:8080/create.php", data, function(data) {
 			
+			$scope.data = data;
+			
 			//Attach a BotrUpload instance to the form.
 			var uploadBotr = new BotrUpload(data.link, data.session_id
 				/*,{
@@ -48,13 +50,16 @@ angular.module('myApp.controllers')
 	
 			//When the upload starts, we hide the input, show the progress and disable the button.
 			uploadBotr.onStart = function() {
+				
+				$scope.isUploading = true;
+				
 				filename = $("#uploadFile").val().split(/[\/\\]/).pop();
-				$("#uploadFile").css('display','none');
+				/*$("#uploadFile").css('display','none');
 				$("#uploadBar").css('display','block');
 				$("#uploadButton").attr('disabled','disabled');
 				if(pauseButton) {
 					pauseButton.removeAttr('disabled');
-				}
+				}*/
 			};
 	
 			//During upload, we update both the progress div and the text below it.
@@ -64,6 +69,21 @@ angular.module('myApp.controllers')
 				$("#uploadProgress").animate({'width': pct + '%'}, 400);
 				$("#uploadText").html('Uploading ' + filename + ' (' + pct + '%) ...');
 			};
+			
+			uploadBotr.onError = function(msg) {
+			    this._log(msg);
+			    $scope.isUploading = false;
+			};
+			
+			uploadBotr.onCompleted = function(size, redirect) {
+			    this._log("Finished uploading " + size + " bytes.");
+			    $scope.isUploading = false;
+			    
+			    if(redirect) {
+			      this._log("Redirecting to " + redirect + ".");
+			      document.location.href = redirect;
+			    }
+		    };
 		}, 'json');
 
     }]);

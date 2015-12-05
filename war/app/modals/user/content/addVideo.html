@@ -3,12 +3,13 @@
 	<form id="uploadForm" action="" method="POST" enctype="multipart/form-data">
 		<fieldset>
 			<label>Select video</label>
-			<input id="uploadFile" type="file" name="file" accept="video/*"/>
-			<div id="uploadBar" style="width:480px; float:left; display:none;">
-	        	<div id="uploadProgress" style="background:#46800d; width:0px; height:18px;"></div>
+			<br>
+			<input id="uploadFile" ng-show="!isUploading" type="file" name="file" accept="video/*"/>
+			<small id="uploadText" ng-show="!isUploading">You can upload any video format (WMV, AVI, MP4, MOV, FLV, ...)</small>
+			<div id="uploadBar" ng-show="isUploading" style="width:480px; float:left;">
+	        	<div id="uploadProgress" ng-show="isUploading" style="background:#46800d; width:0px; height:18px;"></div>
         	</div>
-			<small id="uploadText">You can upload any video format (WMV, AVI, MP4, MOV, FLV, ...)</small>
-			<button id="uploadButton" type="submit">Upload</button>
+			<button id="uploadButton" ng-disabled="isUploading" type="submit">Upload</button>
 			<!-- ng-click="uploadClicked()" -->
 		</fieldset>
 	</form>

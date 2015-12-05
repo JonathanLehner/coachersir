@@ -3,14 +3,14 @@ angular.module('myApp.controllers.main')
 
         var id = $stateParams.id;
   
-        userService.getById(5629499534213120).then(function(data){
-             $scope.user = data;
-        });
+//        userService.getById(5629499534213120).then(function(data){
+//             $scope.user = data;
+//        });
 
         var init = function(){
             userService.getById(id).
                 then(function(data){
-                    $scope.coach = data;
+                    $scope.user = data;
             })
         };
 
