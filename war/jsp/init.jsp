@@ -42,7 +42,7 @@
   	content=new Content();
   	content.setUser_id(user.getId());
   	content.setType(Content.TYPE_VIDEO);
-  	content.setContent("http://content.jwplatform.com/players/46mj2U8q-QnH5TMJ1.html");
+  	content.setContent("http://content.jwplatform.com/videos/RXbG0VZh-zBiwxusV.mp4");
   	content.setDescription("וידיאו של אימון");
   	content.setHeadline("כותרת הוידיאו");
   	contentDAO.insert(content);
@@ -78,7 +78,7 @@
   	content=new Content();
   	content.setUser_id(user.getId());
   	content.setType(Content.TYPE_VIDEO);
-  	content.setContent("//content.jwplatform.com/players/RXbG0VZh-QnH5TMJ1.html");
+  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
   	content.setDescription("וידיאו של אימון");
   	content.setHeadline("כותרת הוידיאו");
   	contentDAO.insert(content);

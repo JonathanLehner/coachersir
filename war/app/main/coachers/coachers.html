@@ -1,27 +1,22 @@
 <div ng-controller="coachersCtrl" >
-    <div></div>
-    <div>
-	</div>
-
     <div class="section1"  class="ui" ui-view="">
     </div>
-
-        <div class="coachProperties" >
-            <ul>
-                <li ng-repeat="coach in coachers" ng-click="coachersClicked(coach)">
-                    <div class="coacherShadow"><a href style="background-color: inherit; width: auto; padding: 0px">
-                        <img src={{coach.content}} class="coachImg">
-                    </a>
-                        <div>
-                            <span ng-value="getGender(coach.gender)">{{coach.name}}</span>
-                        </div>
-                        <div >
-                            <span >{{gender}} {{coach.age}} </span>
-                        </div >
-                    </div>
-                </li>
-            </ul>
-        </div>
-
+	<div class="coachProperties" >
+	    <ul>
+	        <li ng-repeat="coach in coachers" ng-click="coacherClicked()">
+	            <div class="coacherShadow">
+	            	<a href style="background-color: inherit; width: auto; padding: 0px">
+	                	<!-- <img src={{coach.main_img}} class="coachImg"> -->
+                		{{coach.first_name}}
+	            	</a>
+	                <div>
+	                    <span ng-value="getGender(coach.gender)">{{coach.first_name}}</span>
+	                </div>
+	                <div >
+	                    <span >{{gender}} {{coach.birth_date | ageFilter}} </span>
+	                </div >
+	            </div>
+	        </li>
+	    </ul>
+    </div>
 </div>
-<div id="coachers1"></div>

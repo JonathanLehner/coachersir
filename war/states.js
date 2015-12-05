@@ -124,6 +124,15 @@ angular.module('myApp')
                     templateUrl: 'app/modals/user/view/userImages.html'}
             }
         })
+        .state('videos',{
+            url:'/videos',
+            parent:'modal',
+            controller: 'userVideosCtrl',
+            views:{
+                'userView@':{
+                    templateUrl: 'app/modals/user/view/userVideos.html'}
+            }
+        })
         .state('articles',{
         	url:'/articles',
         	parent:'modal',
@@ -140,6 +149,15 @@ angular.module('myApp')
         	views:{
                 'userView@':{
                     templateUrl: 'app/modals/user/addArticle.html'}
+            }
+        })
+        .state('addVideo',{
+        	url:'/addVideo',
+        	parent:'modal',
+        	controller: 'addVideoCtrl',
+        	views:{
+                'userView@':{
+                    templateUrl: 'app/modals/user/content/addVideo.html'}
             }
         })
 });
