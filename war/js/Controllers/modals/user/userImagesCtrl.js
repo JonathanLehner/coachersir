@@ -1,6 +1,8 @@
 angular.module('myApp.controllers')
     .controller('userImagesCtrl',['$scope','staticDataService','$stateParams','imageService',function($scope,staticDataService,$stateParams,imageService) {
 
+    	var user = $scope.$parent.user;
+    	
         $scope.id = $stateParams.id;
 
         $scope.partialDownloadLink = 'http://localhost:8080/download?filename=';
@@ -15,7 +17,7 @@ angular.module('myApp.controllers')
         };
 
         var init = function(){
-            imageService.getById($scope.id).then(
+            imageService.getByUser(user.id).then(
                 function(data){
                     $scope.slides = data.items;
                 }

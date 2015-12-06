@@ -1,0 +1,14 @@
+<div ng-controller="userVideosCtrl" >
+
+	<h1>All videos for user {{user.id}}</h1>
+    <ul>
+    	<li ng-repeat="vid in videos">
+			
+           	headline: {{vid.headline}}
+           	content: {{vid.content}}
+           	
+        </li>
+    </ul>
+
+    <add-content url="Video"></add-content>
+</div>

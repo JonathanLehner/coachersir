@@ -7,6 +7,8 @@ angular.module('myApp.controllers')
     	// resumable uploads are supported.
     	var data = {};
     	
+    	var user = $scope.$parent.user;
+    	
     	$scope.isUploading = false;
     	
     	if(BotrUpload.resumeSupported()) {

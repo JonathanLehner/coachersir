@@ -17,6 +17,7 @@
   	user.setFirst_name("רוני");
   	user.setLast_name("רוקטל");
   	user.setDescription("אני פה לאמן את כולם");
+  	user.setMain_img("https://farm1.staticflickr.com/698/22205354574_0ac0a10dd0_b.jpg");
   	user.setEmail("ronny.roktel@gmail.com");
   	user.setPassword("123");
   	user.setPhone("050-46");
@@ -53,6 +54,7 @@
   	user.setFirst_name("איתי");
   	user.setLast_name("סימנטוב");
   	user.setDescription("מאמן כדורסל");
+  	user.setMain_img("https://farm1.staticflickr.com/748/23018719521_12616a5d99_b.jpg");
   	user.setEmail("sitay123@gmail.com");
   	user.setPassword("123");
   	user.setPhone("050");

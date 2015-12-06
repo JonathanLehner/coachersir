@@ -1,19 +1,18 @@
 <div class="container userModal" ng-controller="userCtrl">
-    <h2>Dynamic Tabs</h2>
+    <h2>User Tabs</h2>
 
     <div>
         <button type="submit" class="btn btn btn-primary submit" ng-click="saveUser()">
-            {{'User.Save' | translate}}
+            {{'General.Save' | translate}}
         </button>
     </div>
 
     <ul class="nav nav-tabs">
         <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
         <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'User.Images' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#addVideo" ui-sref="addVideo" >{{'User.Video' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'User.Article' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#addArticle" ui-sref="addArticle" >add article</a></li>
-        </ul>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#videos" ui-sref="videos" >{{'User.Videos' | translate}}</a></li>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'User.Articles' | translate}}</a></li>
+	</ul>
 
     <div class="section1"  class="ui" ui-view="userView">
     </div>

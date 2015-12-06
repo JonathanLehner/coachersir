@@ -148,7 +148,7 @@ angular.module('myApp')
         	controller: 'addArticleCtrl',
         	views:{
                 'userView@':{
-                    templateUrl: 'app/modals/user/addArticle.html'}
+                    templateUrl: 'app/modals/user/content/addArticle.html'}
             }
         })
         .state('addVideo',{

@@ -1,6 +1,8 @@
 angular.module('myApp.controllers')
     .controller('addArticleCtrl',['$scope','articleService',function($scope, articleService){
 
+    	var user = $scope.$parent.user;
+    	
 		CKEDITOR.replace( 'articleEditor', {
 			language: 'he',
 			uiColor: '#9AB8F3'
@@ -15,8 +17,8 @@ angular.module('myApp.controllers')
 			alert(data);
 		};
 		
-		$scope.deleteButtonClicked = function() {
-			articleService.update({id: 7});
+		$scope.deleteButtonClicked = function(article) {
+			articleService.remove(article.id)
 		};
 
     }]);
