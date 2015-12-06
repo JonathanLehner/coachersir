@@ -8,15 +8,12 @@
     </div>
 
     <ul class="nav nav-tabs">
-        <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab"  ui-sref="images" >{{'User.Images' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab"  ui-sref="articles" >user articles</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab"  ui-sref="addArticle" >add article</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab"  ui-sref="addVideo" >add video</a></li>
-        <li class="userLi"><a data-toggle="tab" >{{'User.Video' | translate}}</a></li>
-        <li class="userLi"><a data-toggle="tab" >{{'User.Article' | translate}}</a></li>
-        <li class="userLi"><a data-toggle="tab" >{{'User.BeforeAnd' | translate}}</a></li>
-    </ul>
+        <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'User.Images' | translate}}</a></li>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#addVideo" ui-sref="addVideo" >{{'User.Video' | translate}}</a></li>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'User.Article' | translate}}</a></li>
+        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#addArticle" ui-sref="addArticle" >add article</a></li>
+        </ul>
 
     <div class="section1"  class="ui" ui-view="userView">
     </div>
