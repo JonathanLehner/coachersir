@@ -13,16 +13,6 @@ angular.module('myApp')
             controller: 'mainCtrl',
             templateUrl: 'app/main/main.html'
         })
-        .state('main.coach',{
-            url:'coachers',
-            parent:'main',
-            controller: 'coachersCtrl',
-            views:{
-                app:{
-                	templateUrl: 'app/main/coachers/coachers.html'
-        		}
-            }
-        })
         .state('main.home',{
             url:'home',
             parent:'main',
@@ -32,6 +22,16 @@ angular.module('myApp')
                     /*templateUrl:'app/'*/
                     templateUrl: 'app/main/home/videos.html'
             	}
+            }
+        })
+        .state('main.coach',{
+            url:'coachers',
+            parent:'main',
+            controller: 'coachersCtrl',
+            views:{
+                app:{
+                	templateUrl: 'app/main/coachers/coachers.html'
+        		}
             }
         })
         .state('main.login',{
@@ -86,7 +86,7 @@ angular.module('myApp')
             parent: 'main.coach',
             abstract:true,
             url: '/coach/:id',
-            onEnter: ['$modal', '$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
+            onEnter: ['$modal','$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
                 userService.getById($stateParams.id).then(function(data){
                     if(data.id == null || data.id === undefined){
                         alert('You\'ve selected the alert tab!');
@@ -100,7 +100,7 @@ angular.module('myApp')
                             backdrop:'static'
                         }).result.finally(function() {
                                 $state.go('main.coach');
-                            });
+                        });
                     }
                 });
 
