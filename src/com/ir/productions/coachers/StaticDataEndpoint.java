@@ -3,31 +3,41 @@ package com.ir.productions.coachers;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-import com.ir.productions.coachers.entities.Degrees;
+import com.ir.productions.coachers.daos.StaticDataDAO;
 import com.ir.productions.coachers.entities.Locations;
-import com.ir.productions.coachers.entities.Objectives;
+import com.ir.productions.coachers.entities.StaticData;
 
 @Api(name = "staticDataEndpoint", namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers"))
 public class StaticDataEndpoint extends Endpoint
 {
+	@Inject
+	StaticDataDAO staticDataDAO;
+
+	public StaticDataEndpoint()
+	{
+		staticDataDAO = new StaticDataDAO();
+	}
+
 	@ApiMethod(path = "allLocations")
 	public Map<Integer, List<String>> getAllLocations()
 	{
 		return Locations.getAllLocations();
 	}
 
-	@ApiMethod(path = "allObjectives")
-	public List<String> getAllObjectives()
+	@ApiMethod(path = "listObjectives")
+	public List<StaticData> listObjectives()
 	{
-		return Objectives.getAllObjectives();
+		return staticDataDAO.findByType(StaticData.TYPE_OBJECTIVE);
 	}
 
-	@ApiMethod(path = "allDegrees")
-	public List<String> getAllDegrees()
+	@ApiMethod(path = "listDegrees")
+	public List<StaticData> listDegrees()
 	{
-		return Degrees.getAllDegrees();
+		return staticDataDAO.findByType(StaticData.TYPE_DEGREE);
 	}
 }

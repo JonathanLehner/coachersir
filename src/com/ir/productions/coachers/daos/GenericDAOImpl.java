@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.ir.productions.coachers.EMF;
 
 public abstract class GenericDAOImpl<T, ID extends Serializable> implements
-		GenericDAO<T, ID>
+		GenericDAO<T, ID>, Serializable
 {
 	protected Class<T> entityClass;
 

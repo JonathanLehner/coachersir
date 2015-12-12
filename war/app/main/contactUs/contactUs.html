@@ -4,10 +4,12 @@
     <button class="close" data-dismiss="alert">x</button>
 	<strong>Error!</strong> An error occured while trying to send message.
 </div>
+
 <div class="alert alert-success" ng-show="success">
     <button class="close" data-dismiss="alert">x</button>
 	<strong>Success! </strong> Your message was successfully sent.
 </div>
+
 <form role="form" name="contactForm" id="contactForm" method="POST" action="//formspree.io/coachersir@gmail.com" >
     <div class="form-group" ng-class="{error: contactForm.name.$invalid}">
     <label>Full Name</label>

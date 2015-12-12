@@ -33,29 +33,14 @@ angular.module('myApp.controllers.main')
 			               '<div>Message: ' + $scope.user.body + '</div>' +
 			               '<div>Date: ' + (new Date()).toString() + '</div>';
 	
-    		/*$http({
-			    //url: 'https://api.postmarkapp.com/email',
-    			url: '//formspree.io/coachersir@gmail.com',
-			    method: 'POST',
-			    data: {
-			      'From': 'foo@foo.com',
-			      'To': 'bar@bar.com',
-			      'HtmlBody': htmlBody,
-			      'Subject': 'New Contact Form Submission'
-			    },
-			    headers: {
-			      'Accept': 'application/json',
-			      'Content-Type': 'application/json'
-			    }
-    		})
-    		.success(function (data) {
-    			$scope.success = true;
-    			$scope.user = {};
-    		})
-    		.error(function (data) {
-    			$scope.error = true;
-    		});
-    		});*/
     		$('#contactForm').submit();
     	};
+    	
+//    	var input = document.getElementById('searchTextField');
+//    	var options = {
+//    	  types: ['(cities)'],
+//    	  componentRestrictions: {country: 'il'}
+//    	};
+//
+//    	autocomplete = new google.maps.places.Autocomplete(input, options);
 }]);
