@@ -2,6 +2,7 @@
 	"General":{
 		"Save": "שמור",
 		"Delete": "מחק",
+		"Choose": "בחר",
 		"Add": "הוסף",
 		"Edit": "ערוך",
 		"Headline": "כותרת",
@@ -9,7 +10,10 @@
 		"Content": "תוכן",
 		"Articles": "מאמרים",
 		"Images": "תמונות",
-		"Videos": "סרטונים"
+		"Videos": "סרטונים",
+		"Article": "מאמר",
+		"Image": "תמונה",
+		"Video": "סרטון"
 	},
 	"Login":{
 	    "Email":"דוא''ל",
@@ -68,9 +72,6 @@
   	},
   	"User":{
     	"User_Details":"פרטים",
-    	"Images":"תמונות",
-    	"Videos":"סרטונים",
-    	"Articles":"מאמרים",
     	"BeforeAnd":"לפני ואחרי",
     	"Details":{
 	      	"Name":"שם מלא",

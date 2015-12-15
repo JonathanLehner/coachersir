@@ -2,15 +2,25 @@
 
 	<form id="uploadForm" action="" method="POST" enctype="multipart/form-data">
 		<fieldset>
-			<label>Select video</label>
+			<label>{{'General.Choose' | translate}} {{'General.Video' | translate}}</label>
 			<br>
 			<input id="uploadFile" ng-show="!isUploading" type="file" name="file" accept="video/*"/>
-			<small id="uploadText" ng-show="!isUploading">You can upload any video format (WMV, AVI, MP4, MOV, FLV, ...)</small>
+			
+			<label>{{'General.Headline' | translate}}
+				<input id="videoHeadline" ng-model="headline" ng-show="!isUploading" type="text"/>
+			</label>
+			
+			<label>{{'General.Description' | translate}}
+				<input id="videoDescription" ng-model="description" ng-show="!isUploading" type="text"/>
+			</label>
+			
+			
+			<!--  <small id="uploadText" ng-show="!isUploading">You can upload any video format (WMV, AVI, MP4, MOV, FLV, ...)</small>-->
 			<div id="uploadBar" ng-show="isUploading" style="width:480px; float:left;">
 	        	<div id="uploadProgress" ng-show="isUploading" style="background:#46800d; width:0px; height:18px;"></div>
         	</div>
 			<button id="uploadButton" ng-disabled="isUploading" type="submit">Upload</button>
-			<!-- ng-click="uploadClicked()" -->
+			
 		</fieldset>
 	</form>
 </div>

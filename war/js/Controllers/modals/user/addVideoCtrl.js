@@ -7,7 +7,7 @@ angular.module('myApp.controllers')
     	// resumable uploads are supported.
     	var data = {};
     	
-    	var user = $scope.$parent.user;
+    	$scope.user = $scope.$parent.user;
     	
     	$scope.isUploading = false;
     	
@@ -21,12 +21,13 @@ angular.module('myApp.controllers')
 			
 			//Attach a BotrUpload instance to the form.
 			var uploadBotr = new BotrUpload(data.link, data.session_id
-				/*,{
-					"url": "http://localhost:8080/show.php",// todo: change to my redirect
+				,{
+					//"url": "http://localhost:8080/show.php",// todo: change to my redirect
+					"url": window.location.href,
 					params: {
 						"video_key": data.media.key//,
 					}
-				}*/
+				}
 			);
 
 			uploadBotr.useForm($("#uploadFile").get(0));
@@ -66,6 +67,8 @@ angular.module('myApp.controllers')
 	
 			//During upload, we update both the progress div and the text below it.
 			uploadBotr.onProgress = function(bytes, total) {
+
+				//todo: find out why not coming here?!
 				//Round to one decimal
 				var pct = Math.floor(bytes * 1000 / total) / 10;
 				$("#uploadProgress").animate({'width': pct + '%'}, 400);
@@ -80,6 +83,15 @@ angular.module('myApp.controllers')
 			uploadBotr.onCompleted = function(size, redirect) {
 			    this._log("Finished uploading " + size + " bytes.");
 			    $scope.isUploading = false;
+			    
+			    var video={
+			    	"user_id": 5699868278390784,//$scope.user.id,
+			    	"headline": $scope.headline,
+			    	"description": $scope.description,
+			    	"content": 'http://content.jwplatform.com/videos/' + data.media.key + '-zBiwxusV.mp4' 
+			    };
+			    
+			    videoService.insert(video)
 			    
 			    if(redirect) {
 			      this._log("Redirecting to " + redirect + ".");

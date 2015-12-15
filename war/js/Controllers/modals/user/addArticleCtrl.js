@@ -11,10 +11,12 @@ angular.module('myApp.controllers')
 		CKEDITOR.instances.articleEditor.setData('הכנס תוכן כאן.');
 		
 		$scope.saveButtonClicked = function() {
+
+			var content = CKEDITOR.instances.articleEditor.getData();
 			
-			var data = CKEDITOR.instances.articleEditor.getData();
 			
-			alert(data);
+			
+			alert(content);
 		};
 		
 		$scope.deleteButtonClicked = function(article) {
