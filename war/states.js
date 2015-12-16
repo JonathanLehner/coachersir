@@ -16,11 +16,11 @@ angular.module('myApp')
         .state('main.home',{
             url:'home',
             parent:'main',
-            controller: 'videosCtrl',
+            controller: 'homeCtrl',
             views:{
                 app:{
                     /*templateUrl:'app/'*/
-                    templateUrl: 'app/main/home/videos.html'
+                    templateUrl: 'app/main/home/home.html'
             	}
             }
         })
