@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="com.ir.productions.coachers.daos.StaticDataDAO"%>
 <%@page import="com.ir.productions.coachers.daos.GenericDAO"%>
 <%@page import="com.ir.productions.coachers.entities.StaticData"%>
@@ -97,6 +98,26 @@
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
+		  	
+		  	for(int i=0;i<20;i++){
+		  		User u = new User();
+		  		String ending = " #" + i;
+		  		u.setBirth_date(user.getBirth_date());
+		  		u.setDescription(u.getDescription() + ending);
+		  		u.setEmail(user.getEmail() + ending);
+		  		u.setFirst_name(user.getFirst_name() + ending);
+		  		u.setLast_name(user.getLast_name() + ending);
+		  		u = userDao.insert(u);
+		  		
+		  		Content c = new Content();
+		  		c.setUser_id(u.getId());
+		  		c.setContent(content.getContent() + ending);
+		  		c.setDescription(content.getDescription() + ending);
+		  		c.setHeadline(content.getHeadline() + ending);
+		  		contentDAO.insert(c);
+		  	}
+		  	
+		  	%>users and content added successfully<%
 		}
 		else if(type.equals("static"))
 		{	
@@ -143,6 +164,24 @@
 			for(StaticData data : objectives){
 				dao.insert(data);
 			}
+			
+			%>static data added successfully<%
+		}
+		else if(type.equals("delete"))
+		{
+			UserDAO userDao = new UserDAO();
+			ContentDAO contentDAO = new ContentDAO();
+			
+			List<Content> contentList = contentDAO.findAll();
+			List<User> userList = userDao.findAll();
+			
+			for(User user : userList){
+				userDao.delete(user.getId());
+			}
+			for(Content content : contentList){
+				contentDAO.delete(content.getId());
+			}
+			%>users and content deleted<%
 		}
 	}
   %>
