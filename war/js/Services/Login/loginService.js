@@ -1,15 +1,17 @@
 angular.module('myApp.services')
     .factory('loginService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
-        "use strict";
+        
+    	"use strict";
 
         var serv={};
-        var url_prefix = '_ah/api/userEndpoint/v1';
+        //var url_prefix = '_ah/api/userEndpoint/v1';
+		var url_prefix = 'api/userEndpoint';
 
         serv.signIn = function(parameter){
             var modalLogin = $modal.open({
-                templateUrl:'/app/modals/login/logIn.html',
+                templateUrl:'/app/modals/login/login.html',
                 keyboard: true,
-                controller:'logInCtrl',
+                controller:'loginCtrl',
                 backdrop:'static'
             });
         };
@@ -51,7 +53,7 @@ angular.module('myApp.services')
             }).$promise();
         };
 
-        serv.UserSignIn = function(user){
+        serv.userLogin = function(user){
             var data = user;
 
             return $http({
@@ -65,5 +67,4 @@ angular.module('myApp.services')
 
         return serv;
 
-        }
-    ]);
+    }]);

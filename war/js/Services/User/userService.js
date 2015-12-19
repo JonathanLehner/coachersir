@@ -2,24 +2,25 @@ angular.module('myApp.services')
     .factory('userService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike)  {
         'use strict';
 
-        var url_prefix = '_ah/api/userEndpoint/v1';
+        //var url_prefix = '_ah/api/userEndpoint/v1';
+        var url_prefix = 'api/userEndpoint';
         
         var serv={};
 
         serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
+	    	return $resource(url_prefix + '/get?id=' + id).query().$promise;
 	    };
 	    
 	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/list').get().$promise;
+	    	return $resource(url_prefix + '/list').query().$promise;
 	    };
 	    
 	    serv.getCoachers = function(){
-	    	return $resource(url_prefix + '/listCoachers').get().$promise;
+	    	return $resource(url_prefix + '/listCoachers').query().$promise;
         };
         
         serv.getTrained = function(){
-        	return $resource(url_prefix + '/listTrained').get().$promise;
+        	return $resource(url_prefix + '/listTrained').query().$promise;
         };
         
         serv.insertCoach = function(user){
@@ -67,7 +68,6 @@ angular.module('myApp.services')
                 data: $httpParamSerializerJQLike(data)
             }).$promise;
 	    };
-	
 
         return serv;
 

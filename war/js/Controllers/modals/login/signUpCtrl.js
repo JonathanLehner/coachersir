@@ -95,7 +95,7 @@ angular.module('myApp.controllers.main')
             if ($scope.objectives !== null || $scope.objectives !== undefined) {
                 staticDataService.getObjectives().then(
                     function (data) {
-                        $scope.objectives = data.items;
+                        $scope.objectives = data;
                     },
                     function (error) {
                         console.log("Something wrong with the objectives")
@@ -106,7 +106,7 @@ angular.module('myApp.controllers.main')
             if ($scope.degrees !== null || $scope.degrees !== undefined) {
                 staticDataService.getDegrees().then(
                     function (data) {
-                        $scope.degrees = data.items;
+                        $scope.degrees = data;
                     },
                     function (error) {
                         console.log("Something wrong with the degrees")

@@ -28,7 +28,7 @@ public class ContentEndpoint extends Endpoint
 		contentDAO = new ContentDAO();
 	}
 
-	@ApiMethod(path = "listByUser")
+	@ApiMethod(path = "listByUser", httpMethod = "get")
 	public List<Content> listByUser(@Named("userId") Long userId)
 	{
 		return contentDAO.findByUser(userId, null);

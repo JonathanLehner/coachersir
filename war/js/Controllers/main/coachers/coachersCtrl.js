@@ -18,13 +18,9 @@ angular.module('myApp.controllers.main')
 
         $scope.isHome.flag = false;
 
-        var init = function(){
-            userService.getAll().
-                                then(function(data){
-                                 $scope.coachers =  data.items
-                                });
-        };
-
-        init();
+        
+        userService.getAll().then(function(data){
+             $scope.coachers =  data;
+        });
     }
 ]);

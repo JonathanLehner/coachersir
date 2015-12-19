@@ -1,18 +1,22 @@
 angular.module('myApp.services')
     .factory('staticDataService',['$resource',function($resource) {
         'use strict';
+
+        //var url_prefix = '_ah/api/staticDataEndpoint/v1';
+        var url_prefix = 'api/staticDataEndpoint';
+
         var serv = {};
 
         serv.getLocations = function () {
-            return $resource('_ah/api/staticDataEndpoint/v1/allLocations').get().$promise;
+            return $resource(url_prefix + '/allLocations').query().$promise;
         };
 
         serv.getObjectives = function () {
-            return $resource('_ah/api/staticDataEndpoint/v1/allObjectives').get().$promise;
+            return $resource(url_prefix + '/listObjectives').query().$promise;
         };
 
         serv.getDegrees = function () {
-            return $resource('_ah/api/staticDataEndpoint/v1/allDegrees').get().$promise;
+            return $resource(url_prefix + '/listDegrees').query().$promise;
         };
 
 

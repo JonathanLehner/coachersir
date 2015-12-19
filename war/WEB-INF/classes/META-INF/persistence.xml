@@ -11,5 +11,6 @@
             <property name="datanucleus.NontransactionalWrite" value="true"/>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
         </properties>
+        
     </persistence-unit>
 </persistence>

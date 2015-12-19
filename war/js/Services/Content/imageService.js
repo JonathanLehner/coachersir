@@ -3,20 +3,21 @@ angular.module('myApp.services')
         
 		"use strict";
 		
-		var url_prefix = '_ah/api/contentEndpoint/v1';
+		//var url_prefix = '_ah/api/contentEndpoint/v1';
+		var url_prefix = 'api/contentEndpoint';
 		
 	    var serv={};
 	    
 	    serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
+	    	return $resource(url_prefix + '/get?id=' + id).query().$promise;
 	    };
 	    
 	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/listImages').get().$promise;
+	    	return $resource(url_prefix + '/listImages').query().$promise;
 	    };
 	    
 	    serv.getByUser = function(userId){
-	    	return $resource(url_prefix + '/imagesByUser?userId=' + userId).get().$promise;
+	    	return $resource(url_prefix + '/imagesByUser?userId=' + userId).query().$promise;
 	    };
 	    
 	    serv.insert = function(image){

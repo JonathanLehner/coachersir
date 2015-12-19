@@ -4,6 +4,6 @@ angular.module('myApp.controllers.main')
     	$scope.articles = undefined;
     	
 		articleService.getAll().then(function(data){
-            $scope.articles = data.items;
+            $scope.articles = data;
 		});
 }]);

@@ -1,8 +1,5 @@
-/**
- * Created by itay on 9/15/2015.
- */
 angular.module('myApp.controllers.main')
-    .controller('logInCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService){
+    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService){
 
         var init = function(){
             $scope.user = {
@@ -12,7 +9,6 @@ angular.module('myApp.controllers.main')
                 last_name:undefined,
                 gender:undefined,
                 birth_date:undefined,
-                type:undefined,
                 objectives:undefined
             };
 
@@ -36,10 +32,12 @@ angular.module('myApp.controllers.main')
 
         };
 
+        $scope.userLogin = function(){
 
-        $scope.userSignIn = function(){
-
-            if($scope.user.password !== "" && $scope.user.password !== undefined && $scope.user.email !== "" && $scope.user.email !== undefined){
+            if($scope.user.password !== "" && 
+               $scope.user.password !== undefined && 
+               $scope.user.email !== "" && 
+               $scope.user.email !== undefined){
                   loginService.UserSignIn($scope.user).then(
                       function (data) {
                           $scope.UserObject = data.data;
@@ -58,10 +56,7 @@ angular.module('myApp.controllers.main')
             }else{
                 $scope.inputIsEmpty = true;
             }
-
         };
 
         init();
-
-
     }]);
