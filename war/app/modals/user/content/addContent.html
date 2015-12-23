@@ -1,8 +1,8 @@
 <div>
     <div ng-if="!isClicked" ng-click="show()">Add Content</div>
     <div id="contentId"></div>
-    <div ng-if="isClicked">Hide Content
-        <a href="" ng-click="hide()"></a>
+    <div ng-if="isClicked">
+        <a href="" ng-click="hide()">Hide Content</a>
         <div ng-include=addContentUrl></div>
     </div>
 </div>

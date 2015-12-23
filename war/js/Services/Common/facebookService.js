@@ -40,10 +40,10 @@ angular.module('myApp.services')
             	} 
         	});
             
-            var promise = deferred.promise;
+            var promise = deferred.promise();
             promise.connected = false;
             return promise;
-        }
+        };
         
         serv.getLoginUser = function(FB) {
         	FB.getLoginStatus(function(response) {

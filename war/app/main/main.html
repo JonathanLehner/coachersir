@@ -1,34 +1,47 @@
-<div  style="position: relative;" ng-controller="mainCtrl">
-    <div style="margin-bottom: -5%">
-         <video ng-show="isHome.flag" muted autoplay loop="loop"  style="position: relative;
-	        width: 100.65%;
-	        height: auto;
-	        float: right;
-	        margin: -8px;">
-            <source src="https://www.youtube.com/watch?v=TNBq077wlmc" visability="hidden" type="video/youtube">
-        </video>
-        
-    <Img src="../../photos/coachers.png" ng-hide="isHome.flag"/>
-
+    <!-- start header_bottom -->
+    <div class="header-bottom" ng-controller="mainCtrl">
+        <div>
+            <div class="header-bottom_left">
+                <i class="phone"> </i><span>1-200-346-2986</span>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li ><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a  class="fa fa-twitter" href="#"></a></li>
+                    <li><a class="fa fa-google" href="#"></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
-    
-    <div class="mainPosition">
-        <div class="MainTitle">
-           <div style="color:#ffffff; display: flex;">
-               <a href="" ng-click="signIn()" style="width:20px">SignIn </a>
-               <span><a href="" style="width:20px" ng-click="signUp()" style="width:20px">SignUp </a></span></div>
+    <!-- end header_bottom -->
+    <!-- start menu -->
+    <div class="menu" id="menu">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/img/logos/logo_with_sentence.gif" style="float: right;"/>
+                </a>
+            </div>
+            <div class="h_menu4"><!-- start h_menu4 -->
+                <a class="toggleMenu" href="#">Menu</a>
+                <ul class="nav">
+                    <li><a class="active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
+                    <li><a ui-sref="main.coach">{{'Menu.Coachers' | translate}}</a></li>
+                    <li><a ui-sref="main.articles">{{'Menu.Articles' | translate}}</a></li>
+                    <li><a ui-sref="main.aboutUs">{{'Menu.AboutUs' | translate}}</a></li>
+                    <li><a ui-sref="main.contactUs">{{'Menu.ContactUs' | translate}}</a></li>
+                </ul>
+            </div><!-- end h_menu4 -->
+            <div class="clear"></div>
 
-            <ul ng-class="{'menu': isHome.flag, 'menuCoach': !isHome.flag}">
-                <li><a class="HomeTitle active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
-                <li><a class="CoachTitle" ui-sref="main.coach">{{'Menu.Coachers' | translate}}</a></li>
-                <li><a class="CoachArticleTitle" ui-sref="main.articles">{{'Menu.Articles' | translate}}</a></li>
-                <li><a class="AboutUsTitle" ui-sref="main.aboutUs">{{'Menu.AboutUs' | translate}}</a></li>
-                <li><a class="ContactUsTitle" ui-sref="main.contactUs">{{'Menu.ContactUs' | translate}}</a></li>
-
-            </ul>
-
-            <div class="section1"  class="ui" ui-view="app">
             </div>
         </div>
     </div>
-</div>
+    <h1>
+        {{'favoriteVideos' | translate}}
+    </h1>
+
+    <div class="section1"  class="ui" ui-view="app"></div>
+    <!-- end menu -->

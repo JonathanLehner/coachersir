@@ -17,8 +17,10 @@ $f = new phpFlickr($api_key, $api_secret);
 
 $token = $f -> auth_getToken($frob);
 
-$myfile = "20140608_185858.jpg";
 
-$ticket_id = $f -> async_upload($myfile);
+
+/*$myfile = "20140608_185858.jpg";
+
+$ticket_id = $f -> async_upload($myfile);*/
 
 ?>

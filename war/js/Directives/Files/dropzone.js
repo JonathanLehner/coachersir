@@ -5,13 +5,14 @@ angular.module('myApp.directives')
         link: function(scope, element, attrs) {
 
             var config = {
-                url: 'http://localhost:8080/upload',
                 maxFilesize: 100,
                 paramName: "uploadfile",
                 maxThumbnailFilesize: 10,
+                acceptedFiles: "image/jpg, image/jpeg",
                 parallelUploads: 1,
                 autoProcessQueue: false
             };
+
 
             var eventHandlers = {
                 'addedfile': function(file) {
@@ -33,6 +34,15 @@ angular.module('myApp.directives')
 
             angular.forEach(eventHandlers, function(handler, event) {
                 dropzone.on(event, handler);
+
+                dropzone.on("sending", function(file, xhr, data) {
+
+                    // if file is actually a folder
+                    if(file.fullPath){
+                        data.append("fullPath", file.fullPath);
+                    }
+                });
+
             });
 
             scope.processDropzone = function() {

@@ -7,6 +7,20 @@ angular.module('myApp.services')
 		var url_prefix = 'api/contentEndpoint';
 		
 		var serv={};
+
+        serv.playVideo =  function(parameter){
+            var videoModal = $modal.open({
+                templateUrl:'/app/modals/videos/playVideo.html',
+                keyboard: true,
+                controller:'videoPlayerCtrl',
+                backdrop:'static',
+                resolve:{
+                    videoRef: function(){
+                        return parameter;
+                    }
+                }
+            });
+        };
 	    
 	    serv.getById = function(id){
 	    	return $resource(url_prefix + '/get?id=' + id).query().$promise;

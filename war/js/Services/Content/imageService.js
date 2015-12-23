@@ -55,6 +55,12 @@ angular.module('myApp.services')
 
             }).$promise;
 	    };
+
+        serv.getFrob = function(){
+
+
+        };
+
 	
 	    return serv;
     }
