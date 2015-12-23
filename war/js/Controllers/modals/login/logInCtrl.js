@@ -84,21 +84,17 @@ angular.module('myApp.controllers.main')
 //        	    }
 //        	}        	
 //   
-//    		FB.getLoginStatus(function(response) {
-//    			statusChangeCallback(response);
-//    	    }, true);
+           facebookService.getUser().then(function(response){
+        	   $scope.user = response;
+           },
+           function(error){
+        	   $scope.user="error during facebook login";
+           });
         	
-//        	facebookService.getLoginUser(FB).then(function(data){
-//        		console.log(data);
-//        		$scope.user = data;
-//        	},
-//        	function(error){
-//        		console.log(error);
-//        	});
-        	
-        	$scope.user = facebookService.getLoginUser(FB);
-        	console.log($scope.user);
-        	
+		   facebookService.getMyLastName().then(function(response) {
+		       $scope.last_name = response.last_name;
+		     }
+		   );
         };
         
         $scope.googleLogin = function(){
