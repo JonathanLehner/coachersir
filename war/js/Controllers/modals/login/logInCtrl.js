@@ -1,5 +1,6 @@
 angular.module('myApp.controllers.main')
-    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService){
+    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','facebookService',
+                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , facebookService){
 
         var init = function(){
             $scope.user = {
@@ -20,29 +21,23 @@ angular.module('myApp.controllers.main')
             $modalInstance.dismiss();
         };
 
-        $scope.close = function(){
-            $modalInstance.dismiss();
-        };
-
         $scope.signUp = function(type){
             /*$timeout(function(){
                 $modalInstance.close()},
                 1000);*/
             loginService.signUp(type);
-
         };
 
         $scope.userLogin = function(){
-
             if($scope.user.password !== "" && 
                $scope.user.password !== undefined && 
                $scope.user.email !== "" && 
                $scope.user.email !== undefined){
-                  loginService.UserSignIn($scope.user).then(
-                      function (data) {
-                          $scope.UserObject = data.data;
+                  loginService.userLogin($scope.user).then(
+            		  function (data){
+                          $scope.userObject = data.data;
 
-                          if($scope.UserObject !== ''){
+                          if($scope.userObject !== ''){
                               $scope.close();
                               $scope.errorSignIn = false;
                           }else{
@@ -57,6 +52,58 @@ angular.module('myApp.controllers.main')
                 $scope.inputIsEmpty = true;
             }
         };
-
+        
+        $scope.facebookLogin = function(){
+        	
+//        	var testAPI = function(){
+//        	    console.log('Welcome!  Fetching your information.... ');
+//        	    FB.api('/me', function(response) {
+//        	      console.log('Successful login for: ' + response.name);
+//        	      document.getElementById('status').innerHTML =
+//        	        'Thanks for logging in, ' + response.name + '!';
+//        	    });
+//
+//        	}
+//        	
+//        	// This is called with the results from from FB.getLoginStatus().
+//        	var statusChangeCallback = function(response) {
+//        	    console.log('statusChangeCallback');
+//        	    console.log(response);
+//        	    // The response object is returned with a status field that lets the
+//        	    // app know the current login status of the person.
+//        	    // Full docs on the response object can be found in the documentation
+//        	    // for FB.getLoginStatus().
+//        	    if (response.status === 'connected') {
+//        	      // Logged into your app and Facebook.
+//        	      testAPI();
+//        	    } else {
+//        	      // The person is not logged into Facebook, so we're not sure if
+//        	      // they are logged into this app or not.
+//        	      document.getElementById('status').innerHTML = 'Please log ' +
+//        	        'into Facebook.';
+//        	    }
+//        	}        	
+//   
+//    		FB.getLoginStatus(function(response) {
+//    			statusChangeCallback(response);
+//    	    }, true);
+        	
+//        	facebookService.getLoginUser(FB).then(function(data){
+//        		console.log(data);
+//        		$scope.user = data;
+//        	},
+//        	function(error){
+//        		console.log(error);
+//        	});
+        	
+        	$scope.user = facebookService.getLoginUser(FB);
+        	console.log($scope.user);
+        	
+        };
+        
+        $scope.googleLogin = function(){
+        	
+        };
+        
         init();
     }]);

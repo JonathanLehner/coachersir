@@ -1,5 +1,5 @@
 angular.module('myApp.services')
-    .factory('loginService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
+    .factory('loginService',['$modal','$http','$resource','$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
         
     	"use strict";
 

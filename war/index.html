@@ -2,7 +2,7 @@
 <html dir="rtl" lang="he">
 <head>
     <meta charset="UTF-8">
-    <title>Coachers</title>
+    <title>myCoach</title>
 
    	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -26,13 +26,12 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.0/angular-translate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.0/angular-translate-loader-url.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bower-angular-translate-loader-static-files/2.7.2/angular-translate-loader-static-files.min.js"></script>
-    <script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>
@@ -77,6 +76,7 @@
     <!-- <script src="js/directives/user/removeContent.js"></script> -->
 
 	<!-- Services -->
+	<script src="js/services/common/facebookService.js"></script>
     <script src="js/services/common/loadingSpinnerService.js"></script>
     <script src="js/services/common/staticDataService.js"></script>
     
@@ -89,29 +89,30 @@
     <script src="js/services/user/userService.js"></script>
 
     <script src="states.js"></script>
-    
-    <!-- facebook sdk -->
-    <script>
-		window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : '1679389075631663',
-		      xfbml      : true,
-		      version    : 'v2.5'
-		    });
-		  };
-		
-		  (function(d, s, id){
-		     var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement(s); js.id = id;
-		     js.src = "//connect.facebook.net/en_US/sdk.js";
-		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
-	</script>
-	<!-- gapi client -->
-	<script src="https://apis.google.com/js/client.js?onload=init"></script>
 </head>
 <body ng-app="myApp">
+	<!-- facebook sdk -->
+	<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
+	<!-- <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script> -->
+    <script>
+		window.fbAsyncInit = function() {
+			FB.init({
+		    	appId   : '1679389075631663',
+		      	xfbml   : true,
+		      	version : 'v2.5',
+	      		status 	: true,
+		        cookie 	: true
+		    });
+		};
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+		    if (d.getElementById(id)) {return;}
+		    js = d.createElement(s); js.id = id;
+		    js.src = "//connect.facebook.net/en_US/sdk.js";
+		    fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	
 	<div
   		class="fb-like"
   		data-share="true"

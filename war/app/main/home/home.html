@@ -1,17 +1,3 @@
-<script src="https://apis.google.com/js/client.js?onload=init">
-</script>
-<script type="text/javascript">
-
-var test = function(){
-	alert('in html');
-	var ROOT = 'http://localhost:8888/_ah/api/';
-    gapi.client.load('contentEndpoint', 'v1', function() {
-      doSomethingAfterLoading();
-    }, ROOT);
-}
-
-</script>
-
 <div ng-controller="homeCtrl">
 	<div class="homeProperties">
 		<ul>

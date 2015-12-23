@@ -85,12 +85,10 @@
 		    "Coach_Location":"מאמן באזור",
 		    "Objectives":"הכשרות והסמכות",
 		    "Contact":"צור קשר"
-    	}
-	},
-  	"Coach":{
+    	},
     	"Gender":{
       		"Female":"נקבה",
       		"Male":"זכר"
     	}
-  	}
+	}
 }
