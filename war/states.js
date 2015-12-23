@@ -37,10 +37,10 @@ angular.module('myApp')
         .state('main.login',{
             url:'login',
             parent:'main',
-            controller: 'loginCtrl',
+            controller: 'loginCtrl1',
             views:{
                 app:{
-                    templateUrl: 'app/modal/login/login.html'
+                    templateUrl: 'app/modal/login/login1.html'
             	}
             }
         })
