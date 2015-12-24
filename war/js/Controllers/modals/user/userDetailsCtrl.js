@@ -8,14 +8,13 @@ angular.module('myApp.controllers')
 
         var init = function(){
             callAtTimeout();
-
         };
 
         var callAtTimeout =  function() {
             if ($scope.objectives !== null || $scope.objectives !== undefined) {
                 staticDataService.getObjectives().then(
                     function (data) {
-                        $scope.items = data.items;
+                        $scope.items = data;
                     },
                     function (error) {
                         console.log("Something wrong with the objectives")
@@ -29,7 +28,7 @@ angular.module('myApp.controllers')
                         $scope.locations = data;
                     },
                     function (error) {
-                        console.log("Something wrong with the degrees")
+                        console.log("Something wrong with the locations")
                     }
                 );
             }
@@ -60,7 +59,6 @@ angular.module('myApp.controllers')
                 $scope.age = calculateAge(birthday);
             }}
         );
-
 
         init();
 

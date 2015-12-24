@@ -2,24 +2,17 @@ angular.module('myApp.services')
     .service('facebookService',['$resource','$q','$rootScope',function($resource,$q,$rootScope) {
         'use strict';
 
-        // resolving or rejecting a promise from a third-party
-        // API such as Facebook must be
-        // performed within $apply so that watchers get
-        // notified of the change
         var resolve = function(errorVal, returnVal, deferred) {
-          $rootScope.$apply(function() {
-            if (errorVal) {
-              deferred.reject(errorVal);
-            } else {
-              returnVal.connected = true;
-              deferred.resolve(returnVal);
-            }
-          });
+			if (errorVal) {
+			  deferred.reject(errorVal);
+			} else {
+			  deferred.resolve(returnVal);
+			}
         }
         
         var serv = {};
         
-        serv.getUser = function(FB) {
+        serv.login = function() {
         	var deferred = $q.defer();
             
         	FB.getLoginStatus(function(response) {
@@ -40,29 +33,31 @@ angular.module('myApp.services')
             	} 
         	});
             
-            var promise = deferred.promise();
-            promise.connected = false;
-            return promise;
+            return deferred.promise;
         };
         
-        serv.getLoginUser = function(FB) {
-        	FB.getLoginStatus(function(response) {
-            	if (response.status == 'connected') {
-            		FB.api('/me', function(response) {
-            			return response
-            		});
-            	} else if (response.status == 'not_authorized') {
-            		FB.login(function(response) {
-            			if (response.authResponse) {
-            				FB.api('/me', function(response) {
-            					return response;
-            				});
-            			} else {
-            				return null;
-            			}
-            		});
-            	} 
+        serv.logout = function(){
+        	FB.logout(function(response){
+        		console.log('facebook logout: ' + response);
         	});
+        };
+        
+        serv.getConnectedUser = function() {
+            var deferred = $q.defer();
+            
+            FB.api('/me', 
+        		{//fields: 'last_name'
+        		}, 
+        		function(response) {
+	                if (!response || response.error) {
+	                    deferred.reject('Error occured');
+	                } else {
+	                    deferred.resolve(response);
+	                }
+    			}
+    		);
+            
+            return deferred.promise;
         }
         
         return serv;

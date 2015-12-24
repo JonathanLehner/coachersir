@@ -45,9 +45,11 @@ public class User implements Serializable
 
 	private Long price_per_hour;
 
-	private List<Integer> objectives;
-
 	private String description;
+
+	private List<Long> degrees;
+
+	private List<Long> objectives;
 
 	public Long getId()
 	{
@@ -174,16 +176,6 @@ public class User implements Serializable
 		return this.type == TYPE_COACH;
 	}
 
-	public List<Integer> getObjectives()
-	{
-		return objectives;
-	}
-
-	public void setObjectives(List<Integer> objectives)
-	{
-		this.objectives = objectives;
-	}
-
 	public String getDescription()
 	{
 		return description;
@@ -193,4 +185,25 @@ public class User implements Serializable
 	{
 		this.description = description;
 	}
+
+	public List<Long> getDegrees()
+	{
+		return degrees;
+	}
+
+	public void setDegrees(List<Long> degrees)
+	{
+		this.degrees = degrees;
+	}
+
+	public List<Long> getObjectives()
+	{
+		return objectives;
+	}
+
+	public void setObjectives(List<Long> objectives)
+	{
+		this.objectives = objectives;
+	}
+
 }

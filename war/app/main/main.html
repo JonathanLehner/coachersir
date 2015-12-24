@@ -1,29 +1,41 @@
-
-<!-- start header_bottom -->
-<div class="header-bottom" ng-controller="mainCtrl">
-
-    <div class="logo">
-        <a href="index.html">
-            <img src="/img/logos/logo_with_sentence.png"/>
-        </a>
-    </div>
-
-    <div>
-        <div class="nav">
-            <ul>
-                <li ><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
-                <li><a class="fa fa-facebook" href="#" ></a></li>
-                <li><a class="fa fa-twitter" href="#"></a></li>
-                <li><a class="fa fa-google" href="#"></a></li>
-            </ul>
+    <!-- start header_bottom -->
+    <div class="header-bottom" ng-controller="mainCtrl">
+        <div>
+            <div class="header-bottom_left">
+                <i class="phone"> </i><span>1-200-346-2986</span>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
+	                <li ng-if="isLoggedIn">
+	                    <div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								{{'Login.Hello' | translate}} {{currentUser.name}}
+						  		<span class="caret"></span>
+					  		</button>
+				  			<ul class="dropdown-menu">
+						    	<li><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
+						    	<li><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
+						  	</ul>
+						</div>
+					</li>
+                    <li><a class="fa fa-facebook" href="#" ></a></li>
+                    <li><a class="fa fa-twitter" href="#"></a></li>
+                    <li><a class="fa fa-google" href="#"></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
         </div>
-        <div class="clear"></div>
     </div>
-        <!-- end header_bottom -->
-        <!-- start menu -->
+    <!-- end header_bottom -->
+    <!-- start menu -->
     <div class="menu" id="menu">
         <div class="container">
-
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/img/logos/logo_with_sentence.png"/>
+                </a>
+            </div>
             <div class="h_menu4"><!-- start h_menu4 -->
                 <a class="toggleMenu" href="#">Menu</a>
                 <ul class="nav">
@@ -36,10 +48,9 @@
             </div><!-- end h_menu4 -->
             <div class="clear"></div>
 
-         </div>
+            </div>
+        </div>
     </div>
-
-</div>
 
     <div class="section1"  class="ui" ui-view="app"></div>
     <!-- end menu -->
