@@ -6,7 +6,12 @@ angular.module('myApp.services')
 
         var serv={};
 		var url_prefix = 'api/userEndpoint';
-		var currentUser;
+		var currentUser{
+			id:undefined,
+			first_name:undefined,
+			last_name:undefined,
+			provider:undefined
+		};
 		
         serv.signIn = function(parameter){
             var modalLogin = $modal.open({
@@ -34,7 +39,6 @@ angular.module('myApp.services')
         serv.login = function(user, provider){
             
         	if(provider === 'local'){
-    
 	            $http({
 	                method: 'POST',
 	                url: url_prefix + '/login',
@@ -42,6 +46,7 @@ angular.module('myApp.services')
 	                data: $httpParamSerializerJQLike(user)
 	            }).then(function(response) {
 	            	currentUser = response;
+	            	currentUser.provider='local';
 	            }, function(error){
 	            	console.log('local login error: ' + error);
 	            	currentUser = undefined;
@@ -49,6 +54,7 @@ angular.module('myApp.services')
         	}else if(provider === 'facebook'){
         		facebookService.login().then(function(response){
         			currentUser = response;
+        			currentUser.provider='facebook';
         		}, function(error){
         			console.log('facebook login error: ' + error);
         			currentUser=undefined;
@@ -56,6 +62,7 @@ angular.module('myApp.services')
         	}else if(provider === 'google'){
         		googleService.login().then(function(response){
         			currentUser = response;
+        			currentUser.provider='google';
         		}, function(error){
         			console.log('google login error: ' + error);
         			currentUser=undefined;
