@@ -6,7 +6,7 @@ angular.module('myApp.services')
 
         var serv={};
 		var url_prefix = 'api/userEndpoint';
-		var currentUser{
+		var currentUser = {
 			id:undefined,
 			first_name:undefined,
 			last_name:undefined,
@@ -88,7 +88,7 @@ angular.module('myApp.services')
         
         serv.isLoggedIn = function(){
         	
-        	if(currentUser){
+        	if(typeof currentUser.id !== 'undefined'){
 //        		if(currentUser.provider === 'local'){
 //        			
 //        		}
