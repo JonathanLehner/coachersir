@@ -1,0 +1,13 @@
+<div>
+    <div>{{filter | translate}}</div>
+    <div>
+        <div ng-show="search" >
+            <span class="glyphicon glyphicon-triangle-bottom" style="columns: #72D0F4;" ng-value="search=false"> {{'SEARCH.DOWN' | translate }}</span>
+        </div>
+
+        <div ng-show="!search">
+            <span class="glyphicon glyphicon-triangle-bottom" style="columns: #72D0F4;" ng-value="search=true"> {{'SEARCH.UP' | translate }}</span>
+        </div>
+    </div>
+    <hr style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #72D0F4, rgba(0, 0, 0, 0));">
+</div>

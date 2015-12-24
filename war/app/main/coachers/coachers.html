@@ -1,6 +1,5 @@
 <div ng-controller="coachersCtrl" >
-    <div class="section1"  class="ui" ui-view="">
-    </div>
+    <check-box-filters></check-box-filters>
 	<div class="coachProperties" >
 	    <ul>
 	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">

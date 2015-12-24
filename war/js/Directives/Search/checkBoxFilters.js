@@ -3,7 +3,7 @@
  */
 angular.module('myApp.directives').directive('checkBoxFilters', function() {
     return {
-        restrict: 'A',
+        restrict: 'E',
         templateUrl:"/app/main/search/checkBoxFilters.html",
         scope: {
         },
@@ -14,9 +14,24 @@ angular.module('myApp.directives').directive('checkBoxFilters', function() {
                                     name:"Ramat-Gan",
                                     name:"Herzelia",
                                     name:"Holon",
+                                    name:"Ramat-Gan",
+                                    name:"Herzelia",
+                                    name:"Holon",
+                                    name:"Ramat-Gan",
+                                    name:"Herzelia",
+                                    name:"Holon",
+                                    name:"Ramat-Gan",
+                                    name:"Herzelia",
+                                    name:"Holon",
+                                    name:"Ramat-Gan",
+                                    name:"Herzelia",
+                                    name:"Holon",
+                                    name:"Ramat-Gan",
+                                    name:"Herzelia",
+                                    name:"Holon",
                                     name:"Netanya"
                                 }}];
-            $scope.degress=["A","B","C","D"];
+            $scope.degress=["A","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D"];
         }
     };
 });

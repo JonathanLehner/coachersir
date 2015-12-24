@@ -3,6 +3,7 @@ angular.module('myApp.controllers.main')
     {
         $scope.itemsPerPage = 5;
         $scope.currentPage = 0;
+        $scope.coachers = {};
 
         $scope.numberOfPages = function() {
             return Math.ceil($scope.coachers.length / $scope.pageSize);
