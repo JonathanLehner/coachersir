@@ -1,24 +1,26 @@
-/**
- * Created by itay on 8/29/2015.
- */
-/**
- * Created by itay on 8/21/2015.
- */
-
 angular.module('myApp.controllers')
     .controller('mainCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
-        'use strict';
+        
+    	'use strict';
+    	
+    	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
+    	    $scope.isLoggedIn = isLoggedIn;
+    	    $scope.currentUser = loginService.currentUser();
+    	});
+    	
         $scope.isHome = {};
         $scope.isHome.flag = true;
 
         $scope.signIn = function(){
             loginService.signIn();
         };
-
-        $scope.signUp = function(){
-            loginService.signUp();
+        
+        $scope.myPage = function(){
+        	console.log('go to mypage');
         };
-
-
+        
+        $scope.logout = function(){
+        	loginService.logout();
+        };
     }]);
 

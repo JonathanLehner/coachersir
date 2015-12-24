@@ -1,12 +1,13 @@
 angular.module('myApp.services')
-    .factory('loginService',['$modal','$http','$resource','$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
+    .factory('loginService',['$modal','$http','$resource','$httpParamSerializerJQLike','facebookService','googleService', 
+                     function ($modal,$http,$resource,$httpParamSerializerJQLike, facebookService, googleService) {
         
     	"use strict";
 
         var serv={};
-        //var url_prefix = '_ah/api/userEndpoint/v1';
 		var url_prefix = 'api/userEndpoint';
-
+		var currentUser;
+		
         serv.signIn = function(parameter){
             var modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/login.html',
@@ -30,40 +31,75 @@ angular.module('myApp.services')
             });
         };
 
-        serv.insertCoach = function(user){
-            var data = user;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/insertCoach',
-                headers: {'Content-type': 'application/json; charset=utf-8'},
-                data: data
-            });
+        serv.login = function(user, provider){
+            
+        	if(provider === 'local'){
+    
+	            $http({
+	                method: 'POST',
+	                url: url_prefix + '/login',
+	                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+	                data: $httpParamSerializerJQLike(user)
+	            }).then(function(response) {
+	            	currentUser = response;
+	            }, function(error){
+	            	console.log('local login error: ' + error);
+	            	currentUser = undefined;
+	            });
+        	}else if(provider === 'facebook'){
+        		facebookService.login().then(function(response){
+        			currentUser = response;
+        		}, function(error){
+        			console.log('facebook login error: ' + error);
+        			currentUser=undefined;
+        		});
+        	}else if(provider === 'google'){
+        		googleService.login().then(function(response){
+        			currentUser = response;
+        		}, function(error){
+        			console.log('google login error: ' + error);
+        			currentUser=undefined;
+        		});
+        	}
         };
-
-        serv.insertTrained = function(user){
-            var data = user;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/insertTrained',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).$promise();
+        
+        serv.logout = function(){
+        	if(this.isLoggedIn()){
+				
+        		if(this.currentUser().provider === 'local'){
+					//local logout
+        			currentUser=undefined;
+				}else if(this.currentUser().provider === 'facebook'){
+					facebookService.logout();
+					currentUser = undefined;
+	        	}else if(this.currentUser().provider === 'google'){
+	        		googleService.logout();
+	        		currentUser=undefined;
+	        	}	
+			}
         };
-
-        serv.userLogin = function(user){
-            var data = user;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/login',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).success(function () {});
+        
+        serv.isLoggedIn = function(){
+        	
+        	if(currentUser){
+//        		if(currentUser.provider === 'local'){
+//        			
+//        		}
+//        		else if(currentUser.provider === 'facebook'){
+//        			return facebookService.isLoggedIn();
+//        		}
+//        		else if(currentUser.provider === 'google'){
+//        			
+//        		}
+        		return true;
+        	}
+        	
+    		return false;	
         };
+        
+        serv.currentUser = function(){
+        	return currentUser;
+        }
 
         return serv;
 

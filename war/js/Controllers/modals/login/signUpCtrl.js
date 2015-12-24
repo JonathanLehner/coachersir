@@ -2,7 +2,7 @@
  * Created by itay on 9/15/2015.
  */
 angular.module('myApp.controllers.main')
-    .controller('signUpCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','type',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService,type){
+    .controller('signUpCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','userService','type',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService,userService,type){
         
     	$scope.signIn = true;
         $scope.isTrainer= (type === 2);
@@ -60,8 +60,8 @@ angular.module('myApp.controllers.main')
 
             loginService.signIn();
             $timeout(function(){
-                    $modalInstance.dismiss();},
-                100);
+                $modalInstance.dismiss();
+                },100);
         };
 
         // toggle selection for a given fruit by name
@@ -132,14 +132,12 @@ angular.module('myApp.controllers.main')
             if($scope.month !== undefined && $scope.year !== undefined && $scope.day !== undefined)
             {
                 $scope.user.birth_date = new Date($scope.month + " " + $scope.day + ", " + $scope.year + " 01:00:00");
-                $scope.user.objectives = $scope.itemSelection;
-
+                $scope.user.degrees = $scope.itemSelection;
 
                 if($scope.isCoach){
-                    loginService.insertCoach($scope.user);
-                }else
-                {
-                    loginService.insertTrained($scope.user);
+                    userService.insertCoach($scope.user);
+                }else{
+                    userService.insertTrained($scope.user);
                 }
             }
         };
