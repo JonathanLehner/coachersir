@@ -8,6 +8,7 @@ angular.module('myApp.directives').directive('checkBoxFilters', function() {
         scope: {
         },
         link: function($scope) {
+            $scope.search =  true;
             $scope.ageRange = ["17-25","26-30","31-40","41-60","61+"];
             $scope.locations = [{"name":"Tel-Aviv",
                                 "cities":{
