@@ -82,3 +82,14 @@ hr {
   -ms-border-radius: 5px;
   border-radius: 5px;
 }
+/* line 79, ../sass/common.scss */
+.modal .videoModal {
+  background-color: transparent;
+  position: fixed;
+  margin: 7%;
+  margin-right: 21%;
+}
+/* line 86, ../sass/common.scss */
+.modal iframe {
+  border-radius: 5px;
+}

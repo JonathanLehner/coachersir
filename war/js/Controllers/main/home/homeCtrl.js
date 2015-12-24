@@ -8,7 +8,7 @@ angular.module('myApp.controllers.main')
         var vm = this;
 
         $scope.slides = [
-            {'src': 'js/controllers/main/home/images/photo2.jpg','videoRef':'https://www.youtube.com/embed/TNBq077wlmc'},
+            {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','videoRef':'https://www.youtube.com/embed/TNBq077wlmc'},
             {'src': 'js/controllers/main/home/images/photo3.jpg','videoRef':'test'},
             {'src': 'js/controllers/main/home/images/photo4.jpg','videoRef':'test'},
             {'src': 'js/controllers/main/home/images/photo5.jpg','videoRef':'test'},

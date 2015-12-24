@@ -1,6 +1,5 @@
-<div class="container userModal" ng-controller="videoPlayerCtrl">
-    {{videoRef}}
-    <iframe width="560" height="315" src="{{videoRef}}" frameborder="0" allowfullscreen></iframe>
+<div class="container videoModal">
+    <iframe width="600" height="400" ng-src="{{ videoRef1 | trustUrl}}" frameborder="0" autoplay allowfullscreen></iframe>
 
 
 </div>

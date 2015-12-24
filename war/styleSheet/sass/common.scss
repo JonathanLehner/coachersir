@@ -76,4 +76,15 @@ hr {
    background-color: #ffffff;
     @include border-radius(5px);
   }
+  .videoModal{
+    background-color: transparent;
+    position: fixed;
+    margin: 7%;
+    margin-right: 21%;
+
+  }
+  iframe{
+    border-radius: 5px;
+
+  }
 }
