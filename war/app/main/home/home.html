@@ -1,5 +1,9 @@
 <div ng-controller="homeCtrl">
 
+    <h4>
+        {{'favoriteVideos' | translate}}
+    </h4>
+
     <carousel3d ng-model="slides"
                 options="options"
                 on-selected-click="selectedClick(index)"

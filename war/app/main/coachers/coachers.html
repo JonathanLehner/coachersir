@@ -3,7 +3,7 @@
     </div>
 	<div class="coachProperties" >
 	    <ul>
-	        <li ng-repeat="coach in coachers" ng-click="coacherClicked(coach)">
+	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
 	                	 <img src={{coach.main_img}} class="coachImg">
@@ -19,4 +19,38 @@
 	        </li>
 	    </ul>
     </div>
+
+    <div class="pagination-div">
+        <ul class="pagination">
+            <li ng-class="DisablePrevPage()">
+                <a href ng-click="prevPage()"> Prev</a>
+            </li>
+            <li ng-repeat="n in range()"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage(n)">
+                <a href="#">{{n+1}}</a>
+            </li>
+            <li ng-class="DisableNextPage()">
+                <a href ng-click="nextPage()">Next </a>
+            </li>
+        </ul>
+    </div>
+
+     <!--<div class="pagination pagination-centered" ng-show="coachers.length">
+         <ul class="pagination-controle pagination">
+             <li>
+                 <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                         ng-click="curPage=curPage-1"> &lt; PREV</button>
+             </li>
+             {{coachers.length/pageSize}}
+             <li ng-repeat="pageNum in (coachers.length/pageSize) track by $index">
+                 {{$index}}
+             </li>
+             <li>
+                 <button type="button" class="btn btn-primary"
+                         ng-disabled="curPage >= coachers.length/pageSize - 1"
+                         ng-click="curPage = curPage+1">NEXT &gt;</button>
+             </li>
+         </ul>
+     </div>-->
 </div>
