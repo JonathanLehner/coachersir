@@ -5,26 +5,15 @@ angular.module('myApp.services')
 	
 		//var url_prefix = '_ah/api/contentEndpoint/v1';
 		var url_prefix = 'api/contentEndpoint';
-		
-//		var resource_config = {
-//			get: {
-//		        method: 'GET',
-//		        headers: {
-//		        	"Accept": "application/json;charset=utf-8",
-//		            //"Accept-Charset": "charset=utf-8"
-//		        	"Content-Type": "application/json; charset=utf-8"
-//		        }
-//		    }	
-//		};
-		
-	    var serv={};
+
+		var serv={};
 	    
 	    serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).query().$promise;
+	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
 	    };
 	    
 	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/listArticles'/*, {}, resource_config*/).query().$promise;
+	    	return $resource(url_prefix + '/listArticles').query().$promise;
 	    };
 	    
 	    serv.getByUser = function(userId){
