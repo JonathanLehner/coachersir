@@ -36,6 +36,24 @@ angular.module('myApp.services')
             });
         };
 
+    	serv.getStatus = function(){	
+        	facebookService.isConntected().then(function(response){
+        		currentUser = response;
+    			currentUser.provider='facebook';
+        	},function(error){
+        		
+        	});
+        	
+        	if(!this.isLoggedIn()){
+        		googleService.isConntected().then(function(response){
+            		currentUser = response;
+        			currentUser.provider='goolge';
+            	},function(error){
+            		
+            	});
+        	}
+        };
+        
         serv.login = function(user, provider){
             
         	if(provider === 'local'){
@@ -89,15 +107,6 @@ angular.module('myApp.services')
         serv.isLoggedIn = function(){
         	
         	if(typeof currentUser.id !== 'undefined'){
-//        		if(currentUser.provider === 'local'){
-//        			
-//        		}
-//        		else if(currentUser.provider === 'facebook'){
-//        			return facebookService.isLoggedIn();
-//        		}
-//        		else if(currentUser.provider === 'google'){
-//        			
-//        		}
         		return true;
         	}
         	
@@ -107,7 +116,9 @@ angular.module('myApp.services')
         serv.currentUser = function(){
         	return currentUser;
         }
-
+        
+        serv.getStatus();
+        
         return serv;
 
     }]);
