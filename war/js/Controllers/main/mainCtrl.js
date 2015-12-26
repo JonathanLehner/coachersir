@@ -16,7 +16,7 @@ angular.module('myApp.controllers')
         };
         
         $scope.myPage = function(){
-        	console.log('go to mypage');
+        	console.log('go to my_page');
         };
         
         $scope.logout = function(){

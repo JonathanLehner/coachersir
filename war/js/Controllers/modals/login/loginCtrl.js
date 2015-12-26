@@ -2,6 +2,15 @@ angular.module('myApp.controllers.main')
     .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',
                      function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService){
 
+    	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
+    	    $scope.isLoggedIn = isLoggedIn;
+    	    $scope.currentUser = loginService.currentUser();
+    	    
+//    	    if($scope.isLoggedIn){
+//    	    	$scope.close();
+//    	    }
+    	});
+    	
         var init = function(){
             $scope.user = {
         		email: undefined,
@@ -50,16 +59,11 @@ angular.module('myApp.controllers.main')
         };
         
         $scope.facebookLogin = function(){
-        	
         	loginService.login({},'facebook');
-        	
-//        	facebookService.getMyLastName().then(function(response) {
-//		    	$scope.last_name = response.last_name;
-//		    };
         };
         
         $scope.googleLogin = function(){
-        	
+        	loginService.login({},'google');
         };
         
         init();

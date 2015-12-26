@@ -1,5 +1,5 @@
 angular.module('myApp.services')
-    .service('facebookService',['$resource','$q','$rootScope',function($resource,$q,$rootScope) {
+    .service('facebookService',['$resource','$q',function($resource,$q) {
         'use strict';
 
         var resolve = function(errorVal, returnVal, deferred) {
@@ -8,9 +8,19 @@ angular.module('myApp.services')
 			} else {
 			  deferred.resolve(returnVal);
 			}
-        }
+        };
         
         var serv = {};
+        
+        serv.isConnected = function(){
+        	FB.getLoginStatus(function(response) {
+            	if (response.status == 'connected') {
+            		return true;
+            	}else{
+            		return false;
+            	}
+        	});
+        };
         
         serv.login = function() {
         	var deferred = $q.defer();
@@ -20,7 +30,7 @@ angular.module('myApp.services')
             		FB.api('/me', function(response) {
             			resolve(null, response, deferred);
             		});
-            	} else if (response.status == 'not_authorized') {
+            	} else /*if (response.status == 'not_authorized')*/ {
             		FB.login(function(response) {
             			if (response.authResponse) {
             				FB.api('/me', function(response) {
@@ -45,17 +55,13 @@ angular.module('myApp.services')
         serv.getConnectedUser = function() {
             var deferred = $q.defer();
             
-            FB.api('/me', 
-        		{//fields: 'last_name'
-        		}, 
-        		function(response) {
-	                if (!response || response.error) {
-	                    deferred.reject('Error occured');
-	                } else {
-	                    deferred.resolve(response);
-	                }
-    			}
-    		);
+            FB.api('/me',function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+			});
             
             return deferred.promise;
         }

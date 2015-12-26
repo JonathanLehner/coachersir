@@ -36,21 +36,27 @@ angular.module('myApp.services')
             });
         };
 
-    	serv.getStatus = function(){	
-        	facebookService.isConntected().then(function(response){
-        		currentUser = response;
-    			currentUser.provider='facebook';
-        	},function(error){
-        		
-        	});
+    	serv.refreshStatus = function(){	
+        	if(facebookService.isConnected()){
+        		facebookService.getCurrentUser().then(function(response){
+        			currentUser = response;
+        			currentUser.provider='facebook';
+        		},
+        		function(error){
+        			
+        		});
+        	}
         	
         	if(!this.isLoggedIn()){
-        		googleService.isConntected().then(function(response){
-            		currentUser = response;
-        			currentUser.provider='goolge';
-            	},function(error){
-            		
-            	});
+        		if(googleService.isConnected()){
+        			googleService.getCurrentUser().then(function(response){
+            			currentUser = response;
+            			currentUser.provider='google';
+            		},
+            		function(error){
+            			
+            		});
+            	};        	
         	}
         };
         
@@ -117,7 +123,7 @@ angular.module('myApp.services')
         	return currentUser;
         }
         
-        serv.getStatus();
+        serv.refreshStatus();
         
         return serv;
 
