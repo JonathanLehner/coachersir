@@ -5,12 +5,8 @@ angular.module('myApp.controllers.main')
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();
-    	    
-//    	    if($scope.isLoggedIn){
-//    	    	$scope.close();
-//    	    }
     	});
-    	
+
         var init = function(){
             $scope.user = {
         		email: undefined,

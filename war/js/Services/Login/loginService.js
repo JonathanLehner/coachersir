@@ -6,6 +6,7 @@ angular.module('myApp.services')
 
         var serv={};
 		var url_prefix = 'api/userEndpoint';
+        var modalLogin;
 		var currentUser = {
 			id:undefined,
 			first_name:undefined,
@@ -14,7 +15,7 @@ angular.module('myApp.services')
 		};
 		
         serv.signIn = function(parameter){
-            var modalLogin = $modal.open({
+            modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/login.html',
                 keyboard: true,
                 controller:'loginCtrl',
@@ -23,7 +24,7 @@ angular.module('myApp.services')
         };
 
         serv.signUp = function(parameter){
-            var modalLogin = $modal.open({
+            modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/signUp.html',
                 keyboard: true,
                 controller:'signUpCtrl',
@@ -59,6 +60,10 @@ angular.module('myApp.services')
             	};        	
         	}
         };
+
+         serv.closeLogin = function(){
+             modalLogin.close();
+         };
         
         serv.login = function(user, provider){
             

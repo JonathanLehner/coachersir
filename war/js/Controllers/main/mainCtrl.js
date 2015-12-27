@@ -6,6 +6,10 @@ angular.module('myApp.controllers')
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();
+
+            if($scope.isLoggedIn === true){
+                loginService.closeLogin();
+            }
     	});
     	
         $scope.isHome = {};
