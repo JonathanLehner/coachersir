@@ -6,31 +6,36 @@
             </a>
         </div>
         <div>
-            <div class="header-bottom_left">
-                <i class="phone"> </i><span>1-200-346-2986</span>
-            </div>
             <div class="nav">
                 <ul>
                     <li ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
 	                <li ng-if="isLoggedIn">
-	                    <div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <div class="dropdown">
+                            <button id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
+                                {{'Login.Hello' | translate}} {{currentUser.name}}
+                               </button>
+                            <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">
+                                <li role="presentation"><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
+                            </ul>
+                        </div>
+							<!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
 								{{'Login.Hello' | translate}} {{currentUser.name}}
 						  		<span class="caret"></span>
 					  		</button>
-				  			<ul class="dropdown-menu">
+				  			<ul class="dropdown-menu c-dropdown ">
 						    	<li><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
 						    	<li class="divider"></li>
 						    	<li><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
-						  	</ul>
-						</div>
-						<!-- Split button 
+						  	</ul>-->
+						<!-- Split button
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">
 								{{'Login.Hello' | translate}} {{currentUser.name}}
 							</button>
-						  	<button type="button" 
-						  			class="btn btn-primary dropdown-toggle" 
+						  	<button type="button"
+						  			class="btn btn-primary dropdown-toggle"
 						  			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    	<span class="caret"></span>
 						    	<span class="sr-only">Toggle Dropdown</span>
@@ -72,5 +77,5 @@
         </div>
     </div>
 
-    <div class="section1"  class="ui" ui-view="app"></div>
+    <div class="section1" ng-controller="homeCtrl" class="ui" ui-view="app"></div>
     <!-- end menu -->

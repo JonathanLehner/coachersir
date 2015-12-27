@@ -5850,40 +5850,49 @@ div[dropzone] {
 .dropdown {
   padding-left: 10px;
 }
+/* line 4272, ../sass/index.scss */
+.dropdown .dropdown-menu {
+  display: none;
+}
 
-/* line 4274, ../sass/index.scss */
+/* line 4277, ../sass/index.scss */
+.open > .dropdown-menu {
+  display: block;
+}
+
+/* line 4281, ../sass/index.scss */
 .modal {
   position: absolute;
 }
 
-/* line 4278, ../sass/index.scss */
+/* line 4285, ../sass/index.scss */
 .datepickerdemoBasicUsage {
   /** Demo styles for mdCalendar. */
 }
 
-/* line 4280, ../sass/index.scss */
+/* line 4287, ../sass/index.scss */
 .datepickerdemoBasicUsage .md-content {
   padding-bottom: 200px;
 }
 
-/* line 4282, ../sass/index.scss */
+/* line 4289, ../sass/index.scss */
 .datepickerdemoBasicUsage .validation-messages {
   font-size: 11px;
   color: darkred;
   margin: 10px 0 0 25px;
 }
 
-/* line 4287, ../sass/index.scss */
+/* line 4294, ../sass/index.scss */
 .down-search {
   height: 20px;
 }
 
-/* line 4291, ../sass/index.scss */
+/* line 4298, ../sass/index.scss */
 .up-search {
   height: 200px;
 }
 
-/* line 4295, ../sass/index.scss */
+/* line 4302, ../sass/index.scss */
 .filters {
   display: flex;
   position: absolute;
@@ -5891,24 +5900,24 @@ div[dropzone] {
   height: 30%;
   margin-right: 15%;
 }
-/* line 4301, ../sass/index.scss */
+/* line 4308, ../sass/index.scss */
 .filters ul {
   max-height: 80%;
   overflow: hidden;
   margin-left: 5%;
 }
-/* line 4307, ../sass/index.scss */
+/* line 4314, ../sass/index.scss */
 .filters ul li {
   padding-top: 10px;
   width: 180px;
 }
-/* line 4308, ../sass/index.scss */
+/* line 4315, ../sass/index.scss */
 .filters ul li div:focus {
   outline: none;
   border: 0;
 }
 
-/* line 4318, ../sass/index.scss */
+/* line 4325, ../sass/index.scss */
 .c-dropdown {
   position: inherit;
   overflow: auto;
