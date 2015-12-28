@@ -5889,35 +5889,38 @@ div[dropzone] {
 
 /* line 4298, ../sass/index.scss */
 .up-search {
-  height: 200px;
+  height: 215px;
 }
 
 /* line 4302, ../sass/index.scss */
 .filters {
   display: flex;
   position: absolute;
-  line-height: 10px;
-  height: 30%;
+  height: 40%;
   margin-right: 15%;
 }
-/* line 4308, ../sass/index.scss */
+/* line 4307, ../sass/index.scss */
 .filters ul {
-  max-height: 80%;
+  max-height: 83%;
   overflow: hidden;
   margin-left: 5%;
 }
-/* line 4314, ../sass/index.scss */
+/* line 4313, ../sass/index.scss */
 .filters ul li {
   padding-top: 10px;
   width: 180px;
 }
-/* line 4315, ../sass/index.scss */
+/* line 4314, ../sass/index.scss */
 .filters ul li div:focus {
   outline: none;
   border: 0;
 }
+/* line 4318, ../sass/index.scss */
+.filters ul li div {
+  line-height: 10px;
+}
 
-/* line 4325, ../sass/index.scss */
+/* line 4327, ../sass/index.scss */
 .c-dropdown {
   position: inherit;
   overflow: auto;

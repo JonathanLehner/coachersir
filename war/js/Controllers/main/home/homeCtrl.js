@@ -38,6 +38,9 @@ angular.module('myApp.controllers.main')
         $scope.beforeChange = beforeChange;
         $scope.lastSlide = lastSlide;
 
+        init = function(){
+            getAllVideos();
+        };
 
         function lastSlide(index) {
             console.log('Last Slide Selected callback triggered. \n == Slide index is: ' + index + ' ==');
@@ -55,7 +58,6 @@ angular.module('myApp.controllers.main')
             console.log('Slide Changed callback triggered. \n == Slide index is: ' + index + ' ==');
         }
 
-
         function addImage(src) {
             vm.slides.push({
                 src: src
@@ -66,11 +68,20 @@ angular.module('myApp.controllers.main')
             vm.slides.splice(vm.slides.indexOf(vm.slides[index]), 1);
         }
 
-            /*[{'src': 'https://www.youtube.com/embed/TNBq077wlmc?autohide=1&rel=0&et=i8n_bhiHBspQIVI5Qn4VLWOJ20GjqKqg'},{'src':'https://www.youtube.com/embed/j3q9xA0BS3E?autohide=1&rel=0&et=i8n_bhiHBsrLqs0mSKjG4tUNwVDs6p4d'},
-            {'src':'https://www.youtube.com/embed/TNBq077wlmc?autohide=1&rel=0&et=i8n_bhiHBspQIVI5Qn4VLWOJ20GjqKqg'},{'src': 'https://www.youtube.com/embed/j3q9xA0BS3E?autohide=1&rel=0&et=i8n_bhiHBsrLqs0mSKjG4tUNwVDs6p4d'}];
-        */
-        videoService.getAll().then(function(data){
-            $scope.videos = data;
-		});
+        var getAllVideos = function(){
+            videoService.getAll().then(function(data){
+                $scope.videos = data;
+            });
+        };
+
+        $scope.ages = [];
+
+        $scope.age1 = function (age) {
+            console.log($scope.itemsPerPage +  age);
+            $scope.ages.push(age);
+        };
+
+        init();
+
     }
 ]);

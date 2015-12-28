@@ -73,6 +73,10 @@
     	"AboutUs":"קצת עלינו",
     	"ContactUs":"צור קשר"
   	},
+    "SEARCH":{
+      "DOWN": "סנן תוצאות",
+      "UP": "הסתר"
+    },
   	"User":{
     	"User_Details":"פרטים",
     	"BeforeAnd":"לפני ואחרי",
