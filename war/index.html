@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
 <head>
     <meta charset="UTF-8">
+    <meta 	name="google-signin-client_id" 
+    		content="36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com"
+	>
     <title>myCoach</title>
     <link rel="shortcut icon" href="img/logos/Whisler.ico">
 
@@ -97,7 +100,7 @@
 	<!-- Services -->
 	<script src="js/services/common/facebookService.js"></script>
 	<script src="js/services/common/googleService.js"></script>
-    <script src="js/services/common/loadingSpinnerService.js"></script>
+	<script src="js/services/common/loadingSpinnerService.js"></script>
     <script src="js/services/common/staticDataService.js"></script>
     
     <script src="js/services/content/articleService.js"></script>
@@ -112,7 +115,8 @@
     <script src="states.js"></script>
 </head>
 <body ng-app="myApp">
-	<!-- facebook sdk -->
+	
+	<!-- Facebook sdk -->
 	<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
     <script>
 		window.fbAsyncInit = function() {
@@ -133,6 +137,19 @@
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 	
+	<!-- Google sdk -->
+	<script src="https://apis.google.com/js/platform.js?onload=onGoogleLoaded" async defer></script>
+	<script>
+		window.onGoogleLoaded = function(){
+			gapi.load('auth2', function() {
+				gapi.auth2.init({
+			    	client_id: '36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com',
+			  	});
+			});
+		};
+		  
+	</script>
+	
 	<div
   		class="fb-like"
   		data-share="true"
@@ -141,5 +158,6 @@
 	</div>
 
     <div ui-view></div>
+    
 </body>
 </html>

@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import com.ir.productions.coachers.SystemUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
+import com.ir.productions.coachers.services.UserService;
 
 @Path("userEndpoint")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -24,10 +25,12 @@ import com.ir.productions.coachers.entities.User;
 public class UserController
 {
 	UserDAO userDAO;
+	UserService userService;
 
 	public UserController()
 	{
 		userDAO = new UserDAO();
+		userService = new UserService();
 	}
 
 	@POST
@@ -36,15 +39,42 @@ public class UserController
 			@QueryParam("email") String email,
 			@QueryParam("password") String password)
 	{
-		HttpSession session = req.getSession(true);
+		User authUser = null;
 
-		User authUser = userDAO.login(email, password);
-
-		// in your authentication method
-		if (authUser != null)
+		if (email != null && password != null)
 		{
-			session.setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
-					authUser.getId());
+			authUser = userDAO.login(email, password);
+
+			// in your authentication method
+			if (authUser != null)
+			{
+				HttpSession session = req.getSession(true);
+
+				session.setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
+						authUser.getId());
+			}
+		}
+
+		return authUser;
+	}
+
+	@POST
+	@Path("providerLogin")
+	public User providerLogin(@Context HttpServletRequest req, User user)
+	{
+		User authUser = null;
+
+		if (user.getProvider() != null && user.getProvider_id() != null)
+		{
+			authUser = userService.providerLogin(user);
+
+			// in your authentication method
+			if (authUser != null)
+			{
+				HttpSession session = req.getSession(true);
+				session.setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
+						authUser.getId());
+			}
 		}
 
 		return authUser;

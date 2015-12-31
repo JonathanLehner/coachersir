@@ -8,7 +8,7 @@ angular.module('myApp.controllers.main')
     	});
 
         var init = function(){
-            $scope.user = {
+            $scope.currentUser = {
         		email: undefined,
                 password: undefined,
                 first_name:undefined,
@@ -58,7 +58,11 @@ angular.module('myApp.controllers.main')
         	loginService.login({},'facebook');
         };
         
-        $scope.googleLogin = function(){
+//        $scope.googleLogin = function(){
+//        	loginService.login({},'google');
+//        };
+        
+        $scope.googleLogin = function () {
         	loginService.login({},'google');
         };
         

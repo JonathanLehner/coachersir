@@ -69,6 +69,24 @@ angular.module('myApp.services')
             }).$promise;
 	    };
 
+	    serv.localLogin = function(user){
+	    	return $http({
+                method: 'POST',
+                url: url_prefix + '/login',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $httpParamSerializerJQLike(user)
+            }).$promise;
+	    };
+	    
+	    serv.providerLogin=function(user){
+	    	return $http({
+                method: 'POST',
+                url: url_prefix + '/providerLogin',
+                headers: {'Content-Type': 'application/json'},
+                data: user
+            }).$promise;
+	    };
+	    
         return serv;
 
     }]
