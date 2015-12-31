@@ -20,7 +20,7 @@ angular.module('myApp.controllers')
         };
         
         $scope.myPage = function(){
-        	console.log('go to my_page');
+            $state.go('details',{ id: $scope.currentUser.id});
         };
         
         $scope.logout = function(){
