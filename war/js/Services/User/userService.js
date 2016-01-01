@@ -1,5 +1,6 @@
 angular.module('myApp.services')
-    .factory('userService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike)  {
+    .factory('userService',['$modal','$http','$resource','$httpParamSerializerJQLike','$q', 
+                   function ($modal , $http , $resource , $httpParamSerializerJQLike , $q){
         'use strict';
 
         //var url_prefix = '_ah/api/userEndpoint/v1';
@@ -78,14 +79,37 @@ angular.module('myApp.services')
             }).$promise;
 	    };
 	    
-	    serv.providerLogin=function(user){
-	    	return $http({
+	    serv.providerLogin = function(user){
+	    	var deferred = $q.defer();
+	    	
+//	    	return $http({
+//                method: 'POST',
+//                url: url_prefix + '/providerLogin',
+//                headers: {'Content-Type': 'application/json'},
+//                data: user
+//            }).$promise;
+	    	
+	    	$http({
                 method: 'POST',
                 url: url_prefix + '/providerLogin',
                 headers: {'Content-Type': 'application/json'},
                 data: user
-            }).$promise;
+            }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
 	    };
+	    
+	    var resolve = function(errorVal, returnVal, deferred) {
+			if (errorVal) {
+			  deferred.reject(errorVal);
+			} else {
+			  deferred.resolve(returnVal);
+			}
+        };
 	    
         return serv;
 

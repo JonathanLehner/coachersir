@@ -29,11 +29,11 @@ angular.module('myApp.services')
 		var providerLogin = function(user){
 			userService.providerLogin(user).then(function(response){
 				console.log('provider login success: ' + response);
-				setCurrentUser(response.id,
-							   response.first_name,
-							   response.last_name,
-							   response.provider,
-							   response.provider_id);
+				setCurrentUser(response.data.id,
+							   response.data.first_name,
+							   response.data.last_name,
+							   response.data.provider,
+							   response.data.provider_id);
 			}, function(error){
 				console.log('provider login error: ' + error);
 				clearCurrentUser();
