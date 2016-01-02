@@ -27,7 +27,7 @@ angular.module('myApp.services')
             
         	FB.getLoginStatus(function(response) {
             	if (response.status == 'connected') {
-            		FB.api('/me', function(response) {
+            		FB.api('/me',{fields: 'id,first_name,last_name,email,picture,birthday'}, function(response) {
             			resolve(null, response, deferred);
             		});
             	} else /*if (response.status == 'not_authorized')*/ {

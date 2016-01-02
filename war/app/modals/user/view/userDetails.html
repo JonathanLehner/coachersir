@@ -1,35 +1,83 @@
-<div ng-controller="userDetailsCtrl" >
-
-<div class="form-de">
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.Name' | translate}} : </lable>
-        <label class="lableDetails">  {{user.first_name}} {{user.last_name}}</label>
-    </div>
-
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.Age' | translate}} : </lable>
-        <label class="lableDetails"> {{age}} </label>
-    </div>
-
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.Gender' | translate}} : </lable>
-        <label class="lableDetails"> {{gender}} </label>
-    </div>
-
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.Coach_Location' | translate}} : </lable>
-        <label class="lableDetails"> {{location}} </label>
-    </div>
-
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.Coach_Location' | translate}} : </lable>
-        <label class="lableDetails"> {{objectives}} </label>
-    </div>
-
-    <div class="container ">
-        <lable class="lableTitle">{{'User.Details.About' | translate}} : </lable>
-        <label class="lableDetails"> {{About}} </label>
-    </div>
-
+<div ng-controller="userDetailsCtrl">
+<button type="button" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+<div class="form-de container" ng-if="!editMode">	
+    <lable class="lableTitle">{{'User.Details.First_Name' | translate}} : </lable>
+	<label class="lableDetails">  {{user.first_name}}</label>
+	<br>
+   	<lable class="lableTitle">{{'User.Details.Last_Name' | translate}} : </lable>
+	<label class="lableDetails">  {{user.last_name}}</label>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Phone' | translate}} : </lable>
+    <label class="lableDetails"> {{user.phone}} </label>
+	<br>
+    <lable class="lableTitle">{{'User.Details.Coach_Location' | translate}} : </lable>
+    <label class="lableDetails"> {{user.location}} </label>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Email' | translate}} : </lable>
+    <label class="lableDetails"> {{user.email}} </label>
+    <br>   
+    <lable class="lableTitle">{{'User.Details.Password' | translate}} : </lable>
+    <label class="lableDetails"> {{user.password}} </label>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Description' | translate}} : </lable>
+    <label class="lableDetails"> {{user.description}} </label>
+    <br>           
+    <lable class="lableTitle">{{'User.Details.Price_Per_Hour' | translate}} : </lable>
+    <label class="lableDetails"> {{user.price_per_hour}} </label>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Gender' | translate}} : </lable>
+    <label class="lableDetails"> {{user.gender | genderFilter}} </label>
+    <br>   
+    <lable class="lableTitle">{{'User.Details.Age' | translate}} : </lable>
+    <label class="lableDetails"> {{user.birth_date | ageFromBirthdayFilter}} </label>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>
+    <label class="lableDetails"> {{user.main_img}} </label>
+	<br>
+    <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
+    <label class="lableDetails"> {{user.degrees | degreesFilter}} </label>
 </div>
+
+<div class="form-de container" ng-if="editMode">
+	<lable class="lableTitle">{{'User.Details.First_Name' | translate}} : </lable>
+	<input type="text" ng-model="updatedUser.first_name"></input>
+	<br>
+   	<lable class="lableTitle">{{'User.Details.Last_Name' | translate}} : </lable>
+	<input type="text" ng-model="updatedUser.last_name"></input>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Phone' | translate}} : </lable>
+	<input type="text" ng-model="updatedUser.phone"></input>
+	<br>
+    <lable class="lableTitle">{{'User.Details.Coach_Location' | translate}} : </lable>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Email' | translate}} : </lable>
+	<input type="email" ng-model="updatedUser.email"></input>
+    <br>   
+    <lable class="lableTitle">{{'User.Details.Password' | translate}} : </lable>
+	<input type="password" ng-model="updatedUser.phone"></input>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Description' | translate}} : </lable>
+	<textarea type="text" ng-model="updatedUser.description"></textarea>
+    <br>           
+    <lable class="lableTitle">{{'User.Details.Price_Per_Hour' | translate}} : </lable>
+	<input type="number" ng-model="updatedUser.price_per_hour"></input>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Gender' | translate}} : </lable>
+    <input type="radio" value="F" ng-model="updatedUser.gender"></input>
+    <input type="radio" value="M" ng-model="updatedUser.gender"></input>
+    <br>   
+    <lable class="lableTitle">{{'User.Details.Birth_Day' | translate}} : </lable>
+	<input type="date" ng-model="updatedUser.birthday"></input>
+	<br>
+	<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>
+	<input type="text" ng-model="updatedUser.main_img"></input>
+	<br>
+    <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
+    <input type="text" ng-model="updatedUser.degrees"></input>
+    <br>
+    <button type="button" ng-click="saveButtonClicked()">
+		{{'General.Save' | translate}}
+	</button>
+</div>
+
 </div>

@@ -18,12 +18,13 @@ angular.module('myApp.services')
         };
         
 		var setCurrentUser = function(id,first_name,last_name,
-										provider,provider_id){
+										provider,provider_id,main_img){
 			currentUser.id = id;
 			currentUser.first_name = first_name;
 			currentUser.last_name = last_name;
 			currentUser.provider = provider;
 			currentUser.provider_id = provider_id;
+			currentUser.main_img = main_img;
 		};
 		
 		var providerLogin = function(user){
@@ -71,8 +72,11 @@ angular.module('myApp.services')
         			var facebookUser={};
         			facebookUser.provider='facebook';
         			facebookUser.provider_id = response.id;
+        			facebookUser.first_name=response.first_name;
+        			facebookUser.last_name=response.last_name;
+        			facebookUser.main_img=response.picture.data.url;
+        			facebookUser.birth_date=response.birthday;
         			providerLogin(facebookUser);
-        			
         		}, function(error){
         			console.log('facebook login error: ' + error);
         			clearCurrentUser();
@@ -88,7 +92,6 @@ angular.module('myApp.services')
         			googleUser.email = user.getEmail();
         			googleUser.main_img = user.getImageUrl();
     				providerLogin(googleUser);
-    				
         		}, function(error){
         			console.log('google login error: ' + error);
         			clearCurrentUser();

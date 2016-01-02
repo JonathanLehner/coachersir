@@ -63,8 +63,8 @@
 			"October":"אוקטובר",
 			"November":"נובמבר",
 			"December":"דצמבר"},
-		"Objectives":"הכשרות והסמכות",
-		"Degrees":"יעדים ומטרות"
+		"Degrees":"הכשרות והסמכות",
+		"Objectives":"יעדים ומטרות"
 	},
   	"Menu":{
     	"Home":"בית",
@@ -81,17 +81,20 @@
     	"User_Details":"פרטים",
     	"BeforeAnd":"לפני ואחרי",
     	"Details":{
-	      	"Name":"שם מלא",
 	      	"First_Name":"שם פרטי",
 	      	"Last_Name":"שם משפחה",
+	      	"Phone":"טלפון",
+	      	"Coach_Location":"מאמן באזור",
+	      	"Email":"אימייל",
+	      	"Password":"סיסמא",
+			"Description":"קצת על עצמי",
+			"Price_Per_Hour":"מחיר לשעת אימון",
+	      	"Gender":"מין",
 	      	"Birth_Day":"תאריך לידה",
+	      	"Main_Img":"תמונה ראשית",
 	      	"Age":"גיל",
-	      	"About":"קצת על עצמי",
-		  	"Address":"מקום מגורים",
-		    "Gender":"מין",
-		    "Coach_Location":"מאמן באזור",
-		    "Objectives":"הכשרות והסמכות",
-		    "Contact":"צור קשר"
+		    "Coach_Degrees":"הכשרות והסמכות",
+		    "Trained_Objectives":"יעדים ומטרות"
     	},
     	"Gender":{
       		"Female":"נקבה",

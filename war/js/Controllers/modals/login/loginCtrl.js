@@ -58,10 +58,6 @@ angular.module('myApp.controllers.main')
         	loginService.login({},'facebook');
         };
         
-//        $scope.googleLogin = function(){
-//        	loginService.login({},'google');
-//        };
-        
         $scope.googleLogin = function () {
         	loginService.login({},'google');
         };

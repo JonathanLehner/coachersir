@@ -13,26 +13,18 @@
                         <div class="dropdown">
                             <button id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
                                 {{'Login.Hello' | translate}} {{currentUser.first_name}}
-                               </button>
+                            	<span class="caret"></span>
+                            </button>
                             <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
-                                <li role="presentation" class="divider"></li>
+                                <li role="separator" class="divider"></li>
                                 <li role="presentation"><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
                             </ul>
                         </div>
-							<!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-								{{'Login.Hello' | translate}} {{currentUser.name}}
-						  		<span class="caret"></span>
-					  		</button>
-				  			<ul class="dropdown-menu c-dropdown ">
-						    	<li><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
-						    	<li class="divider"></li>
-						    	<li><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
-						  	</ul>-->
-						<!-- Split button
+						<!-- Split button 
 						<div class="btn-group">
-							<button type="button" class="btn btn-primary">
-								{{'Login.Hello' | translate}} {{currentUser.name}}
+							<button type="button" ng-click="myPage()" class="btn btn-primary">
+								{{'Login.Hello' | translate}} {{currentUser.first_name}}
 							</button>
 						  	<button type="button"
 						  			class="btn btn-primary dropdown-toggle"
@@ -60,7 +52,6 @@
     <!-- start menu -->
     <div class="menu" id="menu">
         <div class="container">
-
             <div class="h_menu4"><!-- start h_menu4 -->
                 <a class="toggleMenu" href="#">Menu</a>
                 <ul class="nav">
