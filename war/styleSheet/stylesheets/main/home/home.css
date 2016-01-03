@@ -18,11 +18,16 @@
 .videos ul li {
   display: inline-block;
 }
-/* line 15, ../../../sass/main/home/home.scss */
+/* line 13, ../../../sass/main/home/home.scss */
+.videos ul li video {
+  width: 25%;
+  height: 300px;
+}
+/* line 17, ../../../sass/main/home/home.scss */
 .videos ul li video:focus {
   outline: none !important;
 }
-/* line 18, ../../../sass/main/home/home.scss */
+/* line 20, ../../../sass/main/home/home.scss */
 .videos ul li .details {
   background: black;
   position: absolute;
@@ -30,12 +35,12 @@
   width: 24%;
   height: 27%;
 }
-/* line 25, ../../../sass/main/home/home.scss */
+/* line 27, ../../../sass/main/home/home.scss */
 .videos ul li .details:hover {
   transition: 2s;
   opacity: 0.75;
 }
-/* line 28, ../../../sass/main/home/home.scss */
+/* line 30, ../../../sass/main/home/home.scss */
 .videos ul li .details:hover label {
   background-color: white;
   color: green;

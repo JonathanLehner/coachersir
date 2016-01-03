@@ -39,6 +39,7 @@
 
 .carousel-3d img{
     height: 100%;
+    width: 120%;
 }
 
 .carousel-item:hover .player{
