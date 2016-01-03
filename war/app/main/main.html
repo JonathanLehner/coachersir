@@ -55,11 +55,11 @@
             <div class="h_menu4"><!-- start h_menu4 -->
                 <a class="toggleMenu" href="#">Menu</a>
                 <ul class="nav">
-                    <li><a class="active"  ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
-                    <li><a ui-sref="main.coach">{{'Menu.Coachers' | translate}}</a></li>
-                    <li><a ui-sref="main.articles">{{'Menu.Articles' | translate}}</a></li>
-                    <li><a ui-sref="main.aboutUs">{{'Menu.AboutUs' | translate}}</a></li>
-                    <li><a ui-sref="main.contactUs">{{'Menu.ContactUs' | translate}}</a></li>
+                    <li class="active" ui-sref-active="active"><a ui-sref="main.home"><span class="glyphicon glyphicon-home"></span> {{'Menu.Home' | translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="main.coach">{{'Menu.Coachers' | translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="main.articles">{{'Menu.Articles' | translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="main.aboutUs">{{'Menu.AboutUs' | translate}}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="main.contactUs">{{'Menu.ContactUs' | translate}}</a></li>
                 </ul>
             </div><!-- end h_menu4 -->
             <div class="clear"></div>
@@ -68,5 +68,5 @@
         </div>
     </div>
 
-    <div class="section1" ng-controller="homeCtrl" class="ui" ui-view="app"></div>
+    <div class="section1" id="loadingDiv" class="ui" ui-view="app"></div>
     <!-- end menu -->

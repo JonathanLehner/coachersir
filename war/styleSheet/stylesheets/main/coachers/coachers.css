@@ -19,19 +19,14 @@
   /* background: #fff;*/
 }
 
-/* line 22, ../../../sass/main/coachers/coachers.scss */
-.coachProperties ul {
-  display: inline-block;
-}
-
-/* line 26, ../../../sass/main/coachers/coachers.scss */
+/* line 23, ../../../sass/main/coachers/coachers.scss */
 .coachProperties li {
   display: inline-block;
   border: 1px solid transparent;
   margin: 0 auto 0 20px;
 }
 
-/* line 34, ../../../sass/main/coachers/coachers.scss */
+/* line 31, ../../../sass/main/coachers/coachers.scss */
 .coachImg {
   height: 163px;
   width: 235px;

@@ -84,7 +84,6 @@ angular.module('myApp')
         })
         .state('modal', {
             parent: 'main.coach',
-            abstract:true,
             url: '/coach/:id',
             onEnter: ['$modal','$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
                 userService.getById($stateParams.id).then(function(data){

@@ -1,5 +1,8 @@
-<div ng-controller="homeCtrl">
+<div ng-controller="homeCtrl" ng-cloak>
 
+<span ng-show="minus" class="glyphicon glyphicon-minus" data-ng-click="minus=false"></span>
+<span ng-show="!minus" class="glyphicon glyphicon-plus" data-ng-click="minus=true"></span>
+<div ng-show="minus" >
     <h4>
         {{'favoriteVideos' | translate}}
     </h4>
@@ -12,25 +15,43 @@
                 on-before-change="app.beforeChange(index)">
     </carousel3d>
 
-    <check-box-filters age1="age1(age)"></check-box-filters>
+</div>
+    <check-box-filters></check-box-filters>
 
-	<div class="homeProperties">
-		<ul>
-			<li ng-repeat="vid in videos" class="homeli">
-				<div class="coacherShadow">
+    <div class="videos">
+        <ul>
+            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
+               <div class="video-size">
+                   <div class="details">
+                       <label>{{video.headline}}</label>
+                       <label>{{video.shortDesc}}<u ng-show="video.flag">קרא עוד</u></label>
 
-					<div class="homeTitle">{{vid.headline}}</div>
 
-					<div class="check">
-						<div class="explainText">
-							<p>{{vid.description}}</p>
-						</div>
-					</div>
-
-                    <video ng-src="{{ vid.content | trustUrl }}" controls >
+                   </div>
+                    <video name="media" width="200" height="200" preload="metadata" loop muted>
+                        <source src="{{ video.contentOffset | trustUrl }}" >
                     </video>
-				</div>
-			</li>
-		</ul>
-	</div>
+               </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="pagination-div">
+        <ul class="pagination">
+            <li ng-class="DisablePrevPage()">
+                <a href ng-click="prevPage()"> Prev</a>
+            </li>
+            <li ng-repeat="n in range()"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage(n)">
+                <a href="#">{{n+1}}</a>
+            </li>
+            <li ng-class="DisableNextPage()">
+                <a href ng-click="nextPage()">Next </a>
+            </li>
+        </ul>
+    </div>
+
 </div>

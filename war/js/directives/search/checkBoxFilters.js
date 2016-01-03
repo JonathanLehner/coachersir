@@ -6,6 +6,7 @@ angular.module('myApp.directives').directive('checkBoxFilters', function() {
         restrict: 'E',
         templateUrl:"/app/main/search/checkBoxFilters.html",
         scope: {
+
         },
         link: function($scope) {
             $scope.search =  true;

@@ -1,11 +1,14 @@
 angular.module('myApp.controllers.main')
-    .controller('homeCtrl',['$scope','videoService',function($scope, videoService)
+    .controller('homeCtrl',['$scope','videoService','loadingSpinnerService','$timeout',function($scope, videoService,loadingSpinnerService,$timeout)
     {
         $scope.isHome.flag = true;
 
         $scope.videos = undefined;
 
         var vm = this;
+
+        $scope.gPlace;
+
 
         $scope.slides = [
             {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','videoRef':'https://www.youtube.com/embed/TNBq077wlmc'},
@@ -69,19 +72,87 @@ angular.module('myApp.controllers.main')
         }
 
         var getAllVideos = function(){
-            videoService.getAll().then(function(data){
-                $scope.videos = data;
+            videoService.getAll().then(function(data) {
+                loadingSpinnerService.showProgress();
+
+                $scope.videos = data.map(function(video){
+                    video.contentOffset = video.content + "#t=3";
+                    video.shortDesc = video.description.slice(0, 2) + "...";
+                    if (video.description.length > 3) {
+                        video.flag = true;
+                    } else {
+                        video.flag = false;
+                    }
+
+                    return video;
+                });
+
+
+                $timeout(function () {
+                    loadingSpinnerService.hideProgress();
+                }, 4000);
+
+
             });
         };
 
-        $scope.ages = [];
 
-        $scope.age1 = function (age) {
-            console.log($scope.itemsPerPage +  age);
-            $scope.ages.push(age);
+        //Paging
+        $scope.itemsPerPage = 8;
+        $scope.currentPage = 0;
+        $scope.videos = {};
+
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.videos.length / $scope.pageSize);
         };
 
+        $scope.range = function() {
+            var rangeSize = 4;
+            var ps = [];
+            var start;
+            start = $scope.currentPage;
+            if ( start > $scope.pageCount()-rangeSize ) {
+                start = $scope.pageCount()-rangeSize+1;
+            }
+            for (var i=start; i<start+rangeSize; i++) {
+                ps.push(i);
+            }
+            return ps;
+        };
+
+        $scope.prevPage = function() {
+            if ($scope.currentPage > 0) {
+                $scope.currentPage--;
+            }
+        };
+
+        $scope.DisablePrevPage = function() {
+            return $scope.currentPage === 0 ? "disabled" : "";
+        };
+
+        $scope.pageCount = function() {
+            return Math.ceil($scope.videos.length/$scope.itemsPerPage)-1;
+        };
+
+        $scope.nextPage = function() {
+            if ($scope.currentPage > $scope.pageCount()) {
+                $scope.currentPage++;
+            }
+        };
+
+        $scope.DisableNextPage = function() {
+            return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
+        };
+
+        $scope.setPage = function(n) {
+            $scope.currentPage = n;
+        };
+
+        //Paging
+
         init();
+
+
 
     }
 ]);

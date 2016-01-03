@@ -74,10 +74,14 @@
     	"AboutUs":"קצת עלינו",
     	"ContactUs":"צור קשר"
   	},
-    "SEARCH":{
-      "DOWN": "סנן תוצאות",
-      "UP": "הסתר"
+    "Search":{
+      "Down": "סנן תוצאות",
+      "Up": "הסתר"
     },
+  "Google":{
+    "Maps": "הצג מפה",
+    "Location":"בחר עיר או רחוב"
+  },
   	"User":{
     	"User_Details":"פרטים",
     	"BeforeAnd":"לפני ואחרי",

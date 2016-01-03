@@ -1,76 +1,56 @@
 <div>
+    <hr ng-show="!search" style="margin-top : 10px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #72D0F4, rgba(0, 0, 0, 0));">
+
     <div>{{filter | translate}}</div>
     <div ng-class="search ? 'down-search' : 'up-search'" style="transition: 3s">
         <div ng-show="search" >
             <div>
                 <span class="glyphicon glyphicon-triangle-bottom" style="color: #72D0F4; font-weight: bold;    font-size: 15px;
-                    margin: 10px;" ng-click="search=false"> {{'SEARCH.DOWN' | translate }}</span>
+                    margin: 10px;" ng-click="search=false"> {{'Search.Down' | translate }}</span>
             </div>
           </div>
 
-        <div ng-show="!search"  >
-            <div class="filters">
-                <!-- Age Range-->
-                <ul ng-class="search ? 'down-search' : 'up-search'" style="transition: 3s">
-                    <li ng-repeat="age in ageRange" style="list-style-type: none; transition-delay: 2s;" >
-                        <div flex-xs flex="50" ng-click="test(age)">
-                            <md-checkbox class="md-primary"  >
-                                {{age.range}}
-                            </md-checkbox>
-                        </div>
-                    </li>
-                </ul>
+        <div ng-show="!search" >
+            <div class="filters" >
 
-                <!-- Location Range-->
-                <ul ng-class="search ? 'down-search' : 'up-search'" style="transition: 3s">
-                    <li ng-repeat="state in locations" style="list-style-type: none; ">
-                        <div>
-                            <div flex-xs flex="50" ng-click="test(age)">
-                                <md-checkbox class="md-primary"  >
-                                    {{state.name}}
-                                </md-checkbox>
-                            </div>
-                        {{state.cities[0].name}}
-                            <div ng-repeat="city in state.cities">
-                                <div flex-xs flex="50" ng-click="test(age)">
-                                    <md-checkbox class="md-primary">
-                                        {{city.name}}
-                                    </md-checkbox>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
 
-                <!-- Degrees-->
-                <ul ng-class="search ? 'down-search' : 'up-search'" style="transition: 3s">
-                    <li ng-repeat="degree in degrees" style="list-style-type: none; ">
-                        <div flex-xs flex="50" ng-click="test(age)">
-                            <md-checkbox class="md-primary"  >
-                                {{degree}}
-                            </md-checkbox>
-                        </div>
-                    </li>
-                </ul>
+            <md-input-container>
+                <label>{{"Google.Location" | translate}}</label>
+                <input placeholder="" ng-model="chosenPlace" googleplace />
+            </md-input-container>
 
-                <!-- Location-->
-                <ul ng-class="search ? 'down-search' : 'up-search'" style="transition: 3s">
-                    <li ng-repeat="gender in genders" style="list-style-type: none; ">
-                        <div flex-xs flex="50" ng-click="test(age)">
-                            <md-checkbox class="md-primary"  >
-                                {{gender}}
-                            </md-checkbox>
-                        </div>
-                    </li>
-                </ul>
 
+                <!--<md-chips class="custom-chips" ng-model="ctrl.vegObjs" readonly="ctrl.readonly"
+                          md-transform-chip="ctrl.newVeg($chip)">
+                    <md-chip-template>
+                        <span>
+                          <strong>[{{$index}}] {{$chip.name}}</strong>
+                          <em>({{$chip.type}})</em>
+                        </span>
+                    </md-chip-template>
+                    <button md-chip-remove class="md-primary vegetablechip">
+                        <md-icon md-svg-icon="md-close"></md-icon>
+                    </button>
+                </md-chips>-->
+
+                <!--Switch for Maps -->
+                <div style="float:left; margin-left:2px; transition: 3s; height: 45px" >
+                <span>{{"Google.Maps" | translate}}</span>
+                <md-switch class="md-primary" ng-model="maps"  >
+                   </md-switch>
+                </div>
+                <!--Switch for Maps -->
             </div>
-
         </div>
 
     </div>
 
     <div ng-show="!search" class="glyphicon glyphicon-triangle-top" style="color: #72D0F4;  font-weight: bold;  font-size: 15px;
-    margin: 10px;" ng-click="search=true"> {{'SEARCH.UP' | translate }}</div>
+    margin: 10px;" ng-click="search=true" > {{'Search.Up' | translate }}</div>
+
     <hr style="margin-top : 10px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #72D0F4, rgba(0, 0, 0, 0));">
+
+
+</div>
+<div ng-if="maps" google-map=""></div>
 </div>

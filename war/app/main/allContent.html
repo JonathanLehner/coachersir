@@ -1,0 +1,34 @@
+<div class="coachProperties" >
+    <ul>
+        <li ng-repeat="content in contents |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
+            <div class="coacherShadow">
+                <a href style="background-color: inherit; width: auto; padding: 0px">
+                    <img src={{content.main_img}} class="coachImg">
+                    {{coach.first_name}}
+                </a>
+                <div>
+                    <span ng-value="getGender(content.gender)">{{content.first_name}}</span>
+                </div>
+                <div >
+                    <span >{{gender}} {{content.birth_date | ageFilter}} </span>
+                </div >
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="pagination-div">
+    <ul class="pagination">
+        <li ng-class="DisablePrevPage()">
+            <a href ng-click="prevPage()"> Prev</a>
+        </li>
+        <li ng-repeat="n in range()"
+            ng-class="{active: n == currentPage}"
+            ng-click="setPage(n)">
+            <a href="#">{{n+1}}</a>
+        </li>
+        <li ng-class="DisableNextPage()">
+            <a href ng-click="nextPage()">Next </a>
+        </li>
+    </ul>
+</div>

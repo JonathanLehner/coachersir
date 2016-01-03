@@ -138,3 +138,67 @@ hr {
   border-width: 1px;
   height: 100%;
 }
+
+/* line 121, ../sass/common.scss */
+#gmaps {
+  width: 300px;
+  height: 800px;
+  float: left;
+  margin-left: 5%;
+}
+
+/* line 128, ../sass/common.scss */
+.progressCirculardemoBasicUsage body {
+  padding: 20px;
+}
+
+/* line 131, ../sass/common.scss */
+.progressCirculardemoBasicUsage h4 {
+  margin: 10px 0;
+}
+
+/* line 134, ../sass/common.scss */
+.progressCirculardemoBasicUsage md-progress-circular {
+  margin-bottom: 20px;
+}
+
+/* line 137, ../sass/common.scss */
+.progressCirculardemoBasicUsage #loaders > md-switch {
+  margin: 0;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+/* line 142, ../sass/common.scss */
+.progressCirculardemoBasicUsage #loaders > h5 {
+  margin-top: 0;
+}
+
+/* line 145, ../sass/common.scss */
+.progressCirculardemoBasicUsage #loaders > p {
+  margin-right: 20px;
+  margin-bottom: 24px;
+}
+
+/* line 149, ../sass/common.scss */
+.progressCirculardemoBasicUsage p.small {
+  font-size: 0.8em;
+  margin-top: -18px;
+}
+
+/* line 153, ../sass/common.scss */
+.progressCirculardemoBasicUsage hr {
+  width: 100%;
+  margin-top: 20px;
+  border-color: rgba(221, 221, 177, 0.1);
+}
+
+/* line 158, ../sass/common.scss */
+.progressCirculardemoBasicUsage p.small > code {
+  font-size: 0.8em;
+}
+
+/* line 161, ../sass/common.scss */
+.progressCirculardemoBasicUsage .visible {
+  border-color: rgba(221, 221, 177, 0);
+}

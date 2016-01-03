@@ -1,67 +1,42 @@
 /* line 2, ../../../sass/main/home/home.scss */
-.homeVid {
-  border: 1px solid black;
-  width: 60%;
-  padding-left: 2px;
-  padding-bottom: 2px;
-  border-radius: 3px;
-  height: 80%;
-  float: left;
+.videos {
+  padding: 1% 3% 1% 1%;
 }
-
-/* line 11, ../../../sass/main/home/home.scss */
-.explainText {
-  float: right;
+/* line 4, ../../../sass/main/home/home.scss */
+.videos ul {
+  display: block;
+  padding: 0px;
+  border-radius: 4px;
+  /*video:hover{
+    transition: 3s;
+    width: 25%;
+    opacity: 1;
+    zoom: 1;
+  }*/
 }
-
-/* line 14, ../../../sass/main/home/home.scss */
-.explainText p {
-  overflow: hidden;
-  white-space: normal;
-  -ms-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  width: 150px;
-  height: 1.2em;
-  line-height: 15px;
-  max-height: 45px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-/* line 29, ../../../sass/main/home/home.scss */
-.homeli {
-  width: 45%;
-}
-
-/* line 33, ../../../sass/main/home/home.scss */
-.homeProperties {
-  right: 10%;
-  max-height: 30%;
-  width: 100%;
-}
-
-/* line 39, ../../../sass/main/home/home.scss */
-.homeProperties li:hover {
-  -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-  -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
-  /* background: #fff;*/
-}
-
-/* line 49, ../../../sass/main/home/home.scss */
-.homeProperties ul {
+/* line 8, ../../../sass/main/home/home.scss */
+.videos ul li {
   display: inline-block;
+}
+/* line 15, ../../../sass/main/home/home.scss */
+.videos ul li video:focus {
+  outline: none !important;
+}
+/* line 18, ../../../sass/main/home/home.scss */
+.videos ul li .details {
+  background: black;
   position: absolute;
-  right: 10%;
-  border-color: #002a80;
+  opacity: 0;
+  width: 24%;
+  height: 27%;
 }
-
-/* line 56, ../../../sass/main/home/home.scss */
-.homeProperties li {
-  display: inline-block;
-  margin: 0 auto -2px auto;
-  border: 1px solid transparent;
-  width: 40%;
+/* line 25, ../../../sass/main/home/home.scss */
+.videos ul li .details:hover {
+  transition: 2s;
+  opacity: 0.75;
+}
+/* line 28, ../../../sass/main/home/home.scss */
+.videos ul li .details:hover label {
+  background-color: white;
+  color: green;
 }
