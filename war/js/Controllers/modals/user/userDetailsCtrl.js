@@ -1,8 +1,11 @@
 angular.module('myApp.controllers')
     .controller('userDetailsCtrl',['$scope','staticDataService',function($scope,staticDataService){
 
-    	$scope.user = $scope.$parent.user;
         $scope.editMode = false;
+
+        var init = function(){
+
+        };
 
         $scope.toggleEditMode = function(){
         	$scope.editMode= !$scope.editMode;
@@ -12,11 +15,11 @@ angular.module('myApp.controllers')
         	}else{
         		
         	}
-        }
+        };
         
         $scope.saveButtonClicked = function(){
         	
-        }
+        };
         
 	    staticDataService.getDegrees().then(
     		function(data){
@@ -26,4 +29,6 @@ angular.module('myApp.controllers')
 	            console.log("Something wrong with the degrees")
 	        }
 	    );
+
+        init();
     }]);

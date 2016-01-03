@@ -7,6 +7,7 @@ angular.module('myApp.controllers.main')
             userService.getById(id).
                 then(function(data){
                     $scope.user = data;
+                    $scope.$broadcast('user', {data: '$scope.broadcast'});
             })
         };
 
