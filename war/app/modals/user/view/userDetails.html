@@ -1,5 +1,6 @@
 <div ng-controller="userDetailsCtrl">
-<button type="button" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+	<button type="button" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+	{{session}}
 <div class="form-de container" ng-if="!editMode">	
     <lable class="lableTitle">{{'User.Details.First_Name' | translate}} : </lable>
 	<label class="lableDetails">  {{user.first_name}}</label>
@@ -63,8 +64,8 @@
 	<input type="number" ng-model="updatedUser.price_per_hour"></input>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Gender' | translate}} : </lable>
-    <input type="radio" value="F" ng-model="updatedUser.gender"></input>
-    <input type="radio" value="M" ng-model="updatedUser.gender"></input>
+    <input type="radio" value="M" ng-model="updatedUser.gender">{{'SignUp.Male' | translate}}</input>
+    <input type="radio" value="F" ng-model="updatedUser.gender">{{'SignUp.Female' | translate}}</input>
     <br>   
     <lable class="lableTitle">{{'User.Details.Birth_Day' | translate}} : </lable>
 	<input type="date" ng-model="updatedUser.birthday"></input>
@@ -75,7 +76,7 @@
     <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
     <input type="text" ng-model="updatedUser.degrees"></input>
     <br>
-    <button type="button" ng-click="saveButtonClicked()">
+    <button type="button" class="btn btn btn-primary submit" ng-click="saveButtonClicked()">
 		{{'General.Save' | translate}}
 	</button>
 </div>

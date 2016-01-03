@@ -1,12 +1,6 @@
 <div class="container userModal" ng-controller="userCtrl">
     <h2>User Tabs</h2>
 
-    <div>
-        <button type="submit" class="btn btn btn-primary submit" ng-click="saveUser()">
-            {{'General.Save' | translate}}
-        </button>
-    </div>
-
     <ul class="nav nav-tabs">
         <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
         <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'General.Images' | translate}}</a></li>
