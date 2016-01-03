@@ -33,7 +33,7 @@
     <label class="lableDetails"> {{user.birth_date | ageFromBirthdayFilter}} </label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>
-    <label class="lableDetails"> {{user.main_img}} </label>
+    <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"></img>
 	<br>
     <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
     <label class="lableDetails"> {{user.degrees | degreesFilter}} </label>
@@ -71,7 +71,7 @@
 	<input type="date" ng-model="updatedUser.birthday"></input>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>
-	<input type="text" ng-model="updatedUser.main_img"></input>
+	<!-- image upload directive -->
 	<br>
     <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
     <input type="text" ng-model="updatedUser.degrees"></input>

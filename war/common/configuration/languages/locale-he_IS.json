@@ -13,6 +13,7 @@
 		"Videos": "סרטונים",
 		"Article": "מאמר",
 		"Image": "תמונה",
+		"Main_Img": "תמונה ראשית",
 		"Video": "סרטון"
 	},
 	"Login":{
@@ -43,7 +44,7 @@
 		"Male":"זכר",
 		"Female":"נקבה",
 		"Gender":"מין",
-		"Drop_Img":"גרור תמונה או הקלק",
+		"Drop_Img":"גרור תמונה ראשית או הקלק",
 		"Required_Message":"שכחת למלא שדה זה..",
 		"Password_Match":"הסיסמה לא תואמת",
 		"Trainer_Location":"מקום מגורים",
