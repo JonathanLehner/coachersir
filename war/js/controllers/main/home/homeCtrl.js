@@ -77,8 +77,8 @@ angular.module('myApp.controllers.main')
 
                 $scope.videos = data.map(function(video){
                     video.contentOffset = video.content + "#t=3";
-                    video.shortDesc = video.description.slice(0, 2) + "...";
-                    if (video.description.length > 3) {
+                    video.shortDesc = video.description.slice(0, 15) + "...";
+                    if (video.description.length > 15) {
                         video.flag = true;
                     } else {
                         video.flag = false;
@@ -98,7 +98,7 @@ angular.module('myApp.controllers.main')
 
 
         //Paging
-        $scope.itemsPerPage = 8;
+        $scope.itemsPerPage = 9;
         $scope.currentPage = 0;
         $scope.videos = {};
 
@@ -111,10 +111,11 @@ angular.module('myApp.controllers.main')
             var ps = [];
             var start;
             start = $scope.currentPage;
-            if ( start > $scope.pageCount()-rangeSize ) {
-                start = $scope.pageCount()-rangeSize+1;
+
+            if ((start + rangeSize) > $scope.pageCount() ) {
+                start = $scope.pageCount() - rangeSize;
             }
-            for (var i=start; i<start+rangeSize; i++) {
+            for (var i=start; i< start+rangeSize; i++) {
                 ps.push(i);
             }
             return ps;
@@ -131,7 +132,7 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.pageCount = function() {
-            return Math.ceil($scope.videos.length/$scope.itemsPerPage)-1;
+            return Math.ceil($scope.videos.length/$scope.itemsPerPage);
         };
 
         $scope.nextPage = function() {

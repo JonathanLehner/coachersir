@@ -22,15 +22,15 @@
         <ul>
             <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
                <div class="video-size">
-                   <div class="details">
-                       <label>{{video.headline}}</label>
-                       <label>{{video.shortDesc}}<u ng-show="video.flag">קרא עוד</u></label>
 
-
-                   </div>
                     <video name="media" preload="metadata" loop muted>
                         <source src="{{ video.contentOffset | trustUrl }}" >
                     </video>
+
+                   <div class="details">
+                       <label>{{video.headline}}</label>
+                       <label>{{video.shortDesc}}<span ng-show="video.flag">קרא עוד</span></label>
+                   </div>
                </div>
             </li>
         </ul>
