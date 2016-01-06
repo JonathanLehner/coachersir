@@ -34,6 +34,23 @@ public class UserController
 	}
 
 	@POST
+	@Path("refreshAuthUser")
+	public User refreshAuthUser(@Context HttpServletRequest req)
+	{
+		HttpSession session = req.getSession(true);
+
+		Long userId = (Long) session
+				.getAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE);
+
+		if (userId != null)
+		{
+			return userDAO.findById(userId);
+		}
+
+		return null;
+	}
+
+	@POST
 	@Path("login")
 	public User login(@Context HttpServletRequest req,
 			@QueryParam("email") String email,
@@ -82,10 +99,9 @@ public class UserController
 
 	@POST
 	@Path("logout")
-	public void logout(HttpServletRequest req)
+	public void logout(@Context HttpServletRequest req)
 	{
-		req.getSession().setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
-				null);
+		req.getSession().removeAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE);
 	}
 
 	@GET

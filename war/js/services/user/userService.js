@@ -3,7 +3,6 @@ angular.module('myApp.services')
                    function ($modal , $http , $resource , $httpParamSerializerJQLike , $q){
         'use strict';
 
-        //var url_prefix = '_ah/api/userEndpoint/v1';
         var url_prefix = 'api/userEndpoint';
         
         var serv={};
@@ -69,7 +68,23 @@ angular.module('myApp.services')
                 data: $httpParamSerializerJQLike(data)
             }).$promise;
 	    };
-
+	    
+	    serv.refreshAuthUser = function(){
+	    	var deferred = $q.defer();
+	    	
+	    	$http({
+                method: 'POST',
+                url: url_prefix + '/refreshAuthUser',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	    	}).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
+	    }
+	    
 	    serv.localLogin = function(user){
 	    	return $http({
                 method: 'POST',
@@ -82,19 +97,28 @@ angular.module('myApp.services')
 	    serv.providerLogin = function(user){
 	    	var deferred = $q.defer();
 	    	
-//	    	return $http({
-//                method: 'POST',
-//                url: url_prefix + '/providerLogin',
-//                headers: {'Content-Type': 'application/json'},
-//                data: user
-//            }).$promise;
-	    	
 	    	$http({
                 method: 'POST',
                 url: url_prefix + '/providerLogin',
                 headers: {'Content-Type': 'application/json'},
                 data: user
             }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
+	    };
+	    
+	    serv.logout = function(){
+	    	var deferred = $q.defer();
+	    	
+	    	$http({
+                method: 'POST',
+                url: url_prefix + '/logout',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	    	}).then(function(response){
             	resolve(null, response, deferred);
             },function(error){
             	resolve(error, null, deferred);

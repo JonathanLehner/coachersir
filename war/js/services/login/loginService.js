@@ -56,7 +56,9 @@ angular.module('myApp.services')
 		}
             	
         serv.closeLogin = function(){
-     		modalLogin.close();
+     		if(modalLogin){
+     			modalLogin.close();
+     		}
  		};
 
         serv.login = function(user, provider){
@@ -101,17 +103,22 @@ angular.module('myApp.services')
         
         serv.logout = function(){
         	if(this.isLoggedIn()){
-				
+        		clearCurrentUser();
+        		
         		if(this.currentUser().provider === 'local'){
-					//local logout
-        			clearCurrentUser();
+					// specific code
 				}else if(this.currentUser().provider === 'facebook'){
 					facebookService.logout();
-					clearCurrentUser();
 	        	}else if(this.currentUser().provider === 'google'){
 	        		googleService.logout();
-	        		clearCurrentUser();
-	        	}	
+	        	}
+        		
+        		userService.logout().then(function(response){
+					console.log('logout success: ' + response);
+				},function(error){
+					console.log('logout error: ' + error);	
+				});
+			
 			}
         };
         
@@ -130,29 +137,42 @@ angular.module('myApp.services')
         serv.refreshStatus = function(){	
     		clearCurrentUser();
     		
-    		if(facebookService.isConnected()){
-        		facebookService.getCurrentUser().then(function(response){
-        			currentUser = response;
-        			currentUser.provider='facebook';
-        		},
-        		function(error){
-        			console.log(error);
-        			clearCurrentUser();
-        		});
-        	}
-        	
-        	if(!this.isLoggedIn()){
-        		if(googleService.isConnected()){
-        			googleService.getCurrentUser().then(function(response){
-            			currentUser = response;
-            			currentUser.provider='google';
-            		},
-            		function(error){
-            			console.log(error);
-            			clearCurrentUser();
-            		});
-            	};        	
-        	}
+//    		if(facebookService.isConnected()){
+//        		facebookService.getCurrentUser().then(function(response){
+//        			currentUser = response;
+//        			currentUser.provider='facebook';
+//        		},
+//        		function(error){
+//        			console.log(error);
+//        			clearCurrentUser();
+//        		});
+//        	}
+//        	
+//        	if(!this.isLoggedIn()){
+//        		if(googleService.isConnected()){
+//        			googleService.getCurrentUser().then(function(response){
+//            			currentUser = response;
+//            			currentUser.provider='google';
+//            		},
+//            		function(error){
+//            			console.log(error);
+//            			clearCurrentUser();
+//            		});
+//            	};        	
+//        	}
+    		
+    		userService.refreshAuthUser().then(function(response){
+    			if(response.data){
+    				setCurrentUser(response.data.id,
+    						   response.data.first_name,
+    						   response.data.last_name,
+    						   response.data.provider,
+    						   response.data.provider_id,
+    						   response.data.main_img);
+    			}
+    			},function(error){
+    				console.log('refreshAuthUser error: ' + error);
+    		});
         };
 
         serv.signIn = function(parameter){

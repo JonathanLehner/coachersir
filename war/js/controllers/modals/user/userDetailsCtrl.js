@@ -3,15 +3,11 @@ angular.module('myApp.controllers')
 
         $scope.editMode = false;
 
-        var init = function(){
-
-        };
-
         $scope.toggleEditMode = function(){
         	$scope.editMode= !$scope.editMode;
         	
         	if($scope.editMode === true){
-        		$scope.updatedUser = $scope.user;
+        		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
         	}else{
         		
         	}
@@ -29,6 +25,4 @@ angular.module('myApp.controllers')
 	            console.log("Something wrong with the degrees")
 	        }
 	    );
-
-        init();
     }]);
