@@ -11,6 +11,7 @@ angular.module('myApp')
         $stateProvider.state('main',{
             url:'/',
             controller: 'mainCtrl',
+            abstract:true,
             templateUrl: 'app/main/main.html'
         })
         .state('main.home',{
@@ -83,8 +84,11 @@ angular.module('myApp')
             }
         })
         .state('modal', {
-            parent: 'main.coach',
-            url: '/coach/:id',
+            url: 'coach/:id',
+                params:{
+                    currentState:'main.coach'
+                },
+            parent:'main',
             onEnter: ['$modal','$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
                 userService.getById($stateParams.id).then(function(data){
                     if(data.id == null || data.id === undefined){
@@ -98,7 +102,7 @@ angular.module('myApp')
                             controller:'userCtrl',
                             backdrop:'static'
                         }).result.finally(function() {
-                                $state.go('main.coach');
+                                $state.go($stateParams.currentState);
                         });
                     }
                 });

@@ -16,7 +16,7 @@
                             	<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">
-                                <li role="presentation"><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
+                                <li role="presentation"><a href ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li role="presentation"><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
                             </ul>
@@ -69,4 +69,5 @@
     </div>
 
     <div class="section1" id="loadingDiv" class="ui" ui-view="app"></div>
+
     <!-- end menu -->

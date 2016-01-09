@@ -65,9 +65,6 @@ angular.module('myApp.controllers.main')
             $state.go('details',{ id: coach.id});
         };
 
-        $scope.isHome.flag = false;
-
-
         userService.getAll().then(function(data){
              $scope.coachers =  data;
         });

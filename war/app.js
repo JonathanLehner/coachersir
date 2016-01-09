@@ -8,6 +8,7 @@ angular.module('myApp.filters',[]);
 angular.module('myApp',
     ['ui.router',
      'ngResource',
+     'ng',
      'ngCookies',
      'ngAnimate',
      'ngFileUpload',

@@ -5,8 +5,18 @@ angular.module('myApp.services')
 		
 		//var url_prefix = '_ah/api/contentEndpoint/v1';
 		var url_prefix = 'api/contentEndpoint';
-		
+
 		var serv={};
+
+        serv.videos = undefined;
+
+        serv.getVideos = function(){
+            return serv.videos;
+        };
+
+        serv.setVideos = function(videos){
+            serv.videos = videos;
+        };
 
         serv.playVideo =  function(parameter){
             var videoModal = $modal.open({

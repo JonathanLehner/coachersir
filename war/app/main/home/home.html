@@ -1,6 +1,6 @@
 <div ng-controller="homeCtrl" ng-cloak>
 
-<span ng-show="minus" class="glyphicon glyphicon-minus" data-ng-click="minus=false"></span>
+    <span ng-show="minus" class="glyphicon glyphicon-minus" data-ng-click="minus=false"></span>
 <span ng-show="!minus" class="glyphicon glyphicon-plus" data-ng-click="minus=true"></span>
 <div ng-show="minus" >
     <h4>
@@ -20,8 +20,8 @@
 
     <div class="videos">
         <ul>
-            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
-               <div class="video-size">
+            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="playVideo(video.content)">
+               <div id="video1" class="video-size">
 
                     <video name="media" preload="metadata" loop muted>
                         <source src="{{ video.contentOffset | trustUrl }}" >

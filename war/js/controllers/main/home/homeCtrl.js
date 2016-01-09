@@ -1,8 +1,6 @@
 angular.module('myApp.controllers.main')
     .controller('homeCtrl',['$scope','videoService','loadingSpinnerService','$timeout',function($scope, videoService,loadingSpinnerService,$timeout)
     {
-        $scope.isHome.flag = true;
-
         $scope.videos = undefined;
 
         var vm = this;
@@ -41,8 +39,8 @@ angular.module('myApp.controllers.main')
         $scope.beforeChange = beforeChange;
         $scope.lastSlide = lastSlide;
 
-        init = function(){
-            getAllVideos();
+        var init = function(){
+                getAllVideos();
         };
 
         function lastSlide(index) {
@@ -72,37 +70,60 @@ angular.module('myApp.controllers.main')
         }
 
         var getAllVideos = function(){
-            videoService.getAll().then(function(data) {
-                loadingSpinnerService.showProgress();
+            $scope.videos = videoService.getVideos();
 
-                $scope.videos = data.map(function(video){
-                    video.contentOffset = video.content + "#t=3";
-                    video.shortDesc = video.description.slice(0, 15) + "...";
-                    if (video.description.length > 15) {
-                        video.flag = true;
-                    } else {
-                        video.flag = false;
-                    }
+            if(!$scope.videos) {
 
-                    return video;
+                videoService.getAll().then(function (data) {
+
+                    loadingSpinnerService.showProgress();
+
+                    $scope.videos = data.map(function (video) {
+                        video.contentOffset = video.content + "#t=3";
+                        video.shortDesc = video.description.slice(0, 15) + "...";
+                        if (video.description.length > 15) {
+                            video.flag = true;
+                        } else {
+                            video.flag = false;
+                        }
+
+                        return video;
+                    });
+
+                    videoService.setVideos($scope.videos);
+
+                    $timeout(function () {
+                        loadingSpinnerService.hideProgress();
+                    }, 8000);
+
+
                 });
-
-
-                $timeout(function () {
-                    loadingSpinnerService.hideProgress();
-                }, 4000);
-
-
-            });
+            }
         };
+
+        $scope.playVideo = function (video){
+            videoService.playVideo(video);
+        };
+
+        $(document).ready(function () {
+            $(".video1").hover(function () {
+                $(this).children("video")[0].play();
+            }, function () {
+                var el = $(this).children("video")[0];
+                el.pause();
+                el.currentTime = 0;
+            });
+        });
 
 
         //Paging
         $scope.itemsPerPage = 9;
         $scope.currentPage = 0;
-        $scope.videos = {};
 
         $scope.numberOfPages = function() {
+            if(!$scope.videos){
+                return 0;
+            }
             return Math.ceil($scope.videos.length / $scope.pageSize);
         };
 
@@ -132,6 +153,9 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.pageCount = function() {
+            if(!$scope.videos){
+                return 0;
+            }
             return Math.ceil($scope.videos.length/$scope.itemsPerPage);
         };
 

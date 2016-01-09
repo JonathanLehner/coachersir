@@ -1,5 +1,16 @@
 <div class="container videoModal">
-    <iframe width="600" height="400" ng-src="{{ videoRef1 | trustUrl}}" frameborder="0" autoplay allowfullscreen></iframe>
+    <label>שם וידאו</label>
 
+    <p>
+        asdadafasgasgsagsdfgsdfgsdfg
+        sdfgsdfgsdgsdgf
+        sdfgsdgsfgd</br>
+        sadadafsaaf</br>
+        asdaggfdsgsgasasfg
+    </p>
+
+    <iframe ng-if="youTube" ng-src="{{ videoRef1 | trustUrl}}" frameborder="0" autoplay allowfullscreen></iframe>
+
+    <video ng-if="!youTube" ng-src="{{ videoRef1 | trustUrl}}" frameborder="0" autoplay controls muted="false" allowfullscreen></video>
 
 </div>
