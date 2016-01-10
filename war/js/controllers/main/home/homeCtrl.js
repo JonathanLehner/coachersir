@@ -133,6 +133,10 @@ angular.module('myApp.controllers.main')
             var start;
             start = $scope.currentPage;
 
+            if(rangeSize >  $scope.pageCount()){
+                rangeSize =  $scope.pageCount();
+            }
+
             if ((start + rangeSize) > $scope.pageCount() ) {
                 start = $scope.pageCount() - rangeSize;
             }

@@ -4,7 +4,6 @@
 }
 /* line 4, ../../../sass/main/home/home.scss */
 .videos ul {
-  overflow: hidden;
   display: block;
   padding: 0px;
   border-radius: 4px;
@@ -16,28 +15,28 @@
     zoom: 1;
   }*/
 }
-/* line 10, ../../../sass/main/home/home.scss */
+/* line 9, ../../../sass/main/home/home.scss */
 .videos ul li {
   display: inline-block;
   width: 30%;
 }
-/* line 13, ../../../sass/main/home/home.scss */
+/* line 12, ../../../sass/main/home/home.scss */
 .videos ul li .video-size {
   display: block;
   cursor: pointer;
   position: relative;
 }
-/* line 19, ../../../sass/main/home/home.scss */
+/* line 18, ../../../sass/main/home/home.scss */
 .videos ul li video {
   width: 100%;
   height: 100%;
 }
-/* line 23, ../../../sass/main/home/home.scss */
+/* line 22, ../../../sass/main/home/home.scss */
 .videos ul li video:focus {
   outline: none !important;
 }
 
-/* line 38, ../../../sass/main/home/home.scss */
+/* line 37, ../../../sass/main/home/home.scss */
 .details {
   background: black;
   position: absolute;
@@ -49,12 +48,12 @@
   height: 100%;
 }
 
-/* line 49, ../../../sass/main/home/home.scss */
+/* line 48, ../../../sass/main/home/home.scss */
 .details:hover {
   transition: 2s;
   opacity: 0.75;
 }
-/* line 52, ../../../sass/main/home/home.scss */
+/* line 51, ../../../sass/main/home/home.scss */
 .details:hover label {
   width: inherit;
   text-align: center;

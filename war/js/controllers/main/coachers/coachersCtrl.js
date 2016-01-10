@@ -1,7 +1,7 @@
 angular.module('myApp.controllers.main')
     .controller('coachersCtrl',['$scope','$state','$translate','userService',function($scope,$state,$translate,userService)
     {
-        $scope.itemsPerPage = 5;
+        $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
         $scope.coachers = {};
 
@@ -14,10 +14,15 @@ angular.module('myApp.controllers.main')
             var ps = [];
             var start;
             start = $scope.currentPage;
-            if ( start > $scope.pageCount()-rangeSize ) {
-                start = $scope.pageCount()-rangeSize+1;
+
+            if(rangeSize >  $scope.pageCount()){
+                rangeSize =  $scope.pageCount();
             }
-            for (var i=start; i<start+rangeSize; i++) {
+
+            if ((start + rangeSize) > $scope.pageCount() ) {
+                start = $scope.pageCount() - rangeSize;
+            }
+            for (var i=start; i< start+rangeSize; i++) {
                 ps.push(i);
             }
             return ps;
