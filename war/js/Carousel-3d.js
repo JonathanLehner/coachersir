@@ -344,7 +344,7 @@
                         index: carousel3d.currentIndex
                     });
                 }
-                videoService.playVideo(carousel3d.slides[index]["videoRef"]);
+                videoService.playVideo(carousel3d.slides[index]["video"]);
             }
         }
     }

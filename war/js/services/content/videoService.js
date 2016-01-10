@@ -25,7 +25,7 @@ angular.module('myApp.services')
                 controller:'videoPlayerCtrl',
                 backdrop:'static',
                 resolve:{
-                    videoRef: function(){
+                    videoObj: function(){
                         return parameter;
                     }
                 }

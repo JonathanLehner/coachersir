@@ -82,6 +82,9 @@
     "Maps": "הצג מפה",
     "Location":"בחר עיר או רחוב"
   },
+  "Video":{
+    "ToCoach":"לדף המאמן"
+},
   	"User":{
     	"User_Details":"פרטים",
     	"BeforeAnd":"לפני ואחרי",

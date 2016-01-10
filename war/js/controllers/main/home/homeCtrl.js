@@ -9,13 +9,13 @@ angular.module('myApp.controllers.main')
 
 
         $scope.slides = [
-            {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','videoRef':'https://www.youtube.com/embed/TNBq077wlmc'},
-            {'src': 'js/controllers/main/home/images/photo3.jpg','videoRef':'test'},
-            {'src': 'js/controllers/main/home/images/photo4.jpg','videoRef':'test'},
-            {'src': 'js/controllers/main/home/images/photo5.jpg','videoRef':'test'},
-            {'src': 'js/controllers/main/home/images/photo6.jpg','videoRef':'test'},
-            {'src': 'js/controllers/main/home/images/photo7.jpg','videoRef':'test'},
-            {'src': 'js/controllers/main/home/images/photo8.jpg','videoRef':'test'}
+            {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','video':{content:'https://www.youtube.com/embed/TNBq077wlmc',headline:"עדי מתאמנת",description:"עדי מאמנת הכל"}},
+            {'src': 'js/controllers/main/home/images/photo3.jpg','video':{}},
+            {'src': 'js/controllers/main/home/images/photo4.jpg','video':{}},
+            {'src': 'js/controllers/main/home/images/photo5.jpg','video':{}},
+            {'src': 'js/controllers/main/home/images/photo6.jpg','video':{}},
+            {'src': 'js/controllers/main/home/images/photo7.jpg','video':{}},
+            {'src': 'js/controllers/main/home/images/photo8.jpg','video':{}}
         ];
 
 

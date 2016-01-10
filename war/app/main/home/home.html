@@ -20,7 +20,7 @@
 
     <div class="videos">
         <ul>
-            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="playVideo(video.content)">
+            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="playVideo(video)">
                <div id="video1" class="video-size">
 
                     <video name="media" preload="metadata" loop muted>

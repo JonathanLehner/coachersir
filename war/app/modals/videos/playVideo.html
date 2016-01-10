@@ -1,12 +1,8 @@
 <div class="container videoModal">
-    <label>שם וידאו</label>
+    <label>{{::title}}<a href ng-click="toCoach()">{{'Video.ToCoach' | translate}}</a></label>
 
     <p>
-        asdadafasgasgsagsdfgsdfgsdfg
-        sdfgsdfgsdgsdgf
-        sdfgsdgsfgd</br>
-        sadadafsaaf</br>
-        asdaggfdsgsgasasfg
+        {{::description}}
     </p>
 
     <iframe ng-if="youTube" ng-src="{{ videoRef1 | trustUrl}}" frameborder="0" autoplay allowfullscreen></iframe>
