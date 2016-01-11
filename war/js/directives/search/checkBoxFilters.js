@@ -6,16 +6,18 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
         restrict: 'E',
         templateUrl:"/app/main/search/checkBoxFilters.html",
         scope: {
-
         },
         link: function($scope) {
 
-            $scope.height = $( document ).height() - 30;
-            $scope.bottom = 100;
             var current = 0;
             var previous = 1;
 
             $(window).scroll(function() {
+                $scope.heightMap = undefined;
+
+                if($scope.heightMap === undefined){
+                    $scope.heightMap = (screen.height - screen.height * 0.25) + 'px';
+                }
 
                 var docCheckBox = $("checkBoxFiltersId");
                 var offset = $(document).scrollTop();
@@ -29,24 +31,8 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
                 previous = current;
                 current = offset;
 
-                console.log(offset + " " + $scope.height + " "+previous + " "+ current);
-                if(current > previous){
-                    if(offset > $scope.height){
-                        $scope.pbottom = 0;
-                    }else{
-                        $scope.pbottom -= $scope.height/(offset+1);
-                    }
-                }else{
-                    if(offset === 0 ){
-                        $scope.pbottom = 100;
-                    }else {
-                        $scope.pbottom += $scope.height / (offset + 1);
-                    }
-                }
-
-                $scope.ptop = 100 - $scope.pbottom
-
-                console.log($scope.pbottom)
+                console.log(offset + " " + " "+previous + " "+ current);
+                console.log($scope.heightMap );
 
                 $rootScope.$digest();
             });
