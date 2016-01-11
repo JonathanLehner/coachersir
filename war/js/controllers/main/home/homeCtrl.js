@@ -105,17 +105,6 @@ angular.module('myApp.controllers.main')
             videoService.playVideo(video);
         };
 
-        $(document).ready(function () {
-            $(".video1").hover(function () {
-                $(this).children("video")[0].play();
-            }, function () {
-                var el = $(this).children("video")[0];
-                el.pause();
-                el.currentTime = 0;
-            });
-    });
-
-
         //Paging
         $scope.itemsPerPage = 9;
         $scope.currentPage = 0;

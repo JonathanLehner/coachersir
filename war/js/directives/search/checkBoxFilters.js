@@ -31,8 +31,6 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
                 previous = current;
                 current = offset;
 
-                console.log(offset + " " + " "+previous + " "+ current);
-                console.log($scope.heightMap );
 
                 $rootScope.$digest();
             });

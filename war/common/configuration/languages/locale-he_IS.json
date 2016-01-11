@@ -83,7 +83,8 @@
     "Location":"בחר עיר או רחוב"
   },
   "Video":{
-    "ToCoach":"לדף המאמן"
+    "ToCoach":"לדף המאמן",
+    "ReadMore":"קרא עוד"
 },
   	"User":{
     	"User_Details":"פרטים",

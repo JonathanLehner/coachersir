@@ -151,7 +151,7 @@ angular.module('myApp.services')
     		});
         };
         
-        serv.refreshCurrentUser(user){
+        serv.refreshCurrentUser = function(user){
         	clearCurrentUser();
         	setCurrentUser(user.id,
         			user.first_name,
@@ -159,8 +159,8 @@ angular.module('myApp.services')
         			user.provider,
         			user.provider_id,
         			user.main_img);
-        }
-        
+        };
+
         serv.signIn = function(parameter){
             modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/login.html',

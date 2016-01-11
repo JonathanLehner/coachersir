@@ -8,9 +8,10 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   background: #F3F3F3;
   font-size: 100%;
+  overflow-x: hidden;
 }
 
-/* line 8, ../sass/index.scss */
+/* line 9, ../sass/index.scss */
 body a {
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
@@ -18,7 +19,7 @@ body a {
   -o-transition: 0.5s all;
 }
 
-/* line 14, ../sass/index.scss */
+/* line 15, ../sass/index.scss */
 .header {
   width: 100%;
   height: 100%;
@@ -33,7 +34,7 @@ body a {
   background-position: center;
 }
 
-/* line 28, ../sass/index.scss */
+/* line 29, ../sass/index.scss */
 .header-text {
   background: rgba(33, 191, 252, 0.35);
   width: 48%;
@@ -41,7 +42,7 @@ body a {
   border-bottom: 5px solid #02b6fc;
 }
 
-/* line 34, ../sass/index.scss */
+/* line 35, ../sass/index.scss */
 .header-text h1 {
   color: #fff;
   font-size: 3.6em;
@@ -54,7 +55,7 @@ body a {
   margin: 0;
 }
 
-/* line 45, ../sass/index.scss */
+/* line 46, ../sass/index.scss */
 .header-text h2 {
   color: #FFF;
   font-size: 1.7em;
@@ -67,7 +68,7 @@ body a {
   margin: 10px 0 5px 0;
 }
 
-/* line 56, ../sass/index.scss */
+/* line 57, ../sass/index.scss */
 .header-text p {
   color: #fff;
   font-size: 0.85em;
@@ -77,12 +78,12 @@ body a {
   margin-bottom: 5%;
 }
 
-/* line 64, ../sass/index.scss */
+/* line 65, ../sass/index.scss */
 .banner_btn {
   text-align: center;
 }
 
-/* line 67, ../sass/index.scss */
+/* line 68, ../sass/index.scss */
 .banner_btn a {
   background: none;
   font-size: 1em;
@@ -103,20 +104,20 @@ body a {
   border: 1px solid #FFF;
 }
 
-/* line 86, ../sass/index.scss */
+/* line 87, ../sass/index.scss */
 .banner_btn a:hover {
   background: rgba(255, 255, 255, 0.35);
   color: #000;
   text-decoration: none;
 }
 
-/* line 91, ../sass/index.scss */
+/* line 92, ../sass/index.scss */
 .header-arrow {
   text-align: center;
   padding: 16% 0 5% 0;
 }
 
-/* line 95, ../sass/index.scss */
+/* line 96, ../sass/index.scss */
 .header-arrow a span {
   width: 209px;
   height: 50px;
@@ -125,18 +126,18 @@ body a {
   vertical-align: middle;
 }
 
-/* line 102, ../sass/index.scss */
+/* line 103, ../sass/index.scss */
 .header-bottom_left {
   float: right;
 }
 
-/* line 105, ../sass/index.scss */
+/* line 106, ../sass/index.scss */
 .header-bottom {
   background: #00BFF0;
   padding-top: 5px;
 }
 
-/* line 109, ../sass/index.scss */
+/* line 110, ../sass/index.scss */
 i.phone {
   background: url(../images/img-sprite.png) no-repeat -220px -8px;
   width: 20px;
@@ -145,36 +146,36 @@ i.phone {
   margin-right: 10px;
 }
 
-/* line 116, ../sass/index.scss */
+/* line 117, ../sass/index.scss */
 .header-bottom_left span {
   color: #C0EEFF;
   font-size: 0.85em;
 }
 
-/* line 120, ../sass/index.scss */
+/* line 121, ../sass/index.scss */
 .social {
   float: right;
 }
 
-/* line 123, ../sass/index.scss */
+/* line 124, ../sass/index.scss */
 .social ul {
   margin: 0;
   padding: 0;
 }
 
-/* line 127, ../sass/index.scss */
+/* line 128, ../sass/index.scss */
 .social ul li:first-child, ol li:first-child {
   margin-top: 0px;
   margin-left: 0;
 }
 
-/* line 131, ../sass/index.scss */
+/* line 132, ../sass/index.scss */
 .social li {
   background: none;
   display: inline-block;
 }
 
-/* line 135, ../sass/index.scss */
+/* line 136, ../sass/index.scss */
 li.facebook a span {
   height: 25px;
   width: 25px;
@@ -182,12 +183,12 @@ li.facebook a span {
   background: url(../images/img-sprite.png) no-repeat -250px -10px;
 }
 
-/* line 141, ../sass/index.scss */
+/* line 142, ../sass/index.scss */
 li.facebook a span:hover {
   background: url(../images/img-sprite.png) no-repeat -8px -207px #FFF;
 }
 
-/* line 144, ../sass/index.scss */
+/* line 145, ../sass/index.scss */
 li.twitter a span {
   height: 25px;
   width: 25px;
@@ -195,12 +196,12 @@ li.twitter a span {
   background: url(../images/img-sprite.png) no-repeat -276px -10px;
 }
 
-/* line 150, ../sass/index.scss */
+/* line 151, ../sass/index.scss */
 li.twitter a span:hover {
   background: url(../images/img-sprite.png) no-repeat -33px -207px #FFF;
 }
 
-/* line 153, ../sass/index.scss */
+/* line 154, ../sass/index.scss */
 li.pinterest a span {
   height: 25px;
   width: 25px;
@@ -208,12 +209,12 @@ li.pinterest a span {
   background: url(../images/img-sprite.png) no-repeat -304px -10px;
 }
 
-/* line 159, ../sass/index.scss */
+/* line 160, ../sass/index.scss */
 li.pinterest a span:hover {
   background: url(../images/img-sprite.png) no-repeat -63px -207px #FFF;
 }
 
-/* line 162, ../sass/index.scss */
+/* line 163, ../sass/index.scss */
 li.google a span {
   height: 25px;
   width: 25px;
@@ -221,12 +222,12 @@ li.google a span {
   background: url(../images/img-sprite.png) no-repeat -332px -10px;
 }
 
-/* line 168, ../sass/index.scss */
+/* line 169, ../sass/index.scss */
 li.google a span:hover {
   background: url(../images/img-sprite.png) no-repeat -91px -207px #FFF;
 }
 
-/* line 171, ../sass/index.scss */
+/* line 172, ../sass/index.scss */
 li.tumblr a span {
   height: 25px;
   width: 25px;
@@ -234,12 +235,12 @@ li.tumblr a span {
   background: url(../images/img-sprite.png) no-repeat -361px -10px;
 }
 
-/* line 177, ../sass/index.scss */
+/* line 178, ../sass/index.scss */
 li.tumblr a span:hover {
   background: url(../images/img-sprite.png) no-repeat -119px -207px #fff;
 }
 
-/* line 180, ../sass/index.scss */
+/* line 181, ../sass/index.scss */
 li.instagram a span {
   height: 25px;
   width: 25px;
@@ -247,12 +248,12 @@ li.instagram a span {
   background: url(../images/img-sprite.png) no-repeat -389px -10px;
 }
 
-/* line 186, ../sass/index.scss */
+/* line 187, ../sass/index.scss */
 li.instagram a span:hover {
   background: url(../images/img-sprite.png) no-repeat -146px -207px #fff;
 }
 
-/* line 189, ../sass/index.scss */
+/* line 190, ../sass/index.scss */
 li.rss a span {
   height: 25px;
   width: 25px;
@@ -260,12 +261,12 @@ li.rss a span {
   background: url(../images/img-sprite.png) no-repeat -418px -10px;
 }
 
-/* line 195, ../sass/index.scss */
+/* line 196, ../sass/index.scss */
 li.rss a span:hover {
   background: url(../images/img-sprite.png) no-repeat -176px -207px #fff;
 }
 
-/* line 198, ../sass/index.scss */
+/* line 199, ../sass/index.scss */
 .menu {
   padding: 2% 0 1.8% 0;
   background: #72D0F4;
@@ -273,11 +274,11 @@ li.rss a span:hover {
   clear: both;
 }
 
-/* line 204, ../sass/index.scss */
+/* line 205, ../sass/index.scss */
 .logo {
   position: absolute;
 }
-/* line 206, ../sass/index.scss */
+/* line 207, ../sass/index.scss */
 .logo img {
   width: 23%;
   float: left;
@@ -5893,43 +5894,34 @@ div[dropzone] {
 }
 
 /* line 4302, ../sass/index.scss */
-.mapsWrapper {
-  display: inline-block;
-  padding-left: 5%;
-  padding-bottom: 40%;
-  overflow: hidden;
-  float: left;
-}
-
-/* line 4310, ../sass/index.scss */
 .filters {
   display: flex;
   position: absolute;
   height: 40%;
   margin-right: 15%;
 }
-/* line 4315, ../sass/index.scss */
+/* line 4307, ../sass/index.scss */
 .filters ul {
   max-height: 83%;
   overflow: hidden;
   margin-left: 5%;
 }
-/* line 4321, ../sass/index.scss */
+/* line 4313, ../sass/index.scss */
 .filters ul li {
   padding-top: 10px;
   width: 180px;
 }
-/* line 4322, ../sass/index.scss */
+/* line 4314, ../sass/index.scss */
 .filters ul li div:focus {
   outline: none;
   border: 0;
 }
-/* line 4326, ../sass/index.scss */
+/* line 4318, ../sass/index.scss */
 .filters ul li div {
   line-height: 10px;
 }
 
-/* line 4335, ../sass/index.scss */
+/* line 4327, ../sass/index.scss */
 .c-dropdown {
   position: inherit;
   overflow: auto;
