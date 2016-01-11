@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,6 +13,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.SystemUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
@@ -37,10 +37,7 @@ public class UserController
 	@Path("refreshAuthUser")
 	public User refreshAuthUser(@Context HttpServletRequest req)
 	{
-		HttpSession session = req.getSession(true);
-
-		Long userId = (Long) session
-				.getAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE);
+		Long userId = SystemUtils.getUserIdOnSession(req);
 
 		if (userId != null)
 		{
@@ -65,10 +62,7 @@ public class UserController
 			// in your authentication method
 			if (authUser != null)
 			{
-				HttpSession session = req.getSession(true);
-
-				session.setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
-						authUser.getId());
+				SystemUtils.addUserToSession(req, authUser.getId());
 			}
 		}
 
@@ -88,9 +82,7 @@ public class UserController
 			// in your authentication method
 			if (authUser != null)
 			{
-				HttpSession session = req.getSession(true);
-				session.setAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE,
-						authUser.getId());
+				SystemUtils.addUserToSession(req, authUser.getId());
 			}
 		}
 
@@ -101,7 +93,7 @@ public class UserController
 	@Path("logout")
 	public void logout(@Context HttpServletRequest req)
 	{
-		req.getSession().removeAttribute(SystemUtils.SESSION_USER_ID_ATTRIBUTE);
+		SystemUtils.removeUserFromSession(req);
 	}
 
 	@GET
@@ -150,8 +142,11 @@ public class UserController
 
 	@POST
 	@Path("update")
-	public User update(User user) throws EntityNotFoundException
+	public User update(@Context HttpServletRequest req, User user)
+			throws EntityNotFoundException, UnauthorizedException
 	{
+		SystemUtils.verifyUserOnSession(req, user.getId());
+
 		if (user.getId() != null)
 		{
 			return userDAO.update(user);

@@ -1,42 +1,42 @@
 <div ng-controller="userDetailsCtrl">
-	<button type="button" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
-	{{session}}
+	<button type="button" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+	
 <div class="form-de container" ng-if="!editMode">	
     <lable class="lableTitle">{{'User.Details.First_Name' | translate}} : </lable>
-	<label class="lableDetails">  {{user.first_name}}</label>
+	<label class="lableDetails">  {{::user.first_name}}</label>
 	<br>
    	<lable class="lableTitle">{{'User.Details.Last_Name' | translate}} : </lable>
-	<label class="lableDetails">  {{user.last_name}}</label>
+	<label class="lableDetails">  {{::user.last_name}}</label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Phone' | translate}} : </lable>
-    <label class="lableDetails"> {{user.phone}} </label>
+    <label class="lableDetails"> {{::user.phone}} </label>
 	<br>
     <lable class="lableTitle">{{'User.Details.Coach_Location' | translate}} : </lable>
-    <label class="lableDetails"> {{user.location}} </label>
+    <label class="lableDetails"> {{::user.location}} </label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Email' | translate}} : </lable>
-    <label class="lableDetails"> {{user.email}} </label>
+    <label class="lableDetails"> {{::user.email}} </label>
     <br>   
     <lable class="lableTitle">{{'User.Details.Password' | translate}} : </lable>
-    <label class="lableDetails"> {{user.password}} </label>
+    <label class="lableDetails"> {{::user.password}} </label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Description' | translate}} : </lable>
-    <label class="lableDetails"> {{user.description}} </label>
+    <label class="lableDetails"> {{::user.description}} </label>
     <br>           
     <lable class="lableTitle">{{'User.Details.Price_Per_Hour' | translate}} : </lable>
-    <label class="lableDetails"> {{user.price_per_hour}} </label>
+    <label class="lableDetails"> {{::user.price_per_hour}} </label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Gender' | translate}} : </lable>
-    <label class="lableDetails"> {{user.gender | genderFilter}} </label>
+    <label class="lableDetails"> {{::user.gender | genderFilter}} </label>
     <br>   
     <lable class="lableTitle">{{'User.Details.Age' | translate}} : </lable>
-    <label class="lableDetails"> {{user.birth_date | ageFromBirthdayFilter}} </label>
+    <label class="lableDetails"> {{::user.birth_date | ageFromBirthdayFilter}} </label>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>
-    <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"></img>
+    <img ng-src="{{::user.main_img}}" alt="{{'General.Main_Img' | translate}}"></img>
 	<br>
     <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
-    <label class="lableDetails"> {{user.degrees | degreesFilter}} </label>
+    <label class="lableDetails"> {{::user.degrees | degreesFilter}} </label>
 </div>
 
 <div class="form-de container" ng-if="editMode">
@@ -55,7 +55,7 @@
 	<input type="email" ng-model="updatedUser.email"></input>
     <br>   
     <lable class="lableTitle">{{'User.Details.Password' | translate}} : </lable>
-	<input type="password" ng-model="updatedUser.phone"></input>
+	<input type="password" ng-model="updatedUser.password"></input>
 	<br>
 	<lable class="lableTitle">{{'User.Details.Description' | translate}} : </lable>
 	<textarea type="text" ng-model="updatedUser.description"></textarea>
@@ -74,8 +74,10 @@
 	<!-- image upload directive -->
 	<br>
     <lable class="lableTitle">{{'User.Details.Coach_Degrees' | translate}} : </lable>
-    <input type="text" ng-model="updatedUser.degrees"></input>
-    <br>
+    <label ng-repeat="degree in degrees">
+  		<input type="checkbox" checklist-model="updatedUser.degrees" checklist-value="degree.id">{{degree.name}}
+	</label>
+	<br>
     <button type="button" class="btn btn btn-primary submit" ng-click="saveButtonClicked()">
 		{{'General.Save' | translate}}
 	</button>

@@ -84,7 +84,7 @@ public class ContentController
 	public Content insertArticle(@Context HttpServletRequest req,
 			Content content) throws UnauthorizedException
 	{
-		verifyUserOnSession(req, content.getUser_id());
+		SystemUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_ARTICLE);
 		return contentDAO.insert(content);
 	}
@@ -94,7 +94,7 @@ public class ContentController
 	public Content insertImage(@Context HttpServletRequest req, Content content)
 			throws UnauthorizedException
 	{
-		verifyUserOnSession(req, content.getUser_id());
+		SystemUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_IMAGE);
 		return contentDAO.insert(content);
 	}
@@ -104,22 +104,9 @@ public class ContentController
 	public Content insertVideo(@Context HttpServletRequest req, Content content)
 			throws UnauthorizedException
 	{
-		verifyUserOnSession(req, content.getUser_id());
+		SystemUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_VIDEO);
 		return contentDAO.insert(content);
-	}
-
-	private void verifyUserOnSession(HttpServletRequest req, Long userId)
-			throws UnauthorizedException
-	{
-		Object session_var = req.getSession().getAttribute(
-				SystemUtils.SESSION_USER_ID_ATTRIBUTE);
-
-		if (userId == null || !userId.equals(session_var))
-		{
-			throw new UnauthorizedException(
-					"requested operation is not supported for user.");
-		}
 	}
 
 	@GET

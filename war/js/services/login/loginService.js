@@ -76,7 +76,7 @@ angular.module('myApp.services')
         			facebookUser.provider_id = response.id;
         			facebookUser.first_name=response.first_name;
         			facebookUser.last_name=response.last_name;
-        			facebookUser.main_img=response.picture.data.url;
+        			//facebookUser.main_img=response.picture.data.url;
         			facebookUser.birth_date=response.birthday;
         			providerLogin(facebookUser);
         		}, function(error){
@@ -133,34 +133,10 @@ angular.module('myApp.services')
         serv.currentUser = function(){
         	return currentUser;
         }
-
+        
         serv.refreshStatus = function(){	
     		clearCurrentUser();
-    		
-//    		if(facebookService.isConnected()){
-//        		facebookService.getCurrentUser().then(function(response){
-//        			currentUser = response;
-//        			currentUser.provider='facebook';
-//        		},
-//        		function(error){
-//        			console.log(error);
-//        			clearCurrentUser();
-//        		});
-//        	}
-//        	
-//        	if(!this.isLoggedIn()){
-//        		if(googleService.isConnected()){
-//        			googleService.getCurrentUser().then(function(response){
-//            			currentUser = response;
-//            			currentUser.provider='google';
-//            		},
-//            		function(error){
-//            			console.log(error);
-//            			clearCurrentUser();
-//            		});
-//            	};        	
-//        	}
-    		
+
     		userService.refreshAuthUser().then(function(response){
     			if(response.data){
     				setCurrentUser(response.data.id,
@@ -174,7 +150,17 @@ angular.module('myApp.services')
     				console.log('refreshAuthUser error: ' + error);
     		});
         };
-
+        
+        serv.refreshCurrentUser(user){
+        	clearCurrentUser();
+        	setCurrentUser(user.id,
+        			user.first_name,
+        			user.last_name,
+        			user.provider,
+        			user.provider_id,
+        			user.main_img);
+        }
+        
         serv.signIn = function(parameter){
             modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/login.html',

@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','staticDataService',function($scope,staticDataService){
+    .controller('userDetailsCtrl',['$scope','userService','loginService',function($scope,userService,loginService){
 
         $scope.editMode = false;
 
@@ -14,15 +14,17 @@ angular.module('myApp.controllers')
         };
         
         $scope.saveButtonClicked = function(){
-        	
+        	// verify myPage is viewed
+        	if($scope.myPageViewed === true){
+        		userService.update($scope.updatedUser).then(function(response){
+        			console.log('user updated!' + response);
+        			loginService.refreshCurrentUser(response.data);
+        			$scope.editMode = false;
+        		},
+        		function(error){
+        			console.log('user updated error' + error);
+        		});
+        	}
         };
-        
-	    staticDataService.getDegrees().then(
-    		function(data){
-            	$scope.degrees = data;
-        	},
-	        function (error) {
-	            console.log("Something wrong with the degrees")
-	        }
-	    );
+       
     }]);
