@@ -113,7 +113,7 @@ angular.module('myApp.controllers.main')
                 el.pause();
                 el.currentTime = 0;
             });
-        });
+    });
 
 
         //Paging
@@ -178,6 +178,7 @@ angular.module('myApp.controllers.main')
         };
 
         //Paging
+
 
         init();
 

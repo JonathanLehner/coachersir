@@ -5,14 +5,13 @@
 	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
-	                	 <img src={{coach.main_img}} class="coachImg">
-                		{{coach.first_name}}
+	                	 <img src={{::coach.main_img}} class="coachImg">
 	            	</a>
 	                <div>
-	                    <span ng-value="getGender(coach.gender)">{{coach.first_name}}</span>
+	                    <span ng-value="getGender(coach.gender)">{{::coach.first_name}}</span>
 	                </div>
 	                <div >
-	                    <span >{{gender}} {{coach.birthday | ageFromBirthdayFilter}} </span>
+	                    <span >{{::gender}} {{::coach.birthday | ageFromBirthdayFilter}} </span>
 	                </div >
 	            </div>
 	        </li>

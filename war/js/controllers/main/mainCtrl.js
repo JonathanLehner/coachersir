@@ -23,4 +23,5 @@ angular.module('myApp.controllers')
         	loginService.logout();
         };
 
+
     }]);
