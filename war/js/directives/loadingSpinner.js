@@ -1,6 +1,3 @@
-/**
- * Created by itay on 1/2/2016.
- */
 angular.module('myApp.directives').directive('loadingSpinner',['$interval', function($interval) {
     return {
         restrict: 'AE',

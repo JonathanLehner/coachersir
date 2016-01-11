@@ -1,4 +1,3 @@
-
 angular.module('myApp.controllers',['myApp.controllers.main']);
 angular.module('myApp.controllers.main',[]);
 angular.module('myApp.services',[]);
@@ -13,8 +12,8 @@ angular.module('myApp',
      'ngAnimate',
      'ngFileUpload',
      'ui.bootstrap',
-    'ngMaterial',
-    'ngMessages',
+     'ngMaterial',
+     'ngMessages',
      'pascalprecht.translate',
      'angular-carousel-3d',
      'myApp.controllers',

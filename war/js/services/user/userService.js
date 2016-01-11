@@ -48,25 +48,39 @@ angular.module('myApp.services')
 	    };
 
 	    serv.update = function(user){
-	    	var data = user;
-
-            return $http({
+	    	var deferred = $q.defer();
+	    	
+            $http({
                 method: 'POST',
                 url: url_prefix + '/update',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-            }).$promise;
+                headers: {'Content-Type': 'application/json'},
+                data: user
+            }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+            
+            return deferred.promise;
 	    };
 	    
 	    serv.remove = function(id){
+	    	var deferred = $q.defer();
+	    	
 	    	var data = {id: id};
 
-            return $http({
+            $http({
                 method: 'POST',
                 url: url_prefix + '/remove',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $httpParamSerializerJQLike(data)
-            }).$promise;
+            }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+            
+            return deferred.promise;
 	    };
 	    
 	    serv.refreshAuthUser = function(){

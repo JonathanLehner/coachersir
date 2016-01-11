@@ -7,15 +7,11 @@ angular.module('myApp.services')
 
         var serv = {};
 
-        serv.getLocations = function () {
-            return $resource(url_prefix + '/allLocations').query().$promise;
-        };
-
-        serv.getObjectives = function () {
+        serv.getAllObjectives = function () {
             return $resource(url_prefix + '/listObjectives').query().$promise;
         };
 
-        serv.getDegrees = function () {
+        serv.getAllDegrees = function () {
             return $resource(url_prefix + '/listDegrees').query().$promise;
         };
 
