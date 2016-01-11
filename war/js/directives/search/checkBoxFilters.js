@@ -22,12 +22,17 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
                 var docCheckBox = $("checkBoxFiltersId");
                 var offset = $(document).scrollTop();
                 var offsetTop = document.getElementById("hrCheckBox").offsetTop;
+
                 if(offset > offsetTop){
                     $scope.top = offset-offsetTop - 10;
                 }else{
                     $scope.top = 0;
                 }
 
+                if(offset > $scope.heightMap)
+                {
+                    $scope.top = offset -  $scope.heightMap
+                }
                 previous = current;
                 current = offset;
 
