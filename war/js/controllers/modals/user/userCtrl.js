@@ -1,6 +1,7 @@
 angular.module('myApp.controllers.main')
     .controller('userCtrl',['$scope','$state','$translate','$timeout','$stateParams','userService','staticDataService','loginService',function($scope,$state,$translate,$timeout,$stateParams,userService,staticDataService,loginService){
 
+
     	var setMyPage = function(){
     		if($scope.user){
 	    		if($scope.currentUser.id === $scope.user.id){

@@ -20,10 +20,12 @@
 
     <div class="videos">
         <ul>
-            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="playVideo(video)">
+            <li ng-repeat="video in videos |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage " ng-click="playVideo(video)"
+                ng-mouseover="playBackground(video.id)"
+                ng-mouseout="stopBackground(video.id)">
                <div id="video1" class="video-size">
 
-                    <video name="media" preload="metadata" loop muted>
+                    <video id={{video.id}} name="media" preload="metadata" loop muted>
                         <source src="{{ video.contentOffset | trustUrl }}" >
                     </video>
 

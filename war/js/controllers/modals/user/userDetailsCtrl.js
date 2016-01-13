@@ -8,6 +8,7 @@ angular.module('myApp.controllers')
         	
         	if($scope.editMode === true){
         		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
+                $scope.updatedUser.gender = true;
         	}else{
         		
         	}

@@ -15,13 +15,17 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
             $(window).scroll(function() {
                 $scope.heightMap = undefined;
 
-                if($scope.heightMap === undefined){
+                if ($scope.heightMap === undefined) {
                     $scope.heightMap = (screen.height - screen.height * 0.25) + 'px';
                 }
 
                 var docCheckBox = $("checkBoxFiltersId");
                 var offset = $(document).scrollTop();
-                var offsetTop = document.getElementById("hrCheckBox").offsetTop;
+                var hr = document.getElementById("hrCheckBox");
+                var offsetTop = 0;
+                if (hr) {
+                  offsetTop = document.getElementById("hrCheckBox").offsetTop;
+                }
 
                 if(offset > offsetTop){
                     $scope.top = offset-offsetTop - 10;
@@ -42,28 +46,7 @@ angular.module('myApp.directives').directive('checkBoxFilters',['$rootScope', fu
 
             $scope.search =  true;
             $scope.ageRange = ["17-25","26-30","31-40","41-60","61+"];
-            $scope.locations = [{"name":"Tel-Aviv",
-                                "cities":{
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Ramat-Gan",
-                                    name:"Herzelia",
-                                    name:"Holon",
-                                    name:"Netanya"
-                                }}];
+
             $scope.degress=["A","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D","B","C","D"];
         }
     };

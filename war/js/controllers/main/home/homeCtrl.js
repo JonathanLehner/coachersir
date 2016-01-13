@@ -5,8 +5,6 @@ angular.module('myApp.controllers.main')
 
         var vm = this;
 
-        $scope.gPlace;
-
 
         $scope.slides = [
             {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','video':{content:'https://www.youtube.com/embed/TNBq077wlmc',headline:"עדי מתאמנת",description:"עדי מאמנת הכל"}},
@@ -104,6 +102,13 @@ angular.module('myApp.controllers.main')
         $scope.playVideo = function (video){
             videoService.playVideo(video);
         };
+
+        $scope.playBackground = function (videoId){
+            document.getElementById(videoId).play();
+    }
+    $scope.stopBackground = function(videoId){
+           document.getElementById(videoId).pause();
+    }
 
         //Paging
         $scope.itemsPerPage = 9;

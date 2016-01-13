@@ -8,12 +8,15 @@
         <div>
             <div class="nav">
                 <ul>
-                    <li ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
-	                <li ng-if="isLoggedIn">
+                    <li class="li-login" ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
+	                <li class="li-login" ng-if="isLoggedIn">
                         <div class="dropdown">
-                            <button id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
+                            <button  ng-if="currentUser.main_img === undefined" id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
                                 {{'Login.Hello' | translate}} {{currentUser.first_name}}
-                            	<span class="caret"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <button class="b-image" ng-if="currentUser.main_img !== undefined" id="menu1" class="dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
+                                <img class="user-image" ng-src="{{::currentUser.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
                             </button>
                             <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><a href ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
@@ -40,9 +43,9 @@
 						</div>
 						-->
 					</li>
-                    <li><a class="fa fa-facebook" href="#" ></a></li>
-                    <li><a class="fa fa-twitter" href="#"></a></li>
-                    <li><a class="fa fa-google" href="#"></a></li>
+                    <li class="li-login"><a class="fa fa-facebook" href="#" ></a></li>
+                    <li class="li-login"><a class="fa fa-twitter" href="#"></a></li>
+                    <li class="li-login"><a class="fa fa-google" href="#"></a></li>
                 </ul>
             </div>
             <div class="clear"></div>
