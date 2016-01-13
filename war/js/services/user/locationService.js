@@ -1,6 +1,6 @@
 angular.module('myApp.services')
-    .factory('userService',['$modal','$http','$resource','$httpParamSerializerJQLike','$q', 
-                   function ($modal , $http , $resource , $httpParamSerializerJQLike , $q){
+    .factory('locationService',['$http','$resource','$q', 
+                   function ($http , $resource , $q){
         'use strict';
 
         var url_prefix = 'api/userEndpoint';
@@ -25,8 +25,8 @@ angular.module('myApp.services')
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertCoach',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
+                headers: {'Content-Type': 'application/json'},
+                data: data
 
             }).$promise;
 	    };
@@ -57,7 +57,7 @@ angular.module('myApp.services')
                 method: 'POST',
                 url: url_prefix + '/remove',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
+                data: data
             }).then(function(response){
             	resolve(null, response, deferred);
             },function(error){
