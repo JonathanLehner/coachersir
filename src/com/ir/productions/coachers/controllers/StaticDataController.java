@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.ir.productions.coachers.daos.StaticDataDAO;
-import com.ir.productions.coachers.entities.Locations;
+import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.StaticData;
 
 @Path("staticDataEndpoint")
@@ -25,12 +25,6 @@ public class StaticDataController
 		staticDataDAO = new StaticDataDAO();
 	}
 
-	@GET
-	@Path("allLocations")
-	public Map<Integer, List<String>> getAllLocations()
-	{
-		return Locations.getAllLocations();
-	}
 
 	@GET
 	@Path("listObjectives")

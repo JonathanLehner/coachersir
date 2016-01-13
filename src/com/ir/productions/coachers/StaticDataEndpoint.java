@@ -9,7 +9,7 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.ir.productions.coachers.daos.StaticDataDAO;
-import com.ir.productions.coachers.entities.Locations;
+import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.StaticData;
 
 @Api(name = "staticDataEndpoint", namespace = @ApiNamespace(ownerDomain = "ir.com", ownerName = "ir.com", packagePath = "productions.coachers"))
@@ -26,7 +26,7 @@ public class StaticDataEndpoint extends Endpoint
 	@ApiMethod(path = "allLocations")
 	public Map<Integer, List<String>> getAllLocations()
 	{
-		return Locations.getAllLocations();
+		return Location.getAllLocations();
 	}
 
 	@ApiMethod(path = "listObjectives")

@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','userService','loginService',function($scope,userService,loginService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','userService','loginService',function($scope,$rootScope,userService,loginService){
 
         $scope.editMode = false;
 
@@ -18,7 +18,14 @@ angular.module('myApp.controllers')
         	if($scope.myPageViewed === true){
         		userService.update($scope.updatedUser).then(function(response){
         			console.log('user updated!' + response);
-        			loginService.refreshCurrentUser(response.data);
+        			loginService.clearCurrentUser();
+        			
+        			loginService.setCurrentUser(response.data.id,
+        					response.data.first_name,
+        					response.data.last_name,
+        					response.data.provider,
+        					response.data.provider_id,
+        					response.data.main_img);
         			$scope.editMode = false;
         		},
         		function(error){
