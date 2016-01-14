@@ -7,7 +7,8 @@ angular.module('myApp.services')
         var serv={};
 		var modalLogin;
         var currentUser;
-        var clearCurrentUser = function(){
+
+        serv.clearCurrentUser = function(){
         	currentUser = {
         			id:undefined,
         			first_name:undefined,
@@ -17,41 +18,44 @@ angular.module('myApp.services')
     		};	
         };
         
-		var setCurrentUser = function(id,first_name,last_name,
+		serv.setCurrentUser = function(id,first_name,last_name,
 										provider,provider_id,main_img){
-			currentUser.id = id;
-			currentUser.first_name = first_name;
-			currentUser.last_name = last_name;
-			currentUser.provider = provider;
-			currentUser.provider_id = provider_id;
-			currentUser.main_img = main_img;
+			this.clearCurrentUser();
+			setTimeout(function(){
+				currentUser.id = id;
+				currentUser.first_name = first_name;
+				currentUser.last_name = last_name;
+				currentUser.provider = provider;
+				currentUser.provider_id = provider_id;
+				currentUser.main_img = main_img;
+			},300);
 		};
 		
 		var providerLogin = function(user){
 			userService.providerLogin(user).then(function(response){
 				console.log('provider login success: ' + response);
-				setCurrentUser(response.data.id,
+				serv.setCurrentUser(response.data.id,
 							   response.data.first_name,
 							   response.data.last_name,
 							   response.data.provider,
 							   response.data.provider_id);
 			}, function(error){
 				console.log('provider login error: ' + error);
-				clearCurrentUser();
+				this.clearCurrentUser();
 			});        			
 		}
 		
 		var localLogin = function(user){
 			userService.localLogin(user).then(function(response) {
 				console.log('local login success: ' + response);
-            	setCurrentUser(response.id,
+				this.setCurrentUser(response.id,
 						   response.first_name,
 						   response.last_name,
 						   response.provider,
 						   response.provider_id);
             }, function(error){
             	console.log('local login error: ' + error);
-            	clearCurrentUser();
+            	this.clearCurrentUser();
             });
 		}
             	
@@ -81,7 +85,7 @@ angular.module('myApp.services')
         			providerLogin(facebookUser);
         		}, function(error){
         			console.log('facebook login error: ' + error);
-        			clearCurrentUser();
+					this.clearCurrentUser();
         		});
         	}else if(provider === 'google'){
         		googleService.login().then(function(response){
@@ -96,14 +100,14 @@ angular.module('myApp.services')
     				providerLogin(googleUser);
         		}, function(error){
         			console.log('google login error: ' + error);
-        			clearCurrentUser();
+        			this.clearCurrentUser();
         		});
         	}
         };
         
         serv.logout = function(){
         	if(this.isLoggedIn()){
-        		clearCurrentUser();
+        		this.clearCurrentUser();
         		
         		if(this.currentUser().provider === 'local'){
 					// specific code
@@ -132,14 +136,14 @@ angular.module('myApp.services')
         
         serv.currentUser = function(){
         	return currentUser;
-        }
+        };
         
         serv.refreshStatus = function(){	
-    		clearCurrentUser();
+    		this.clearCurrentUser();
 
     		userService.refreshAuthUser().then(function(response){
     			if(response.data){
-    				setCurrentUser(response.data.id,
+					serv.setCurrentUser(response.data.id,
     						   response.data.first_name,
     						   response.data.last_name,
     						   response.data.provider,
@@ -152,8 +156,8 @@ angular.module('myApp.services')
         };
         
         serv.refreshCurrentUser = function(user){
-        	clearCurrentUser();
-        	setCurrentUser(user.id,
+        	serv.clearCurrentUser();
+			serv.setCurrentUser(user.id,
         			user.first_name,
         			user.last_name,
         			user.provider,

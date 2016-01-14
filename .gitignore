@@ -3,3 +3,5 @@
 *.api
 *.bin
 .settings/org.eclipse.core.resources.prefs
+.idea
+war/WEB-INF/appengine-generated/*

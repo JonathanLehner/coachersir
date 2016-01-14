@@ -24,21 +24,21 @@ angular.module('myApp.services')
 
             return $http({
                 method: 'POST',
-                url: url_prefix + '/insertCoach',
+                url: url_prefix + '/insert',
                 headers: {'Content-Type': 'application/json'},
                 data: data
 
             }).$promise;
 	    };
 
-	    serv.update = function(user){
+	    serv.update = function(location){
 	    	var deferred = $q.defer();
 	    	
             $http({
                 method: 'POST',
                 url: url_prefix + '/update',
                 headers: {'Content-Type': 'application/json'},
-                data: user
+                data: location
             }).then(function(response){
             	resolve(null, response, deferred);
             },function(error){
@@ -56,7 +56,7 @@ angular.module('myApp.services')
             $http({
                 method: 'POST',
                 url: url_prefix + '/remove',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                headers: {'Content-Type': 'application/json'},
                 data: data
             }).then(function(response){
             	resolve(null, response, deferred);

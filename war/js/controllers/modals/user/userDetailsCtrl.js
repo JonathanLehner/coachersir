@@ -19,15 +19,18 @@ angular.module('myApp.controllers')
         	if($scope.myPageViewed === true){
         		userService.update($scope.updatedUser).then(function(response){
         			console.log('user updated!' + response);
-        			loginService.clearCurrentUser();
         			
-        			loginService.setCurrentUser(response.data.id,
-        					response.data.first_name,
-        					response.data.last_name,
-        					response.data.provider,
-        					response.data.provider_id,
-        					response.data.main_img);
-        			$scope.editMode = false;
+					loginService.setCurrentUser(
+						response.data.id,
+    					response.data.first_name,
+    					response.data.last_name,
+    					response.data.provider,
+    					response.data.provider_id,
+    					response.data.main_img);
+
+					$scope.user = response.data;
+					
+					$scope.editMode = false;
         		},
         		function(error){
         			console.log('user updated error' + error);
