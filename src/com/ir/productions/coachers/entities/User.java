@@ -49,7 +49,7 @@ public class User implements Serializable
 
 	private String main_img;
 
-	private Long location_id;
+	private Location location;
 
 	private Long price_per_hour;
 
@@ -169,14 +169,14 @@ public class User implements Serializable
 		this.main_img = main_img;
 	}
 
-	public Long getLocation_id()
+	public Location getLocation()
 	{
-		return location_id;
+		return location;
 	}
 
-	public void setLocation_id(Long location_id)
+	public void setLocation(Location location)
 	{
-		this.location_id = location_id;
+		this.location = location;
 	}
 
 	public Long getPrice_per_hour()

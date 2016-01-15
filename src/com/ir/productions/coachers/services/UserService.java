@@ -1,6 +1,10 @@
 package com.ir.productions.coachers.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ir.productions.coachers.daos.UserDAO;
+import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
 
 public class UserService
@@ -33,4 +37,17 @@ public class UserService
 		return providerUser;
 	}
 
+	public List<Location> getAllLocations()
+	{
+		List<Location> locations = new ArrayList<Location>();
+
+		List<User> users = userDAO.findAll();
+
+		for (User user : users)
+		{
+			locations.add(user.getLocation());
+		}
+
+		return locations;
+	}
 }

@@ -1,7 +1,6 @@
 package com.ir.productions.coachers.controllers;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.ir.productions.coachers.daos.StaticDataDAO;
-import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.StaticData;
 
 @Path("staticDataEndpoint")
@@ -24,7 +22,6 @@ public class StaticDataController
 	{
 		staticDataDAO = new StaticDataDAO();
 	}
-
 
 	@GET
 	@Path("listObjectives")

@@ -20,9 +20,9 @@
                 <td >{{'User.Details.Email' | translate}} :</td>
                 <td >{{::user.email}}</td>
             </tr>
-            <tr>
-                <td >{{'User.Details.Coach_Location' | translate}} :</td>
-                <td >{{::user.location}}</td>
+            <tr >
+                <td >{{'User.Details.Password' | translate}} :</td>
+                <td >{{::user.password}}</td>
             </tr>
             <tr >
                 <td >{{'User.Details.Description' | translate}} :</td>
@@ -31,10 +31,6 @@
             <tr>
                 <td >{{'User.Details.Price_Per_Hour' | translate}} :</td>
                 <td >{{::user.price_per_hour}}</td>
-            </tr>
-            <tr >
-                <td >{{'User.Details.Phone' | translate}} :</td>
-                <td >{{::user.phone}}</td>
             </tr>
             <tr>
                 <td >{{'User.Details.Gender' | translate}} :</td>
@@ -66,8 +62,6 @@
             </div>
         </form>
 
-
-
         <div class="table-responsive">
             <table class="table">
         <tr>
@@ -84,25 +78,26 @@
         <tr>
             <td ><md-input-container>
                 <label>{{'User.Details.Phone' | translate}}</label>
-                <input placeholder="" type="number" ng-model="updatedUser.phone" />
+                <input placeholder="" ng-model="updatedUser.phone" />
            </md-input-container>
             </td>
         </tr>
         <tr>
-             <td>
-                <md-input-container>
-                    <label>{{'User.Details.Birth_Day' | translate}}</label>
-                    <input type="date" ng-model="updatedUser.birthday" />
-                </md-input-container>
-                </td >
+            <td >
+            <md-input-container>
+                <label>{{"User.Details.Coach_Location" | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.location" googleplace />
+            </md-input-container>
+            <td >
         </tr>
-            <tr>
-                <td ><md-input-container>
-                    <label>{{'User.Details.Email' | translate}}</label>
-                    <input placeholder="" ng-model="updatedUser.email"/>
-                </md-input-container>
-                <td >
-            </tr>
+        <tr>
+      		<td>
+            <md-input-container>
+                <label>{{'User.Details.Email' | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.email"/>
+            </md-input-container>
+            <td >
+        </tr>
 
         <tr>
             <td ><md-input-container>
@@ -112,23 +107,17 @@
             <td >
         </tr>
         <tr>
-            <td >
-                <md-input-container>
-                <label>{{"User.Details.Coach_Location" | translate}}</label>
-                <input placeholder="" ng-model="updatedUser.location" googleplace />
-            </md-input-container>
-            <td >
+            <td >{{'User.Details.Description' | translate}} : </td>
+            <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
         </tr>
         <tr>
-            <td ><md-input-container>
+            <td>
+            <md-input-container>
                 <label>{{'User.Details.Price_Per_Hour' | translate}}</label>
                 <input ng-model="updatedUser.price_per_hour" type="number" step="1">
             </md-input-container>
             <i class="fa fa-shekel"></i>
             </td>
-        <tr>
-            <td >{{'User.Details.Description' | translate}} : </td>
-            <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
         </tr>
         <tr>
             <td >{{'User.Details.Gender' | translate}} : </td>
@@ -138,6 +127,14 @@
                 <md-switch  ng-model="updatedUser.gender">
                 </md-switch>
             </td>
+        </tr>
+        <tr>
+            <td>
+            	<md-input-container>
+                    <label>{{'User.Details.Birth_Day' | translate}}</label>
+                    <input type="date" ng-model="updatedUser.birthday" />
+                </md-input-container>
+                </td >
         </tr>
         <tr>
             <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
@@ -150,11 +147,11 @@
                     </li>
                 </ul>
             </td>
-           <!-- <input type="checkbox" checklist-model="updatedUser.degrees" ng-true-value="degree.id" checklist-value="degree.id">{{degree.name}}
-        --></label>
+           <!-- <input type="checkbox" checklist-model="updatedUser.degrees" ng-true-value="degree.id" checklist-value="degree.id">{{degree.name}}-->
+           </label>
                 </tr></td>
         </tr>
-                </table>
+    	</table>
             </div>
 
         <br>

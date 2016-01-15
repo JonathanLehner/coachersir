@@ -29,6 +29,7 @@ angular.module('myApp.controllers')
     					response.data.main_img);
 
 					$scope.user = response.data;
+					$scope.$parent.user = response.data;
 					
 					$scope.editMode = false;
         		},

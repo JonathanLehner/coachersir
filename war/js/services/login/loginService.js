@@ -127,7 +127,7 @@ angular.module('myApp.services')
         };
         
         serv.isLoggedIn = function(){
-        	if(typeof currentUser.id !== 'undefined'){
+        	if(currentUser && (typeof currentUser.id !== 'undefined')){
         		return true;
         	}
         	
@@ -139,8 +139,6 @@ angular.module('myApp.services')
         };
         
         serv.refreshStatus = function(){	
-    		this.clearCurrentUser();
-
     		userService.refreshAuthUser().then(function(response){
     			if(response.data){
 					serv.setCurrentUser(response.data.id,
@@ -153,16 +151,6 @@ angular.module('myApp.services')
     			},function(error){
     				console.log('refreshAuthUser error: ' + error);
     		});
-        };
-        
-        serv.refreshCurrentUser = function(user){
-        	serv.clearCurrentUser();
-			serv.setCurrentUser(user.id,
-        			user.first_name,
-        			user.last_name,
-        			user.provider,
-        			user.provider_id,
-        			user.main_img);
         };
 
         serv.signIn = function(parameter){

@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.SystemUtils;
 import com.ir.productions.coachers.daos.UserDAO;
+import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
 import com.ir.productions.coachers.services.UserService;
 
@@ -31,6 +32,13 @@ public class UserController
 	{
 		userDAO = new UserDAO();
 		userService = new UserService();
+	}
+
+	@GET
+	@Path("listLocations")
+	public List<Location> listLocations()
+	{
+		return userService.getAllLocations();
 	}
 
 	@POST
