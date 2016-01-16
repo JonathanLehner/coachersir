@@ -4,7 +4,7 @@ angular.module('myApp.controllers.main')
 
     	var setMyPage = function(){
     		if($scope.user){
-	    		if($scope.currentUser.id === $scope.user.id){
+	    		if($scope.currentUser && $scope.currentUser.id === $scope.user.id){
 	    	    	$scope.myPageViewed = true;
 	    	    }else{
 	    	    	$scope.myPageViewed = false;

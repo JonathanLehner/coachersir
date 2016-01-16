@@ -28,7 +28,7 @@ angular.module('myApp.services')
 				currentUser.provider = provider;
 				currentUser.provider_id = provider_id;
 				currentUser.main_img = main_img;
-			},300);
+			},200);
 		};
 		
 		var providerLogin = function(user){
@@ -38,7 +38,8 @@ angular.module('myApp.services')
 							   response.data.first_name,
 							   response.data.last_name,
 							   response.data.provider,
-							   response.data.provider_id);
+							   response.data.provider_id,
+							   response.data.main_img);
 			}, function(error){
 				console.log('provider login error: ' + error);
 				this.clearCurrentUser();
@@ -80,7 +81,7 @@ angular.module('myApp.services')
         			facebookUser.provider_id = response.id;
         			facebookUser.first_name=response.first_name;
         			facebookUser.last_name=response.last_name;
-        			//facebookUser.main_img=response.picture.data.url;
+        			facebookUser.main_img=response.picture.data.url;
         			facebookUser.birth_date=response.birthday;
         			providerLogin(facebookUser);
         		}, function(error){
@@ -139,15 +140,16 @@ angular.module('myApp.services')
         };
         
         serv.refreshStatus = function(){	
-    		userService.refreshAuthUser().then(function(response){
-    			if(response.data){
-					serv.setCurrentUser(response.data.id,
-    						   response.data.first_name,
-    						   response.data.last_name,
-    						   response.data.provider,
-    						   response.data.provider_id,
-    						   response.data.main_img);
-    			}
+    		userService.refreshAuthUser().then(
+				function(response){
+	    			if(response.data){
+						serv.setCurrentUser(response.data.id,
+	    						   response.data.first_name,
+	    						   response.data.last_name,
+	    						   response.data.provider,
+	    						   response.data.provider_id,
+	    						   response.data.main_img);
+	    			}
     			},function(error){
     				console.log('refreshAuthUser error: ' + error);
     		});

@@ -1,6 +1,6 @@
 <div class="container userModal" ng-controller="userCtrl">
-
-    <div ng-if="!myPageViewed" class="rating" style="float:left">
+	<div id="fb-root"></div>
+	<div ng-if="!myPageViewed" class="rating" style="float:left">
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
     <h2>{{::user.first_name}} {{::user.last_name}}</h2>
@@ -11,8 +11,7 @@
         <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#videos" ui-sref="videos" >{{'General.Videos' | translate}}</a></li>
         <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'General.Articles' | translate}}</a></li>
 	</ul>
-
-    <div class="section1"  class="ui" ui-view="userView">
-    </div>
+	
+    <div class="section1" class="ui" ui-view="userView"></div>
 
 </div>

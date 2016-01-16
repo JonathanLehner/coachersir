@@ -5,6 +5,8 @@
     <meta 	name="google-signin-client_id" 
     		content="36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com"
 	>
+	<meta property="fb:app_id" content="1679389075631663" />
+	
     <title>myCoach</title>
     <link rel="shortcut icon" href="img/logos/Whisler.ico">
 
@@ -79,6 +81,7 @@
     <script src="js/directives/content/displayContent.js"></script>
     <script src="js/directives/user/addContent.js"></script>
     <script src="js/directives/search/checkBoxFilters.js"></script>
+    <script src="js/directives/displayMessage.js"></script>
     <script src="js/directives/googlePlace.js"></script>
     <script src="js/directives/googleMap.js"></script>
     <script src="js/directives/loadingSpinner.js"></script>
@@ -157,14 +160,13 @@
 		};
 		  
 	</script>
-	
 	<div
   		class="fb-like"
   		data-share="true"
   		data-width="450"
   		data-show-faces="true">
 	</div>
-
+		
     <div ui-view></div>
     
 </body>

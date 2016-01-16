@@ -11,11 +11,11 @@
                     <li class="li-login" ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
 	                <li class="li-login" ng-if="isLoggedIn">
                         <div class="dropdown">
-                            <button  ng-if="currentUser.main_img === undefined" id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
+                            <button  ng-if="!currentUser.main_img" id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
                                 {{'Login.Hello' | translate}} {{currentUser.first_name}}
                                 <span class="caret"></span>
                             </button>
-                            <button class="b-image" ng-if="currentUser.main_img !== undefined" id="menu1" class="dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
+                            <button class="b-image" ng-if="currentUser.main_img" id="menu1" class="dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
                                 <img class="user-image" ng-src="{{::currentUser.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
                             </button>
                             <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">

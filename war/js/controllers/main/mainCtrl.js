@@ -15,9 +15,8 @@ angular.module('myApp.controllers')
         };
         
         $scope.myPage = function(){
-            console.log("test");
-              $state.go('details',{ id: $scope.currentUser.id, currentState: $state.current.name},{ location: true,parent:$state.current.name, inherit: true, relative: $state.current.name, notify: true });
-             };
+        	$state.go('details',{ id: $scope.currentUser.id, currentState: $state.current.name},{ location: true,parent:$state.current.name, inherit: true, relative: $state.current.name, notify: true });
+        };
 
         $scope.logout = function(){
         	loginService.logout();

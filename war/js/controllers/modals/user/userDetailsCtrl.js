@@ -2,7 +2,10 @@ angular.module('myApp.controllers')
     .controller('userDetailsCtrl',['$scope','$rootScope','userService','loginService',function($scope,$rootScope,userService,loginService){
 
         $scope.editMode = false;
-
+        
+        $scope.displayMessage="";
+		$scope.displayMessageError=false;
+		
         $scope.toggleEditMode = function(){
         	$scope.editMode= !$scope.editMode;
         	
@@ -13,6 +16,10 @@ angular.module('myApp.controllers')
         		
         	}
         };
+        
+        $scope.getLocation = function(){
+            return document.location.href; 
+        }       
         
         $scope.saveButtonClicked = function(){
         	// verify myPage is viewed
@@ -31,6 +38,8 @@ angular.module('myApp.controllers')
 					$scope.user = response.data;
 					$scope.$parent.user = response.data;
 					
+					$scope.displayMessage="user updated succesfully!";
+					$scope.displayMessageError=false;
 					$scope.editMode = false;
         		},
         		function(error){
@@ -38,5 +47,4 @@ angular.module('myApp.controllers')
         		});
         	}
         };
-       
     }]);
