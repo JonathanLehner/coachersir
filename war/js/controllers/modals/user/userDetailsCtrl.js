@@ -1,5 +1,5 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','$rootScope','userService','loginService',function($scope,$rootScope,userService,loginService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','userService','loadingSpinnerService','loginService',function($scope,$rootScope,userService,loadingSpinnerService,loginService){
 
         $scope.editMode = false;
         
@@ -22,11 +22,13 @@ angular.module('myApp.controllers')
         }       
         
         $scope.saveButtonClicked = function(){
+
+            loadingSpinnerService.showProgress("user-loading");
         	// verify myPage is viewed
         	if($scope.myPageViewed === true){
         		userService.update($scope.updatedUser).then(function(response){
+
         			console.log('user updated!' + response);
-        			
 					loginService.setCurrentUser(
 						response.data.id,
     					response.data.first_name,
@@ -38,9 +40,12 @@ angular.module('myApp.controllers')
 					$scope.user = response.data;
 					$scope.$parent.user = response.data;
 					
-					$scope.displayMessage="user updated succesfully!";
+					$scope.displayMessage="user updated successfully!";
 					$scope.displayMessageError=false;
 					$scope.editMode = false;
+
+                    loadingSpinnerService.hideProgress("user-loading");
+                    $scope.editMode = false;
         		},
         		function(error){
         			console.log('user updated error' + error);

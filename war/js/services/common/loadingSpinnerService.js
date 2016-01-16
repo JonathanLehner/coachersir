@@ -26,7 +26,11 @@ angular.module('myApp.services')
             var ajaxContainer = $("#"+elementName);
             if(ajaxContainer !== null){
                 ajaxContainer.children().addClass('ng-hide');
-                var newElement = $compile('<loading-spinner></loading-spinner>')(ajaxContainer.scope());
+                if(ajaxContainer.scope() !== undefined){
+                 var newElement = $compile('<loading-spinner></loading-spinner>')(ajaxContainer.scope());
+                }else{
+                    var newElement = $compile('<loading-spinner></loading-spinner>')($scope);
+                }
                 ajaxContainer.append(newElement);
                 //$.compile(ajaxContainer);
                // ajaxContainer.children().attr("ng-show","false");

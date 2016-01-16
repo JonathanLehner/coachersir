@@ -15,8 +15,8 @@ angular.module('myApp.controllers.main')
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();
-    	    
-    	    setMyPage();
+    	    $scope.user =  $scope.currentUser;
+            setMyPage();
     	});
         
     	var id = $stateParams.id;

@@ -1,165 +1,164 @@
 <div ng-controller="userDetailsCtrl">
 
-	<div ng-if="!editMode">
-	    <div class="user-Details">
-	
-	    <!--<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>-->
-	    <img ng-src="{{::user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
-		
-		<display-message message="{{displayMessage}}" error="{{displayMessageError}}">
-		</display-message> 
-			
-	    <div class="table-responsive read-only" >
-	        <table class="table">
-	            <tr >
-	                <td >{{'User.Details.Phone' | translate}} :</td>
-	                <td >{{::user.phone}}</td>
-	            </tr>
-	            <tr>
-	                <td >{{'User.Details.Coach_Location' | translate}} :</td>
-	                <td >{{::user.location}}</td>
-	            </tr>
-	            <tr >
-	                <td >{{'User.Details.Email' | translate}} :</td>
-	                <td >{{::user.email}}</td>
-	            </tr>
-	            <tr >
-	                <td >{{'User.Details.Password' | translate}} :</td>
-	                <td >{{::user.password}}</td>
-	            </tr>
-	            <tr >
-	                <td >{{'User.Details.Description' | translate}} :</td>
-	                <td >{{::user.description}}</td>
-	            </tr>
-	            <tr>
-	                <td >{{'User.Details.Price_Per_Hour' | translate}} :</td>
-	                <td >{{::user.price_per_hour}}</td>
-	            </tr>
-	            <tr>
-	                <td >{{'User.Details.Gender' | translate}} :</td>
-	                <td >{{::user.gender | genderFilter}}</td>
-	            </tr>
-	            <tr >
-	                <td >{{'User.Details.Age' | translate}} :</td>
-	                <td >{{::user.birth_date | ageFromBirthdayFilter}}</td>
-	            </tr>
-	            <tr>
-	                <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
-	                <td >{{::user.degrees | degreesFilter}}</td>
-	            </tr>
-			</table>
-	   	</div>
-	    </div>
-		<button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">
-			{{'General.Edit' | translate}} {{'User.User_Details' | translate}}
-		</button>
-		<br>
-		<div class="fb-comments" data-href="{{getLocation()}}" data-numposts="10" data-colorscheme="light"></div>    
-	</div>
-	<div ng-if="editMode" class="user-Details">
-	
-	    <!-- image upload directive -->
-	    <form action="/file-upload"
-	          name="file"
-	          value="user.main_img"
-	          class="dropzone"
-	          id="dropzone">
-	        <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
-	
-	        </div>
-	    </form>
-	
-	    <div class="table-responsive">
-	    <table class="table">
-		    <tr>
-		        <td ><md-input-container>
-		            <label>{{'User.Details.First_Name' | translate}}</label>
-		            <input placeholder="" ng-model="updatedUser.first_name" />
-		        </md-input-container>
-		        <md-input-container>
-		            <label>{{'User.Details.Last_Name' | translate}}</label>
-		            <input placeholder="" ng-model="updatedUser.last_name" />
-		        </md-input-container>
-		        </td >
-		    </tr>
-		    <tr>
-		        <td ><md-input-container>
-		            <label>{{'User.Details.Phone' | translate}}</label>
-		            <input placeholder="" ng-model="updatedUser.phone" />
-		       </md-input-container>
-		        </td>
-		    </tr>
-		    <tr>
-		        <td >
-		        <md-input-container>
-		            <label>{{"User.Details.Coach_Location" | translate}}</label>
-		            <input placeholder="" ng-model="updatedUser.location" googleplace />
-		        </md-input-container>
-		        <td >
-		    </tr>
-		    <tr>
-		  		<td>
-		        <md-input-container>
-		            <label>{{'User.Details.Email' | translate}}</label>
-		            <input placeholder="" ng-model="updatedUser.email"/>
-		        </md-input-container>
-		        <td >
-		    </tr>
-		    <tr>
-		        <td ><md-input-container>
-		            <label>{{'User.Details.Password' | translate}}</label>
-		            <input placeholder="" type="password" ng-model="updatedUser.password"/>
-		        </md-input-container>
-		        <td >
-		    </tr>
-		    <tr>
-		        <td >{{'User.Details.Description' | translate}} : </td>
-		        <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
-		    </tr>
-		    <tr>
-		        <td>
-		        <md-input-container>
-		            <label>{{'User.Details.Price_Per_Hour' | translate}}</label>
-		            <input ng-model="updatedUser.price_per_hour" type="number" step="1">
-		        </md-input-container>
-		        <i class="fa fa-shekel"></i>
-		        </td>
-		    </tr>
-		    <tr>
-		        <td >{{'User.Details.Gender' | translate}} : </td>
-		        <td ><span ng-hide="updatedUser.gender">{{'User.Gender.Male' | translate}}</span>
-		        <span ng-show="updatedUser.gender"> {{'User.Gender.Female' | translate}}</span></td >
-		        <td >
-		            <md-switch  ng-model="updatedUser.gender">
-		            </md-switch>
-		        </td>
-		    </tr>
-		    <tr>
-		        <td>
-		        	<md-input-container>
-		                <label>{{'User.Details.Birth_Day' | translate}}</label>
-		                <input type="date" ng-model="updatedUser.birthday" />
-		            </md-input-container>
-		            </td >
-		    </tr>
-	    <tr>
-	        <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
-	        <td>
-	            <ul>
-	                <li ng-repeat="degree in degrees" style="display: inline-block;margin-left: 10px">
-	                    <md-checkbox class="md-primary" ng-model="degree.status" aria-label="degree.id">
-	                        {{ degree.name }}
-	                    </md-checkbox>
-	                </li>
-	            </ul>
-	        </td>
-	       <!-- <input type="checkbox" checklist-model="updatedUser.degrees" ng-true-value="degree.id" checklist-value="degree.id">{{degree.name}}-->
-		</tr>
-		</table>
-	    </div>
-	    <br>
-	    <button type="button" class="btn btn-primary b-update-user center-block" ng-click="saveButtonClicked()">
-	        {{'General.Save' | translate}}
-	    </button>
-	</div>
+<div ng-if="!editMode">
+    <div class="user-Details">
+
+    <!--<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>-->
+    <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
+
+    <div class="table-responsive read-only" >
+        <table class="table">
+            <tr >
+                <td >{{'User.Details.Phone' | translate}} :</td>
+                <td >{{user.phone}}</td>
+            </tr>
+            <tr>
+                <td >{{'User.Details.Coach_Location' | translate}} :</td>
+                <td >{{user.location}}</td>
+            </tr>
+            <tr >
+                <td >{{'User.Details.Email' | translate}} :</td>
+                <td >{{user.email}}</td>
+            </tr>
+            <tr >
+                <td >{{'User.Details.Password' | translate}} :</td>
+                <td >{{user.password}}</td>
+            </tr>
+            <tr >
+                <td >{{'User.Details.Description' | translate}} :</td>
+                <td >{{user.description}}</td>
+            </tr>
+            <tr>
+                <td >{{'User.Details.Price_Per_Hour' | translate}} :</td>
+                <td >{{user.price_per_hour}}</td>
+            </tr>
+            <tr>
+                <td >{{'User.Details.Gender' | translate}} :</td>
+                <td >{{user.gender | genderFilter}}</td>
+            </tr>
+            <tr >
+                <td >{{'User.Details.Age' | translate}} :</td>
+                <td >{{user.birth_date | ageFromBirthdayFilter}}</td>
+            </tr>
+            <tr>
+                <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
+                <td >{{user.degrees | degreesFilter}}</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+</div>
+    <div id="user-Details" ng-if="editMode" class = "user-Details">
+
+        <!-- image upload directive -->
+        <form action="/file-upload"
+              name="file"
+              value="user.main_img"
+              class="dropzone"
+              id="dropzone">
+            <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
+
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table">
+        <tr>
+            <td ><md-input-container>
+                <label>{{'User.Details.First_Name' | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.first_name" />
+            </md-input-container>
+            <md-input-container>
+                <label>{{'User.Details.Last_Name' | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.last_name" />
+            </md-input-container>
+            </td >
+        </tr>
+        <tr>
+            <td ><md-input-container>
+                <label>{{'User.Details.Phone' | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.phone" />
+           </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td >
+            <md-input-container>
+                <label>{{"User.Details.Coach_Location" | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.location" googleplace />
+            </md-input-container>
+            <td >
+        </tr>
+        <tr>
+      		<td>
+            <md-input-container>
+                <label>{{'User.Details.Email' | translate}}</label>
+                <input placeholder="" ng-model="updatedUser.email"/>
+            </md-input-container>
+            <td >
+        </tr>
+
+        <tr>
+            <td ><md-input-container>
+                <label>{{'User.Details.Password' | translate}}</label>
+                <input placeholder="" type="password" ng-model="updatedUser.password"/>
+            </md-input-container>
+            <td >
+        </tr>
+        <tr>
+            <td >{{'User.Details.Description' | translate}} : </td>
+            <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
+        </tr>
+        <tr>
+            <td>
+            <md-input-container>
+                <label>{{'User.Details.Price_Per_Hour' | translate}}</label>
+                <input ng-model="updatedUser.price_per_hour" type="number" step="1">
+            </md-input-container>
+            <i class="fa fa-shekel"></i>
+            </td>
+        </tr>
+        <tr>
+            <td >{{'User.Details.Gender' | translate}} : </td>
+            <td ><span ng-hide="updatedUser.gender">{{'User.Gender.Male' | translate}}</span>
+            <span ng-show="updatedUser.gender"> {{'User.Gender.Female' | translate}}</span></td >
+            <td >
+                <md-switch  ng-model="updatedUser.gender">
+                </md-switch>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            	<md-input-container>
+                    <label>{{'User.Details.Birth_Day' | translate}}</label>
+                    <input type="date" ng-model="updatedUser.birthday" />
+                </md-input-container>
+                </td >
+        </tr>
+        <tr>
+            <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
+            <td>
+                <ul>
+                    <li ng-repeat="degree in degrees" style="display: inline-block;margin-left: 10px">
+                        <md-checkbox class="md-primary" ng-model="degree.status" aria-label="degree.id">
+                            {{ degree.name }}
+                        </md-checkbox>
+                    </li>
+                </ul>
+            </td>
+           <!-- <input type="checkbox" checklist-model="updatedUser.degrees" ng-true-value="degree.id" checklist-value="degree.id">{{degree.name}}-->
+           </label>
+                </tr></td>
+        </tr>
+    	</table>
+            </div>
+
+        <br>
+        <button type="button" class="btn btn-primary b-update-user center-block" ng-click="saveButtonClicked()">
+            {{'General.Save' | translate}}
+        </button>
+    </div>
+
+</div>
 </div>

@@ -1,9 +1,10 @@
-<div class="container userModal" ng-controller="userCtrl">
+<div id="user-loading" class="container userModal" ng-controller="userCtrl">
+
 	<div id="fb-root"></div>
 	<div ng-if="!myPageViewed" class="rating" style="float:left">
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
     </div>
-    <h2>{{::user.first_name}} {{::user.last_name}}</h2>
+    <h2>{{user.first_name}} {{user.last_name}}</h2>
 
     <ul class="nav nav-tabs">
         <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>

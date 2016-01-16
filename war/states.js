@@ -89,6 +89,7 @@ angular.module('myApp')
                     currentState:'main.coach'
                 },
             parent:'main',
+                abstract:true,
             onEnter: ['$modal','$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
                 userService.getById($stateParams.id).then(function(data){
                     if(data.id == null || data.id === undefined){
