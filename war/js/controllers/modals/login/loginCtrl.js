@@ -3,9 +3,8 @@ angular.module('myApp.controllers.main')
                      function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService){
 
         var init = function(){
-            $scope.inputIsEmpty = false;
-            $scope.errorSignIn = false;
-            $scope.displayMessage="";
+            $scope.forgotPassword = false;
+        	$scope.displayMessage="";
     		$scope.displayMessageError=false;
             
             $scope.user={
@@ -16,6 +15,20 @@ angular.module('myApp.controllers.main')
 
         $scope.signUp = function(type){
             loginService.signUp(type);
+        };
+        
+        $scope.toggleForgotPassword = function(){
+        	$scope.forgotPassword = !$scope.forgotPassword;
+        	
+        	if($scope.forgotPassword === true){
+        		$scope.displayMessage="please insert email and press reset password";
+        		$scope.displayMessageError=false;
+        	}
+        };
+        
+        $scope.resetPassword = function(){
+        	$scope.displayMessage="password reset send by mail";
+    		$scope.displayMessageError=false;
         };
 
         $scope.userLogin = function(){

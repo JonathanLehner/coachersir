@@ -23,20 +23,21 @@
                 <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
                 <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email">
             </div>
-            <div class="form-group">
+            <div ng-if="!forgotPassword" class="form-group">
                 <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
-
                 <input type="password" class="form-control" id="inputPassword" ng-model="user.password">
-
-                <a class="pull-right" href="#">{{'Login.Forgot_Password' | translate}} </a>
             </div>
+            <a class="pull-right" ng-click="toggleForgotPassword()" href="#">{{'Login.Forgot_Password' | translate}} </a>
             <div class="form-group">
-                <button type="submit" class="btn btn btn-primary submit" ng-click="userLogin()">
+                <button ng-if="!forgotPassword" type="button" class="btn btn btn-primary submit" ng-click="userLogin()">
                     {{'Login.Login' | translate}}
                 </button>
-                <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
-				</display-message>
+                <button ng-if="forgotPassword" type="button" class="btn btn btn-primary submit" ng-click="resetPassword()">
+                    {{'Login.Reset_Password' | translate}}
+                </button>
             </div>
+            <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
+			</display-message>
             <hr>
             <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
             <div class="row">
