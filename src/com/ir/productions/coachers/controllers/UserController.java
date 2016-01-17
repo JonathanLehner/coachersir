@@ -105,7 +105,7 @@ public class UserController
 	}
 
 	@GET
-	@Path("listCoachers")
+	@Path("listCoaches")
 	public List<User> listCoachers()
 	{
 		return userDAO.findByType(User.TYPE_COACH);

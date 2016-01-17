@@ -2,29 +2,16 @@ angular.module('myApp.controllers.main')
     .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',
                      function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService){
 
-    	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
-    	    $scope.isLoggedIn = isLoggedIn;
-    	    $scope.currentUser = loginService.currentUser();
-    	});
-
         var init = function(){
-            $scope.currentUser = {
-        		email: undefined,
-                password: undefined,
-                first_name:undefined,
-                last_name:undefined,
-                gender:undefined,
-                birth_date:undefined,
-                objectives:undefined,
-                degrees:undefined
-            };
-
             $scope.inputIsEmpty = false;
             $scope.errorSignIn = false;
-        };
-
-        $scope.close = function(){
-            $modalInstance.dismiss();
+            $scope.displayMessage="";
+    		$scope.displayMessageError=false;
+            
+            $scope.user={
+            		email: undefined,
+            		password: undefined
+            };
         };
 
         $scope.signUp = function(type){
@@ -32,25 +19,21 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.userLogin = function(){
-            if($scope.user.password !== "" && $scope.user.password !== undefined && 
-               $scope.user.email !== "" && $scope.user.email !== undefined){
+            if($scope.user.password !== "" && 
+        	   $scope.user.password !== undefined && 
+               $scope.user.email !== "" && 
+               $scope.user.email !== undefined){
                   loginService.login($scope.user, 'local').then(
-            		  function (data){
-                          $scope.userObject = data.data;
-
-                          if($scope.userObject !== ''){
-                              $scope.close();
-                              $scope.errorSignIn = false;
-                          }else{
-                              $scope.errorSignIn = true;
-                          }
-                      },
-                      function (error) {
-                          console.log("Something wrong with the login")
-                      }
-                  );
+            		  function(response){
+            			  console.log('login successful ' + response);
+            		  },function(error){
+            			  console.log('login wrong ' + error);
+            			  $scope.displayMessage = $translate.instant("Login.SignIn_Incorrect");
+            			  $scope.displayMessageError=true;
+            		  });
             }else{
-                $scope.inputIsEmpty = true;
+                $scope.displayMessage = $translate.instant("Login.Fill_The_Inputs");
+                $scope.displayMessageError=true;
             }
         };
         

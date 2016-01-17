@@ -20,7 +20,7 @@
 	    "Email":"דוא''ל",
 	    "Password":"סיסמה",
 	    "Coach":"מאמן",
-	    "Trainer":"מתאמן",
+	    "Trained":"מתאמן",
 	    "Remember_Me":"זכור אותי",
 	    "Login":"התחבר",
 	    "Logout":"התנתק",
@@ -29,7 +29,7 @@
 	    "Not_Member":"חדש באתר? הרשם!",
 	    "Forgot_Password":"שכחת סיסמה?",
 	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
-	    "Fill_The_Inputs":"מלא בבקשה את השדות המודגשים באדום"
+	    "Fill_The_Inputs":"מלא בבקשה את כל השדות"
   	},
 	"SignUp":{
 		"Welcome":"ברוכים הבאים!",

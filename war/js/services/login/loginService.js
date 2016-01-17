@@ -1,6 +1,6 @@
 angular.module('myApp.services')
-    .factory('loginService',['$modal','$http','$resource','$httpParamSerializerJQLike','facebookService','googleService','userService', 
-                     function ($modal,$http,$resource,$httpParamSerializerJQLike, facebookService, googleService, userService) {
+    .factory('loginService',['$modal','$http','$resource','$q','facebookService','googleService','userService', 
+                     function($modal , $http , $resource , $q , facebookService , googleService , userService) {
         
     	"use strict";
 
@@ -14,13 +14,14 @@ angular.module('myApp.services')
         			first_name:undefined,
         			last_name:undefined,
         			provider:undefined,
-        			provider_id:undefined
+        			provider_id:undefined,
+        			main_img:undefined
     		};	
         };
         
 		serv.setCurrentUser = function(id,first_name,last_name,
-										provider,provider_id,main_img){
-			this.clearCurrentUser();
+									   provider,provider_id,main_img){
+			serv.clearCurrentUser();
 			setTimeout(function(){
 				currentUser.id = id;
 				currentUser.first_name = first_name;
@@ -42,22 +43,34 @@ angular.module('myApp.services')
 							   response.data.main_img);
 			}, function(error){
 				console.log('provider login error: ' + error);
-				this.clearCurrentUser();
+				serv.clearCurrentUser();
 			});        			
 		}
 		
 		var localLogin = function(user){
-			userService.localLogin(user).then(function(response) {
-				console.log('local login success: ' + response);
-				this.setCurrentUser(response.id,
-						   response.first_name,
-						   response.last_name,
-						   response.provider,
-						   response.provider_id);
-            }, function(error){
-            	console.log('local login error: ' + error);
-            	this.clearCurrentUser();
+			var deferred = $q.defer();
+			
+			userService.localLogin(user).then(
+				function(response) {
+					if(response.data !== ""){
+						console.log('local login success: ' + response);
+						serv.setCurrentUser(response.data.id,
+								   response.data.first_name,
+								   response.data.last_name,
+								   response.data.provider,
+								   response.data.provider_id,
+								   response.data.main_img);
+						resolve(null, response, deferred);
+					}else{
+						resolve('wrong credentials', null, deferred);
+					}
+		        },function(error){
+		        	console.log('local login error: ' + error);
+		        	serv.clearCurrentUser();
+		        	resolve(error, null, deferred);
             });
+			
+			return deferred.promise;
 		}
             	
         serv.closeLogin = function(){
@@ -73,7 +86,7 @@ angular.module('myApp.services')
         		localUser.email = user.email;
         		localUser.password = user.password;
         		localUser.provider='local';
-        		localLogin(localUser);
+        		return localLogin(localUser);
         	}else if(provider === 'facebook'){
         		facebookService.login().then(function(response){
         			var facebookUser={};
@@ -103,6 +116,8 @@ angular.module('myApp.services')
         			console.log('google login error: ' + error);
         			this.clearCurrentUser();
         		});
+        	}else{
+        		console.log('wrong login provider!');
         	}
         };
         
@@ -123,7 +138,6 @@ angular.module('myApp.services')
 				},function(error){
 					console.log('logout error: ' + error);	
 				});
-			
 			}
         };
         
@@ -179,6 +193,15 @@ angular.module('myApp.services')
         };
         
         serv.refreshStatus();
+        
+
+        var resolve = function(errorVal, returnVal, deferred) {
+			if (errorVal) {
+			  deferred.reject(errorVal);
+			} else {
+			  deferred.resolve(returnVal);
+			}
+        };
         
         return serv;
 

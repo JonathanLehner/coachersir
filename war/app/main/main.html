@@ -8,7 +8,7 @@
         <div>
             <div class="nav">
                 <ul>
-                    <li class="li-login" ng-if="!isLoggedIn"><a href="" ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
+                    <li class="li-login" ng-if="!isLoggedIn"><a ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
 	                <li class="li-login" ng-if="isLoggedIn">
                         <div class="dropdown">
                             <button  ng-if="!currentUser.main_img" id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
@@ -16,7 +16,7 @@
                                 <span class="caret"></span>
                             </button>
                             <button class="b-image" ng-if="currentUser.main_img" id="menu1" class="dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
-                                <img class="user-image" ng-src="{{::currentUser.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
+                                <img class="user-image" ng-src="{{currentUser.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
                             </button>
                             <ul class="dropdown-menu c-dropdown" role="menu" aria-labelledby="menu1">
                                 <li role="presentation"><a href ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
@@ -24,28 +24,10 @@
                                 <li role="presentation"><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
                             </ul>
                         </div>
-						<!-- Split button 
-						<div class="btn-group">
-							<button type="button" ng-click="myPage()" class="btn btn-primary">
-								{{'Login.Hello' | translate}} {{currentUser.first_name}}
-							</button>
-						  	<button type="button"
-						  			class="btn btn-primary dropdown-toggle"
-						  			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    	<span class="caret"></span>
-						    	<span class="sr-only">Toggle Dropdown</span>
-						  	</button>
-						  	<ul class="dropdown-menu">
-						    	<li><a href="#" ng-click="myPage()">{{'Login.My_Page' | translate}}</a></li>
-						    	<li role="separator" class="divider"></li>
-						    	<li><a href="#" ng-click="logout()">{{'Login.Logout' | translate}}</a></li>
-						  	</ul>
-						</div>
-						-->
 					</li>
-                    <li class="li-login"><a class="fa fa-facebook" href="#" ></a></li>
-                    <li class="li-login"><a class="fa fa-twitter" href="#"></a></li>
-                    <li class="li-login"><a class="fa fa-google" href="#"></a></li>
+                    <li class="li-login"><a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/MyCoach-%D7%A4%D7%95%D7%A8%D7%98%D7%9C-%D7%94%D7%9E%D7%90%D7%9E%D7%A0%D7%99%D7%9D-%D7%A9%D7%9C-%D7%99%D7%A9%D7%A8%D7%90%D7%9C-502872676550507" ></a></li>
+                    <li class="li-login"><a class="fa fa-twitter" target="_blank" href="https://twitter.com/coachers_IR"></a></li>
+                    <li class="li-login"><a class="fa fa-google" target="_blank" href="https://plus.google.com/u/0/103915916256191563069/posts"></a></li>
                 </ul>
             </div>
             <div class="clear"></div>
@@ -66,9 +48,7 @@
                 </ul>
             </div><!-- end h_menu4 -->
             <div class="clear"></div>
-
-            </div>
-        </div>
+    	</div>
     </div>
 
     <div class="section1" id="loadingDiv" class="ui" ui-view="app"></div>

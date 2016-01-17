@@ -15,6 +15,5 @@ angular.module('myApp.services')
             return $resource(url_prefix + '/listDegrees').query().$promise;
         };
 
-
         return serv;
     }]);

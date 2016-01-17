@@ -5,7 +5,6 @@ angular.module('myApp.controllers.main')
     .controller('signUpCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','userService','type',function($scope,$modalInstance,$translate,$timeout,staticDataService,loginService,userService,type){
         
     	$scope.signIn = true;
-        $scope.isTrainer= (type === 2);
         $scope.isCoach = (type === 1);
         $scope.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
         $scope.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ];
@@ -93,7 +92,7 @@ angular.module('myApp.controllers.main')
 
         var callAtTimeout =  function() {
             if ($scope.objectives !== null || $scope.objectives !== undefined) {
-                staticDataService.getObjectives().then(
+                staticDataService.getAllObjectives().then(
                     function (data) {
                         $scope.objectives = data;
                     },
@@ -104,20 +103,9 @@ angular.module('myApp.controllers.main')
             }
 
             if ($scope.degrees !== null || $scope.degrees !== undefined) {
-                staticDataService.getDegrees().then(
+                staticDataService.getAllDegrees().then(
                     function (data) {
                         $scope.degrees = data;
-                    },
-                    function (error) {
-                        console.log("Something wrong with the degrees")
-                    }
-                );
-            }
-
-            if ($scope.locations !== null || $scope.locations !== undefined) {
-                staticDataService.getLocations().then(
-                    function (data) {
-                        $scope.locations = data;
                     },
                     function (error) {
                         console.log("Something wrong with the degrees")

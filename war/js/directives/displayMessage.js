@@ -8,9 +8,9 @@ angular.module('myApp.directives').directive('displayMessage', function() {
         },
         link: function($scope, element, attributes) {
         	if($scope.error === true){
-        		element.css("background-color","red");
+        		element.css("color","red");
         	}else{
-        		element.css("background-color","green");
+        		element.css("color","green");
         	}
         }
     };

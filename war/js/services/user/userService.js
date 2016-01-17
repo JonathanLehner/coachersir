@@ -1,6 +1,6 @@
 angular.module('myApp.services')
-    .factory('userService',['$modal','$http','$resource','$httpParamSerializerJQLike','$q', 
-                   function ($modal , $http , $resource , $httpParamSerializerJQLike , $q){
+    .factory('userService',['$modal','$http','$resource','$q', 
+                   function ($modal , $http , $resource , $q){
         'use strict';
 
         var url_prefix = 'api/userEndpoint';
@@ -16,7 +16,7 @@ angular.module('myApp.services')
 	    };
 	    
 	    serv.getCoachers = function(){
-	    	return $resource(url_prefix + '/listCoachers').query().$promise;
+	    	return $resource(url_prefix + '/listCoaches').query().$promise;
         };
         
         serv.getTrained = function(){
@@ -29,9 +29,8 @@ angular.module('myApp.services')
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertCoach',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
+                headers: {'Content-Type': 'application/json'},
+                data: data
             }).$promise;
 	    };
 
@@ -41,9 +40,8 @@ angular.module('myApp.services')
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertTrained',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
+                headers: {'Content-Type': 'application/json'},
+                data: data
             }).$promise;
 	    };
 
@@ -72,8 +70,8 @@ angular.module('myApp.services')
             $http({
                 method: 'POST',
                 url: url_prefix + '/remove',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
+                headers: {'Content-Type': 'application/json'},
+                data: data
             }).then(function(response){
             	resolve(null, response, deferred);
             },function(error){
@@ -100,12 +98,20 @@ angular.module('myApp.services')
 	    }
 	    
 	    serv.localLogin = function(user){
-	    	return $http({
+	    	var deferred = $q.defer();
+
+	    	$http({
                 method: 'POST',
                 url: url_prefix + '/login',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(user)
-            }).$promise;
+                //headers: {'Content-Type': 'application/json'},
+                data: user
+	    	}).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
 	    };
 	    
 	    serv.providerLogin = function(user){
@@ -150,6 +156,5 @@ angular.module('myApp.services')
         };
 	    
         return serv;
-
     }]
 );

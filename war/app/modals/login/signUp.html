@@ -1,20 +1,23 @@
 <div class="container loginModal signUp-modal" style="">
     <div class="row">
-
     <div style="transition: width 1s ease;">
         <a href="#" class="btn btn-lg" ng-click="backPressed()">
-            <span>{{Login.signIn |translate}}</span>
+            <span>{{'Login.Not_Member' | translate}}</span>
         </a>
-
         <legend>{{'SignUp.Welcome' | translate}}</legend>
         <form class="form-horizontal" role="form" action='' method="POST">
-
             <fieldset>
-                <div action="" class="dropzone" dropzone="" id="dropzone">
-                    <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
-                    </div>
-                </div>
-
+                <!-- image upload directive 
+			    <form action="/file-upload"
+			          name="file"
+			          value="user.main_img"
+			          class="dropzone"
+			          id="dropzone">
+			        <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
+			
+			        </div>
+			    </form>
+				-->
                 <div class="form-signUp">
                     <label for="inputUsername">*{{'SignUp.First_Name' | translate}} </label>
                     <input type="text" class="form-control" id="inputUsername" ng-model="user.first_name">
@@ -88,7 +91,7 @@
                     </ul>
                 </div>
 
-                <div class="form-signUp" ng-show = "isTrainer">
+                <div class="form-signUp" ng-show = "!isCoach">
                     <div style="display: list-item;">
                         <label > {{'SignUp.Degrees' | translate}}</label>
                         </br>
@@ -105,8 +108,8 @@
                 </div>
 
                 <div class="form-signUp">
-                    <label ng-show="isTrainer">{{'SignUp.Trainer_Location' | translate}}</label>
-                    <label ng-show="isCoach">{{'SignUp.Coach_Location' | translate}}</label>
+                    <label ng-show="!isCoach">{{'SignUp.Trainer_Location' | translate}}</label>
+                    <!-- <label ng-show="isCoach">{{'SignUp.Coach_Location' | translate}}</label>
                     <div class="dropdown">
                         <button class="btn  btn-default dropdown-toggle" id="menu4" type="button" data-toggle="dropdown"><label ng-show="location === undefined">locations[1]</label>
                             <span class="caret"></span></button>
@@ -114,10 +117,10 @@
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu4">
                             <li role="presentation" ng-repeat="city in locations" value="{{year}}"><a role="menuitem" tabindex="-1" href="#" ng-click="setLocation(city)">{{city}}</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="form-signUp" ng-show = "isTrainer">
+                <div class="form-signUp" ng-show ="!isCoach">
                     <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
                     <textarea type="text" class="form-control" id="inputAbout" ng-model="user.about"/>
                 </div>
@@ -126,9 +129,8 @@
                 <button type="submit" class="btn btn btn-primary submit" ng-click="createNewUser()">
                     {{'Login.Login' | translate}}
                 </button>
-            </div>
+            	</div>
             </fieldset>
         </form>
-
     </div>
 </div>
