@@ -226,15 +226,15 @@
 }
 /* line 199, ../../sass/modals/user.scss */
 .user-Details .pac-container {
-  z-index: 10000 !important;
+  display: block;
 }
-/* line 201, ../../sass/modals/user.scss */
+/* line 202, ../../sass/modals/user.scss */
 .user-Details table.table {
   float: right;
   width: 100% !important;
   transition: 3s;
 }
-/* line 206, ../../sass/modals/user.scss */
+/* line 207, ../../sass/modals/user.scss */
 .user-Details td {
   border-top: none !important;
   font-size: 140%;
@@ -242,7 +242,7 @@
   padding: 2px !important;
   display: inline-block;
 }
-/* line 213, ../../sass/modals/user.scss */
+/* line 214, ../../sass/modals/user.scss */
 .user-Details > img {
   float: left;
   width: 25%;
@@ -250,17 +250,17 @@
   margin-left: 2%;
 }
 
-/* line 221, ../../sass/modals/user.scss */
+/* line 222, ../../sass/modals/user.scss */
 .b-update-user {
   align-content: center;
 }
 
-/* line 225, ../../sass/modals/user.scss */
+/* line 226, ../../sass/modals/user.scss */
 .switch-M {
   transform: rotate(0deg);
 }
 
-/* line 228, ../../sass/modals/user.scss */
+/* line 229, ../../sass/modals/user.scss */
 .switch-F {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -269,17 +269,17 @@
   -ms-transform: rotate(180deg);
 }
 
-/* line 236, ../../sass/modals/user.scss */
-.pac-container {
-  z-index: 1000 !important;
-}
-
-/* line 238, ../../sass/modals/user.scss */
+/* line 237, ../../sass/modals/user.scss */
 md-input-container {
   margin-left: 5px;
 }
 
-/* line 243, ../../sass/modals/user.scss */
+/* line 242, ../../sass/modals/user.scss */
 .read-only td {
   margin-bottom: 2% !important;
+}
+
+/* line 247, ../../sass/modals/user.scss */
+.pac-container {
+  z-index: 1000 !important;
 }

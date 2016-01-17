@@ -70,11 +70,11 @@ angular.module('myApp.controllers.main')
         var getAllVideos = function(){
             $scope.videos = videoService.getVideos();
 
+
             if(!$scope.videos) {
 
+                loadingSpinnerService.showProgress();
                 videoService.getAll().then(function (data) {
-
-                    loadingSpinnerService.showProgress();
 
                     $scope.videos = data.map(function (video) {
                         video.contentOffset = video.content + "#t=3";
@@ -90,12 +90,9 @@ angular.module('myApp.controllers.main')
 
                     videoService.setVideos($scope.videos);
 
-                    $timeout(function () {
-                        loadingSpinnerService.hideProgress();
-                    }, 8000);
+                    loadingSpinnerService.hideProgress();
+                })
 
-
-                });
             }
         };
 

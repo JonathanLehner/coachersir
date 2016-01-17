@@ -6,6 +6,9 @@
     <!--<lable class="lableTitle">{{'User.Details.Main_Img' | translate}} : </lable>-->
     <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
 
+		<display-message message="{{displayMessage}}" error="{{displayMessageError}}">
+		</display-message>
+
     <div class="table-responsive read-only" >
         <table class="table">
             <tr >
@@ -48,6 +51,8 @@
     </div>
     </div>
     <button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+		<br>
+		<div class="fb-comments" data-href="{{getLocation()}}" data-numposts="10" data-colorscheme="light"></div>
 </div>
     <div id="user-Details" ng-if="editMode" class = "user-Details">
 
@@ -107,17 +112,17 @@
             <td >
         </tr>
         <tr>
-            <td >{{'User.Details.Description' | translate}} : </td>
-            <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
+            <td>
+                <md-input-container>
+                    <label>{{'User.Details.Price_Per_Hour' | translate}}</label>
+                    <input ng-model="updatedUser.price_per_hour" type="number" step="1">
+                </md-input-container>
+                <i class="fa fa-shekel"></i>
+            </td>
         </tr>
         <tr>
-            <td>
-            <md-input-container>
-                <label>{{'User.Details.Price_Per_Hour' | translate}}</label>
-                <input ng-model="updatedUser.price_per_hour" type="number" step="1">
-            </md-input-container>
-            <i class="fa fa-shekel"></i>
-            </td>
+            <td >{{'User.Details.Description' | translate}} : </td>
+            <td ><textarea type="text" ng-model="updatedUser.description"></textarea></td>
         </tr>
         <tr>
             <td >{{'User.Details.Gender' | translate}} : </td>
@@ -148,17 +153,12 @@
                 </ul>
             </td>
            <!-- <input type="checkbox" checklist-model="updatedUser.degrees" ng-true-value="degree.id" checklist-value="degree.id">{{degree.name}}-->
-           </label>
-                </tr></td>
         </tr>
     	</table>
             </div>
-
         <br>
         <button type="button" class="btn btn-primary b-update-user center-block" ng-click="saveButtonClicked()">
             {{'General.Save' | translate}}
         </button>
-    </div>
-
 </div>
 </div>

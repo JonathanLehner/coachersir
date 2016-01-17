@@ -1,9 +1,13 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state','$translate','userService',function($scope,$state,$translate,userService)
+    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService',function($scope,$state,loadingSpinnerService,$translate,userService)
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
         $scope.coachers = {};
+
+        var init = function(){
+            getCoaches();
+        };
 
         $scope.numberOfPages = function() {
             return Math.ceil($scope.coachers.length / $scope.pageSize);
@@ -70,10 +74,18 @@ angular.module('myApp.controllers.main')
             $state.go('details',{ id: coach.id});
         };
 
-        userService.getAll().then(function(data){
-             $scope.coachers =  data;
-        });
+        var getCoaches = function() {
 
+            loadingSpinnerService.showProgress();
+            userService.getAll().then(function (data) {
+                setTimeout(function(){
+                    $scope.coachers = data;
 
+                    loadingSpinnerService.hideProgress();
+                },2000);
+            })
+        }
+
+        init();
     }
 ]);
