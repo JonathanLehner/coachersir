@@ -1,6 +1,8 @@
 angular.module('myApp.controllers')
     .controller('mainCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
 
+        $scope.coachers = {};
+
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();

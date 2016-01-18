@@ -1,5 +1,10 @@
 angular.module('myApp.controllers.main')
-    .controller('userCtrl',['$scope','$state','$translate','$timeout','$stateParams','userService','staticDataService','loginService',function($scope,$state,$translate,$timeout,$stateParams,userService,staticDataService,loginService){
+    .controller('userCtrl',['$scope','$state','$modalInstance','$translate','$timeout','$stateParams','userService','staticDataService','loginService',
+                  function($scope,$state,$modalInstance,$translate,$timeout,$stateParams,userService,staticDataService,loginService){
+
+        $scope.close = function(){
+            $modalInstance.close();
+        }
 
 
     	var setMyPage = function(){

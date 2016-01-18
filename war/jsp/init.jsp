@@ -46,10 +46,10 @@
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
 
-		  	content=new Content();
+		    	content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
+		  	content.setContent("//c2.staticflickr.com/6/5690/22411226528_7fb2d5e292_h.jpg");
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
@@ -57,7 +57,7 @@
 		  	content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/Ie4crXiP-zBiwxusV.mp4");
+		  	content.setContent("//c2.staticflickr.com/6/5703/22411201467_0dcf2ae8ba_n.jpg");
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
@@ -65,7 +65,16 @@
 		  	content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
+		  	content.setContent("//c2.staticflickr.com/6/5675/22816039362_cf847f4d51_n.jpg");
+		  	content.setDescription("וידיאו של אימון");
+		  	content.setHeadline("כותרת הוידיאו");
+		  	contentDAO.insert(content);
+
+
+		  	content=new Content();
+		  	content.setUser_id(user.getId());
+		  	content.setType(Content.TYPE_VIDEO);
+		  	content.setContent("//c2.staticflickr.com/6/5690/22411226528_7fb2d5e292_h.jpg");
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
@@ -73,7 +82,7 @@
 		  	content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/Ie4crXiP-zBiwxusV.mp4");
+		  	content.setContent("//c2.staticflickr.com/6/5703/22411201467_0dcf2ae8ba_n.jpg");
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
@@ -81,23 +90,7 @@
 		  	content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
-		  	content.setDescription("וידיאו של אימון");
-		  	content.setHeadline("כותרת הוידיאו");
-		  	contentDAO.insert(content);
-
-		  	content=new Content();
-		  	content.setUser_id(user.getId());
-		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/Ie4crXiP-zBiwxusV.mp4");
-		  	content.setDescription("וידיאו של אימון");
-		  	content.setHeadline("כותרת הוידיאו");
-		  	contentDAO.insert(content);
-
-		  	content=new Content();
-		  	content.setUser_id(user.getId());
-		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
+		  	content.setContent("//c2.staticflickr.com/6/5675/22816039362_cf847f4d51_n.jpg");
 		  	content.setDescription("וידיאו של אימון");
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);

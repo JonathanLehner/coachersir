@@ -96,7 +96,7 @@ angular.module('myApp')
                         alert('You\'ve selected the alert tab!');
                         $state.go('main.coach');
                     }else{
-                        $modal.open({
+                        var modal = $modal.open({
                             windowClass: 'right fade',
                             templateUrl:'/app/modals/user/user.html',
                             keyboard: true,

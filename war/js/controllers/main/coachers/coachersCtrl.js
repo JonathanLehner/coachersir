@@ -3,7 +3,6 @@ angular.module('myApp.controllers.main')
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
-        $scope.coachers = {};
 
         var init = function(){
             getCoaches();
@@ -76,14 +75,16 @@ angular.module('myApp.controllers.main')
 
         var getCoaches = function() {
 
-            loadingSpinnerService.showProgress();
-            userService.getAll().then(function (data) {
-                setTimeout(function(){
-                    $scope.coachers = data;
+            if($scope.coachers.length === undefined || $scope.coachers.length === 0){
+                loadingSpinnerService.showProgress();
+                userService.getAll().then(function (data) {
+                    setTimeout(function(){
+                        $scope.coachers = data;
 
-                    loadingSpinnerService.hideProgress();
-                },2000);
-            })
+                        loadingSpinnerService.hideProgress();
+                    },2000);
+                })
+            }
         }
 
         init();

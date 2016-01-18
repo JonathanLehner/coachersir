@@ -264,3 +264,13 @@ hr {
 iframe {
   left: 0 !important;
 }
+
+/* line 218, ../sass/common.scss */
+.close-user {
+  font-size: xx-large;
+  margin-top: 5%;
+  border-radius: 100%;
+  right: 19%;
+  background-color: white;
+  position: fixed;
+}
