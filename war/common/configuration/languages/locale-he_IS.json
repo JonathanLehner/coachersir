@@ -17,7 +17,7 @@
 		"Video": "סרטון"
 	},
 	"Login":{
-	    "Email":"דוא''ל",
+	    "Email":"אימייל",
 	    "Password":"סיסמה",
 	    "Coach":"מאמן",
 	    "Trained":"מתאמן",
@@ -28,7 +28,10 @@
 	    "My_Page":"הדף שלי",
 	    "Not_Member":"חדש באתר? הרשם!",
 	    "Forgot_Password":"שכחת סיסמה?",
-	    "Reset_Password":"אפס סיסמא",
+	    "Reset_Password":"אפס סיסמה",
+	    "Insert_Email_And_Press": "הכנס אימייל ולחץ על ",
+	    "New_Password_Sent":"סיסמה חדשה נשלחה למייל",
+	    "Email_Not_Found":"המייל לא נמצא במערכת",
 	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
 	    "Fill_The_Inputs":"מלא בבקשה את כל השדות"
   	},
@@ -96,7 +99,7 @@
 	      	"Phone":"טלפון",
 	      	"Coach_Location":"מאמן באזור",
 	      	"Email":"אימייל",
-	      	"Password":"סיסמא",
+	      	"Password":"סיסמה",
 			"Description":"קצת על עצמי",
 			"Price_Per_Hour":"מחיר לשעת אימון",
 	      	"Gender":"מין",

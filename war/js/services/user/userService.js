@@ -121,8 +121,25 @@ angular.module('myApp.services')
                 method: 'POST',
                 url: url_prefix + '/providerLogin',
                 headers: {'Content-Type': 'application/json'},
-                data: user
+                data: user	
             }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
+	    };
+
+	    serv.resetPassword = function(email){
+	    	var deferred = $q.defer();
+	    	
+	    	$http({
+                method: 'POST',
+                url: url_prefix + '/resetPassword',
+                headers: {'Content-Type': 'application/json'},
+                data: email
+	    	}).then(function(response){
             	resolve(null, response, deferred);
             },function(error){
             	resolve(error, null, deferred);

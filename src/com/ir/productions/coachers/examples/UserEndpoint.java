@@ -1,4 +1,4 @@
-package com.ir.productions.coachers;
+package com.ir.productions.coachers.examples;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import com.google.api.server.spi.config.ApiAuth;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.response.NotFoundException;
+import com.ir.productions.coachers.Endpoint;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
 

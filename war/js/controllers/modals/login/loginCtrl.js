@@ -1,6 +1,6 @@
 angular.module('myApp.controllers.main')
-    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService',
-                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService){
+    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','userService',
+                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , userService){
 
         var init = function(){
             $scope.forgotPassword = false;
@@ -21,14 +21,26 @@ angular.module('myApp.controllers.main')
         	$scope.forgotPassword = !$scope.forgotPassword;
         	
         	if($scope.forgotPassword === true){
-        		$scope.displayMessage="please insert email and press reset password";
+        		$scope.displayMessage = $translate.instant("Login.Insert_Email_And_Press") + $translate.instant("Login.Reset_Password");
         		$scope.displayMessageError=false;
         	}
         };
         
         $scope.resetPassword = function(){
-        	$scope.displayMessage="password reset send by mail";
-    		$scope.displayMessageError=false;
+        	if($scope.user.email !== "" && 
+    		   $scope.user.email !== undefined){
+        		userService.resetPassword($scope.user.email).then(function(response){
+        			$scope.displayMessage = $translate.instant("Login.New_Password_Sent");
+            		$scope.displayMessageError=false;
+            	},function(error){
+            		$scope.displayMessage= $translate.instant("Login.Email_Not_Found") + ' ' + error.data;
+            		$scope.displayMessageError=true;
+            	});
+    		}
+    		else{
+    			//$scope.displayMessage="fill email";
+    			$scope.displayMessageError=true;
+    		}
         };
 
         $scope.userLogin = function(){

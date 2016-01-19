@@ -3,9 +3,12 @@ package com.ir.productions.coachers.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ir.productions.coachers.MailUtils;
+import com.ir.productions.coachers.RandomUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
+import com.sun.jersey.api.NotFoundException;
 
 public class UserService
 {
@@ -49,5 +52,25 @@ public class UserService
 		}
 
 		return locations;
+	}
+
+	public void resetPassword(String email)
+	{
+		List<User> users = userDAO.findByField("email", email);
+
+		if (users != null && !users.isEmpty())
+		{
+			User user = users.get(0);
+
+			user.setPassword(RandomUtils.getUniqueString());
+
+			// JDOHelper.getPersistenceManager(user).evict(user);
+
+			user = userDAO.update(user);
+			MailUtils.sendPasswordResetMail(user);
+		} else
+		{
+			throw new NotFoundException("User not found by email");
+		}
 	}
 }

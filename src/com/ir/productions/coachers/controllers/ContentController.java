@@ -14,7 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import com.google.api.server.spi.response.UnauthorizedException;
-import com.ir.productions.coachers.SystemUtils;
+import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
 
@@ -84,7 +84,7 @@ public class ContentController
 	public Content insertArticle(@Context HttpServletRequest req,
 			Content content) throws UnauthorizedException
 	{
-		SystemUtils.verifyUserOnSession(req, content.getUser_id());
+		SessionUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_ARTICLE);
 		return contentDAO.insert(content);
 	}
@@ -94,7 +94,7 @@ public class ContentController
 	public Content insertImage(@Context HttpServletRequest req, Content content)
 			throws UnauthorizedException
 	{
-		SystemUtils.verifyUserOnSession(req, content.getUser_id());
+		SessionUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_IMAGE);
 		return contentDAO.insert(content);
 	}
@@ -104,7 +104,7 @@ public class ContentController
 	public Content insertVideo(@Context HttpServletRequest req, Content content)
 			throws UnauthorizedException
 	{
-		SystemUtils.verifyUserOnSession(req, content.getUser_id());
+		SessionUtils.verifyUserOnSession(req, content.getUser_id());
 		content.setType(Content.TYPE_VIDEO);
 		return contentDAO.insert(content);
 	}

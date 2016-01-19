@@ -67,7 +67,7 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 	@Override
 	public T update(T t)
 	{
-		EntityManager mgr = getEM();
+		EntityManager mgr = entityManager != null ? entityManager : getEM();
 
 		try
 		{
@@ -127,6 +127,22 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 		List<T> list = getEM().createQuery(
 				"Select t from " + entityClass.getSimpleName() + " t")
 				.getResultList();
+
+		mgr.close();
+
+		return list;
+	}
+
+	@Override
+	public List<T> findByField(String fieldName, String fieldValue)
+	{
+		EntityManager mgr = getEM();
+
+		List<T> list = getEM()
+				.createQuery(
+						"Select t from " + entityClass.getSimpleName()
+								+ " t where " + fieldName + " = :fieldValue")
+				.setParameter("fieldValue", fieldValue).getResultList();
 
 		mgr.close();
 

@@ -14,11 +14,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import com.google.api.server.spi.response.UnauthorizedException;
-import com.ir.productions.coachers.SystemUtils;
+import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
 import com.ir.productions.coachers.services.UserService;
+import com.sun.jersey.api.NotFoundException;
 
 @Path("userEndpoint")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -45,7 +46,7 @@ public class UserController
 	@Path("refreshAuthUser")
 	public User refreshAuthUser(@Context HttpServletRequest req)
 	{
-		Long userId = SystemUtils.getUserIdOnSession(req);
+		Long userId = SessionUtils.getUserIdOnSession(req);
 
 		if (userId != null)
 		{
@@ -56,10 +57,16 @@ public class UserController
 	}
 
 	@POST
+	@Path("resetPassword")
+	public void resetPassword(@Context HttpServletRequest req, String email)
+	{
+		userService.resetPassword(email);
+	}
+
+	@POST
 	@Path("login")
-	public User login(@Context HttpServletRequest req,
-			@QueryParam("email") String email,
-			@QueryParam("password") String password)
+	public User login(@Context HttpServletRequest req, String email,
+			String password)
 	{
 		User authUser = null;
 
@@ -70,7 +77,11 @@ public class UserController
 			// in your authentication method
 			if (authUser != null)
 			{
-				SystemUtils.addUserToSession(req, authUser.getId());
+				SessionUtils.addUserToSession(req, authUser.getId());
+			} else
+			{
+				throw new NotFoundException(
+						"User not found by email and password");
 			}
 		}
 
@@ -90,7 +101,10 @@ public class UserController
 			// in your authentication method
 			if (authUser != null)
 			{
-				SystemUtils.addUserToSession(req, authUser.getId());
+				SessionUtils.addUserToSession(req, authUser.getId());
+			} else
+			{
+				throw new NotFoundException("User not found by provider");
 			}
 		}
 
@@ -101,7 +115,7 @@ public class UserController
 	@Path("logout")
 	public void logout(@Context HttpServletRequest req)
 	{
-		SystemUtils.removeUserFromSession(req);
+		SessionUtils.removeUserFromSession(req);
 	}
 
 	@GET
@@ -153,7 +167,7 @@ public class UserController
 	public User update(@Context HttpServletRequest req, User user)
 			throws EntityNotFoundException, UnauthorizedException
 	{
-		SystemUtils.verifyUserOnSession(req, user.getId());
+		SessionUtils.verifyUserOnSession(req, user.getId());
 
 		if (user.getId() != null)
 		{

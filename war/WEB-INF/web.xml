@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   
      <servlet>
   		<description>jersey-servlet</description>
@@ -29,7 +28,7 @@
   		<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   		<init-param>
 		   <param-name>services</param-name>
-		   <param-value>com.ir.productions.coachers.ContentEndpoint,com.ir.productions.coachers.StaticDataEndpoint,com.ir.productions.coachers.UserEndpoint,com.ir.productions.coachers.examples.DeviceInfoEndpoint,com.ir.productions.coachers.examples.MessageEndpoint</param-value>
+		   <param-value>com.ir.productions.coachers.examples.ContentEndpoint,com.ir.productions.coachers.examples.DeviceInfoEndpoint,com.ir.productions.coachers.examples.MessageEndpoint,com.ir.productions.coachers.examples.StaticDataEndpoint,com.ir.productions.coachers.examples.UserEndpoint</param-value>
   		</init-param>
  	</servlet>
  	<servlet-mapping>

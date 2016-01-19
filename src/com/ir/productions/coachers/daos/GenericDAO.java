@@ -5,7 +5,6 @@ import java.util.List;
 
 public interface GenericDAO<T, ID extends Serializable>
 {
-
 	T insert(T t);
 
 	T update(T t);
@@ -17,4 +16,6 @@ public interface GenericDAO<T, ID extends Serializable>
 	T findById(ID id);
 
 	List<T> findAll();
+
+	List<T> findByField(String fieldName, String fieldValue);
 }

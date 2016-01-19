@@ -1,4 +1,4 @@
-package com.ir.productions.coachers;
+package com.ir.productions.coachers.examples;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.ir.productions.coachers.Endpoint;
 import com.ir.productions.coachers.daos.StaticDataDAO;
 import com.ir.productions.coachers.entities.StaticData;
 
