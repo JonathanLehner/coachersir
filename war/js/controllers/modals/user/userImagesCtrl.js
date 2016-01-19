@@ -40,8 +40,10 @@ angular.module('myApp.controllers')
 
         var getImages = function(){
 
-            imageService.getById($scope.id).then(function(data){
-                $scope.images = data;
+            imageService.getByUser($scope.user.id).then(function(response){
+                $scope.images = response;
+            },function(error){
+                alert(error);
             });
         };
 
