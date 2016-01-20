@@ -10,19 +10,7 @@ angular.module('myApp.services')
         serv.getById = function(id){
 	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
 	    };
-	    
-	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/list').query().$promise;
-	    };
-	    
-	    serv.getCoachers = function(){
-	    	return $resource(url_prefix + '/listCoaches').query().$promise;
-        };
-        
-        serv.getTrained = function(){
-        	return $resource(url_prefix + '/listTrained').query().$promise;
-        };
-        
+
         serv.insertCoach = function(user){
 	    	var data = user;
 

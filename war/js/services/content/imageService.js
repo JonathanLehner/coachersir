@@ -9,7 +9,7 @@ angular.module('myApp.services')
 	    var serv={};
 	    
 	    serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
+	    	return $resource(url_prefix + '/get?id=' + id).query().$promise;
 	    };
 	    
 	    serv.getAll = function(){

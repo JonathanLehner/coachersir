@@ -39,16 +39,19 @@ angular.module('myApp.controllers')
 
 					$scope.user = response.data;
 					$scope.$parent.user = response.data;
-					
+
 					$scope.displayMessage="user updated successfully!";
-					$scope.displayMessageError=false;
+					$scope.displayMessageError=true;
 					$scope.editMode = false;
 
                     loadingSpinnerService.hideProgress("user-loading");
                     $scope.editMode = false;
-        		},
-        		function(error){
+                },function(error){
         			console.log('user updated error' + error);
+                    $scope.user = jQuery.extend(true, {}, $scope.updatedUser);
+                    loadingSpinnerService.hideProgress("user-loading");
+                    $scope.displayMessage="user didnt update!";
+                    $scope.displayMessageError=true;
         		});
         	}
         };

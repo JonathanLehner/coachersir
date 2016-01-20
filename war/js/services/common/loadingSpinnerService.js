@@ -26,7 +26,7 @@ angular.module('myApp.services')
             var ajaxContainer = $("#"+elementName);
             if(ajaxContainer !== null){
                 ajaxContainer.children().addClass('ng-hide');
-                if(ajaxContainer.scope() !== undefined){
+                if(ajaxContainer.scope!== undefined && ajaxContainer.scope() !== undefined){
                  var newElement = $compile('<loading-spinner></loading-spinner>')(ajaxContainer.scope());
                 }else{
                     var newElement = $compile('<loading-spinner></loading-spinner>')($scope);

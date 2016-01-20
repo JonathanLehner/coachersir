@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService',function($scope,$state,loadingSpinnerService,$translate,userService)
+    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService)
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
@@ -74,12 +74,13 @@ angular.module('myApp.controllers.main')
         };
 
         var getCoaches = function() {
-
+            $scope.coachers = coachersService.getCoachersData();
             if($scope.coachers.length === undefined || $scope.coachers.length === 0){
                 loadingSpinnerService.showProgress();
-                userService.getAll().then(function (data) {
+                coachersService.getAll().then(function (data) {
                     setTimeout(function(){
                         $scope.coachers = data;
+                        coachersService.setCoachersData(data);
 
                         loadingSpinnerService.hideProgress();
                     },2000);
