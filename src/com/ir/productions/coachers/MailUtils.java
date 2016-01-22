@@ -40,8 +40,10 @@ public class MailUtils
 
 	public static void sendPasswordResetMail(User user)
 	{
-		sendMail(user.getEmail(), "Password reset for myCoach account",
-				"Your password has been reset.\n " + "Your new password is: "
+		sendMail(
+				user.getEmail(),
+				"Password reset for myCoach account",
+				"Your password has been reset. Your new password is: "
 						+ user.getPassword());
 	}
 

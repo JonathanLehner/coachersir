@@ -65,25 +65,6 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 	}
 
 	@Override
-	public T update(T t)
-	{
-		EntityManager mgr = entityManager != null ? entityManager : getEM();
-
-		try
-		{
-			t = mgr.merge(t);
-		} catch (Exception e)
-		{
-			System.out.println(e.getMessage());
-		} finally
-		{
-			mgr.close();
-		}
-
-		return t;
-	}
-
-	@Override
 	public void delete(T t)
 	{
 		EntityManager mgr = getEM();
@@ -134,11 +115,30 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements
 	}
 
 	@Override
+	public T update(T t)
+	{
+		EntityManager mgr = getEM();
+
+		try
+		{
+			t = mgr.merge(t);
+		} catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		} finally
+		{
+			mgr.close();
+		}
+
+		return t;
+	}
+
+	@Override
 	public List<T> findByField(String fieldName, String fieldValue)
 	{
 		EntityManager mgr = getEM();
 
-		List<T> list = getEM()
+		List<T> list = mgr
 				.createQuery(
 						"Select t from " + entityClass.getSimpleName()
 								+ " t where " + fieldName + " = :fieldValue")
