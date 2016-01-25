@@ -28,7 +28,8 @@ public class SessionUtils
 
 	public static void removeUserFromSession(HttpServletRequest req)
 	{
-		req.getSession().removeAttribute(SessionUtils.SESSION_USER_ID_ATTRIBUTE);
+		req.getSession()
+				.removeAttribute(SessionUtils.SESSION_USER_ID_ATTRIBUTE);
 	}
 
 	public static void verifyUserOnSession(HttpServletRequest req, Long userId)
@@ -41,6 +42,19 @@ public class SessionUtils
 		{
 			throw new UnauthorizedException(
 					"requested operation is not supported for user.");
+		}
+	}
+
+	public static void verifyUserOnSession(HttpServletRequest req)
+			throws UnauthorizedException
+	{
+		Object session_var = req.getSession().getAttribute(
+				SessionUtils.SESSION_USER_ID_ATTRIBUTE);
+
+		if (session_var == null)
+		{
+			throw new UnauthorizedException(
+					"requested operation is not supported.");
 		}
 	}
 }

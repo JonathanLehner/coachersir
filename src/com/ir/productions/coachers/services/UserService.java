@@ -64,8 +64,6 @@ public class UserService
 
 			user.setPassword(RandomUtils.getUniqueString());
 
-			// JDOHelper.getPersistenceManager(user).evict(user);
-
 			user = userDAO.update(user);
 			MailUtils.sendPasswordResetMail(user);
 		} else

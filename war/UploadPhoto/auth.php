@@ -15,8 +15,8 @@
 	if (!empty($_GET['extra'])) {
 		$redirect = $_GET['extra'];
 	}else{
-        $redirect = str_replace("auth.php","upload.php",$_SERVER['REQUEST_URI']);
-    }
+		$redirect = str_replace("auth.php","upload.php",$_SERVER['REQUEST_URI']);
+	}
     
     $f = new phpFlickr($api_key, $api_secret);
  

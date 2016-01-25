@@ -1,6 +1,7 @@
 package com.ir.productions.coachers.controllers;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,9 @@ import com.sun.jersey.api.NotFoundException;
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class UserController
 {
+	private static final Logger LOG = Logger.getLogger(UserController.class
+			.getName());
+
 	UserDAO userDAO;
 	UserService userService;
 
