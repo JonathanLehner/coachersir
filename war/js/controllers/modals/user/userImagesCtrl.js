@@ -1,5 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userImagesCtrl',['$scope','staticDataService','Upload','$stateParams','imageService','loadingSpinnerService','$http',function($scope,staticDataService,Upload,$stateParams,imageService,loadingSpinnerService,$http) {
+    .controller('userImagesCtrl',['$scope','staticDataService','uploadTokenService','Upload','$stateParams','imageService','loadingSpinnerService','$http',
+                                  function($scope,staticDataService,uploadTokenService,Upload,$stateParams,imageService,loadingSpinnerService,$http) {
 
     	var user = $scope.$parent.user;
     	
