@@ -114,6 +114,9 @@
     	"Gender":{
       		"Female":"נקבה",
       		"Male":"זכר"
-    	}
+    	},
+      "Video":{
+        "Time_Duration":"אורך סרטון:"
+      }
 	}
 }

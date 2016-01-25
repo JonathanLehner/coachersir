@@ -1,4 +1,4 @@
-/* line 4, ../../sass/modals/user.scss */
+/* line 8, ../../sass/modals/user.scss */
 .userModal {
   transition: 3s;
   margin-top: 5%;
@@ -12,40 +12,40 @@
   padding-bottom: 5%;
 }
 
-/* line 17, ../../sass/modals/user.scss */
+/* line 21, ../../sass/modals/user.scss */
 .modal {
   overflow: visible;
 }
 
-/* line 23, ../../sass/modals/user.scss */
+/* line 27, ../../sass/modals/user.scss */
 .userModal > .toggleMenu {
   display: none;
   background: #00BFF0;
   padding: 10px 15px;
   width: 100%;
 }
-/* line 30, ../../sass/modals/user.scss */
+/* line 34, ../../sass/modals/user.scss */
 .userModal > .nav {
   list-style: none;
   *zoom: 1;
 }
-/* line 34, ../../sass/modals/user.scss */
+/* line 38, ../../sass/modals/user.scss */
 .userModal > .nav:before,
 .userModal > .nav:after {
   content: " ";
   display: table;
 }
-/* line 39, ../../sass/modals/user.scss */
+/* line 43, ../../sass/modals/user.scss */
 .userModal > .nav:after {
   clear: both;
 }
-/* line 42, ../../sass/modals/user.scss */
+/* line 46, ../../sass/modals/user.scss */
 .userModal > .nav ul {
   list-style: none;
   width: 12em;
   display: flex;
 }
-/* line 47, ../../sass/modals/user.scss */
+/* line 51, ../../sass/modals/user.scss */
 .userModal > .nav li a {
   display: block;
   padding: 9px 20px;
@@ -55,12 +55,12 @@
   margin-right: 10px;
   border: 1px solid #72D0F4;
 }
-/* line 56, ../../sass/modals/user.scss */
+/* line 60, ../../sass/modals/user.scss */
 .userModal > .nav li {
   position: relative;
   display: inline-block;
 }
-/* line 60, ../../sass/modals/user.scss */
+/* line 64, ../../sass/modals/user.scss */
 .userModal > .nav li.active a, .userModal > .nav li a:hover {
   border: 1px solid;
   border-bottom-color: white;
@@ -76,16 +76,16 @@
   background: #fff;
   color: #00BFF0;
 }
-/* line 76, ../../sass/modals/user.scss */
+/* line 80, ../../sass/modals/user.scss */
 .userModal > .nav li a:hover {
   background: #DCDCDC;
 }
-/* line 79, ../../sass/modals/user.scss */
+/* line 83, ../../sass/modals/user.scss */
 .userModal > .nav > li {
   float: right;
   display: inline-block;
 }
-/* line 83, ../../sass/modals/user.scss */
+/* line 87, ../../sass/modals/user.scss */
 .userModal > .nav > li > a.parent {
   background: url(../images/nav_arrow.png) no-repeat 15px 15px #FFF;
   color: #03B8FD;
@@ -96,16 +96,16 @@
   border: none;
   padding: 10px 20px 10px 40px;
 }
-/* line 93, ../../sass/modals/user.scss */
+/* line 97, ../../sass/modals/user.scss */
 .userModal > .nav li ul {
   position: absolute;
   padding: 27px 13px;
 }
-/* line 97, ../../sass/modals/user.scss */
+/* line 101, ../../sass/modals/user.scss */
 .userModal > .nav > li.hover > ul {
   left: -10px;
 }
-/* line 100, ../../sass/modals/user.scss */
+/* line 104, ../../sass/modals/user.scss */
 .userModal > .nav li li.hover ul {
   left: 100%;
   top: 0;
@@ -115,7 +115,7 @@
   -o-transition: background .2s linear;
   transition: background .2s linear;
 }
-/* line 109, ../../sass/modals/user.scss */
+/* line 113, ../../sass/modals/user.scss */
 .userModal > .nav li li a {
   font-size: 0.8725em;
   padding: 10px;
@@ -135,13 +135,13 @@
   border: none;
   text-decoration: none;
 }
-/* line 128, ../../sass/modals/user.scss */
+/* line 132, ../../sass/modals/user.scss */
 .userModal > .nav li li li a {
   background: #249578;
   z-index: 200;
   border-top: 1px solid #1d7a62;
 }
-/* line 133, ../../sass/modals/user.scss */
+/* line 137, ../../sass/modals/user.scss */
 .userModal > .nav li li a:hover {
   background: #72d0f4;
   color: #fff;
@@ -149,19 +149,19 @@
   border: none;
 }
 
-/* line 141, ../../sass/modals/user.scss */
-.rating > span:hover:before {
-  content: "\2605";
-  position: absolute;
-}
-
-/* line 146, ../../sass/modals/user.scss */
+/* line 145, ../../sass/modals/user.scss */
 .rating > span:hover:before {
   content: "\2605";
   position: absolute;
 }
 
 /* line 150, ../../sass/modals/user.scss */
+.rating > span:hover:before {
+  content: "\2605";
+  position: absolute;
+}
+
+/* line 154, ../../sass/modals/user.scss */
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -170,75 +170,76 @@
   margin-top: 2%;
 }
 
-/* line 157, ../../sass/modals/user.scss */
+/* line 161, ../../sass/modals/user.scss */
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
   content: "\2605";
   position: absolute;
 }
 
-/* line 162, ../../sass/modals/user.scss */
+/* line 166, ../../sass/modals/user.scss */
 .rating > span {
   display: inline-block;
   position: relative;
   width: 1.1em;
 }
 
-/* line 167, ../../sass/modals/user.scss */
+/* line 171, ../../sass/modals/user.scss */
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
   content: "\2605";
   position: absolute;
 }
 
-/* line 173, ../../sass/modals/user.scss */
+/* line 177, ../../sass/modals/user.scss */
 .user-Details {
   margin-top: 4%;
 }
-/* line 175, ../../sass/modals/user.scss */
+/* line 179, ../../sass/modals/user.scss */
 .user-Details md-input-container {
   margin: 0px !important;
   padding: 0px !important;
 }
-/* line 179, ../../sass/modals/user.scss */
+/* line 183, ../../sass/modals/user.scss */
 .user-Details md-has-icon {
   padding: 0px !important;
 }
-/* line 182, ../../sass/modals/user.scss */
+/* line 186, ../../sass/modals/user.scss */
 .user-Details md-icon {
   right: inherit !important;
 }
-/* line 186, ../../sass/modals/user.scss */
+/* line 190, ../../sass/modals/user.scss */
 .user-Details md-switch .md-bar {
   background-color: rgba(63, 81, 181, 0.87);
   /* set not selected bar color */
 }
-/* line 190, ../../sass/modals/user.scss */
+/* line 194, ../../sass/modals/user.scss */
 .user-Details md-switch.md-checked .md-bar {
   background-color: deeppink;
   /* set selected bar color */
 }
-/* line 194, ../../sass/modals/user.scss */
+/* line 198, ../../sass/modals/user.scss */
 .user-Details md-switch.md-checked .md-thumb {
   border: black;
   background-color: white;
   /* not selected switch color */
 }
-/* line 199, ../../sass/modals/user.scss */
+/* line 203, ../../sass/modals/user.scss */
 .user-Details table.table {
   float: right;
   width: 100% !important;
   transition: 3s;
 }
-/* line 204, ../../sass/modals/user.scss */
+/* line 208, ../../sass/modals/user.scss */
 .user-Details td {
   border-top: none !important;
   font-size: 140%;
   font-weight: 700;
   padding: 2px !important;
+  vertical-align: inherit !important;
   display: inline-block;
 }
-/* line 211, ../../sass/modals/user.scss */
+/* line 216, ../../sass/modals/user.scss */
 .user-Details > img {
   float: left;
   width: 25%;
@@ -246,17 +247,17 @@
   margin-left: 2%;
 }
 
-/* line 219, ../../sass/modals/user.scss */
+/* line 224, ../../sass/modals/user.scss */
 .b-update-user {
   align-content: center;
 }
 
-/* line 223, ../../sass/modals/user.scss */
+/* line 228, ../../sass/modals/user.scss */
 .switch-M {
   transform: rotate(0deg);
 }
 
-/* line 226, ../../sass/modals/user.scss */
+/* line 231, ../../sass/modals/user.scss */
 .switch-F {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -265,22 +266,22 @@
   -ms-transform: rotate(180deg);
 }
 
-/* line 234, ../../sass/modals/user.scss */
+/* line 239, ../../sass/modals/user.scss */
 md-input-container {
   margin-left: 5px;
 }
 
-/* line 239, ../../sass/modals/user.scss */
+/* line 244, ../../sass/modals/user.scss */
 .read-only td {
   margin-bottom: 2% !important;
 }
 
-/* line 243, ../../sass/modals/user.scss */
+/* line 248, ../../sass/modals/user.scss */
 .pac-container {
   z-index: 1500;
 }
 
-/* line 247, ../../sass/modals/user.scss */
+/* line 252, ../../sass/modals/user.scss */
 .no-data {
   text-align: center;
   font-size: xx-large;
@@ -296,7 +297,7 @@ md-input-container {
 .jssora02l.jssora02ldn      (mousedown)
 .jssora02r.jssora02rdn      (mousedown)
 */
-/* line 262, ../../sass/modals/user.scss */
+/* line 267, ../../sass/modals/user.scss */
 .jssora02l, .jssora02r {
   display: block;
   position: absolute;
@@ -308,32 +309,32 @@ md-input-container {
   overflow: hidden;
 }
 
-/* line 272, ../../sass/modals/user.scss */
+/* line 277, ../../sass/modals/user.scss */
 .jssora02l {
   background-position: -3px -33px;
 }
 
-/* line 273, ../../sass/modals/user.scss */
+/* line 278, ../../sass/modals/user.scss */
 .jssora02r {
   background-position: -63px -33px;
 }
 
-/* line 274, ../../sass/modals/user.scss */
+/* line 279, ../../sass/modals/user.scss */
 .jssora02l:hover {
   background-position: -123px -33px;
 }
 
-/* line 275, ../../sass/modals/user.scss */
+/* line 280, ../../sass/modals/user.scss */
 .jssora02r:hover {
   background-position: -183px -33px;
 }
 
-/* line 276, ../../sass/modals/user.scss */
+/* line 281, ../../sass/modals/user.scss */
 .jssora02l.jssora02ldn {
   background-position: -3px -33px;
 }
 
-/* line 277, ../../sass/modals/user.scss */
+/* line 282, ../../sass/modals/user.scss */
 .jssora02r.jssora02rdn {
   background-position: -63px -33px;
 }
@@ -345,7 +346,7 @@ md-input-container {
 .jssort03 .pav          (active)
 .jssort03 .pdn          (mousedown)
 */
-/* line 287, ../../sass/modals/user.scss */
+/* line 292, ../../sass/modals/user.scss */
 .jssort03 .p {
   position: absolute;
   top: 0;
@@ -354,7 +355,7 @@ md-input-container {
   height: 32px;
 }
 
-/* line 295, ../../sass/modals/user.scss */
+/* line 300, ../../sass/modals/user.scss */
 .jssort03 .t {
   position: absolute;
   top: 0;
@@ -364,7 +365,7 @@ md-input-container {
   border: none;
 }
 
-/* line 304, ../../sass/modals/user.scss */
+/* line 309, ../../sass/modals/user.scss */
 .jssort03 .w, .jssort03 .pav:hover .w {
   position: absolute;
   width: 60px;
@@ -373,12 +374,12 @@ md-input-container {
   box-sizing: content-box;
 }
 
-/* line 312, ../../sass/modals/user.scss */
+/* line 317, ../../sass/modals/user.scss */
 .jssort03 .pdn .w, .jssort03 .pav .w {
   border-style: solid;
 }
 
-/* line 316, ../../sass/modals/user.scss */
+/* line 321, ../../sass/modals/user.scss */
 .jssort03 .c {
   position: absolute;
   top: 0;
@@ -394,13 +395,13 @@ md-input-container {
   -o-transition: opacity .6s;
 }
 
-/* line 332, ../../sass/modals/user.scss */
+/* line 337, ../../sass/modals/user.scss */
 .jssort03 .p:hover .c, .jssort03 .pav .c {
   filter: alpha(opacity=0);
   opacity: 0;
 }
 
-/* line 337, ../../sass/modals/user.scss */
+/* line 342, ../../sass/modals/user.scss */
 .jssort03 .p:hover .c {
   transition: none;
   -moz-transition: none;
@@ -408,8 +409,61 @@ md-input-container {
   -o-transition: none;
 }
 
-/* line 344, ../../sass/modals/user.scss */
+/* line 349, ../../sass/modals/user.scss */
 * html .jssort03 .w {
   width: 62px;
   height: 32px;
+}
+
+/* line 355, ../../sass/modals/user.scss */
+.user-videos ul {
+  margin-top: 3%;
+}
+/* line 358, ../../sass/modals/user.scss */
+.user-videos li {
+  display: flex;
+  padding: 3%;
+  margin: 1%;
+  border: 1px solid #808080;
+  margin-left: 10%;
+}
+/* line 364, ../../sass/modals/user.scss */
+.user-videos li div {
+  margin-left: 2%;
+  display: inline;
+}
+/* line 368, ../../sass/modals/user.scss */
+.user-videos li label {
+  font-size: 200%;
+  font: "Open Sans Condensed", sans-serif;
+  padding-right: 10%;
+  min-width: 150%;
+}
+/* line 374, ../../sass/modals/user.scss */
+.user-videos li span {
+  font: "Open Sans Condensed", sans-serif;
+  font-size: 120%;
+  padding-right: 10%;
+  min-width: 150%;
+}
+/* line 380, ../../sass/modals/user.scss */
+.user-videos li p {
+  font: "Open Sans Condensed", sans-serif;
+  font-size: 160%;
+  padding-right: 10%;
+  min-width: 150%;
+}
+/* line 387, ../../sass/modals/user.scss */
+.user-videos li:hover {
+  box-shadow: 10px 10px 5px #888888;
+}
+/* line 390, ../../sass/modals/user.scss */
+.user-videos video {
+  height: 140px;
+  float: right;
+}
+
+/* line 398, ../../sass/modals/user.scss */
+.md-chip {
+  float: right !important;
 }

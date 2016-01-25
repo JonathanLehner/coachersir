@@ -2,18 +2,18 @@
 
 <div id="user-loading" class="container userModal">
     <div ng-click="close()" class="glyphicon glyphicon-remove-circle remove-class close-user"> </div>
-	<div id="fb-root"></div>
-	<div ng-if="!myPageViewed" class="rating" style="float:left">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-    </div>
-    <h2>{{user.first_name}} {{user.last_name}}</h2>
+       <div id="fb-root"></div>
+        <div ng-if="!myPageViewed" class="rating" style="float:left">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <ul class="nav nav-tabs">
+            <li ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
+            <li ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'General.Images' | translate}}</a></li>
+            <li ui-sref-active="active"><a data-toggle="tab" data-target="#videos" ui-sref="videos" >{{'General.Videos' | translate}}</a></li>
+            <li ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'General.Articles' | translate}}</a></li>
+        </ul>
 
-    <ul class="nav nav-tabs">
-        <li class="userLi active" ui-sref-active="active"><a data-toggle="tab" data-target="#details" ui-sref="details">{{'User.User_Details' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'General.Images' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#videos" ui-sref="videos" >{{'General.Videos' | translate}}</a></li>
-        <li class="userLi" ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'General.Articles' | translate}}</a></li>
-	</ul>
 	
     <div class="section1" class="ui" ui-view="userView"></div>
 

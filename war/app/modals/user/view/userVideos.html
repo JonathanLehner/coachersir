@@ -1,14 +1,39 @@
 <div ng-controller="userVideosCtrl" >
 
-	<h1>All videos for user {{user.id}}</h1>
-    <ul>
-    	<li ng-repeat="vid in videos">
-			
-           	headline: {{vid.headline}}
-           	content: {{vid.content}}
-           	
-        </li>
-    </ul>
+    <div id="user-videos" class="user-videos">
+        <div ng-if="videos.length == 0 && !myPageViewed" class="no-data">
+            {{"User.No_Data" | translate}}
+        </div>
+        <div ng-if="videos.length == 0 && myPageViewed" class="no-data">
+            {{"User.No_Data_My" | translate}}
+        </div>
+        <ul>
+            <li id="li-video" ng-repeat="vid in videos" ng-mouseover="hoverLi(vid.id)" ng-mouseout="outLi(vid.id)">
+                <div style="display: flex">
 
-    <add-content ng-if="myPageViewed" url="Video"></add-content>
+                    <div > <video id={{vid.id}} ng-src="{{vid.content | trustUrl}}"  muted ></video></div>
+
+                   <div style="float: right;">
+
+                    <div>
+                           <label>{{vid.headline}}</label>
+
+                    </div>
+                       <span id="duration{{vid.id}}">
+                          </span>
+
+                    <div> <p >{{vid.description}}</p></div>
+                       <div>
+                        <md-chips>
+                            <md-chip ng-repeat="tag in vid.tags">{{tag}}</md-chip>
+                        <md-chips>
+                       </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+        <add-content ng-if="myPageViewed" url="Video"></add-content>
+    </div>
 </div>

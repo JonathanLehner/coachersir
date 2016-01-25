@@ -2,6 +2,7 @@ angular.module('myApp.controllers')
     .controller('userDetailsCtrl',['$scope','$rootScope','userService','loadingSpinnerService','loginService',function($scope,$rootScope,userService,loadingSpinnerService,loginService){
 
         $scope.editMode = false;
+        $scope.degreeIds = {};
         
         $scope.displayMessage="";
 		$scope.displayMessageError=false;
