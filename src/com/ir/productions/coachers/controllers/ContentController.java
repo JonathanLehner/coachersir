@@ -1,5 +1,6 @@
 package com.ir.productions.coachers.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
@@ -17,6 +18,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
+import com.ir.productions.coachers.services.ContentService;
 
 @Path("contentEndpoint")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -24,10 +26,27 @@ import com.ir.productions.coachers.entities.Content;
 public class ContentController
 {
 	private ContentDAO contentDAO;
+	private ContentService contentService;
 
 	public ContentController()
 	{
 		this.contentDAO = new ContentDAO();
+		this.contentService = new ContentService();
+	}
+
+	@GET
+	@Path("getUploadToken")
+	public String getUploadToken(@Context HttpServletRequest req,
+			@QueryParam("type") String type) throws UnauthorizedException,
+			IOException
+	{
+		SessionUtils.verifyUserOnSession(req);
+		if (type != null)
+		{
+			return contentService.getUploadTokten(type);
+		}
+
+		throw new IOException("type not supported.");
 	}
 
 	@GET
