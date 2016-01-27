@@ -1,5 +1,7 @@
 package com.ir.productions.coachers.entities;
 
+import java.util.List;
+
 import javax.jdo.annotations.Index;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,6 +31,8 @@ public class Content
 	private String headline;
 
 	private String description;
+
+	private List<Long> tags;
 
 	public Long getId()
 	{
@@ -99,4 +103,15 @@ public class Content
 	{
 		this.description = description;
 	}
+
+	public List<Long> getTags()
+	{
+		return tags;
+	}
+
+	public void setTags(List<Long> tags)
+	{
+		this.tags = tags;
+	}
+
 }

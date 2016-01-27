@@ -167,6 +167,12 @@
 			objectives.add(StaticData.createObjective("להראות טוב")); 
 			objectives.add(StaticData.createObjective("להרגיש טוב"));
 			
+			List<StaticData> tags = new ArrayList<StaticData>();
+			
+			tags.add(StaticData.createTag("אימון בחוץ"));
+			tags.add(StaticData.createTag("עבודה קשה"));
+			tags.add(StaticData.createTag("חדר כושר"));
+			
 			StaticDataDAO dao = new StaticDataDAO(); 
 			
 			for(StaticData data : degrees){
@@ -176,6 +182,11 @@
 			for(StaticData data : objectives){
 				dao.insert(data);
 			}
+			
+			for(StaticData data : tags){
+				dao.insert(data);
+			}
+			
 			
 			%>static data added successfully<%
 		}

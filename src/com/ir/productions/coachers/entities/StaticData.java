@@ -11,6 +11,7 @@ public class StaticData
 {
 	public static final Integer TYPE_OBJECTIVE = 1;
 	public static final Integer TYPE_DEGREE = 2;
+	public static final Integer TYPE_TAG = 3;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +30,11 @@ public class StaticData
 	public static StaticData createObjective(String name)
 	{
 		return new StaticData(name, TYPE_OBJECTIVE);
+	}
+
+	public static StaticData createTag(String name)
+	{
+		return new StaticData(name, TYPE_TAG);
 	}
 
 	public StaticData(String name, Integer type)
