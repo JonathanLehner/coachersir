@@ -1,10 +1,9 @@
-<div dir="rtl" ng-controller="addArticleCtrl">
-	<label>{{'General.Headline' | translate}} 
-		<input id="headline" ng-model="headline" type="text">
-	</label>
+<div dir="rtl" >
+
 	<textarea name="articleEditor" ng-model="content" id="articleEditor" rows="10" cols="80">
 	</textarea>
-	<button type="button" ng-click="saveButtonClicked()">
-		{{'General.Save' | translate}}
-	</button>
+
+    <button type="button" ng-click="saveButtonClicked()">
+        {{'General.Save' | translate}}
+    </button>
 </div>

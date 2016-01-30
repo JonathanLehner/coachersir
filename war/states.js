@@ -1,11 +1,12 @@
 
 angular.module('myApp')
-    .config(function($stateProvider,$urlRouterProvider){
-        
+    .config(function($stateProvider,$urlRouterProvider,$locationProvider){
+
     	'use strict';
-        
+
         $urlRouterProvider
             .when('/home1',function(){})
+            .when('/coachers','/coachers')
             .otherwise('/home');
 
         $stateProvider.state('main',{
@@ -85,10 +86,10 @@ angular.module('myApp')
         })
         .state('modal', {
             url: 'coach/:id',
+            parent:'main',
                 params:{
                     currentState:'main.coach'
                 },
-            parent:'main',
                 abstract:true,
             onEnter: ['$modal','$state','userService','$stateParams', function($modal, $state,userService,$stateParams) {
                 userService.getById($stateParams.id).then(function(data){
@@ -164,4 +165,9 @@ angular.module('myApp')
                     templateUrl: 'app/modals/user/content/addVideo.html'}
             }
         })
+/*
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });*/
 });

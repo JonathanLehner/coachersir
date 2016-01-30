@@ -1,7 +1,7 @@
 angular.module('myApp.controllers')
     .controller('addArticleCtrl',['$scope','articleService',function($scope, articleService){
 
-    	var user = $scope.$parent.user;
+    	$scope.user_id = $scope.id;
     	
 		CKEDITOR.replace( 'articleEditor', {
 			language: 'he',
@@ -12,12 +12,15 @@ angular.module('myApp.controllers')
 		
 		$scope.saveButtonClicked = function() {
 
-			var content = CKEDITOR.instances.articleEditor.getData();
-			
-			
-			
-			alert(content);
-		};
+			var articleContent = CKEDITOR.instances.articleEditor.getData();
+
+            var content = {
+                        content:articleContent,
+                        user_id:$scope.user_id
+                        };
+
+            articleService.insert(content);
+        };
 		
 		$scope.deleteButtonClicked = function(article) {
 			articleService.remove(article.id)

@@ -1,12 +1,64 @@
 <div ng-controller="articlesCtrl">
-	
-	<h1>All articles in Coachersir</h1>
-    <ul>
-    	<li ng-repeat="article in articles">
-			
-           	headline: {{article.headline}}
-           	content: {{article.content}}
-           	
-        </li>
-    </ul>
+
+    <check-box-filters>
+    </check-box-filters>
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="30" layout="column">
+                <md-card ng-repeat="article in articles1"  >
+                    <md-card-content>
+                        <h2>{{article.headline}}</h2>
+                        <div ng-bind-html="article.shortContent"></div>
+                        <div>
+                            <md-chips>
+                                <md-chip ng-repeat="tag in vid.tags">{{tag}}</md-chip>
+                            </md-chips>
+                        </div>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="toCoach(article.user_id)">{{"General.ToCoach" | translate}}</md-button>
+                        <md-button ng-show="article.flag">{{"General.ReadMore" | translate}}</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="30" layout="column">
+                <md-card ng-repeat="article in articles2"  >
+                    <md-card-content>
+                        <h2>{{article.headline}}</h2>
+                        <div  ng-bind-html="article.shortContent">  </div>
+                        <div>
+                            <md-chips>
+                                <md-chip ng-repeat="tag in vid.tags">{{tag}}</md-chip>
+                            </md-chips>
+                        </div>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="toCoach(article.user_id)">{{"General.ToCoach" | translate}}</md-button>
+                        <md-button ng-show="article.flag">{{"General.ReadMore" | translate}}</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="30" layout="column">
+                <md-card ng-repeat="article in articles3"  >
+                    <md-card-content>
+                        <h2>{{article.headline}}</h2>
+                        <div  ng-bind-html="article.shortContent"> </div>
+                        <div>
+                            <md-chips>
+                                <md-chip ng-repeat="tag in vid.tags">{{tag}}</md-chip>
+                            </md-chips>
+                        </div>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button ng-click="toCoach(article.user_id)">{{"General.ToCoach" | translate}}</md-button>
+                            <md-button ng-show="article.flag">{{"General.ReadMore" | translate}}</md-button>
+                        </md-card-actions>
+                    </md-card-content>
+                </md-card>
+            </div>
+        <!--
+                    </md-grid-tile>
+                    </md-grid-list>-->
+
+
+        </md-content>
 </div>

@@ -7,6 +7,15 @@ angular.module('myApp.services')
 		var url_prefix = 'api/contentEndpoint';
 
 		var serv={};
+        serv.articles = {};
+
+        serv.getArticlesData = function(){
+            return serv.articles;
+        };
+
+        serv.setArticlesData = function(articles){
+            serv.articles = articles;
+        }
 	    
 	    serv.getById = function(id){
 	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
@@ -20,16 +29,24 @@ angular.module('myApp.services')
 	    	return $resource(url_prefix + '/articlesByUser?userId=' + userId).query().$promise;
 	    };
 	    
-	    serv.insert = function(article){
-	    	var data = article;
+	    serv.insert = function(scope){
+
+            var articleContent = CKEDITOR.instances.articleEditor.getData();
+
+            var content = {
+                headline:scope.content.headline,
+                content:articleContent,
+                user_id:scope.user.id
+            };
+	    	var data = content;
 
             return $http({
                 method: 'POST',
                 url: url_prefix + '/insertArticle',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
+                headers: {'Content-Type': 'application/json'},
+                data: data
 
-            }).$promise;
+            });
 	    };
 	    
 	    serv.update = function(article){

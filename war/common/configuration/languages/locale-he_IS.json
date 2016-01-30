@@ -14,7 +14,9 @@
 		"Article": "מאמר",
 		"Image": "תמונה",
 		"Main_Img": "תמונה ראשית",
-		"Video": "סרטון"
+		"Video": "סרטון",
+        "ReadMore":"קרא עוד",
+      "ToCoach":"לדף המאמן"
 	},
 	"Login":{
 	    "Email":"אימייל",

@@ -43,12 +43,18 @@
                 <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
                 <td >{{user.degrees | degreesFilter}}</td>
             </tr>
+            <tr>
+                <td>
+                    <div class="fb-comments" data-href={{getLocation()}} data-numposts="10" data-colorscheme="light"></div>
+
+                </td>
+            </tr>
         </table>
     </div>
     </div>
+
     <button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
 		<br>
-		<div class="fb-comments" data-href={{getLocation()}} data-numposts="10" data-colorscheme="light"></div>
 </div>
     <div id="user-Details" ng-if="editMode" class = "user-Details">
 

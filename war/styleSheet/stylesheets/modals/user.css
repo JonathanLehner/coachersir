@@ -467,3 +467,9 @@ md-input-container {
 .md-chip {
   float: right !important;
 }
+
+/* line 404, ../../sass/modals/user.scss */
+.user-article ul li {
+  list-style-type: none;
+  margin-left: 5%;
+}
