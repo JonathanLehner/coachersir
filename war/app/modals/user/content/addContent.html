@@ -1,17 +1,10 @@
 <div>
     <div ng-if="!isClicked" ng-click="show()">Add Content</div>
 
-
     <div id="contentId"></div>
     <div ng-if="isClicked">
         <a href="" ng-click="hide()">Hide Content</a>
         </br>
-        <md-input-container>
-            <label>{{'General.Headline' | translate}}</label>
-            <input placeholder="" ng-model="content.headline" />
-        </md-input-container>
-
         <div ng-include=addContentUrl></div>
-
     </div>
 </div>
