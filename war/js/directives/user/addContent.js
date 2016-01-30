@@ -1,4 +1,4 @@
-angular.module('myApp.directives').directive('addContent',['articleService', function(articleService) {
+angular.module('myApp.directives').directive('addContent',['articleService','$timeout', function(articleService,$timeout) {
     return {
         restrict: 'E',
         templateUrl:"/app/modals/user/content/addContent.html",
@@ -34,9 +34,10 @@ angular.module('myApp.directives').directive('addContent',['articleService', fun
 
             $scope.saveButtonClicked = function(){
                 service.insert($scope).success(function(data){
-                    console.log("add content");
                     $scope.isClicked = false;
-                    $scope.$parent.getData();
+                    $timeout(function(){
+                        $scope.$parent.getData();
+                    },200);
                 }).error(function(){
                     console.log("no content");
                 });
