@@ -6,6 +6,5 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jersey-bundle-1.19.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-all-1.9.0.jar"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/App Engine"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/flickr4java-2.15.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

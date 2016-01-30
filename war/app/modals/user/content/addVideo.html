@@ -5,21 +5,20 @@
 			<label>{{'General.Choose' | translate}} {{'General.Video' | translate}}</label>
 			<br>
 			<input id="uploadFile" ng-show="!isUploading" type="file" name="file" accept="video/*"/>
-			
+			<br>
 			<label>{{'General.Headline' | translate}}
 				<input id="videoHeadline" ng-model="headline" ng-show="!isUploading" type="text"/>
 			</label>
-			
+			<br>
 			<label>{{'General.Description' | translate}}
 				<input id="videoDescription" ng-model="description" ng-show="!isUploading" type="text"/>
 			</label>
-			
-			
-			<!--  <small id="uploadText" ng-show="!isUploading">You can upload any video format (WMV, AVI, MP4, MOV, FLV, ...)</small>-->
+			<br>
 			<div id="uploadBar" ng-show="isUploading" style="width:480px; float:left;">
 	        	<div id="uploadProgress" ng-show="isUploading" style="background:#46800d; width:0px; height:18px;"></div>
         	</div>
-			<button id="uploadButton" ng-disabled="isUploading" type="submit">Upload</button>
+        	<br>
+			<button id="uploadButton" ng-disabled="isUploading" type="submit">{{'General.Add' | translate}}</button>
 			
 		</fieldset>
 	</form>

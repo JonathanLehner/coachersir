@@ -3,7 +3,7 @@ angular.module('myApp.services')
         'use strict';
 
         var url_prefix = 'api/contentEndpoint';
-
+        
         var serv = {};
 
         serv.getUploadToken = function (type) {

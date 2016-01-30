@@ -27,9 +27,7 @@ public class ContentService
 			String token = videoUploadService.getUploadToken();
 			LOG.info("received token for video upload: " + token);
 			return token;
-		}
-
-		else if (type.equals(UPLOAD_IMAGE_TYPE))
+		} else if (type.equals(UPLOAD_IMAGE_TYPE))
 		{
 			return imageUploadService.getUploadToken();
 		}
