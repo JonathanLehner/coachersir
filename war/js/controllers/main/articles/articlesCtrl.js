@@ -11,13 +11,11 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.toCoach = function(userId){
-            $state.go("details",{id:userId,currentState:'main.home'});
+            $state.go("details",{id:userId,currentState:'main.articles'});
         };
 
 
         var getArticle = function() {
-            $scope.coachers = articleService.getArticlesData();
-            if($scope.coachers.length === undefined || $scope.coachers.length === 0){
                 loadingSpinnerService.showProgress();
                 articleService.getAll().then(function (data) {
                     setTimeout(function(){
@@ -44,7 +42,6 @@ angular.module('myApp.controllers.main')
                         loadingSpinnerService.hideProgress();
                     },2000);
                 })
-            }
         };
 
         init();
