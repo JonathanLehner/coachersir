@@ -6,10 +6,6 @@ angular.module('myApp.controllers')
     	
         $scope.id = $stateParams.id;
         
-        $scope.reset = function() {
-            $scope.resetDropzone();
-        };
-
         var init = function(){
             getImages();
         };

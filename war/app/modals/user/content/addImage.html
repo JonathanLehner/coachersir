@@ -5,14 +5,16 @@
         id="dropzone">
         <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}</div>
     </form>
-    <br>
-	<label>{{'General.Headline' | translate}}
-		<input id="imageHeadline" ng-model="headline" type="text"/>
-	</label>
 	<br>
-	<label>{{'General.Description' | translate}}
-		<input id="imageDescription" ng-model="description" type="text"/>
-	</label>
+	<md-input-container>
+          	<label>{{'General.Headline' | translate}}</label>
+          	<input id="imageHeadline" placeholder="" ng-model="headline" />
+      	</md-input-container>
+	<br>
+	<md-input-container>
+          	<label>{{'General.Description' | translate}}</label>
+          	<input id="imageDescription" placeholder="" ng-model="description"/>
+   	</md-input-container>
 	<br>
     <button class="btn btn-success" ng-click="uploadFile()">{{'General.Add' | translate}}</button>
 </div>
