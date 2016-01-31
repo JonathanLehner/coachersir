@@ -12,6 +12,8 @@ import javax.persistence.Id;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import com.google.appengine.api.datastore.GeoPt;
+
 @Entity
 public class User implements Serializable
 {
@@ -49,7 +51,9 @@ public class User implements Serializable
 
 	private String main_img;
 
-	private Location location;
+	// private Location location;
+
+	private GeoPt location;
 
 	private Long price_per_hour;
 
@@ -169,12 +173,12 @@ public class User implements Serializable
 		this.main_img = main_img;
 	}
 
-	public Location getLocation()
+	public GeoPt getLocation()
 	{
 		return location;
 	}
 
-	public void setLocation(Location location)
+	public void setLocation(GeoPt location)
 	{
 		this.location = location;
 	}

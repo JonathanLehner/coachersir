@@ -1,5 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('mainCtrl',['$scope','$state','loginService',function($scope,$state,loginService){
+    .controller('mainCtrl',['$scope','$state','loginService','staticDataService', 
+                    function($scope , $state , loginService , staticDataService){
 
         $scope.coachers = {};
 

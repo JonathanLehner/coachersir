@@ -36,4 +36,11 @@ public class StaticDataController
 	{
 		return staticDataDAO.findByType(StaticData.TYPE_DEGREE);
 	}
+
+	@GET
+	@Path("listTags")
+	public List<StaticData> listTags()
+	{
+		return staticDataDAO.findByType(StaticData.TYPE_TAG);
+	}
 }

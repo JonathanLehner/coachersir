@@ -11,14 +11,14 @@
 		"Articles": "מאמרים",
 		"Images": "תמונות",
 		"Videos": "סרטונים",
-      "Male":"זכר",
-      "Female":"נקבה",
+      	"Male":"זכר",
+      	"Female":"נקבה",
 		"Article": "מאמר",
 		"Image": "תמונה",
 		"Main_Img": "תמונה ראשית",
 		"Video": "סרטון",
         "ReadMore":"קרא עוד",
-      "ToCoach":"לדף המאמן"
+      	"ToCoach":"לדף המאמן"
 	},
 	"Login":{
 	    "Email":"אימייל",
@@ -117,8 +117,13 @@
       		"Female":"נקבה",
       		"Male":"זכר"
     	},
-      "Video":{
-        "Time_Duration":"אורך סרטון:"
-      }
+  		"Video":{
+    		"Time_Duration":"אורך סרטון:"
+  		}
+	},
+	"Error":{
+		"Email_Invalid":"האימייל לא תקין",
+		"No_Name":"לא הוזן שם או שם משפחה",
+		"General":"בעיה בשדה "		
 	}
 }

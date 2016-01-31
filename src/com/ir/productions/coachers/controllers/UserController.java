@@ -15,9 +15,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import com.google.api.server.spi.response.UnauthorizedException;
+import com.google.appengine.api.datastore.GeoPt;
 import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.UserDAO;
-import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
 import com.ir.productions.coachers.services.UserService;
 import com.sun.jersey.api.NotFoundException;
@@ -41,7 +41,7 @@ public class UserController
 
 	@GET
 	@Path("listLocations")
-	public List<Location> listLocations()
+	public List<GeoPt> listLocations()
 	{
 		return userService.getAllLocations();
 	}

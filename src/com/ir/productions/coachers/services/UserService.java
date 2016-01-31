@@ -3,10 +3,10 @@ package com.ir.productions.coachers.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.appengine.api.datastore.GeoPt;
 import com.ir.productions.coachers.MailUtils;
 import com.ir.productions.coachers.RandomUtils;
 import com.ir.productions.coachers.daos.UserDAO;
-import com.ir.productions.coachers.entities.Location;
 import com.ir.productions.coachers.entities.User;
 import com.sun.jersey.api.NotFoundException;
 
@@ -40,9 +40,9 @@ public class UserService
 		return providerUser;
 	}
 
-	public List<Location> getAllLocations()
+	public List<GeoPt> getAllLocations()
 	{
-		List<Location> locations = new ArrayList<Location>();
+		List<GeoPt> locations = new ArrayList<GeoPt>();
 
 		List<User> users = userDAO.findAll();
 
