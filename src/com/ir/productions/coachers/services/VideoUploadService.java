@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.ir.productions.coachers.SystemUtils;
+
 public class VideoUploadService extends UploadService
 {
 	private static final Logger LOG = Logger.getLogger(VideoUploadService.class
@@ -18,9 +20,7 @@ public class VideoUploadService extends UploadService
 
 		try
 		{
-			URL url = new URL("http://"
-					+ modulesApi.getVersionHostname("video-php-module", "v1")
-					+ "/create.php");
+			URL url = new URL("http://" + getHost() + "/create.php");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					url.openStream()));
 			String line;
@@ -37,5 +37,14 @@ public class VideoUploadService extends UploadService
 		}
 		LOG.info("returning token: " + s);
 		return s.toString();
+	}
+
+	public String getHost()
+	{
+		if (SystemUtils.isProd())
+		{
+			return modulesApi.getVersionHostname("video-php-module", "v1");
+		}
+		return "localhost:8080";
 	}
 }
