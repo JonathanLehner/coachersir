@@ -20,7 +20,19 @@ angular.module('myApp.controllers')
         
         $scope.getLocation = function(){
             return document.location.href; 
-        }       
+        }
+
+        $scope.degreesChange = function(degreeId){
+            if( userService.degrees === undefined){
+                userService.degrees = [];
+            }
+
+            if(userService.degrees.pop(degreeId) === undefined) {
+                userService.degrees.push(degreeId);
+            }else{
+                userService.degrees.splice(degreeId)
+            }
+        };
         
         $scope.saveButtonClicked = function(){
 

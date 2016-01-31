@@ -5,6 +5,7 @@
 angular.module('myApp.directives').directive('googleplace', function() {
     return {
         require: 'ngModel',
+        scope:{location:'='},
         link: function(scope, element, attrs, model) {
             var options = {
                 types: ['geocode'],
@@ -14,10 +15,9 @@ angular.module('myApp.directives').directive('googleplace', function() {
 
             google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
                 scope.$apply(function() {
-                    console.log(scope.gPlace);
                     var place = scope.gPlace.getPlace();
-                    console.log(place);
-                    scope.location = place.geometry.location.lat() + ',' + place.geometry.location.lng();
+                    scope.location = {"lat":place.geometry.location.lat(),
+                                      "lon":place.geometry.location.lng()};
                     model.$setViewValue(element.val());
                 });
             });

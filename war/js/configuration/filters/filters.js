@@ -31,28 +31,32 @@ angular.module('myApp.filters')
     }])
     .filter('ageFromBirthdayFilter', [function() {
 	     function calculateAge(birthday) { // birthday is a date
-    		var dateParse = Date.parse(birthday);
-    		var ageDifMs = Date.now() - dateParse;
-    		var ageDate = new Date(ageDifMs); // miliseconds from epoch
-	        return Math.abs(ageDate.getUTCFullYear() - 1970);
+             if(birthday !== null && birthday !== undefined){
+    		    var dateParse = new Date(birthday);
+    		    var ageDifMs = Date.now() - dateParse;
+    		    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	            return Math.abs(ageDate.getUTCFullYear() - 1970);
+             }else{
+                 return undefined;
+             }
 	    }
 	
 	    return function(birthdate) { 
 	    	return calculateAge(birthdate);
 	    };
      }])
-     .filter('genderFilter', [function() {
+     .filter('genderFilter', ['$translate',function($translate) {
     	 return function(input){
              var gender;
     		 
-    		 if(input === 'M'){
+    		 if(input === 'false'){
     			 gender="Male";
-    		 }else if(input === 'F'){
+    		 }else{
     			 gender="Female";
     		 }
     		 
     		 if(gender){
-    			 var tran = "SignUp." + gender;
+    			 var tran = "General." + gender;
                  var word = $translate.instant(tran);
                  
                  return word;

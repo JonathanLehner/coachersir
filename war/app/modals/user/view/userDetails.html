@@ -37,7 +37,7 @@
             </tr>
             <tr >
                 <td >{{'User.Details.Age' | translate}} :</td>
-                <td >{{user.birth_date | ageFromBirthdayFilter}}</td>
+                <td >{{user.birth_date | ageFromBirthdayFilter}} </td>
             </tr>
             <tr>
                 <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
@@ -87,7 +87,7 @@
             <td >
             <md-input-container>
                 <label>{{"User.Details.Coach_Location" | translate}}</label>
-                <input placeholder="" ng-model="updatedUser.location" googleplace />
+                <input placeholder="" ng-model="location" googleplace location="updatedUser.location" />
             </md-input-container>
             <td >
         </tr>
@@ -111,7 +111,7 @@
             <td>
                 <md-input-container>
                     <label>{{'User.Details.Birth_Day' | translate}}</label>
-                    <input type="date" ng-model="updatedUser.birthday" />
+                    <input type="date" ng-model="updatedUser.birth_date" />
                 </md-input-container>
             </td >
         </tr>
@@ -144,7 +144,7 @@
             <td>
                 <ul>
                     <li ng-repeat="degree in degrees" style="display: inline-block;margin-left: 10px">
-                        <md-checkbox class="md-primary" ng-model="degreeIds[degree.id]" aria-label="degree.id">
+                        <md-checkbox class="md-primary" ng-click="degreesChange(degree.id)" aria-label="degree.id">
                             {{ degree.name }}
                         </md-checkbox>
                     </li>
