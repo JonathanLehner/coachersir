@@ -9,6 +9,15 @@ angular.module('myApp.services')
 		var serv={};
         serv.articles = {};
 
+        serv.init = function(){
+            CKEDITOR.replace( 'articleEditor', {
+                language: 'he',
+                uiColor: '#9AB8F3'
+            });
+
+            CKEDITOR.instances.articleEditor.setData('הכנס תוכן כאן.');
+        };
+
         serv.getArticlesData = function(){
             return serv.articles;
         };

@@ -1,4 +1,4 @@
-angular.module('myApp.directives').directive('addContent',['articleService','$timeout', function(articleService,$timeout) {
+angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout', function(articleService,imageService,videoService,uploadTokenService,$timeout) {
     return {
         restrict: 'E',
         templateUrl:"/app/modals/user/content/addContent.html",
@@ -18,29 +18,30 @@ angular.module('myApp.directives').directive('addContent',['articleService','$ti
 
                 $scope.isClicked = true;
 
-                if($scope.url === "Article"){
+                if($scope.url === "Image") {
+                    service = imageService;
+
+                }else if($scope.url === "Video"){
+                    service = videoService;
+
+                }else if($scope.url === "Article"){
                     service = articleService;
                     setTimeout(function(){
-                    CKEDITOR.replace( 'articleEditor', {
-                        language: 'he',
-                        uiColor: '#9AB8F3'
-                    });
-
-                    CKEDITOR.instances.articleEditor.setData('הכנס תוכן כאן.');
+                    service.init();
 
                     },400);
                 }
             };
 
             $scope.saveButtonClicked = function(){
-                service.insert($scope).success(function(data){
+                service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                     $timeout(function(){
                         $scope.$parent.getData();
                     },200);
-                }).error(function(){
-                    console.log("no content");
-                });
+                }),function(data){
+                    console.log("no content" + data);
+                };
             };
 
             $scope.hide = function(){
@@ -48,4 +49,4 @@ angular.module('myApp.directives').directive('addContent',['articleService','$ti
             }
         }
     };
-}])
+}]);

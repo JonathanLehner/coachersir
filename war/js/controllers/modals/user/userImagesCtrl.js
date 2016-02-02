@@ -17,7 +17,7 @@ angular.module('myApp.controllers')
                 if($scope.images.length !== 0)
                 {
                     setTimeout(function(){
-                        $scope.jssor_1_slider_init()
+                        $scope.jssor_1_slider_init();
                         loadingSpinnerService.hideProgress("user-image");
                     },300);
                 }else{
@@ -28,6 +28,11 @@ angular.module('myApp.controllers')
                 alert(error);
             });
         };
+
+
+          $scope.getData = function(){
+              getImages();
+          };
 
         $scope.jssor_1_slider_init = function() {
 

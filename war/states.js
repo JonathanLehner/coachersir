@@ -6,7 +6,6 @@ angular.module('myApp')
 
         $urlRouterProvider
             .when('/home1',function(){})
-            .when('/coachers','/coachers')
             .otherwise('/home');
 
         $stateProvider.state('main',{

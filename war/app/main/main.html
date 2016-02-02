@@ -1,14 +1,14 @@
     <!-- start header_bottom -->
     <div class="header-bottom" ng-controller="mainCtrl">
         <div class="logo">
-            <a href="index.html">
+            <a ui-sref="main.home">
                 <img src="/img/logos/logo_with_sentence.png"/>
             </a>
         </div>
         <div>
             <div class="nav">
                 <ul>
-                    <li class="li-login" ng-if="!isLoggedIn"><a ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
+                    <li class="li-login" ng-if="!isLoggedIn"><a href ng-click="signIn()"><span>{{'Login.Login' | translate}} </span></a></li>
 	                <li class="li-login" ng-if="isLoggedIn">
                         <div class="dropdown">
                             <button  ng-if="!currentUser.main_img" id="menu1" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="true">
