@@ -1,4 +1,4 @@
-<div id="addVideoDiv" ng-controller="addVideoCtrl">
+<div id="addVideoDiv">
 
 	<form id="uploadForm" action="" method="POST" enctype="multipart/form-data">
 		<fieldset>
@@ -6,21 +6,12 @@
 			<br>
 			<input id="uploadFile" ng-show="!isUploading" type="file" name="file" accept="video/*"/>
 			<br>
-			<md-input-container>
-            	<label>{{'General.Headline' | translate}}</label>
-            	<input id="videoHeadline" placeholder="" ng-model="headline" ng-show="!isUploading"/>
-        	</md-input-container>
-			<br>
-			<md-input-container>
-            	<label>{{'General.Description' | translate}}</label>
-            	<input id="videoDescription" placeholder="" ng-model="description" ng-show="!isUploading"/>
-        	</md-input-container>
-			<br>
 			<div id="uploadBar" ng-show="isUploading" style="width:480px; float:left;">
 	        	<div id="uploadProgress" ng-show="isUploading" style="background:#46800d; width:0px; height:18px;"></div>
         	</div>
         	<br>
-			<button id="uploadButton" ng-disabled="isUploading" type="submit">{{'General.Add' | translate}}</button>
+            <!-- ng-disabled="isUploading"-->
+			<button  ng-show="false"  id="uploadButton" type="submit">{{'General.Add' | translate}} 123</button>
 		</fieldset>
 	</form>
 </div>

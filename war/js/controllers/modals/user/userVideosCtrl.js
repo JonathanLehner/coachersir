@@ -41,6 +41,10 @@ angular.module('myApp.controllers')
             });
         };
 
+        $scope.getData = function(){
+            getVideos();
+        };
+
         init();
     	
     }]);

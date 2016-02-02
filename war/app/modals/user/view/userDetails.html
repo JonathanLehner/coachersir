@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td >{{'User.Details.Coach_Location' | translate}} :</td>
-                <td >{{user.location}}</td>
+                <td ><reverse-geocode lat="{{user.location.latitude}}" lng="{{user.location.longitude}}" /></td>
             </tr>
             <tr >
                 <td >{{'User.Details.Email' | translate}} :</td>

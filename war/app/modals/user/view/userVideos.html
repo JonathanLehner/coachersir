@@ -1,5 +1,7 @@
 <div ng-controller="userVideosCtrl" >
 
+    <add-content ng-if="myPageViewed" url="Video" user="user"></add-content>
+
     <div id="user-videos" class="user-videos">
         <div ng-if="videos.length == 0 && !myPageViewed" class="no-data">
             {{"User.No_Data" | translate}}
@@ -34,6 +36,5 @@
             </li>
         </ul>
 
-        <add-content ng-if="myPageViewed" url="Video"></add-content>
     </div>
 </div>

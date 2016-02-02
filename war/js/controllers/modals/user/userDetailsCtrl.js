@@ -26,7 +26,7 @@ angular.module('myApp.controllers')
         $scope.allDegreesIds = staticDataService.allDegreesIds();
         
         $scope.degreeToggle = function(degreeId){
-            if(!$scope.updatedUser.degrees){
+            if($scope.updatedUser.degrees === undefined){
             	$scope.updatedUser.degrees = [];
             }
 
@@ -38,11 +38,7 @@ angular.module('myApp.controllers')
             	$scope.updatedUser.degrees.push(degreeId);
             }
         };
-        
-        $scope.degreeExists = function(degreeId){
-        	return $scope.updatedUser.degrees.indexOf(degreeId) > -1;
-        };
-        
+
         var verifyInput = function(){
         	var inputError = null;
         	

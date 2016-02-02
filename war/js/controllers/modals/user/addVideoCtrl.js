@@ -66,7 +66,7 @@ angular.module('myApp.controllers')
 			    	"content": 'http://content.jwplatform.com/videos/' + data.media.key + '-zBiwxusV.mp4' 
 			    };
 			    
-			    videoService.insert(video)
+			    videoService.insert(video);
 			    
 			    if(redirect) {
 			      this._log("Redirecting to " + redirect + ".");

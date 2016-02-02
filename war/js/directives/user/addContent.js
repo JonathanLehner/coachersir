@@ -9,6 +9,7 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
         link: function($scope) {
             $scope.isClicked = false;
             $scope.content = {};
+            $scope.isUploading = false;
             var service;
 
             $scope.addContentUrl = "app/modals/user/content/add"+$scope.url+".html";
@@ -24,6 +25,13 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
                 }else if($scope.url === "Video"){
                     service = videoService;
 
+                    uploadTokenService.getUploadToken('video').then(function(data) {
+                        console.log('video upload token ' + data);
+
+                        videoService.initVideo(data);
+                    });
+
+
                 }else if($scope.url === "Article"){
                     service = articleService;
                     setTimeout(function(){
@@ -34,6 +42,7 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             };
 
             $scope.saveButtonClicked = function(){
+                $scope.isUploading = true;
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                     $timeout(function(){
