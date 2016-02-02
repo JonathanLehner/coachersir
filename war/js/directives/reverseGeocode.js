@@ -11,10 +11,10 @@ angular.module('myApp.directives')
                         if (results[1]) {
                             element.text(results[1].formatted_address);
                         } else {
-                            element.text('');
+                            element.text('Location not found');
                         }
                     } else {
-                        element.text('Geocoder failed due to: ' + status);
+                        element.text(' ' + status);
                     }
                 });
             },
