@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('mainCtrl',['$scope','$state','loginService','staticDataService', 
-                    function($scope , $state , loginService , staticDataService){
+    .controller('mainCtrl',['$scope','$state','loginService','facebookService','staticDataService', 
+                    function($scope , $state , loginService , facebookService , staticDataService){
 
         $scope.coachers = {};
 
@@ -24,6 +24,6 @@ angular.module('myApp.controllers')
         $scope.logout = function(){
         	loginService.logout();
         };
-
-
+        facebookService.initFB();
+        
     }]);

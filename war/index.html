@@ -2,11 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
 <head>
     <meta charset="UTF-8">
-    <meta 	name="google-signin-client_id" 
-    		content="36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com"
-	>
+    <meta name="google-signin-client_id" 
+    	content="36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com">
 	<meta property="fb:app_id" content="1679389075631663" />
-	
     <title>myCoach</title>
     <link rel="shortcut icon" href="img/logos/Whisler.ico">
 
@@ -136,9 +134,8 @@
 </head>
 <body ng-app="myApp">
 	
-	<!-- Facebook sdk -->
-	<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js"></script>
-    <script>
+	<div id="fb-root"></div>
+    <!-- <script>
 		window.fbAsyncInit = function() {
 			FB.init({
 		    	appId   : '1679389075631663',
@@ -155,8 +152,7 @@
 		    js.src = "//connect.facebook.net/en_US/sdk.js";
 		    fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
-	</script>
-	
+	</script>-->
 	<!-- Google sdk -->
 	<script src="https://apis.google.com/js/platform.js?onload=onGoogleLoaded" async defer></script>
 	<script>
@@ -167,7 +163,6 @@
 			  	});
 			});
 		};
-		  
 	</script>
 	<div
   		class="fb-like"

@@ -1,5 +1,4 @@
 <div ng-controller="userDetailsCtrl">
-
 <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
 </display-message>
 <div ng-if="!editMode">
@@ -46,8 +45,9 @@
     </div>
     <button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
 	<br>
-	<div class="fb-comments" data-href="getLocation()" data-numposts="10" data-colorscheme="light"></div>
+	<div class="fb-comments" data-href="{{getLocation()}}" data-numposts="10" data-colorscheme="light"></div>
 </div>
+
 <div id="user-Details" ng-if="editMode" class="user-Details">
     <!-- image upload directive -->
     <form action="/file-upload"
@@ -86,7 +86,7 @@
 	            <label>{{"User.Details.Coach_Location" | translate}}</label>
 	            <input placeholder="" ng-model="location" googleplace location="updatedUser.location" />
 	        </md-input-container>
-        <td >
+        <td>
     </tr>
     <tr>
   		<td>

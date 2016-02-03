@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','$rootScope','userService','loadingSpinnerService','loginService','staticDataService',
-                           function($scope , $rootScope , userService , loadingSpinnerService , loginService , staticDataService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','userService','facebookService','loadingSpinnerService','loginService','staticDataService',
+                           function($scope , $rootScope , userService , facebookService , loadingSpinnerService , loginService , staticDataService){
 
         $scope.editMode = false;
         $scope.displayMessage="";
@@ -8,12 +8,14 @@ angular.module('myApp.controllers')
 		
         $scope.toggleEditMode = function(){
         	$scope.editMode= !$scope.editMode;
+        	
         	$scope.displayMessage="";
         	
+        	// we are editing
         	if($scope.editMode === true){
         		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
                 $scope.updatedUser.gender = true;
-        	}else{
+        	}else{// we are viewing
         		
         	}
         };
@@ -22,6 +24,7 @@ angular.module('myApp.controllers')
         $scope.getLocation = function(){
             return document.location.href; 
         };
+        
         $scope.allDegrees = staticDataService.allDegrees();
         $scope.allDegreesIds = staticDataService.allDegreesIds();
         
@@ -39,13 +42,18 @@ angular.module('myApp.controllers')
             }
         };
 
+        $scope.degreeExists = function(degreeId){
+            return $scope.updatedUser.degrees.indexOf(degreeId) > -1;
+        };
+
+        
         var verifyInput = function(){
         	var inputError = null;
         	
-        	
-        	
         	return inputError;
         };
+        
+        facebookService.initFB();
         
         $scope.saveButtonClicked = function(){
         	// verify myPage is viewed

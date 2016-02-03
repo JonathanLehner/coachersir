@@ -66,5 +66,30 @@ angular.module('myApp.services')
             return deferred.promise;
         }
         
+        serv.initFB = function(){
+        	setTimeout(function() {
+    	        window.fbAsyncInit = function() {
+    				FB.init({
+    			    	appId   : '1679389075631663',
+    			      	xfbml   : true,
+    			      	version : 'v2.5',
+    		      		status 	: true,
+    			        cookie 	: true
+    			    });
+    			};
+    			(function(d, s, id){
+    				var js, fjs = d.getElementsByTagName(s)[0];
+    			    if (d.getElementById(id)) {return;}
+    			    js = d.createElement(s); js.id = id;
+    			    js.src = "//connect.facebook.net/en_US/sdk.js";
+    			    fjs.parentNode.insertBefore(js, fjs);
+    			}(document, 'script', 'facebook-jssdk'));
+    	        
+    			if(typeof FB != 'undefined'){	
+    				FB.XFBML.parse();
+    			}
+            }, 100);
+        };
+        
         return serv;
     }]);
