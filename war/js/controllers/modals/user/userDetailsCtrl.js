@@ -43,7 +43,11 @@ angular.module('myApp.controllers')
         };
 
         $scope.degreeExists = function(degreeId){
-            return $scope.updatedUser.degrees.indexOf(degreeId) > -1;
+        	if($scope.updatedUser.degrees === undefined){
+            	$scope.updatedUser.degrees = [];
+            }
+        	
+        	return $scope.updatedUser.degrees.indexOf(degreeId) > -1;
         };
 
         

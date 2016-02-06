@@ -1,5 +1,6 @@
 angular.module('myApp.services')
-    .factory('videoService',['$modal','$http','$resource', '$httpParamSerializerJQLike','$q', function ($modal,$http,$resource,$httpParamSerializerJQLike,$q) {
+    .factory('videoService',['$modal','$http','$resource','$httpParamSerializerJQLike','$q', 
+                     function($modal , $http , $resource , $httpParamSerializerJQLike , $q) {
         
 		"use strict";
 		
@@ -155,12 +156,7 @@ angular.module('myApp.services')
 
             return deferredFunct.promise;
         };
-
-
-
-
-
-
+        
 	    return serv;
     }
 ]);

@@ -1,13 +1,13 @@
 angular.module('myApp.controllers.main')
-    .controller('homeCtrl',['$scope','videoService','loadingSpinnerService','$timeout',function($scope, videoService,loadingSpinnerService,$timeout)
-    {
+    .controller('homeCtrl',['$scope','videoService','loadingSpinnerService','$timeout',
+                    function($scope , videoService , loadingSpinnerService , $timeout){
         $scope.videos = undefined;
 
         var vm = this;
 
-
         $scope.slides = [
-            {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp','video':{content:'https://www.youtube.com/embed/TNBq077wlmc',headline:"עדי מתאמנת",description:"עדי מאמנת הכל"}},
+            {'src': 'http://i.ytimg.com/vi_webp/TNBq077wlmc/mqdefault.webp',
+            	'video':{content:'https://www.youtube.com/embed/TNBq077wlmc',headline:"עדי מתאמנת",description:"עדי מאמנת הכל"}},
             {'src': 'js/controllers/main/home/images/photo3.jpg','video':{}},
             {'src': 'js/controllers/main/home/images/photo4.jpg','video':{}},
             {'src': 'js/controllers/main/home/images/photo5.jpg','video':{}},
@@ -15,8 +15,7 @@ angular.module('myApp.controllers.main')
             {'src': 'js/controllers/main/home/images/photo7.jpg','video':{}},
             {'src': 'js/controllers/main/home/images/photo8.jpg','video':{}}
         ];
-
-
+        
         $scope.options = {
             sourceProp: 'src',
             videoProp: 'videoRef',
@@ -38,7 +37,7 @@ angular.module('myApp.controllers.main')
         $scope.lastSlide = lastSlide;
 
         var init = function(){
-                getAllVideos();
+            getAllVideos();
         };
 
         function lastSlide(index) {
@@ -69,13 +68,9 @@ angular.module('myApp.controllers.main')
 
         var getAllVideos = function(){
             $scope.videos = videoService.getVideos();
-
-
             if(!$scope.videos) {
-
                 loadingSpinnerService.showProgress();
-                videoService.getAll().then(function (data) {
-
+                videoService.getAll().then(function (data){
                     $scope.videos = data.map(function (video) {
                         video.contentOffset = video.content + "#t=3";
                         video.shortDesc = video.description.slice(0, 15) + "...";
@@ -84,15 +79,11 @@ angular.module('myApp.controllers.main')
                         } else {
                             video.flag = false;
                         }
-
                         return video;
                     });
-
                     videoService.setVideos($scope.videos);
-
                     loadingSpinnerService.hideProgress();
-                })
-
+                });
             }
         };
 
@@ -102,11 +93,12 @@ angular.module('myApp.controllers.main')
 
         $scope.playBackground = function (videoId){
             document.getElementById(videoId).play();
-    }
-    $scope.stopBackground = function(videoId){
+        };
+    
+        $scope.stopBackground = function(videoId){
            document.getElementById(videoId).pause();
-    }
-
+        };
+        
         //Paging
         $scope.itemsPerPage = 9;
         $scope.currentPage = 0;
@@ -118,7 +110,7 @@ angular.module('myApp.controllers.main')
             return Math.ceil($scope.videos.length / $scope.pageSize);
         };
 
-        $scope.range = function() {
+        $scope.range = function(){
             var rangeSize = 4;
             var ps = [];
             var start;
@@ -137,43 +129,39 @@ angular.module('myApp.controllers.main')
             return ps;
         };
 
-        $scope.prevPage = function() {
-            if ($scope.currentPage > 0) {
+        $scope.prevPage = function(){
+            if ($scope.currentPage > 0){
                 $scope.currentPage--;
             }
         };
 
-        $scope.DisablePrevPage = function() {
+        $scope.DisablePrevPage = function(){
             return $scope.currentPage === 0 ? "disabled" : "";
         };
 
-        $scope.pageCount = function() {
+        $scope.pageCount = function(){
             if(!$scope.videos){
                 return 0;
             }
             return Math.ceil($scope.videos.length/$scope.itemsPerPage);
         };
 
-        $scope.nextPage = function() {
+        $scope.nextPage = function(){
             if ($scope.currentPage > $scope.pageCount()) {
                 $scope.currentPage++;
             }
         };
 
-        $scope.DisableNextPage = function() {
+        $scope.DisableNextPage = function(){
             return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
         };
 
-        $scope.setPage = function(n) {
+        $scope.setPage = function(n){
             $scope.currentPage = n;
         };
 
         //Paging
 
-
         init();
-
-
-
     }
 ]);
