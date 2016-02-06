@@ -10,11 +10,6 @@ angular.module('myApp.services')
 			}
         };
         
-        var client_id = '36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com';
-        var apiKey = 'AIzaSyDV347aqOUbpx3WzZmotlrOe637REIbjkQ';
-        var scopes = 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email';
-        var deferred = $q.defer();
-
         var serv = {};
         
         serv.login = function(){

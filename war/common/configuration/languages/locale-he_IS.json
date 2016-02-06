@@ -18,7 +18,8 @@
 		"Main_Img": "תמונה ראשית",
 		"Video": "סרטון",
         "ReadMore":"קרא עוד",
-      	"ToCoach":"לדף המאמן"
+      	"ToCoach":"לדף המאמן",
+      	"ShareThisPage":"שתף דף זה"
 	},
 	"Login":{
 	    "Email":"אימייל",

@@ -1,10 +1,16 @@
 package com.ir.productions.coachers.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Param
 {
 	private static final String KEY_VIDEO_PROVIDER = "KEY_VIDEO_PROVIDER";
 	private static final String KEY_IMAGE_PROVIDER = "KEY_IMAGE_PROVIDER";
+	private static final String KEY_FAVORITE_USERS = "KEY_FAVORITE_USERS";
 
+	@Id
 	private String key;
 	private String value;
 

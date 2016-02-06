@@ -45,13 +45,14 @@ public class User implements Serializable
 	@Index
 	private String provider_id;
 
-	private String gender;
+	// true: male, false: female
+	private Boolean gender;
+
+	private Boolean isFavorite;
 
 	private Date birth_date;
 
 	private String main_img;
-
-	// private Location location;
 
 	private GeoPt location;
 
@@ -143,14 +144,24 @@ public class User implements Serializable
 		this.provider_id = provider_id;
 	}
 
-	public String getGender()
+	public Boolean getGender()
 	{
 		return gender;
 	}
 
-	public void setGender(String gender)
+	public void setGender(Boolean gender)
 	{
 		this.gender = gender;
+	}
+
+	public Boolean getIsFavorite()
+	{
+		return isFavorite;
+	}
+
+	public void setIsFavorite(Boolean isFavorite)
+	{
+		this.isFavorite = isFavorite;
 	}
 
 	public Date getBirth_date()
