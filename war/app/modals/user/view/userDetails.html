@@ -1,4 +1,17 @@
 <div ng-controller="userDetailsCtrl">
+
+    <div ng-if="myPageViewed" class="icon-div">
+     <span  ng-show="!editMode" class="user-icon glyphicon glyphicon-pencil" ng-click="toggleEditMode()">
+     </span>
+    <span ng-show="editMode"  class="user-icon glyphicon glyphicon-arrow-right" ng-click="editMode=false">
+        </span>
+     <span ng-show="editMode" class="user-icon glyphicon glyphicon-floppy-disk" ng-click="saveButtonClicked()">
+    </span>
+    </div>
+
+  <!--  <button type="button" class="btn btn-primary b-update-user center-block" ng-if="myPageViewed" ng-click="toggleEditMode()">{{'General.Edit' | translate}} {{'User.User_Details' | translate}}</button>
+-->
+
 <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
 </display-message>
 <div ng-if="!editMode">

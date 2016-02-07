@@ -1,10 +1,11 @@
-angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout', function(articleService,imageService,videoService,uploadTokenService,$timeout) {
+angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout','loadingSpinnerService', function(articleService,imageService,videoService,uploadTokenService,$timeout,loadingSpinnerService) {
     return {
         restrict: 'E',
         templateUrl:"/app/modals/user/content/addContent.html",
         scope: {
             url: '@url',
-            user: '='
+            user: '=',
+            data: '&'
         },
         link: function($scope) {
             $scope.isClicked = false;
@@ -12,12 +13,14 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             $scope.isUploading = false;
             var service;
 
+            $scope.$on('saveContent', function(e) {
+                $scope.$parent.saveContent = $scope.saveButtonClicked();
+            });
+
             $scope.addContentUrl = "app/modals/user/content/add"+$scope.url+".html";
 
 
-            $scope.show = function(){
-
-                $scope.isClicked = true;
+            var show = function(){
 
                 if($scope.url === "Image") {
                     service = imageService;
@@ -41,12 +44,14 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
                 }
             };
 
+            show();
+
             $scope.saveButtonClicked = function(){
                 $scope.isUploading = true;
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
-                    $timeout(function(){
-                        $scope.$parent.getData();
+                        $timeout(function(){
+                        $scope.data();
                     },200);
                 }),function(data){
                     console.log("no content" + data);

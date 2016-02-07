@@ -1,6 +1,6 @@
 <div ng-controller="userVideosCtrl" >
 
-    <add-content ng-if="myPageViewed" url="Video" user="user"></add-content>
+    <div ng-if="myPageViewed" user-menu type="Video" user="user" data="getData()" add="true" edit="true" save="true"></div>
 
     <div id="user-videos" class="user-videos">
         <div ng-if="videos.length == 0 && !myPageViewed" class="no-data">

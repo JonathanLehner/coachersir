@@ -1,5 +1,24 @@
 <div ng-controller="coachersCtrl" >
     <check-box-filters></check-box-filters>
+
+
+    <!--Switch for Maps -->
+    <div style="margin-left:2px; transition: 3s; height: 45px" >
+        <span>{{"Google.Maps" | translate}}</span>
+        <md-switch class="md-primary" ng-model="maps"  style="    padding-left: 1%;
+    margin: 0px;
+    display: initial;
+    float: right;
+    position: absolute;">
+        </md-switch>
+        <!--Switch for Maps -->
+    <span ng-if="maps" class="mapsWrapper">
+        <span  ng-style="{top:top,height:heightMap}" google-map=""></span>
+    </span>
+
+    </div>
+
+
 	<div class="coachProperties" >
 	    <ul>
 	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">

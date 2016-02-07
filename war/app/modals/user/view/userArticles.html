@@ -1,4 +1,5 @@
 <div ng-controller="userArticlesCtrl" >
+    <div ng-if="myPageViewed" user-menu type="Article" user="user" data="getData()" add="true" edit="true" save="true"></div>
 
     <div id="user-article" class="user-article">
         <div ng-if="articles.length == 0 && !myPageViewed" class="no-data">
@@ -27,5 +28,4 @@
 
 
     </div>
-    <add-content ng-if="myPageViewed" url="Article" user="user"></add-content>
 </div>

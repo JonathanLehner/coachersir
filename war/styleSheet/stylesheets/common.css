@@ -276,3 +276,23 @@ iframe {
   background-color: white;
   position: absolute;
 }
+
+/* line 229, ../sass/common.scss */
+.icon-div {
+  position: relative;
+  margin-top: 1%;
+  margin-right: 10%;
+}
+
+/* line 235, ../sass/common.scss */
+.user-icon {
+  font-size: 20px;
+  margin-left: 2%;
+}
+
+/* line 240, ../sass/common.scss */
+.user-icon-invisible {
+  color: #808065;
+  font-size: 20px;
+  margin-left: 2%;
+}

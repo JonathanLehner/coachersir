@@ -1,0 +1,31 @@
+<div class="icon-div" id="user-menu">
+    <span ng-if="editEnabled">
+        <span ng-show="!editClicked" class="user-icon glyphicon glyphicon-pencil" ng-click="clicked('edit')">
+        </span>
+        <span ng-show="editClicked"  class="user-icon glyphicon glyphicon-arrow-right" ng-click="clicked('edit')">
+        </span>
+    </span>
+
+    <span ng-if="addEnabled">
+        <span ng-show="!addClicked" class="user-icon glyphicon glyphicon-plus" ng-click="clicked('add')"  data-toggle="tooltip" data-placement="bottom" title="add Content">
+        </span>
+        <span ng-show="addClicked" class="user-icon glyphicon glyphicon-minus" ng-click="clicked('add')" data-toggle="tooltip" data-placement="bottom" title="hide content">
+        </span>
+    </span>
+
+    <span ng-if="(editClicked || addClicked) && saveEnabled">
+        <span ng-show="!saveClicked" class="user-icon glyphicon glyphicon-floppy-disk" ng-click="saveContentButton()">
+        </span>
+
+    </span>
+
+
+
+  <!--  <span ng-show="saveEnabled" class="user-icon glyphicon glyphicon-floppy-disk" ng-class="isDirty? 'user-icon':'user-icon-invisible'"></span>
+    <span class="user-icon glyphicon glyphicon-share-alt"></span>
+-->
+    <add-content ng-if="addClicked" url={{type}} user="user" data="getData()">
+    </add-content>
+</div>
+
+

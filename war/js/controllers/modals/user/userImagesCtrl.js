@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userImagesCtrl',['$scope','staticDataService','Upload','$stateParams','imageService','loadingSpinnerService','$http',
-                          function($scope , staticDataService , Upload , $stateParams , imageService , loadingSpinnerService , $http){
+    .controller('userImagesCtrl',['$scope','staticDataService','Upload','$stateParams','imageService','loadingSpinnerService','$http','$compile','$rootScope',
+                          function($scope , staticDataService , Upload , $stateParams , imageService , loadingSpinnerService , $http,$compile,$rootScope){
 
     	var user = $scope.$parent.user;
     	
@@ -31,9 +31,12 @@ angular.module('myApp.controllers')
 
 
           $scope.getData = function(){
+              $scope.images = {};
               getImages();
           };
 
+
+      var jssor_1_slider = undefined;
         $scope.jssor_1_slider_init = function() {
 
             var jssor_1_options = {
@@ -50,7 +53,20 @@ angular.module('myApp.controllers')
                 }
             };
 
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            var myNode = angular.element("#addJssor");
+            myNode.remove();
+
+            $compile(myNode);
+
+            var iElement = $("#jssor");
+
+            var svg = $compile('<div id="addJssor" add-jssor images="images"></div>')($scope);
+
+           iElement.append(svg);
+
+
+            setTimeout(function(){
+            jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizing
@@ -69,9 +85,10 @@ angular.module('myApp.controllers')
             $Jssor$.$AddEvent(window, "resize", ScaleSlider);
             $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
             //responsive code end
+            },500);
         };
 
         init();
 
-    }]);
+    }])
 

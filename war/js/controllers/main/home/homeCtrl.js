@@ -68,22 +68,33 @@ angular.module('myApp.controllers.main')
 
         var getAllVideos = function(){
             $scope.videos = videoService.getVideos();
+
             if(!$scope.videos) {
+
                 loadingSpinnerService.showProgress();
                 videoService.getAll().then(function (data){
+
                     $scope.videos = data.map(function (video) {
-                        video.contentOffset = video.content + "#t=3";
+                        if(video.content !== undefined && video.content != null){
+                            video.contentOffset = video.content + "#t=3";
+                        }else{
+                            video.contentOffset = undefined;
+                        }
+
+                    if(video.description !== null && video.description !== undefined){
                         video.shortDesc = video.description.slice(0, 15) + "...";
                         if (video.description.length > 15) {
                             video.flag = true;
                         } else {
                             video.flag = false;
                         }
+                    }
+
                         return video;
                     });
                     videoService.setVideos($scope.videos);
                     loadingSpinnerService.hideProgress();
-                });
+                })
             }
         };
 

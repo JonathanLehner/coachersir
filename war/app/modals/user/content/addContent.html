@@ -1,10 +1,6 @@
 <div>
-    <div ng-if="!isClicked" ng-click="show()">Add Content</div>
 
     <div id="contentId"></div>
-    <div ng-if="isClicked">
-        <a href="" ng-click="hide()">Hide Content</a>
-        </br>
         <md-input-container>
             <label>{{'General.Headline' | translate}}</label>
             <input placeholder="" ng-model="content.headline" />
@@ -37,5 +33,7 @@
 
 
         <button class="btn btn-success" ng-click="saveButtonClicked()">{{'General.Add' | translate}}</button>
+
+    <hr>
     </div>
 </div>
