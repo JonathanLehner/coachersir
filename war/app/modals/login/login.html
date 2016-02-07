@@ -45,7 +45,10 @@
                     <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signUp(1)">{{'Login.Coach' | translate}}</a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a class="btn btn-md btn-primary btn-block" ng-click="">{{'Login.Trained' | translate}}</a>
+                    <a 	class="btn btn-md btn-primary btn-block" 
+                    	tooltip="{{'Login.Trained_Not_Supported' | translate}}"
+          				tooltip-placement="left" 
+          				ng-click="">{{'Login.Trained' | translate}}</a>
                 </div>
             </div>
         </form>

@@ -23,6 +23,7 @@
 	"Login":{
 	    "Coach":"מאמן",
 	    "Trained":"מתאמן",
+	    "Trained_Not_Supported":"הרשמת מאמן אינה נתמכת רגע",
 	    "Remember_Me":"זכור אותי",
 	    "Login":"התחבר",
 	    "Logout":"התנתק",
