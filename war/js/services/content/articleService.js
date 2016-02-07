@@ -1,13 +1,13 @@
 angular.module('myApp.services')
-    .factory('articleService',['$modal','$http','$resource', '$httpParamSerializerJQLike', function ($modal,$http,$resource,$httpParamSerializerJQLike) {
+    .factory('articleService',['$modal','$http','$resource',  
+                       function($modal , $http , $resource) {
         
 		"use strict";
 	
-		//var url_prefix = '_ah/api/contentEndpoint/v1';
 		var url_prefix = 'api/contentEndpoint';
 
 		var serv={};
-        serv.articles = {};
+        serv.articles = undefined;
 
         serv.init = function(){
             CKEDITOR.replace( 'articleEditor', {
@@ -54,7 +54,6 @@ angular.module('myApp.services')
                 url: url_prefix + '/insertArticle',
                 headers: {'Content-Type': 'application/json'},
                 data: data
-
             });
 	    };
 	    
