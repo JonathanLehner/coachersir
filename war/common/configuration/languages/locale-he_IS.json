@@ -18,12 +18,9 @@
 		"Main_Img": "תמונה ראשית",
 		"Video": "סרטון",
         "ReadMore":"קרא עוד",
-      	"ToCoach":"לדף המאמן",
-      	"ShareThisPage":"שתף דף זה"
+      	"ToCoach":"לדף המאמן"
 	},
 	"Login":{
-	    "Email":"אימייל",
-	    "Password":"סיסמה",
 	    "Coach":"מאמן",
 	    "Trained":"מתאמן",
 	    "Remember_Me":"זכור אותי",
@@ -42,20 +39,10 @@
   	},
 	"SignUp":{
 		"Welcome":"ברוכים הבאים!",
-		"First_Name":"שם פרטי",
-		"Last_Name":"שם משפחה",
-		"Email":"דוא''ל",
-		"Password":"סיסמה",
 		"Password_Confirm":"סיסמה (אימות)",
-		"Birth_Day":"תאריך לידה",
-		"About":"קצת עליך:",
-		"Address":"מקום מגורים",
-		"Gender":"מין",
 		"Drop_Img":"גרור תמונה ראשית או הקלק",
 		"Required_Message":"שכחת למלא שדה זה..",
 		"Password_Match":"הסיסמה לא תואמת",
-		"Trainer_Location":"מקום מגורים",
-		"Coach_Location":"מאמן באזור",
 		"Year":"שנה",
 		"Day":"יום",
 		"Month":{"Month":"חודש",
@@ -70,9 +57,8 @@
 			"September":"ספטמבר",
 			"October":"אוקטובר",
 			"November":"נובמבר",
-			"December":"דצמבר"},
-		"Degrees":"הכשרות והסמכות",
-		"Objectives":"יעדים ומטרות"
+			"December":"דצמבר"
+		}
 	},
   	"Menu":{
     	"Home":"בית",
@@ -97,12 +83,12 @@
         "No_Data":"לצערנו למשתמש אין כרגע מידע למסך זה.",
         "No_Data_My":"היי, חבר.. אין לך שום תוכן למסך.",
     	"User_Details":"פרטים",
-    	"BeforeAnd":"לפני ואחרי",
     	"Details":{
 	      	"First_Name":"שם פרטי",
 	      	"Last_Name":"שם משפחה",
 	      	"Phone":"טלפון",
 	      	"Coach_Location":"מאמן באזור",
+	      	"Trained_Location":"אזור מגורים",
 	      	"Email":"אימייל",
 	      	"Password":"סיסמה",
 			"Description":"קצת על עצמי",
@@ -112,7 +98,9 @@
 	      	"Main_Img":"תמונה ראשית",
 	      	"Age":"גיל",
 		    "Coach_Degrees":"הכשרות והסמכות",
-		    "Trained_Objectives":"יעדים ומטרות"
+		    "Trained_Objectives":"יעדים ומטרות",
+		    "Updated_Successfully":"הפרטים עודכנו בהצלחה",
+		    "Not_Updated":"הפרטים לא עודכנו: "
     	},
     	"Gender":{
       		"Female":"נקבה",
@@ -125,6 +113,7 @@
 	"Error":{
 		"Email_Invalid":"האימייל לא תקין",
 		"No_Name":"לא הוזן שם או שם משפחה",
-		"General":"בעיה בשדה "		
+		"General":"בעיה בשדה ",
+		"Not_Empty":" לא יכול להיות ריק"		
 	}
 }

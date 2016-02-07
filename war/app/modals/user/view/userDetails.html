@@ -50,10 +50,14 @@
 		data-layout="button_count">
 	</div>
 	<br>
-	<div class="fb-comments" data-href="{{getLocation()}}" data-numposts="10" data-colorscheme="light"></div>
+	<div class="fb-comments" 
+		data-href="{{getLocation()}}" 
+		data-numposts="10" 
+		data-colorscheme="light">
+	</div>
 </div>
 
-<div id="user-Details" ng-if="editMode" class="user-Details">
+<div ng-if="editMode" id="user-Details" class="user-Details">
     <!-- image upload directive -->
     <form action="/file-upload"
           name="file"
@@ -133,8 +137,8 @@
     </tr>
     <tr>
         <td>{{'User.Details.Gender' | translate}} : </td>
-        <td ><span ng-hide="updatedUser.gender">{{'User.Gender.Male' | translate}}</span>
-             <span ng-show="updatedUser.gender"> {{'User.Gender.Female' | translate}}</span>
+        <td><span ng-if="updatedUser.gender">{{'User.Gender.Male' | translate}}</span>
+             <span ng-if="!updatedUser.gender"> {{'User.Gender.Female' | translate}}</span>
         </td>
         <td>
             <md-switch  ng-model="updatedUser.gender">

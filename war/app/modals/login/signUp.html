@@ -19,22 +19,22 @@
 			    </form>
 				-->
                 <div class="form-signUp">
-                    <label for="inputUsername">*{{'SignUp.First_Name' | translate}} </label>
+                    <label for="inputUsername">*{{'User.Details.First_Name' | translate}} </label>
                     <input type="text" class="form-control" id="inputUsername" ng-model="user.first_name">
                 </div>
 
                 <div class="form-signUp">
-                    <label for="inputUserLastName">*{{'SignUp.Last_Name' | translate}} </label>
+                    <label for="inputUserLastName">*{{'User.Details.Last_Name' | translate}} </label>
                     <input type="text" class="form-control" id="inputUserLastName" ng-model="user.last_name">
                 </div>
 
                 <div class="form-signUp">
-                    <label>*{{'SignUp.Email' | translate}} </label>
+                    <label>*{{'User.Details.Email' | translate}} </label>
                     <input type="email" class="form-control" id="SignUpUsernameEmail" ng-model="user.email">
                 </div>
 
                 <div class="form-signUp">
-                    <label>*{{'SignUp.Password' | translate}}   </label>
+                    <label>*{{'User.Details.Password' | translate}}   </label>
                     <input type="password" class="form-control" id="SignUpPassword" ng-model="user.password">
                 </div>
 
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="form-signUp">
-                    <label>*{{'SignUp.Gender' | translate}}</label>
+                    <label>*{{'User.Details.Gender' | translate}}</label>
                     <div class="btn-group" data-toggle="buttons" style="display: inline-flex">
                         <label class="btn btn-default" style="width: 45px; margin-left: 10px; border-radius: 3px;">
                             <input type="radio" value="1" ng-model="user.gender" /> {{'SignUp.Male' | translate}}
@@ -59,7 +59,7 @@
                 <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 
                 <div class="form-signUp">
-                    <label>*{{'SignUp.Birth_Day' | translate}}</label>
+                    <label>*{{'User.Details.Birth_Day' | translate}}</label>
                     <div class="dropdown">
                         <button class="btn  btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown"><label ng-show="day === undefined ">{{'SignUp.Day' | translate}}</label>
                             <label ng-show="day !== undefined ">{{day}}</label>
@@ -93,7 +93,7 @@
 
                 <div class="form-signUp" ng-show = "!isCoach">
                     <div style="display: list-item;">
-                        <label > {{'SignUp.Degrees' | translate}}</label>
+                        <label > {{'User.Details.Degrees' | translate}}</label>
                         </br>
                         <label class="label-checkbox" ng-repeat="item in items">
                             <input
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="form-signUp">
-                    <label ng-show="!isCoach">{{'SignUp.Trainer_Location' | translate}}</label>
+                    <label ng-show="!isCoach">{{'User.Details.Trained_Location' | translate}}</label>
                     <!-- <label ng-show="isCoach">{{'SignUp.Coach_Location' | translate}}</label>
                     <div class="dropdown">
                         <button class="btn  btn-default dropdown-toggle" id="menu4" type="button" data-toggle="dropdown"><label ng-show="location === undefined">locations[1]</label>
@@ -121,8 +121,8 @@
                 </div>
 
                 <div class="form-signUp" ng-show ="!isCoach">
-                    <label for="inputAbout"> {{'SignUp.About' | translate}}   </label>
-                    <textarea type="text" class="form-control" id="inputAbout" ng-model="user.about"/>
+                    <label for="inputAbout"> {{'User.Details.Description' | translate}}   </label>
+                    <textarea type="text" class="form-control" id="inputAbout" ng-model="user.description"/>
                 </div>
 
                 <div class="form-signUp">

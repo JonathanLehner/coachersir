@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','$rootScope','userService','facebookService','loadingSpinnerService','loginService','staticDataService',
-                           function($scope , $rootScope , userService , facebookService , loadingSpinnerService , loginService , staticDataService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','$translate','userService','facebookService','loadingSpinnerService','loginService','staticDataService',
+                           function($scope , $rootScope , $translate , userService , facebookService , loadingSpinnerService , loginService , staticDataService){
 
         $scope.editMode = false;
         $scope.displayMessage="";
@@ -13,8 +13,10 @@ angular.module('myApp.controllers')
         	
         	// we are editing
         	if($scope.editMode === true){
+        		$scope.user.birth_date = new Date($scope.user.birth_date);
         		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
                 $scope.updatedUser.gender = true;
+                $scope.updatedUser.birth_date = new Date($scope.user.birth_date);
         	}else{// we are viewing
         		
         	}
@@ -49,10 +51,25 @@ angular.module('myApp.controllers')
         	
         	return $scope.updatedUser.degrees.indexOf(degreeId) > -1;
         };
-
         
-        var verifyInput = function(){
+        var verifyUpdateInput = function(){
         	var inputError = null;
+        	
+        	if($scope.updatedUser.first_name === undefined || $scope.updatedUser.first_name === ""){
+        		inputError = $translate.instant("User.Details.First_Name");
+        	}else if($scope.updatedUser.last_name === undefined || $scope.updatedUser.last_name === ""){
+        		inputError = $translate.instant("User.Details.Last_Name");
+        	}else if($scope.updatedUser.location == undefined || $scope.updatedUser.location === ""){
+        		inputError = $translate.instant("User.Details.Trained_Location");
+        	}else if($scope.updatedUser.email === undefined || $scope.updatedUser.email === ""){
+        		inputError = $translate.instant("User.Details.Email");
+        	}else if($scope.updatedUser.birth_date == undefined || $scope.updatedUser.birth_date === ""){
+        		inputError = $translate.instant("User.Details.Birth_Day");
+        	}
+        	
+        	if(inputError){
+        		inputError = inputError + $translate.instant("Error.Not_Empty");
+        	}
         	
         	return inputError;
         };
@@ -62,7 +79,7 @@ angular.module('myApp.controllers')
         $scope.saveButtonClicked = function(){
         	// verify myPage is viewed
         	if($scope.myPageViewed === true){
-	        	var verifyInputError = verifyInput();
+	        	var verifyInputError = verifyUpdateInput();
 	        	if(verifyInputError){
 	        		$scope.displayMessage=verifyInputError;
 	        		$scope.displayMessageError=true;
@@ -83,14 +100,14 @@ angular.module('myApp.controllers')
 						$scope.user = response.data;
 						$scope.$parent.user = response.data;
 	
-						$scope.displayMessage="user updated successfully!";
+						$scope.displayMessage = $translate.instant("User.Details.Updated_Successfully");
 						$scope.displayMessageError=false;	
 	                    loadingSpinnerService.hideProgress("user-loading");
 	                    $scope.editMode = false;
 	                },function(error){
 	        			console.log('user updated error' + error);
 	                    loadingSpinnerService.hideProgress("user-loading");
-	                    $scope.displayMessage="user didnt update!";
+	                    $scope.displayMessage = $translate.instant("User.Details.Not_Updated") + error;
 	                    $scope.displayMessageError=true;
 	        		});
 	        	}

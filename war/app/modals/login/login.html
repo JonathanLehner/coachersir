@@ -20,11 +20,11 @@
 
         <form role="form">
             <div class="form-group">
-                <label for="inputUsernameEmail">{{'Login.Email' | translate}} </label>
+                <label for="inputUsernameEmail">{{'User.Details.Email' | translate}} </label>
                 <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email">
             </div>
             <div ng-if="!forgotPassword" class="form-group">
-                <label for="inputPassword"> {{'Login.Password' | translate}}   </label>
+                <label for="inputPassword"> {{'User.Details.Password' | translate}}   </label>
                 <input type="password" class="form-control" id="inputPassword" ng-model="user.password">
             </div>
             <a class="pull-right" ng-click="toggleForgotPassword()" href="#">{{'Login.Forgot_Password' | translate}} </a>
