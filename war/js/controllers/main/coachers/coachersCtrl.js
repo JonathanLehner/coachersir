@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService)
+    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService','$window',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService,$window)
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
@@ -91,7 +91,7 @@ angular.module('myApp.controllers.main')
         var current = 0;
         var previous = 1;
 
-        $(window).scroll(function() {
+        angular.element($window).bind("scroll",function() {
             $scope.heightMap = undefined;
 
             if ($scope.heightMap === undefined) {

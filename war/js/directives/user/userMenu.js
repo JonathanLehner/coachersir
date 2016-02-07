@@ -24,8 +24,6 @@ angular.module('myApp.directives').directive('userMenu', function() {
                 }else{
                     $scope[parameter+'Enabled'] = true;
                 }
-
-                console.log($scope.parameter + " " +$scope[parameter] + $scope[parameter+'Enabled']);
             };
 
             initParam("add");
