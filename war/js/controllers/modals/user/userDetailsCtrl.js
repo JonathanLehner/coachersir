@@ -21,6 +21,10 @@ angular.module('myApp.controllers')
         		
         	}
         };
+
+        $scope.notEditMode = function(){
+            $scope.editMode= !$scope.editMode;
+        }
         
         // for facebook comments
         $scope.getLocation = function(){
