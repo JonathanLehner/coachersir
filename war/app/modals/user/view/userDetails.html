@@ -50,8 +50,14 @@
                 <td >{{user.birth_date | ageFromBirthdayFilter}} </td>
             </tr>
             <tr>
-                <td >{{'User.Details.Coach_Degrees' | translate}} : </td>
-                <td >{{user.degrees | degreesFilter}}</td>
+                <td>{{'User.Details.Coach_Degrees' | translate}} : </td>
+                <td>
+                <ul>
+                	<li ng-repeat="degreeId in user.degrees">
+                		{{degreeId | staticDataIdToNameFilter}}
+                	</li>
+                </ul>
+                </td>
             </tr>
         </table>
     </div>

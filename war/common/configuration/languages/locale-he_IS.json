@@ -109,6 +109,9 @@
     	},
   		"Video":{
     		"Time_Duration":"אורך סרטון:"
+  		},
+  		"Article":{
+  			"Insert_Here":"הכנס תוכן כאן."
   		}
 	},
 	"Error":{

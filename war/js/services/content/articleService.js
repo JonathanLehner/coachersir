@@ -1,6 +1,6 @@
 angular.module('myApp.services')
-    .factory('articleService',['$modal','$http','$resource',  
-                       function($modal , $http , $resource) {
+    .factory('articleService',['$modal','$http','$resource','$translate', 
+                       function($modal , $http , $resource , $translate) {
         
 		"use strict";
 	
@@ -15,7 +15,7 @@ angular.module('myApp.services')
                 uiColor: '#9AB8F3'
             });
 
-            CKEDITOR.instances.articleEditor.setData('הכנס תוכן כאן.');
+            CKEDITOR.instances.articleEditor.setData($translate.instant("User.Article.Insert_Here"));
         };
 
         serv.getArticlesData = function(){

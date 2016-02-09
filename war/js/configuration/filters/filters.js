@@ -65,8 +65,13 @@ angular.module('myApp.filters')
     		 return null;
          };
      }])
-     .filter('degreesFilter', [function() {
+     .filter('staticDataIdToNameFilter', ['staticDataService',function(staticDataService) {
     	 return function(input){
+    		 var staticData = staticDataService.getGenericDataById(input);
+    		 
+    		 if(staticData)
+    			 return staticData.name;
+    		 
     		 return input;
          };
      }])

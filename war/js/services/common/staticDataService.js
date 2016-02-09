@@ -62,5 +62,30 @@ angular.module('myApp.services')
         	console.log('error loading tags: ' + error);
         });
         
+        //name by id
+        serv.getGenericDataById = function(id){
+        	var list = [];
+        	var returnVal = undefined;
+        	
+        	if(allDegrees){
+        		list.push.apply(list,allDegrees);
+        	}
+        	if(allObjectives){
+        		list.push.apply(list,allObjectives);
+        	}
+        	if(allTags){
+        		list.push.apply(list,allTags);
+        	}
+        	
+        	if(list){
+        		list.map(function(staticData){
+        			if(staticData.id === id)
+        				returnVal = staticData;
+        		});
+        	}
+        	
+        	return returnVal;
+        }
+        
         return serv;
     }]);
