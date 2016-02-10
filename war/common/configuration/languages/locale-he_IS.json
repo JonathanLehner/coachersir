@@ -5,6 +5,7 @@
 		"Choose": "בחר",
 		"Add": "הוסף",
 		"Edit": "ערוך",
+		"Send":"שלח",
 		"Headline": "כותרת",
 		"Description": "תיאור",
 		"Content": "תוכן",
@@ -82,7 +83,10 @@
     		}
     	},
     	"ContactUsContent":{
-    		"Headline":""
+    		"Full_Name":"שם מלא",
+    		"Message":"פנייתך",
+    		"MessageGood":"פנייתך נשלחה בהצלחה",
+    		"MessageBad":"בעיה בשליחת הפנייה"
     	}
   	},
     "Search":{
