@@ -1,20 +1,20 @@
 <div class="icon-div" id="user-menu">
     <span ng-if="status.editEnabled">
-        <span ng-show="!status.editClicked" class="user-icon glyphicon glyphicon-pencil" ng-click="clicked('edit')">
+        <span ng-show="!status.editClicked" class="user-icon glyphicon glyphicon-pencil" ng-click="clicked('edit')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Edit_Mode' | translate}}">
         </span>
-        <span ng-show="status.editClicked"  class="user-icon glyphicon glyphicon-arrow-right" ng-click="clicked('edit')">
+        <span ng-show="status.editClicked"  class="user-icon glyphicon glyphicon-arrow-right" ng-click="clicked('edit')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Back' | translate}}">
         </span>
     </span>
 
     <span ng-if="status.addEnabled">
-        <span ng-show="!status.addClicked" class="user-icon glyphicon glyphicon-plus" ng-click="clicked('add')"  data-toggle="tooltip" data-placement="bottom" title="add Content">
+        <span ng-show="!status.addClicked" class="user-icon glyphicon glyphicon-plus" ng-click="clicked('add')"  data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Add_Content' | translate}}">
         </span>
-        <span ng-show="status.addClicked" class="user-icon glyphicon glyphicon-minus" ng-click="clicked('add')" data-toggle="tooltip" data-placement="bottom" title="hide content">
+        <span ng-show="status.addClicked" class="user-icon glyphicon glyphicon-minus" ng-click="clicked('add')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Hide_Content' | translate}}">
         </span>
     </span>
 
     <span ng-if="(status.editClicked || status.addClicked) && status.saveEnabled">
-        <span ng-show="!status.saveClicked" class="user-icon glyphicon glyphicon-floppy-disk" ng-click="saveContentButton()">
+        <span ng-show="!status.saveClicked" class="user-icon glyphicon glyphicon-floppy-disk" ng-click="saveContentButton()" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Save' | translate}}">
         </span>
 
     </span>
