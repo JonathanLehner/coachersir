@@ -15,15 +15,17 @@ angular.module('myApp.directives').directive('userMenu', function() {
             tags:'='
         },
         link: function($scope) {
-            $scope.addClicked = false;
+            $scope.status = {}
+
+            $scope.status.addClicked = false;
 
             var initParam = function(parameter){
-                $scope[parameter+'Clicked'] = false;
+                $scope.status[parameter+'Clicked'] = false;
 
                 if($scope[parameter] === undefined  || $scope[parameter] === false){
-                    $scope[parameter+'Enabled'] = false;
+                    $scope.status[parameter+'Enabled'] = false;
                 }else{
-                    $scope[parameter+'Enabled'] = true;
+                    $scope.status[parameter+'Enabled'] = true;
                 }
             };
 
@@ -32,7 +34,7 @@ angular.module('myApp.directives').directive('userMenu', function() {
             initParam("save");
 
             $scope.clicked =function(parameter){
-                $scope[parameter+'Clicked'] = !$scope[parameter+'Clicked'];
+                $scope.status[parameter+'Clicked'] = !$scope.status[parameter+'Clicked'];
             };
 
             $scope.getData = function(){
@@ -40,6 +42,7 @@ angular.module('myApp.directives').directive('userMenu', function() {
             };
 
             $scope.saveContentButton = function(){
+                     $scope.status.addClicked = false;
                     $scope.$broadcast ('saveContent');
             }
 
