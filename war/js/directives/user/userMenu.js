@@ -11,7 +11,8 @@ angular.module('myApp.directives').directive('userMenu', function() {
             data:'&',
             add:'=',
             edit:'=',
-            save:'='
+            save:'=',
+            tags:'='
         },
         link: function($scope) {
             $scope.addClicked = false;

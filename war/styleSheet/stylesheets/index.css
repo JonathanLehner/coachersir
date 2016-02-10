@@ -5939,3 +5939,8 @@ div[dropzone] {
   position: inherit;
   overflow: auto;
 }
+
+/* line 4346, ../sass/index.scss */
+md-card-content img {
+  max-width: 100%;
+}

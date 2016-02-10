@@ -5,29 +5,68 @@
             <label>{{'General.Headline' | translate}}</label>
             <input placeholder="" ng-model="content.headline" />
         </md-input-container>
+    </br>
+        <md-input-container>
+            <label>{{'General.Description' | translate}}</label>
+            <input id="imageDescription" placeholder="" ng-model="content.description"/>
+        </md-input-container>
+    </br>
+    <div class="tags" ng-if="tagsEnabled">
+        <div style="float:right">
 
-       <!-- <md-chips ng-model="ctrl.selectedVegetables" md-autocomplete-snap
-                  md-transform-chip="ctrl.transformChip($chip)"
-                  md-require-match="ctrl.autocompleteDemoRequireMatch">
-            <md-autocomplete
-                    md-selected-item="ctrl.selectedItem"
-                    md-search-text="ctrl.searchText"
-                    md-items="item in ctrl.querySearch(ctrl.searchText)"
-                    md-item-text="item.name"
-                    placeholder="Search for a vegetable">
-                <span md-highlight-text="ctrl.searchText">{{item.name}} :: {{item.type}}</span>
-            </md-autocomplete>
-            <md-chip-template>
-        <span>
+            <md-content layout-padding class="autocomplete" layout="column">
+                <md-chips ng-model="userTags" md-autocomplete-snap md-require-match>
+                    <md-autocomplete
+
+                            md-min-length="0"
+                            md-no-cache="true"
+                            md-selected-item="selectedItem"
+                            md-search-text="searchText"
+                            md-items="item in querySearch(searchText)"
+                            md-item-text="item.name"
+                            md-require-match="true"
+                            placeholder="{{'Tags.Enter_Tag' | translate}}">
+                        <span md-highlight-text="searchText">{{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+          <span>
           <strong>{{$chip.name}}</strong>
-          <em>({{$chip.type}})</em>
         </span>
-            </md-chip-template>
-        </md-chips>
-        <md-checkbox ng-model="ctrl.autocompleteDemoRequireMatch">
-            Tell the autocomplete to require a match (when enabled you cannot create new chips)
-        </md-checkbox>
-        <br />-->
+                    </md-chip-template>
+                </md-chips>
+
+
+                <div class="md-2-line" ng-repeat="veg in vegetables">
+                    <h3>{{veg.name}}</h3>
+                    <p>{{veg.type}}</p>
+                    <hr />
+                </div>
+
+            </md-content>
+
+           <!-- <md-autocomplete
+                    ng-disabled="false"
+                    md-items="item in allGroups"
+                    md-item-text="item"
+                    md-min-length="0"
+                    placeholder="What is your favorite US state?">
+            </md-autocomplete>-->
+
+           <!-- <md-content class="md-padding autocomplete" layout="column">
+                <md-contact-chips
+                        ng-model="userTags"
+                        md-contacts="querySearch($query)"
+                        md-item-text="name"
+                        md-contact-name="name"
+                        md-require-match="true"
+                        md-min-length="2"
+                        filter-selected="filterSelected"
+                        placeholder="What is your favorite US state?"
+                        >
+                </md-contact-chips>
+            </md-content>-->
+            </div>
+    </div>
 
         <div ng-include=addContentUrl></div>
 
@@ -35,5 +74,4 @@
         <button class="btn btn-success" ng-click="saveButtonClicked()">{{'General.Add' | translate}}</button>
 
     <hr>
-    </div>
 </div>

@@ -1,6 +1,6 @@
 <div ng-controller="userVideosCtrl" >
 
-    <div ng-if="myPageViewed" user-menu type="Video" user="user" data="getData()" add="true" edit="true" save="true"></div>
+    <div ng-if="myPageViewed" user-menu type="Video" tags="true" user="user" data="getData()" add="true" edit="true" save="true"></div>
 
     <div id="user-videos" class="user-videos">
         <div ng-if="videos.length == 0 && !myPageViewed" class="no-data">
@@ -26,9 +26,11 @@
 
                     <div> <p >{{vid.description}}</p></div>
                        <div>
-                        <md-chips>
-                            <md-chip ng-repeat="tag in vid.tags">{{tag}}</md-chip>
-                        </md-chips>
+                           <md-chips ng-model="vid.tags" readonly="true">
+                               <md-chip-template>
+                                   {{$chip | tagId}}
+                               </md-chip-template>
+                           </md-chips>
                        </div>
                     </div>
                 </div>

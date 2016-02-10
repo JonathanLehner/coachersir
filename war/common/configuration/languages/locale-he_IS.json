@@ -38,6 +38,9 @@
 	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
 	    "Fill_The_Inputs":"מלא בבקשה את כל השדות"
   	},
+  "Tags": {
+    "Enter_Tag": "הכנס תגיות"
+  },
 	"SignUp":{
 		"Welcome":"ברוכים הבאים!",
 		"Password_Confirm":"סיסמה (אימות)",

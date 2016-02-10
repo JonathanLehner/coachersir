@@ -1,5 +1,5 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService','$window',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService,$window)
+    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService','$window','$rootScope',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService,$window,$rootScope)
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;

@@ -45,6 +45,7 @@ angular.module('myApp.services')
             var content = {
                 headline:scope.content.headline,
                 content:articleContent,
+                tags:scope.tags,
                 user_id:scope.user.id
             };
 	    	var data = content;

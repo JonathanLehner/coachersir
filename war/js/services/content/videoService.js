@@ -64,6 +64,7 @@ angular.module('myApp.services')
                     "user_id": scope.user.id,
                     "headline": scope.headline,
                     "description": scope.description,
+                    "tags":scope.tags,
                     "content": 'http://content.jwplatform.com/videos/' + data.media.key + '-zBiwxusV.mp4'
                 };
 

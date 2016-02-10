@@ -6,10 +6,10 @@ angular.module('myApp.services')
         var url_prefix = 'api/staticDataEndpoint';
 
         var serv = {};
-        var allObjectives;
-        var allDegrees;
-        var allDegreesIds;
-        var allTags;
+        var objectives;
+        var degrees;
+        var degreesIds;
+        var tags;
         
         serv.getAllObjectives = function () {
             return $resource(url_prefix + '/listObjectives').query().$promise;
@@ -24,40 +24,40 @@ angular.module('myApp.services')
         };
 
         serv.allObjectives = function () {
-            return allObjectives;
+            return objectives;
         };
 
         serv.allDegrees = function () {
-            return allDegrees;
+            return degrees;
         };
         
         serv.allDegreesIds = function () {
-            return allDegreesIds;
+            return degreesIds;
         };
 
         serv.allTags = function () {
-            return allTags;
+            return tags;
         };
 
         // initialize static data
         serv.getAllObjectives().then(function(response){
-        	allObjectives = response;
+        	objectives = response;
         },function(error){
         	console.log('error loading objectives: ' + error);
         });
         
         serv.getAllDegrees().then(function(response){
-        	allDegrees = response;
-        	allDegreesIds =[];
-        	angular.forEach(allDegrees,function(degree,index){
-        		allDegreesIds.push(degree.id);
+        	degrees = response;
+        	degreesIds =[];
+        	angular.forEach(serv.allDegrees,function(degree,index){
+                serv.allDegreesIds.push(degree.id);
             });
         },function(error){
         	console.log('error loading degrees: ' + error);
         });
         
         serv.getAllTags().then(function(response){
-        	allTags = response;
+        	tags = response;
         },function(error){
         	console.log('error loading tags: ' + error);
         });

@@ -75,6 +75,21 @@ angular.module('myApp.filters')
     		 return input;
          };
      }])
+    .filter('tagId', ['staticDataService',function(staticDataService) {
+        return function(id){
+            var tags = staticDataService.allTags();
+            var name;
+            if(tags)
+            {
+                angular.forEach(tags,function(value){
+                    if(value.id === id){
+                        name = value.name;
+                    }
+                })
+            }
+            return name;
+        };
+    }])
      .filter('pagination', function(){
         return function(input, start) {
             start = parseInt(start, 10);

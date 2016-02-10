@@ -1,4 +1,4 @@
-angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout','loadingSpinnerService', function(articleService,imageService,videoService,uploadTokenService,$timeout,loadingSpinnerService) {
+angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout','loadingSpinnerService','staticDataService','$filter', function(articleService,imageService,videoService,uploadTokenService,$timeout,loadingSpinnerService,staticDataService,$filter) {
     return {
         restrict: 'E',
         templateUrl:"/app/modals/user/content/addContent.html",
@@ -11,6 +11,9 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             $scope.isClicked = false;
             $scope.content = {};
             $scope.isUploading = false;
+            $scope.filterSelected = true;
+            $scope.userTags = [];
+            $scope.tagsEnabled = $scope.$parent.tags;
             var service;
 
             $scope.$on('saveContent', function(e) {
@@ -18,6 +21,49 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             });
 
             $scope.addContentUrl = "app/modals/user/content/add"+$scope.url+".html";
+
+           var getTags = function(){
+                var tags = staticDataService.allTags();
+                if(tags === undefined){
+                    staticDataService.getAllTags().then(function(response){
+                        tags = response;
+
+                        tags.map(function(t){
+                            var tag = {
+                                name : t.name
+                            }
+                            return tag;
+                        })
+
+                    },function(error){
+                        console.log('error loading tags: ' + error);
+                    });
+
+                }
+                return tags;
+            };
+
+            $scope.allTags = getTags();
+
+            $scope.querySearch = function(query) {
+                var results = query?
+                    $scope.allTags.filter(createFilterFor(query)) :
+                    $scope.allTags.filter(getNotSelected());
+                return results;
+            };
+
+            var createFilterFor = function(query) {
+                return function filterFn(tag) {
+                    return (tag.name.indexOf(query) != -1);;
+                };
+            };
+
+            var getNotSelected = function(){
+                return function filterFn(tag) {
+                    return ($scope.userTags.indexOf(tag) === -1);;
+            };
+
+            }
 
 
             var show = function(){
@@ -48,6 +94,10 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
 
             $scope.saveButtonClicked = function(){
                 $scope.isUploading = true;
+                $scope.tags = [];
+                $scope.userTags.forEach(function(tag){
+                    $scope.tags.push(tag.id);
+                });
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                         $timeout(function(){
