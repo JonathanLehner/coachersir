@@ -5828,7 +5828,7 @@ div[dropzone] {
   /* height: 57px; */
   margin-right: 20px;
   margin-top: 27px;
-  width: 26%;
+  width: 100%;
   /* height: 50px; */
   float: left;
 }
@@ -5942,5 +5942,5 @@ div[dropzone] {
 
 /* line 4346, ../sass/index.scss */
 md-card-content img {
-  max-width: 100%;
+  max-width: 100% !important;
 }
