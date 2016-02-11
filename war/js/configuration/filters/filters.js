@@ -85,7 +85,7 @@ angular.module('myApp.filters')
                     if(value.id === id){
                         name = value.name;
                     }
-                })
+                });
             }
             return name;
         };
