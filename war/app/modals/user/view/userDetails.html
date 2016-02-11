@@ -1,4 +1,4 @@
-<div ng-controller="userDetailsCtrl">
+<div ng-controller="userDetailsCtrl" class="content-url">
 
     <div ng-if="myPageViewed" class="icon-div">
      <span  ng-show="!editMode" class="user-icon glyphicon glyphicon-pencil" ng-click="toggleEditMode()" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Edit_Mode' | translate}}">
@@ -14,7 +14,7 @@
 
 <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
 </display-message>
-<div ng-if="!editMode">
+<div ng-if="!editMode" class="icon-div">
     <div class="user-Details">
 
     <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
@@ -76,7 +76,7 @@
 	</div>
 </div>
 
-<div ng-if="editMode" id="user-Details" class="user-Details">
+<div ng-if="editMode" id="user-Details" class="user-Details icon-div">
     <!-- image upload directive -->
     <form action="/file-upload"
           name="file"
