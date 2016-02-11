@@ -67,14 +67,14 @@ angular.module('myApp.services')
         	var list = [];
         	var returnVal = undefined;
         	
-        	if(allDegrees){
-        		list.push.apply(list,allDegrees);
+        	if(degrees){
+        		list.push.apply(list,degrees);
         	}
-        	if(allObjectives){
-        		list.push.apply(list,allObjectives);
+        	if(objectives){
+        		list.push.apply(list,objectives);
         	}
-        	if(allTags){
-        		list.push.apply(list,allTags);
+        	if(tags){
+        		list.push.apply(list,tags);
         	}
         	
         	if(list){

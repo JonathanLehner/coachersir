@@ -1,8 +1,8 @@
 angular.module('myApp.controllers.main')
-    .controller('contactUsCtrl',['$scope', '$http', function($scope, $http){
-
-    	$scope.success = false;
-    	$scope.error = false;
+    .controller('contactUsCtrl',['$scope','$http','$translate',
+                         function($scope , $http , $translate){
+    	$scope.displayMessage="";
+		$scope.displayMessageError=false;
     	
 		$('#contactForm').submit(function(e) {
 
@@ -16,31 +16,25 @@ angular.module('myApp.controllers.main')
 	                dataType: 'json',
 	                data: $('#contactForm').serialize(),
 	                success: function(data) {
-	                	$scope.success = true;
+	                	$scope.displayMessage=$translate.instant('Menu.ContactUsContent.MessageGood');
+	            		$scope.displayMessageError=false;
 	                },
 	                error: function(data){
-	                	$scope.error = true;
+	                	$scope.displayMessage=$translate.instant('Menu.ContactUsContent.MessageBad');
+	            		$scope.displayMessageError=true;
 	                }	
 	        });
 	        
-	      //prevent Default functionality
+	        //prevent Default functionality
 	        e.preventDefault();
 		});
     	
     	$scope.send = function(){
-    		var htmlBody = '<div>Name: ' + $scope.user.name + '</div>' +
-			               '<div>Email: ' + $scope.user.email + '</div>' +
-			               '<div>Message: ' + $scope.user.body + '</div>' +
+    		var htmlBody = '<div>Name: ' + $scope.full_name + '</div>' +
+			               '<div>Email: ' + $scope.email + '</div>' +
+			               '<div>Message: ' + $scope.message + '</div>' +
 			               '<div>Date: ' + (new Date()).toString() + '</div>';
 	
     		$('#contactForm').submit();
     	};
-    	
-//    	var input = document.getElementById('searchTextField');
-//    	var options = {
-//    	  types: ['(cities)'],
-//    	  componentRestrictions: {country: 'il'}
-//    	};
-//
-//    	autocomplete = new google.maps.places.Autocomplete(input, options);
 }]);

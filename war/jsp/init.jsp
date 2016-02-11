@@ -35,6 +35,7 @@
 		  	user.setEmail("ronny.roktel@gmail.com");
 		  	user.setPassword("123");
 		  	user.setPhone("050-46");
+		  	user.setGender(false);
 		  	user.setPrice_per_hour(100L);
 		  	user = userDao.insert(user);
 
@@ -46,7 +47,7 @@
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
 
-		    	content=new Content();
+		    content=new Content();
 		  	content.setUser_id(user.getId());
 		  	content.setType(Content.TYPE_VIDEO);
 		  	content.setContent("//c2.staticflickr.com/6/5690/22411226528_7fb2d5e292_h.jpg");
@@ -111,23 +112,25 @@
 		  	content.setHeadline("כותרת הוידיאו");
 		  	contentDAO.insert(content);
 
-		  	content=new Content();
-		  	content.setUser_id(user.getId());
-		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/Ie4crXiP-zBiwxusV.mp4");
-		  	content.setDescription("וידיאו של אימון");
-		  	content.setHeadline("כותרת הוידיאו");
-		  	contentDAO.insert(content);
-
-		  	content=new Content();
-		  	content.setUser_id(user.getId());
-		  	content.setType(Content.TYPE_VIDEO);
-		  	content.setContent("http://content.jwplatform.com/videos/46mj2U8q-zBiwxusV.mp4");
-		  	content.setDescription("וידיאו של אימון");
-		  	content.setHeadline("כותרת הוידיאו");
-		  	contentDAO.insert(content);
-
-
+		  	for(int i=0;i<20;i++){
+		  		User u = new User();
+		  		String ending = " #" + i;
+		  		u.setBirth_date(user.getBirth_date());
+		  		u.setDescription(u.getDescription() + ending);
+		  		u.setEmail(user.getEmail() + ending);
+		  		u.setFirst_name(user.getFirst_name() + ending);
+		  		u.setLast_name(user.getLast_name() + ending);
+		  		u.setGender(i%2==0?true:false);
+		  		u = userDao.insert(u);
+		  		
+		  		
+		  		Content c = new Content();
+		  		c.setUser_id(u.getId());
+		  		c.setContent(content.getContent() + ending);
+		  		c.setDescription(content.getDescription() + ending);
+		  		c.setHeadline(content.getHeadline() + ending);
+		  		contentDAO.insert(c);
+		  	}
 
 		  	%>users and content added successfully<%
 		}
@@ -150,7 +153,7 @@
 			degrees.add(StaticData.createDegree("מאמן כדור עף"));
 			degrees.add(StaticData.createDegree("מאמן כדור יד"));
 			degrees.add(StaticData.createDegree("רכיבה על סוסים"));
-			degrees.add(StaticData.createDegree("קורספייט"));
+			degrees.add(StaticData.createDegree("קרוספיט"));
 			degrees.add(StaticData.createDegree("שחייה"));
 			degrees.add(StaticData.createDegree("אומנויות לחימה"));
 					
