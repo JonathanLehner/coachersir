@@ -57,6 +57,20 @@ angular.module('myApp.services')
                 data: data
             });
 	    };
+
+       serv.readArticle =  function(contentObj){
+           var articleModal = $modal.open({
+               templateUrl:'/app/modals/articles/articleReader.html',
+               keyboard: true,
+               controller:'articleReaderCtrl',
+               backdrop:'static',
+               resolve:{
+                   articleObj: function(){
+                       return contentObj;
+                   }
+               }
+           });
+       };
 	    
 	    serv.update = function(article){
 	    	var data = article;

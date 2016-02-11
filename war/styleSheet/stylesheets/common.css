@@ -105,8 +105,9 @@ hr {
 .modal {
   margin: 25px auto 0;
   display: block;
+  position: fixed;
 }
-/* line 103, ../sass/common.scss */
+/* line 104, ../sass/common.scss */
 .modal .container {
   background-color: #ffffff;
   -webkit-border-radius: 5px;
@@ -114,7 +115,7 @@ hr {
   -ms-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 108, ../sass/common.scss */
+/* line 109, ../sass/common.scss */
 .modal .videoModal {
   height: 60%;
   width: 61%;
@@ -123,7 +124,7 @@ hr {
   margin-top: 5%;
   border-radius: 7px;
 }
-/* line 115, ../sass/common.scss */
+/* line 116, ../sass/common.scss */
 .modal .videoModal label {
   color: #00BFF0;
   text-align: center;
@@ -133,13 +134,13 @@ hr {
   width: 100%;
   padding-left: 0px;
 }
-/* line 123, ../sass/common.scss */
+/* line 124, ../sass/common.scss */
 .modal .videoModal label > a {
   margin-right: 3%;
   font-size: 70%;
   color: #ffffff;
 }
-/* line 129, ../sass/common.scss */
+/* line 130, ../sass/common.scss */
 .modal .videoModal p {
   color: #72D0F4;
   text-align: center;
@@ -151,14 +152,14 @@ hr {
   width: 100%;
   padding-left: 0px;
 }
-/* line 140, ../sass/common.scss */
+/* line 141, ../sass/common.scss */
 .modal .videoModal iframe {
   background: black;
   width: 100%;
   height: 83%;
   padding-bottom: 5%;
 }
-/* line 146, ../sass/common.scss */
+/* line 147, ../sass/common.scss */
 .modal .videoModal video {
   background: black;
   width: 100%;
@@ -166,51 +167,51 @@ hr {
   padding-bottom: 5%;
 }
 
-/* line 155, ../sass/common.scss */
+/* line 156, ../sass/common.scss */
 .checkboxdemoSyncing .checkboxDemo1 div {
   clear: both;
 }
 
-/* line 158, ../sass/common.scss */
+/* line 159, ../sass/common.scss */
 .checkboxdemoSyncing .checkboxDemo1 .md-checkbox {
   float: left;
 }
 
-/* line 161, ../sass/common.scss */
+/* line 162, ../sass/common.scss */
 .checkboxdemoSyncing legend {
   color: #3F51B5;
 }
 
-/* line 164, ../sass/common.scss */
+/* line 165, ../sass/common.scss */
 .checkboxdemoSyncing legend code {
   color: #3F51B5;
   font-weight: normal;
 }
 
-/* line 168, ../sass/common.scss */
+/* line 169, ../sass/common.scss */
 .checkboxdemoSyncing p {
   padding-left: 8px;
 }
 
-/* line 171, ../sass/common.scss */
+/* line 172, ../sass/common.scss */
 .checkboxdemoSyncing .info {
   padding-left: 13px;
 }
 
-/* line 174, ../sass/common.scss */
+/* line 175, ../sass/common.scss */
 .checkboxdemoSyncing div.standard {
   padding: 8px;
   padding-left: 15px;
 }
 
-/* line 178, ../sass/common.scss */
+/* line 179, ../sass/common.scss */
 .checkboxdemoSyncing fieldset.standard {
   border-style: solid;
   border-width: 1px;
   height: 100%;
 }
 
-/* line 183, ../sass/common.scss */
+/* line 184, ../sass/common.scss */
 #gmaps {
   width: 300px;
   height: 800px;
@@ -218,68 +219,68 @@ hr {
   margin-left: 5%;
 }
 
-/* line 190, ../sass/common.scss */
+/* line 191, ../sass/common.scss */
 .progressCirculardemoBasicUsage body {
   padding: 20px;
 }
 
-/* line 193, ../sass/common.scss */
+/* line 194, ../sass/common.scss */
 .progressCirculardemoBasicUsage h4 {
   margin: 10px 0;
 }
 
-/* line 196, ../sass/common.scss */
+/* line 197, ../sass/common.scss */
 .progressCirculardemoBasicUsage md-progress-circular {
   margin-bottom: 20px;
 }
 
-/* line 199, ../sass/common.scss */
+/* line 200, ../sass/common.scss */
 .progressCirculardemoBasicUsage #loaders > md-switch {
   margin: 0;
   margin-left: 10px;
   margin-top: -10px;
 }
 
-/* line 204, ../sass/common.scss */
+/* line 205, ../sass/common.scss */
 .progressCirculardemoBasicUsage #loaders > h5 {
   margin-top: 0;
 }
 
-/* line 207, ../sass/common.scss */
+/* line 208, ../sass/common.scss */
 .progressCirculardemoBasicUsage #loaders > p {
   margin-right: 20px;
   margin-bottom: 24px;
 }
 
-/* line 211, ../sass/common.scss */
+/* line 212, ../sass/common.scss */
 .progressCirculardemoBasicUsage p.small {
   font-size: 0.8em;
   margin-top: -18px;
 }
 
-/* line 215, ../sass/common.scss */
+/* line 216, ../sass/common.scss */
 .progressCirculardemoBasicUsage hr {
   width: 100%;
   margin-top: 20px;
   border-color: rgba(221, 221, 177, 0.1);
 }
 
-/* line 220, ../sass/common.scss */
+/* line 221, ../sass/common.scss */
 .progressCirculardemoBasicUsage p.small > code {
   font-size: 0.8em;
 }
 
-/* line 223, ../sass/common.scss */
+/* line 224, ../sass/common.scss */
 .progressCirculardemoBasicUsage .visible {
   border-color: rgba(221, 221, 177, 0);
 }
 
-/* line 226, ../sass/common.scss */
+/* line 227, ../sass/common.scss */
 iframe {
   left: 0 !important;
 }
 
-/* line 230, ../sass/common.scss */
+/* line 231, ../sass/common.scss */
 .close-user {
   font-size: xx-large;
   margin-top: 3%;
@@ -289,71 +290,71 @@ iframe {
   position: absolute;
 }
 
-/* line 239, ../sass/common.scss */
+/* line 240, ../sass/common.scss */
 .icon-div {
   position: relative;
   margin-top: 1%;
   margin-right: 10%;
 }
 
-/* line 245, ../sass/common.scss */
+/* line 246, ../sass/common.scss */
 .user-icon {
   font-size: 20px;
   margin-left: 2%;
 }
 
-/* line 250, ../sass/common.scss */
+/* line 251, ../sass/common.scss */
 .user-icon-invisible {
   color: #808065;
   font-size: 20px;
   margin-left: 2%;
 }
 
-/* line 256, ../sass/common.scss */
+/* line 257, ../sass/common.scss */
 .chipsdemoContactChips md-content.autocomplete {
   min-height: 250px;
 }
 
-/* line 258, ../sass/common.scss */
+/* line 259, ../sass/common.scss */
 .chipsdemoContactChips md-content.autocomplete input {
   min-width: 400px;
 }
 
-/* line 261, ../sass/common.scss */
+/* line 262, ../sass/common.scss */
 .chipsdemoContactChips .md-item-text.compact {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-/* line 265, ../sass/common.scss */
+/* line 266, ../sass/common.scss */
 .chipsdemoContactChips .contact-item {
   box-sizing: border-box;
 }
 
-/* line 267, ../sass/common.scss */
+/* line 268, ../sass/common.scss */
 .chipsdemoContactChips .contact-item.selected {
   opacity: 0.5;
 }
 
-/* line 269, ../sass/common.scss */
+/* line 270, ../sass/common.scss */
 .chipsdemoContactChips .contact-item.selected h3 {
   opacity: 0.5;
 }
 
-/* line 271, ../sass/common.scss */
+/* line 272, ../sass/common.scss */
 .chipsdemoContactChips .contact-item .md-list-item-text {
   padding: 14px 0;
   max-width: 190px;
 }
 
-/* line 274, ../sass/common.scss */
+/* line 275, ../sass/common.scss */
 .chipsdemoContactChips .contact-item .md-list-item-text h3 {
   margin: 0 !important;
   padding: 0;
   line-height: 1.2em !important;
 }
 
-/* line 278, ../sass/common.scss */
+/* line 279, ../sass/common.scss */
 .chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -361,53 +362,53 @@ iframe {
 }
 
 @media screen and (min-width: 960px) {
-  /* line 283, ../sass/common.scss */
+  /* line 284, ../sass/common.scss */
   .chipsdemoContactChips .contact-item {
     float: left;
     width: 33%;
   }
 }
-/* line 287, ../sass/common.scss */
+/* line 288, ../sass/common.scss */
 .chipsdemoContactChips md-contact-chips {
   margin-bottom: 10px;
 }
 
-/* line 290, ../sass/common.scss */
+/* line 291, ../sass/common.scss */
 .chipsdemoContactChips .md-chips {
   padding: 5px 0 8px;
 }
 
-/* line 293, ../sass/common.scss */
+/* line 294, ../sass/common.scss */
 .chipsdemoContactChips .fixedRows {
   height: 250px;
   overflow: hidden;
 }
 
-/* line 297, ../sass/common.scss */
+/* line 298, ../sass/common.scss */
 .md-scroll-mask {
   z-index: 1000 !important;
 }
 
-/* line 301, ../sass/common.scss */
+/* line 302, ../sass/common.scss */
 .md-virtual-repeat-container.md-autocomplete-suggestions-container {
   z-index: 1500 !important;
 }
 
-/* line 305, ../sass/common.scss */
+/* line 306, ../sass/common.scss */
 .tags {
   display: inline-block;
 }
-/* line 307, ../sass/common.scss */
+/* line 308, ../sass/common.scss */
 .tags div {
   float: right;
 }
-/* line 309, ../sass/common.scss */
+/* line 310, ../sass/common.scss */
 .tags div md-content, .tags div md-chips {
   padding: 0px;
   margin-bottom: 8px;
 }
 
-/* line 316, ../sass/common.scss */
+/* line 317, ../sass/common.scss */
 .media-user {
   position: absolute;
   float: left;
@@ -416,12 +417,12 @@ iframe {
   font: icon;
 }
 
-/* line 325, ../sass/common.scss */
+/* line 326, ../sass/common.scss */
 .dropZone-image form {
   width: 100%;
 }
 
-/* line 330, ../sass/common.scss */
+/* line 331, ../sass/common.scss */
 .content-url {
   padding-left: 5%;
   padding-bottom: 3%;

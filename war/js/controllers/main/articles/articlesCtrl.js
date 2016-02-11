@@ -57,5 +57,16 @@ angular.module('myApp.controllers.main')
             }
         };
 
+        $scope.readArticle = function(article){
+            var readerObject = {};
+
+            readerObject.content = article.content;
+            readerObject.description = article.description;
+            readerObject.title = article.headline;
+            readerObject.user_id = article.user_id;
+
+            articleService.readArticle(readerObject);
+        }
+
         init();
 }]);

@@ -1,0 +1,14 @@
+<div class="container articleModal">
+    <div class="title center">{{::title}}</div>
+    <p class="desc">
+        {{::description}}
+    </p>
+
+    <div class="from">
+        <span>{{'Article.From' | translate}}</span>
+        <a href ng-click="toCoach()">{{'Article.ToCoach' | translate}}</a>
+    </div>
+
+    <div class="content" ng-bind-html="content">  </div>
+
+</div>
