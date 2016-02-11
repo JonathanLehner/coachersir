@@ -15,7 +15,7 @@
 /* line 12, ../../../sass/main/articles/articles.scss */
 .articleModal .close-article {
   font-size: xx-large;
-  top: 10%;
+  margin-top: 7%;
   border-radius: 100%;
   right: 16%;
   background-color: white;

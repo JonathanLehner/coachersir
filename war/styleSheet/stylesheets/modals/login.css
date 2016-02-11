@@ -13,21 +13,22 @@
 /* line 12, ../../sass/modals/login.scss */
 .close-login {
   font-size: xx-large;
-  /* margin-top: 3%; */
   border-radius: 100%;
-  top: 12%;
+  right: 19%;
   background-color: white;
   position: absolute;
 }
 
-/* line 22, ../../sass/modals/login.scss */
+/* line 20, ../../sass/modals/login.scss */
 .close-signUpModal {
   right: 29%;
+  margin-top: 3%;
 }
 
-/* line 26, ../../sass/modals/login.scss */
+/* line 25, ../../sass/modals/login.scss */
 .close-loginModal {
   right: 36%;
+  margin-top: 8%;
 }
 
 /* line 30, ../../sass/modals/login.scss */
@@ -68,18 +69,25 @@ h3 {
 
 /* line 59, ../../sass/modals/login.scss */
 .signUp-modal {
-  width: 550px;
-  height: inherit;
+  transition: 3s;
+  margin-top: 5%;
+  font-size: 12px;
+  background: white;
+  min-height: 60%;
   max-height: 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 40%;
+  padding-bottom: 5%;
 }
 
-/* line 65, ../../sass/modals/login.scss */
+/* line 72, ../../sass/modals/login.scss */
 .submit {
   margin-right: 11%;
   margin-top: 20px;
 }
 
-/* line 70, ../../sass/modals/login.scss */
+/* line 77, ../../sass/modals/login.scss */
 .form-signUp {
   width: 65%;
   margin-right: 10%;
@@ -88,7 +96,7 @@ h3 {
   display: inline-flex;
 }
 
-/* line 78, ../../sass/modals/login.scss */
+/* line 85, ../../sass/modals/login.scss */
 .form-signUp .label-checkbox {
   width: 30%;
 }
