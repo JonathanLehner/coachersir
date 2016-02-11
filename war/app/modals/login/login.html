@@ -1,9 +1,10 @@
 <div class="container loginModal">
-    <div class="row">
-        <a href="#" ng-click="close()">
+    <div class="row mar-login">
+        <!--<a href="#" ng-click="close()">
          	<span class="glyphicon glyphicon-remove" style="font-size:1.5em">
          	</span>
-       	</a>
+       	</a>-->
+        <div ng-click="close()" class="glyphicon glyphicon-remove-circle remove-class close-login close-loginModal"> </div>
 		<div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <a class="btn btn-block btn-social btn-facebook" ng-click="facebookLogin()">
@@ -45,10 +46,10 @@
                     <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signUp(1)">{{'Login.Coach' | translate}}</a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
-                    <a 	class="btn btn-md btn-primary btn-block" 
-                    	tooltip="{{'Login.Trained_Not_Supported' | translate}}"
-          				tooltip-placement="left" 
-          				ng-click="">{{'Login.Trained' | translate}}</a>
+
+                    <button type="button" disabled 	class="btn btn-md btn-primary btn-block"
+                            data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Trained_Not_Supported' | translate}}"
+          				ng-click="" >{{'Login.Trained' | translate}}</button>
                 </div>
             </div>
         </form>

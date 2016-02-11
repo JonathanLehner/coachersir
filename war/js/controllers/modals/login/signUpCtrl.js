@@ -6,21 +6,11 @@ angular.module('myApp.controllers.main')
         
     	$scope.signIn = true;
         $scope.isCoach = (type === 1);
-        $scope.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-        $scope.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November","December" ];
-        $scope.years = [];
-
-        $scope.date = {day:undefined,
-                        month:undefined,
-                        year:undefined};
 
         $scope.passwordConfirm = undefined;
 
         // selected fruits
         $scope.itemSelection = [];
-        $scope.day = undefined;
-        $scope.month = undefined;
-        $scope.year = undefined;
 
         var init = function(){
             $scope.user = {
@@ -28,7 +18,7 @@ angular.module('myApp.controllers.main')
                 password: undefined,
                 first_name:undefined,
                 last_name:undefined,
-                gender:undefined,
+                gender:true,
                 birth_date:undefined,
                 type:undefined,
                 objectives:undefined
@@ -38,16 +28,6 @@ angular.module('myApp.controllers.main')
             $scope.errorSignIn = false;
         };
 
-        var setYears = function(){
-            var d = new Date();
-            var n = d.getFullYear();
-
-            for(var i=1940;i<n;i++) {
-                $scope.years.push(i);
-            }
-        };
-
-        setYears();
 
         $scope.backPressed =  function(){
             $scope.signIn = true;
@@ -78,18 +58,6 @@ angular.module('myApp.controllers.main')
             }
         };
 
-        $scope.setMonth = function(data){
-            $scope.month = data;
-        };
-
-        $scope.setYear = function(data){
-          $scope.year = data;
-        };
-
-        $scope.setDay = function(data){
-           $scope.day = data;
-        };
-
         var callAtTimeout =  function() {
             if ($scope.objectives !== null || $scope.objectives !== undefined) {
                 staticDataService.getAllObjectives().then(
@@ -117,12 +85,8 @@ angular.module('myApp.controllers.main')
         $timeout( function(){ callAtTimeout(); }, 100);
 
         $scope.createNewUser = function(){
-            if($scope.month !== undefined && $scope.year !== undefined && $scope.day !== undefined)
-            {
-                $scope.user.birth_date = new Date($scope.month + " " + $scope.day + ", " + $scope.year + " 01:00:00");
-                $scope.user.degrees = $scope.itemSelection;
-
-                if($scope.isCoach){
+           {
+               if($scope.isCoach){
                     userService.insertCoach($scope.user);
                 }else{
                     userService.insertTrained($scope.user);
@@ -130,5 +94,8 @@ angular.module('myApp.controllers.main')
             }
         };
 
+        $scope.close = function(){
+            $modalInstance.close();
+        };
         init();
     }]);

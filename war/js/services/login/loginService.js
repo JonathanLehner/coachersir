@@ -170,6 +170,9 @@ angular.module('myApp.services')
         };
 
         serv.signIn = function(parameter){
+            if(modalLogin !== undefined){
+                modalLogin.close();
+            }
             modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/login.html',
                 keyboard: true,
@@ -179,6 +182,9 @@ angular.module('myApp.services')
         };
 
         serv.signUp = function(parameter){
+            if(modalLogin !== undefined){
+                modalLogin.close();
+            }
             modalLogin = $modal.open({
                 templateUrl:'/app/modals/login/signUp.html',
                 keyboard: true,

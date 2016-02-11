@@ -24,7 +24,6 @@
 	"Login":{
 	    "Coach":"מאמן",
 	    "Trained":"מתאמן",
-	    "Trained_Not_Supported":"הרשמת מאמן אינה נתמכת רגע",
 	    "Remember_Me":"זכור אותי",
 	    "Login":"התחבר",
 	    "Logout":"התנתק",
@@ -48,22 +47,8 @@
 		"Drop_Img":"גרור תמונה ראשית או הקלק",
 		"Required_Message":"שכחת למלא שדה זה..",
 		"Password_Match":"הסיסמה לא תואמת",
-		"Year":"שנה",
-		"Day":"יום",
-		"Month":{"Month":"חודש",
-			"January":"ינואר",
-			"February":"פברואר",
-			"March":"מרץ",
-			"April":"אפריל",
-			"May":"מאי",
-			"June":"יוני",
-			"July":"יולי",
-			"August":"אוגוסט",
-			"September":"ספטמבר",
-			"October":"אוקטובר",
-			"November":"נובמבר",
-			"December":"דצמבר"
-		}
+         "Submit":"הרשם",
+      "Short_Password":"מינימום 6 תווים"
 	},
   	"Menu":{
     	"Home":"בית",
@@ -140,7 +125,9 @@
     "Hide_Content":"הסתר הוספת תוכן",
     "Add_Content":"הוספת תוכן",
     "Back":"חזרה למצב צפיה",
-    "Edit_Mode":"עריכה"
+    "Edit_Mode":"עריכה",
+    "Trained_Not_Supported":"הרשמת מתאמן אינה נתמכת כרגע"
+
   },
 	"Error":{
 		"Email_Invalid":"האימייל לא תקין",

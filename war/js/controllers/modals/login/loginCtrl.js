@@ -43,6 +43,10 @@ angular.module('myApp.controllers.main')
     		}
         };
 
+        $scope.close = function(){
+            $modalInstance.close();
+        };
+
         $scope.userLogin = function(){
             if($scope.user.password !== "" && 
         	   $scope.user.password !== undefined && 
