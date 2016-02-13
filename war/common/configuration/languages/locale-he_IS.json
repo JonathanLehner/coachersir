@@ -88,6 +88,11 @@
     	"ToCoach":"לדף המאמן",
     	"ReadMore":"קרא עוד"
 	},
+  "Coaches":{
+    "Degrees":"מתמחה ב:",
+    "More":"ועוד..",
+    "Location":"מאמן באיזור"
+  },
   	"Article":{
     	"ToCoach":"לדף המאמן",
     	"From":"מאת: "

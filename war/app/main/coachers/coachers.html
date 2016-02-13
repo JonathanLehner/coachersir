@@ -21,18 +21,35 @@
 
 	<div class="coachProperties" >
 	    <ul>
-	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
+	        <li class="coach" ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
 	                	 <img ng-if="coach.main_img !== undefined && coach.main_img !== null" src={{::coach.main_img}} class="coachImg center">
                          <img ng-if="coach.main_img === undefined || coach.main_img === null" src="../../img/ball-img.jpg" class="coachImg center"></span>
 	            	</a>
-                    <div class="center">
-                        <div>
-                            <span ng-value="getGender(coach.gender)">{{::coach.first_name}}</span>
+                    <div class="center coach-detail">
+                        <div class="name">
+                            <span ng-value="getGender(coach.gender)" style="float:right">{{::coach.first_name}}</span>
+                            <span ng-if="coach.birth_date !== null && coach.birth_date !== undefined" >,{{::coach.birth_date | ageFromBirthdayFilter}} </span>
+                        </div>
+                        <div  ng-if="coach.location !== null && coach.location !== undefined" style="display: inline-flex;" >
+                            <reverse-geocode class="sub-title" lat="{{coach.location.latitude}}" lng="{{coach.location.longitude}}" />
+                        </div>
+                        <div ng-if="coach.degrees.length > 0">
+                            <ul>
+                                 <span class="sub-title">
+                                {{'Coaches.Degrees'| translate}}
+                                 </span>
+                                <li class="coach-degree" ng-repeat="degree in coach.degrees | limitTo:3">
+                                    {{degree | staticDataIdToNameFilter}}<span ng-if="$index < (coach.degrees.length -1) &&  $index < 2">,</span>
+                                </li>
+
+                                <span ng-if="coach.degrees.length > 3">
+                                    {{'Coaches.More'| translate}}
+                                </span>
+                            </ul>
                         </div>
                         <div>
-                            <span >{{::coach.gender | genderFilter}} {{::coach.birthday | ageFromBirthdayFilter}} </span>
                         </div>
                     </div>
 	            </div>
