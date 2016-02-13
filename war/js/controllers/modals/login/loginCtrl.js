@@ -27,8 +27,9 @@ angular.module('myApp.controllers.main')
         };
         
         $scope.resetPassword = function(){
-        	if($scope.user.email !== "" && 
-    		   $scope.user.email !== undefined){
+        	if($scope.user.email !== "" &&
+                $scope.user.email !== null &&
+                $scope.user.email !== undefined){
         		userService.resetPassword($scope.user.email).then(function(response){
         			$scope.displayMessage = $translate.instant("Login.New_Password_Sent");
             		$scope.displayMessageError=false;

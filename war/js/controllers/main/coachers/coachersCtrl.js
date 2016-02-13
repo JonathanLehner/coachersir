@@ -46,13 +46,13 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.nextPage = function() {
-            if ($scope.currentPage < $scope.pageCount()) {
+            if ($scope.currentPage === $scope.pageCount()) {
                 $scope.currentPage++;
             }
         };
 
         $scope.DisableNextPage = function() {
-            return $scope.currentPage + 1 === $scope.pageCount() ? "disabled" : "";
+            return $scope.currentPage  === $scope.pageCount() ? "disabled" : "";
         };
 
         $scope.setPage = function(n) {
