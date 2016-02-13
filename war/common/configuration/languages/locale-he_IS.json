@@ -19,7 +19,9 @@
 		"Main_Img": "תמונה ראשית",
 		"Video": "סרטון",
         "ReadMore":"קרא עוד",
-      	"ToCoach":"לדף המאמן"
+      	"ToCoach":"לדף המאמן",
+        "Next":"הבא",
+        "Prev":"הקודם"
 	},
 	"Login":{
 	    "Coach":"מאמן",

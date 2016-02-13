@@ -25,11 +25,12 @@
   width: 30%;
   border: 1px solid transparent;
   margin: 0 auto 0 20px;
+  max-width: 400px;
 }
 
-/* line 31, ../../../sass/main/coachers/coachers.scss */
+/* line 32, ../../../sass/main/coachers/coachers.scss */
 .coachImg {
-  height: 163px;
-  width: 235px;
+  height: 200px;
+  width: 80%;
   border: 1px solid black;
 }

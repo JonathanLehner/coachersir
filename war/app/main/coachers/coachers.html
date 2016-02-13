@@ -24,23 +24,26 @@
 	        <li ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
-	                	 <img src={{::coach.main_img}} class="coachImg">
+	                	 <img ng-if="coach.main_img !== undefined && coach.main_img !== null" src={{::coach.main_img}} class="coachImg center">
+                         <img ng-if="coach.main_img === undefined || coach.main_img === null" src="../../img/ball-img.jpg" class="coachImg center"></span>
 	            	</a>
-	                <div>
-	                    <span ng-value="getGender(coach.gender)">{{::coach.first_name}}</span>
-	                </div>
-	                <div >
-	                    <span >{{::gender}} {{::coach.birthday | ageFromBirthdayFilter}} </span>
-	                </div >
+                    <div class="center">
+                        <div>
+                            <span ng-value="getGender(coach.gender)">{{::coach.first_name}}</span>
+                        </div>
+                        <div>
+                            <span >{{::coach.gender | genderFilter}} {{::coach.birthday | ageFromBirthdayFilter}} </span>
+                        </div>
+                    </div>
 	            </div>
 	        </li>
 	    </ul>
     </div>
 
-    <div class="pagination-div">
+    <div class="pagination-div center">
         <ul class="pagination">
             <li ng-class="DisablePrevPage()">
-                <a href ng-click="prevPage()"> Prev</a>
+                <a href ng-click="prevPage()"> {{'General.Prev' | translate}}</a>
             </li>
             <li ng-repeat="n in range()"
                 ng-class="{active: n == currentPage}"
@@ -48,7 +51,7 @@
                 <a href="#">{{n+1}}</a>
             </li>
             <li ng-class="DisableNextPage()">
-                <a href ng-click="nextPage()">Next </a>
+                <a href ng-click="nextPage()">{{'General.Next' | translate}} </a>
             </li>
         </ul>
     </div>

@@ -156,8 +156,7 @@
     </tr>
     <tr>
         <td>{{'User.Details.Gender' | translate}} : </td>
-        <td><span ng-if="updatedUser.gender">{{'User.Gender.Male' | translate}}</span>
-             <span ng-if="!updatedUser.gender"> {{'User.Gender.Female' | translate}}</span>
+        <td><span >{{updatedUser.gender | genderFilter}}</span>
         </td>
         <td>
             <md-switch  ng-model="updatedUser.gender">

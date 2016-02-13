@@ -44,9 +44,8 @@ input:valid {
 
 /* line 50, ../sass/common.scss */
 .center {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
+    margin: 0px auto;
+    display: block;
 }
 
 /* line 56, ../sass/common.scss */

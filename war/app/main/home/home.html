@@ -40,10 +40,10 @@
 
 
 
-    <div class="pagination-div">
+    <div class="pagination-div center">
         <ul class="pagination">
             <li ng-class="DisablePrevPage()">
-                <a href ng-click="prevPage()"> Prev</a>
+                <a href ng-click="prevPage()"> {{'General.Prev' | translate}}</a>
             </li>
             <li ng-repeat="n in range()"
                 ng-class="{active: n == currentPage}"
@@ -51,7 +51,7 @@
                 <a href="#">{{n+1}}</a>
             </li>
             <li ng-class="DisableNextPage()">
-                <a href ng-click="nextPage()">Next </a>
+                <a href ng-click="nextPage()">{{'General.Next' | translate}} </a>
             </li>
         </ul>
     </div>

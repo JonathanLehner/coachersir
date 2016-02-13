@@ -49,7 +49,7 @@ angular.module('myApp.filters')
     	 return function(input){
              var gender;
     		 
-    		 if(input === 'false'){
+    		 if(input === 'true' || input===true){
     			 gender="Male";
     		 }else{
     			 gender="Female";
