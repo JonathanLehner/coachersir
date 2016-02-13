@@ -1,5 +1,6 @@
 angular.module('myApp.controllers.main')
-    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','coachersService','$window','$rootScope',function($scope,$state,loadingSpinnerService,$translate,userService,coachersService,$window,$rootScope)
+    .controller('coachersCtrl',['$scope','$state','loadingSpinnerService','$translate','userService','$window','$rootScope',
+                        function($scope , $state , loadingSpinnerService , $translate , userService , $window , $rootScope)
     {
         $scope.itemsPerPage = 12;
         $scope.currentPage = 0;
@@ -62,10 +63,10 @@ angular.module('myApp.controllers.main')
         $scope.gender = "undefined";
 
         $scope.getGender = function( gender ){
-            if(gender === 'F'){
+            if(gender === true){
                 $scope.gender = $translate.instant("User.Gender.Female");
             }else{
-                $scope.gender =   $translate.instant("User.Gender.Male");
+                $scope.gender = $translate.instant("User.Gender.Male");
             }
          };
 
@@ -74,14 +75,13 @@ angular.module('myApp.controllers.main')
         };
 
         var getCoaches = function() {
-            $scope.coachers = coachersService.getCoachersData();
+            $scope.coachers = userService.getCoachersData();
             if($scope.coachers.length === undefined || $scope.coachers.length === 0){
                 loadingSpinnerService.showProgress();
-                coachersService.getAll().then(function (data) {
+                userService.getCoachers().then(function (data) {
                     setTimeout(function(){
                         $scope.coachers = data;
-                        coachersService.setCoachersData(data);
-
+                        userService.setCoachersData(data);
                         loadingSpinnerService.hideProgress();
                     },2000);
                 })

@@ -120,6 +120,7 @@
 		  		u.setFirst_name(user.getFirst_name() + ending);
 		  		u.setLast_name(user.getLast_name() + ending);
 		  		u.setGender(i%2==0?true:false);
+		  		u.setType(User.TYPE_COACH);
 		  		u = userDao.insert(u);
 		  		
 		  		

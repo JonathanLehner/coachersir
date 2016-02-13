@@ -38,17 +38,17 @@
 	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
 	    "Fill_The_Inputs":"מלא בבקשה את כל השדות"
   	},
-  "Tags": {
-    "Enter_Tag": "הכנס תגיות"
-  },
+  	"Tags": {
+    	"Enter_Tag": "הכנס תגיות"
+  	},
 	"SignUp":{
 		"Welcome":"ברוכים הבאים!",
 		"Password_Confirm":"סיסמה (אימות)",
 		"Drop_Img":"גרור תמונה ראשית או הקלק",
 		"Required_Message":"שכחת למלא שדה זה..",
 		"Password_Match":"הסיסמה לא תואמת",
-         "Submit":"הרשם",
-      "Short_Password":"מינימום 6 תווים"
+        "Submit":"הרשם",
+      	"Short_Password":"מינימום 6 תווים"
 	},
   	"Menu":{
     	"Home":"בית",
@@ -74,8 +74,7 @@
     		"MessageBad":"בעיה בשליחת הפנייה"
     	}
   	},
-
-    "Search":{
+	"Search":{
       "Down": "סנן תוצאות",
       "Up": "הסתר"
     },
@@ -87,10 +86,10 @@
     	"ToCoach":"לדף המאמן",
     	"ReadMore":"קרא עוד"
 	},
-  "Article":{
-    "ToCoach":"לדף המאמן",
-    "From":"מאת: "
-  },
+  	"Article":{
+    	"ToCoach":"לדף המאמן",
+    	"From":"מאת: "
+  	},
   	"User":{
         "No_Data":"לצערנו למשתמש אין כרגע מידע למסך זה.",
         "No_Data_My":"היי, חבר.. אין לך שום תוכן למסך.",
@@ -125,15 +124,14 @@
   			"Insert_Here":"הכנס תוכן כאן."
   		}
 	},
-  "Tooltip":{
-    "Save":"שמירה",
-    "Hide_Content":"הסתר הוספת תוכן",
-    "Add_Content":"הוספת תוכן",
-    "Back":"חזרה למצב צפיה",
-    "Edit_Mode":"עריכה",
-    "Trained_Not_Supported":"הרשמת מתאמן אינה נתמכת כרגע"
-
-  },
+  	"Tooltip":{
+	    "Save":"שמירה",
+	    "Hide_Content":"הסתר הוספת תוכן",
+	    "Add_Content":"הוספת תוכן",
+	    "Back":"חזרה למצב צפיה",
+	    "Edit_Mode":"עריכה",
+	    "Trained_Not_Supported":"הרשמת מתאמן אינה נתמכת כרגע"
+  	},
 	"Error":{
 		"Email_Invalid":"האימייל לא תקין",
 		"No_Name":"לא הוזן שם או שם משפחה",

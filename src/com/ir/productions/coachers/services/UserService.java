@@ -33,6 +33,7 @@ public class UserService
 
 			if (providerUser == null)
 			{
+				user.setType(User.TYPE_COACH);// todo: change when trained
 				providerUser = userDAO.insert(user);
 			}
 		}

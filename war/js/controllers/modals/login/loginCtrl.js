@@ -23,7 +23,11 @@ angular.module('myApp.controllers.main')
         	if($scope.forgotPassword === true){
         		$scope.displayMessage = $translate.instant("Login.Insert_Email_And_Press") + $translate.instant("Login.Reset_Password");
         		$scope.displayMessageError=false;
+        	}else{
+        		$scope.displayMessage="";
+        		$scope.displayMessageError=false;
         	}
+        		
         };
         
         $scope.resetPassword = function(){
@@ -39,7 +43,7 @@ angular.module('myApp.controllers.main')
             	});
     		}
     		else{
-    			//$scope.displayMessage="fill email";
+    			$scope.displayMessage = $translate.instant("Login.Insert_Email_And_Press") + $translate.instant("Login.Reset_Password");
     			$scope.displayMessageError=true;
     		}
         };

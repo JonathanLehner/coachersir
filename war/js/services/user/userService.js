@@ -7,6 +7,28 @@ angular.module('myApp.services')
         
         var serv={};
 
+        var coachersData = {};
+
+        serv.getCoachersData = function(){
+            return coachersData;
+        };
+
+        serv.setCoachersData = function(coachersDataSet){
+            coachersData = coachersDataSet;
+        };
+        
+        serv.getAll = function(){
+            return $resource(url_prefix + '/list').query().$promise;
+        };
+
+        serv.getCoachers = function(){
+            return $resource(url_prefix + '/listCoaches').query().$promise;
+        };
+
+        serv.getTrained = function(){
+            return $resource(url_prefix + '/listTrained').query().$promise;
+        };
+        
         serv.getById = function(id){
 	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
 	    };
