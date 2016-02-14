@@ -17,9 +17,10 @@
 <div ng-if="!editMode" class="icon-div">
     <div class="user-Details">
 
-    <img ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
+    <img  ng-if="user.main_img !== undefined || user.main_img !== null"  ng-src="{{user.main_img}}" alt="{{'General.Main_Img' | translate}}"/>
+    <img ng-if="user.main_img === undefined || user.main_img === null" ng-src="../../img/ball-img.jpg" class="coachImg center"></span>
 
-    <div class="table-responsive read-only" >
+        <div class="table-responsive read-only" >
         <table class="table">
             <tr >
                 <td >{{'User.Details.Phone' | translate}} :</td>

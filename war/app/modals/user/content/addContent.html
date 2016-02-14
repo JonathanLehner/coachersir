@@ -2,12 +2,12 @@
 
     <div id="contentId"></div>
         <md-input-container>
-            <label>{{'General.Headline' | translate}}</label>
+            <label class="add-label">{{'General.Headline' | translate}}</label>
             <input placeholder="" ng-model="content.headline" />
         </md-input-container>
     </br>
         <md-input-container>
-            <label>{{'General.Description' | translate}}</label>
+            <label class="add-label">{{'General.Description' | translate}}</label>
             <input id="imageDescription" placeholder="" ng-model="content.description"/>
         </md-input-container>
     </br>
@@ -16,7 +16,7 @@
 
             <md-content layout-padding class="autocomplete" layout="column">
                 <md-chips ng-model="userTags" md-autocomplete-snap md-require-match>
-                    <md-autocomplete
+                    <md-autocomplete  class="add-label"
 
                             md-min-length="0"
                             md-no-cache="true"

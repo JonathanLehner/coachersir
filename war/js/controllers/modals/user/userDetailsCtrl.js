@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','$rootScope','$translate','userService','facebookService','loadingSpinnerService','loginService','staticDataService',
-                           function($scope , $rootScope , $translate , userService , facebookService , loadingSpinnerService , loginService , staticDataService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','$translate','userService','facebookService','loadingSpinnerService','loginService','staticDataService','imageService',
+                           function($scope , $rootScope , $translate , userService , facebookService , loadingSpinnerService , loginService , staticDataService,imageService){
 
         $scope.editMode = false;
         $scope.displayMessage="";
@@ -90,30 +90,47 @@ angular.module('myApp.controllers')
 	        	}
 	        	else{
 		            loadingSpinnerService.showProgress("user-loading");
+
+                    var update = function(){
+                            userService.update($scope.updatedUser).then(function(response){
+                            console.log('user updated!' + response);
+                            loginService.setCurrentUser(
+                                response.data.id,
+                                response.data.first_name,
+                                response.data.last_name,
+                                response.data.provider,
+                                response.data.provider_id,
+                                response.data.main_img);
+
+                            $scope.user = response.data;
+                            $scope.$parent.user = response.data;
+
+                            $scope.displayMessage = $translate.instant("User.Details.Updated_Successfully");
+                            $scope.displayMessageError=false;
+                            loadingSpinnerService.hideProgress("user-loading");
+                            $scope.editMode = false;
+                        },function(error){
+                            console.log('user updated error' + error);
+                            loadingSpinnerService.hideProgress("user-loading");
+                            $scope.displayMessage = $translate.instant("User.Details.Not_Updated") + error;
+                            $scope.displayMessageError=true;
+                        });
+                    }
+
+
+                    if(dropzone.files[0]) {
+                        imageService.addMainImg().then(function (data) {
+                            $scope.updatedUser.main_img = data;
+                            return true;
+                        }).then(function(){
+                            update();
+                        });
+                    }else{
+                        update();
+                    }
 	        	
-	        		userService.update($scope.updatedUser).then(function(response){
-	        			console.log('user updated!' + response);
-						loginService.setCurrentUser(
-							response.data.id,
-	    					response.data.first_name,
-	    					response.data.last_name,
-	    					response.data.provider,
-	    					response.data.provider_id,
-	    					response.data.main_img);
-	
-						$scope.user = response.data;
-						$scope.$parent.user = response.data;
-	
-						$scope.displayMessage = $translate.instant("User.Details.Updated_Successfully");
-						$scope.displayMessageError=false;	
-	                    loadingSpinnerService.hideProgress("user-loading");
-	                    $scope.editMode = false;
-	                },function(error){
-	        			console.log('user updated error' + error);
-	                    loadingSpinnerService.hideProgress("user-loading");
-	                    $scope.displayMessage = $translate.instant("User.Details.Not_Updated") + error;
-	                    $scope.displayMessageError=true;
-	        		});
+
+
 	        	}
         	}
         };

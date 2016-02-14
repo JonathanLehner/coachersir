@@ -24,8 +24,8 @@
 	        <li class="coach" ng-repeat="coach in coachers |pagination: currentPage * itemsPerPage | limitTo: itemsPerPage" ng-click="coacherClicked(coach)">
 	            <div class="coacherShadow">
 	            	<a href style="background-color: inherit; width: auto; padding: 0px">
-	                	 <img ng-if="coach.main_img !== undefined && coach.main_img !== null" src={{::coach.main_img}} class="coachImg center">
-                         <img ng-if="coach.main_img === undefined || coach.main_img === null" src="../../img/ball-img.jpg" class="coachImg center"></span>
+	                	 <img ng-if="coach.main_img !== undefined && coach.main_img !== null" src={{coach.main_img}} class="coachImg center">
+                         <img ng-if="coach.main_img === undefined || coach.main_img === null" ng-src="../../img/ball-img.jpg" class="coachImg center"></span>
 	            	</a>
                     <div class="center coach-detail">
                         <div class="name">

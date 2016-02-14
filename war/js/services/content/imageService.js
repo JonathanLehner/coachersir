@@ -24,6 +24,7 @@ angular.module('myApp.services')
             var deferred = $q.defer();
             var ospry = new Ospry('pk-test-mcagfau5650hcymnbt0riz3b');
 
+
             if(dropzone.files[0]) {
                 ospry.up({
                     files: dropzone.files,
@@ -42,6 +43,25 @@ angular.module('myApp.services')
                 });
                 return deferred.promise;
             }
+        };
+
+        serv.addMainImg = function(){
+                var deferred = $q.defer();
+                var ospry = new Ospry('pk-test-mcagfau5650hcymnbt0riz3b');
+
+
+                if(dropzone.files[0]) {
+                    ospry.up({
+                        files: dropzone.files,
+                        imageReady: function (err, metadata, i) {
+                            if (err === null) {
+                                console.log('Image uploaded to: ' + metadata.url);
+                                deferred.resolve(metadata.url);
+                            }
+                        }
+                    });
+                    return deferred.promise;
+                }
         };
 	    
 	    serv.getById = function(id){
