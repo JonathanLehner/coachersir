@@ -3,6 +3,8 @@ package com.ir.productions.coachers.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.WebApplicationException;
+
 import com.google.appengine.api.datastore.GeoPt;
 import com.ir.productions.coachers.MailUtils;
 import com.ir.productions.coachers.RandomUtils;
@@ -71,5 +73,36 @@ public class UserService
 		{
 			throw new NotFoundException("User not found by email");
 		}
+	}
+
+	public User verifyEmail(String email, String verifyToken)
+	{
+		List<User> users = userDAO.findByField("email", email);
+		User user = users.get(0);
+
+		if (user.getVerify_Token().equals(verifyToken))
+		{
+			user.setVerify_Token(null);
+
+			return userDAO.update(user);
+		}
+
+		throw new NotFoundException("User not found by email");
+	}
+
+	public User signUp(User user)
+	{
+		// verify email doesn't exist in DB already
+		List<User> users = userDAO.findByField("email", user.getEmail());
+
+		if (users.isEmpty())
+		{
+			user.setVerify_Token(RandomUtils.getUniqueString());
+			MailUtils.sendVerficationMail(user);
+			return userDAO.insert(user);
+		}
+
+		throw new WebApplicationException(430);
+
 	}
 }

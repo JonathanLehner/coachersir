@@ -7,17 +7,6 @@
         <legend>{{'SignUp.Welcome' | translate}}</legend>
         <form class="form-horizontal" role="form" name="signUpForm" action='' method="POST">
             <fieldset>
-                <!-- image upload directive 
-			    <form action="/file-upload"
-			          name="file"
-			          value="user.main_img"
-			          class="dropzone"
-			          id="dropzone">
-			        <div class="dz-default dz-message">{{'SignUp.Drop_Img' | translate}}
-			
-			        </div>
-			    </form>
-				-->
                 <div class="form-signUp">
                     <label for="inputUsername">*{{'User.Details.First_Name' | translate}} </label>
                     <input type="text" class="form-control" id="inputUsername" ng-model="user.first_name" required="required">
@@ -64,6 +53,8 @@
 
 
             </fieldset>
+            <display-message ng-style="getStyle()" message="{{displayMessage}}" error="{{displayMessageError}}">
+			</display-message>
             <button type="button" class="btn btn-primary btn-md btn-block center" ng-click="createNewUser()" ng-disabled="signUpForm.$invalid || passwordConfirm !== user.password || user.password.length < 6">
                 {{'SignUp.Submit' | translate}}
             </button>

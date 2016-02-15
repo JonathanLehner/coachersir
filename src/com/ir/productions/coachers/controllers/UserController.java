@@ -40,10 +40,12 @@ public class UserController
 	}
 
 	@GET
-	@Path("listLocations")
-	public List<GeoPt> listLocations()
+	@Path("verifyEmail")
+	public User verifyEmail(@Context HttpServletRequest req,
+			@QueryParam("email") String email,
+			@QueryParam("v") String verifyToken)
 	{
-		return userService.getAllLocations();
+		return userService.verifyEmail(email, verifyToken);
 	}
 
 	@POST
@@ -124,7 +126,7 @@ public class UserController
 
 	@GET
 	@Path("listCoaches")
-	public List<User> listCoachers()
+	public List<User> listCoaches()
 	{
 		return userDAO.findByType(User.TYPE_COACH);
 	}
@@ -137,19 +139,27 @@ public class UserController
 	}
 
 	@POST
-	@Path("insertCoach")
-	public User insertCoach(User user)
+	@Path("signUpCoach")
+	public User signUpCoach(@Context HttpServletRequest req, User user)
 	{
 		user.setType(User.TYPE_COACH);
-		return userDAO.insert(user);
+		User signedUser = userService.signUp(user);
+
+		SessionUtils.addUserToSession(req, signedUser.getId());
+
+		return signedUser;
 	}
 
 	@POST
-	@Path("insertTrained")
-	public User insertTrained(User user)
+	@Path("signUpTrained")
+	public User signUpTrained(@Context HttpServletRequest req, User user)
 	{
 		user.setType(User.TYPE_TRAINED);
-		return userDAO.insert(user);
+		User signedUser = userService.signUp(user);
+
+		SessionUtils.addUserToSession(req, signedUser.getId());
+
+		return signedUser;
 	}
 
 	@GET
@@ -192,5 +202,12 @@ public class UserController
 		{
 			throw new EntityNotFoundException("User sent to remove not found.");
 		}
+	}
+
+	@GET
+	@Path("listLocations")
+	public List<GeoPt> listLocations()
+	{
+		return userService.getAllLocations();
 	}
 }

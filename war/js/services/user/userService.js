@@ -33,26 +33,42 @@ angular.module('myApp.services')
 	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
 	    };
 
-        serv.insertCoach = function(user){
+        serv.signUpCoach = function(user){
+	    	var deferred = $q.defer();
+	    	
 	    	var data = user;
 
-            return $http({
+            $http({
                 method: 'POST',
-                url: url_prefix + '/insertCoach',
+                url: url_prefix + '/signUpCoach',
                 headers: {'Content-Type': 'application/json'},
                 data: data
-            }).$promise;
+            }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+            
+            return deferred.promise;
 	    };
 
-	    serv.insertTrained = function(user){
+	    serv.signUpTrained = function(user){
+	    	var deferred = $q.defer();
+	    	
 	    	var data = user;
 
-            return $http({
+            $http({
                 method: 'POST',
-                url: url_prefix + '/insertTrained',
+                url: url_prefix + '/signUpTrained',
                 headers: {'Content-Type': 'application/json'},
                 data: data
-            }).$promise;
+            }).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+            
+            return deferred.promise;
 	    };
 
 	    serv.update = function(user){
