@@ -50,6 +50,9 @@ public class User implements Serializable
 
 	private Boolean isFavorite;
 
+	@Index
+	private String verify_token;
+
 	private Date birth_date;
 
 	private String main_img;
@@ -162,6 +165,16 @@ public class User implements Serializable
 	public void setIsFavorite(Boolean isFavorite)
 	{
 		this.isFavorite = isFavorite;
+	}
+
+	public String getVerify_Token()
+	{
+		return verify_token;
+	}
+
+	public void setVerify_Token(String verify_token)
+	{
+		this.verify_token = verify_token;
 	}
 
 	public Date getBirth_date()

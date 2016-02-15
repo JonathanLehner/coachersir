@@ -86,9 +86,4 @@ public class UserDAO extends GenericDAOImpl<User, Long>
 
 		return user;
 	}
-
-	public User saveProviderUser(String provider, String providerId, User user)
-	{
-		return null;
-	}
 }
