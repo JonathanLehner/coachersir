@@ -1,6 +1,6 @@
 angular.module('myApp.controllers.main')
-    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','userService',
-                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , userService){
+    .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','errorService','userService',
+                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , errorService, userService){
 
         var init = function(){
             $scope.forgotPassword = false;
@@ -62,7 +62,13 @@ angular.module('myApp.controllers.main')
             			  console.log('login successful ' + response);
             		  },function(error){
             			  console.log('login wrong ' + error);
-            			  $scope.displayMessage = $translate.instant("Login.SignIn_Incorrect");
+            			  
+            			  $scope.displayMessage = errorService.getErrorMsg(error.status);
+            			  
+            			  if(!$scope.displayMessage){
+            				  $scope.displayMessage = $translate.instant("Login.SignIn_Incorrect");  
+            			  }
+            			  
             			  $scope.displayMessageError=true;
             		  });
             }else{

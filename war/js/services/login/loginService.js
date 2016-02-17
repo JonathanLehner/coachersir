@@ -52,18 +52,16 @@ angular.module('myApp.services')
 			
 			userService.localLogin(user).then(
 				function(response) {
-					if(response.data !== ""){
-						console.log('local login success: ' + response);
-						serv.setCurrentUser(response.data.id,
-								   response.data.first_name,
-								   response.data.last_name,
-								   response.data.provider,
-								   response.data.provider_id,
-								   response.data.main_img);
-						resolve(null, response, deferred);
-					}else{
-						resolve('wrong credentials', null, deferred);
-					}
+					console.log('local login success: ' + response);
+					
+					serv.setCurrentUser(response.data.id,
+							   response.data.first_name,
+							   response.data.last_name,
+							   response.data.provider,
+							   response.data.provider_id,
+							   response.data.main_img);
+					
+					resolve(null, response, deferred);
 		        },function(error){
 		        	console.log('local login error: ' + error);
 		        	serv.clearCurrentUser();
@@ -85,7 +83,6 @@ angular.module('myApp.services')
         		var localUser={};
         		localUser.email = user.email;
         		localUser.password = user.password;
-        		localUser.provider='local';
         		return localLogin(localUser);
         	}else if(provider === 'facebook'){
         		facebookService.login().then(function(response){

@@ -82,7 +82,7 @@ public class MailUtils
 	{
 		String htmlBody = "<body>" + "<h1>Hello!</h1>"
 				+ "Please press <a href='www.mycoach.org.il/#/verifyEmail?"
-				+ "email=" + user.getEmail() + "&v=" + user.getVerify_Token()
+				+ "email=" + user.getEmail() + "&v=" + user.getVerify_token()
 				+ "'>HERE</a>" + "to continue your sign up in myCoach."
 				+ "</body>";
 

@@ -71,27 +71,26 @@ public class UserController
 
 	@POST
 	@Path("login")
-	public User login(@Context HttpServletRequest req, String email,
-			String password)
+	public User login(@Context HttpServletRequest req, User user)
 	{
 		User authUser = null;
 
-		if (email != null && password != null)
-		{
-			authUser = userDAO.login(email, password);
+		String email = user.getEmail();
+		String password = user.getPassword();
 
-			// in your authentication method
-			if (authUser != null)
-			{
-				SessionUtils.addUserToSession(req, authUser.getId());
-			} else
-			{
-				throw new NotFoundException(
-						"User not found by email and password");
-			}
+		if (email != null && !email.isEmpty() && password != null
+				&& !password.isEmpty())
+		{
+			authUser = userService.login(email, password);
 		}
 
-		return authUser;
+		if (authUser != null)
+		{
+			SessionUtils.addUserToSession(req, authUser.getId());
+			return authUser;
+		}
+
+		throw new NotFoundException("User not found by email and password");
 	}
 
 	@POST
