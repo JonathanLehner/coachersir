@@ -13,10 +13,13 @@ angular.module('myApp.controllers')
         	
         	// we are editing
         	if($scope.editMode === true){
-        		$scope.user.birth_date = new Date($scope.user.birth_date);
         		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
                 $scope.updatedUser.gender = true;
-                $scope.updatedUser.birth_date = new Date($scope.user.birth_date);
+                if($scope.user.birth_date){
+                	$scope.updatedUser.birth_date = new Date($scope.user.birth_date);
+                }else{
+                	$scope.updatedUser.birth_date = new Date();
+                }
         	}else{// we are viewing
         		
         	}

@@ -2,10 +2,14 @@ angular.module('myApp.directives')
     .directive('reverseGeocode', function () {
         return {
             restrict: 'E',
+            scope: {
+            	location:'@'
+            },
             template: '<div></div>',
             link: function (scope, element, attrs) {
-                var geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(attrs.lat, attrs.lng);
+        		var geocoder = new google.maps.Geocoder();
+        		var locationObj = angular.fromJson(scope.location);
+                var latlng = new google.maps.LatLng(locationObj.latitude, locationObj.longitude);
                 geocoder.geocode({ 'latLng': latlng }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         if (results[1]) {

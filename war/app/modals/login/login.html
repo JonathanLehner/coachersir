@@ -38,8 +38,10 @@
                     {{'Login.Reset_Password' | translate}}
                 </button>
             </div>
-            <display-message message="{{displayMessage}}" error="{{displayMessageError}}">
+            
+            <display-message ng-style="getStyle()" message="{{displayMessage}}" error="{{displayMessageError}}">
 			</display-message>
+            
             <hr>
             <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
             <div class="row">

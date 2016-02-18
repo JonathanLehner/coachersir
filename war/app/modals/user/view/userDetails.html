@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td >{{'User.Details.Coach_Location' | translate}} :</td>
-                <td ><reverse-geocode lat="{{user.location.latitude}}" lng="{{user.location.longitude}}" /></td>
+                <td ><reverse-geocode ng-if="user.location" location={{user.location}}/></td>
             </tr>
             <tr >
                 <td >{{'User.Details.Email' | translate}} :</td>
@@ -113,7 +113,8 @@
         <td>
 	        <md-input-container>
 	            <label>{{"User.Details.Coach_Location" | translate}}</label>
-	            <input placeholder="" ng-model="location" googleplace location="updatedUser.location" />
+	            <input placeholder="" googleplace location={{updatedUser.location}}  > 
+	            </input>	            
 	        </md-input-container>
         <td>
     </tr>
@@ -138,7 +139,9 @@
         <td>
             <md-input-container>
                 <label>{{'User.Details.Birth_Day' | translate}}</label>
-                <input type="date" ng-model="updatedUser.birth_date" />
+                <input 	type="date" 
+                		ng-model="updatedUser.birth_date" 
+                		placeholder="MM-dd-yyyy"/>
             </md-input-container>
         </td>
     </tr>
