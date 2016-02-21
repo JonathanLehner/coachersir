@@ -91,7 +91,9 @@ angular.module('myApp.services')
         			facebookUser.provider_id = response.id;
         			facebookUser.first_name=response.first_name;
         			facebookUser.last_name=response.last_name;
-        			facebookUser.main_img=response.picture.data.url;
+        			if(response.picture){
+        				facebookUser.main_img=response.picture.data.url;
+        			}
         			facebookUser.birth_date=response.birthday;
         			providerLogin(facebookUser);
         		}, function(error){
