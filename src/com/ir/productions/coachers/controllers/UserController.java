@@ -19,6 +19,7 @@ import com.google.appengine.api.datastore.GeoPt;
 import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
+import com.ir.productions.coachers.pojos.UserPojo;
 import com.ir.productions.coachers.services.UserService;
 import com.sun.jersey.api.NotFoundException;
 
@@ -125,16 +126,16 @@ public class UserController
 
 	@GET
 	@Path("listCoaches")
-	public List<User> listCoaches()
+	public List<UserPojo> listCoaches()
 	{
-		return userDAO.findByType(User.TYPE_COACH);
+		return UserPojo.getFromUsers(userDAO.findByType(User.TYPE_COACH));
 	}
 
 	@GET
 	@Path("listTrained")
-	public List<User> listTrained()
+	public List<UserPojo> listTrained()
 	{
-		return userDAO.findByType(User.TYPE_TRAINED);
+		return UserPojo.getFromUsers(userDAO.findByType(User.TYPE_TRAINED));
 	}
 
 	@POST
@@ -163,9 +164,9 @@ public class UserController
 
 	@GET
 	@Path("list")
-	public List<User> list()
+	public List<UserPojo> list()
 	{
-		return userDAO.findAll();
+		return UserPojo.getFromUsers(userDAO.findAll());
 	}
 
 	@GET

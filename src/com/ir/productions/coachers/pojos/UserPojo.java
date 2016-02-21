@@ -1,9 +1,11 @@
 package com.ir.productions.coachers.pojos;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.google.appengine.api.datastore.GeoPt;
+import com.ir.productions.coachers.entities.User;
 
 public class UserPojo
 {
@@ -29,6 +31,25 @@ public class UserPojo
 	private List<Long> degrees;
 
 	private List<Long> objectives;
+
+	public UserPojo(Long id, String first_name, String last_name,
+			Boolean gender, Date birth_date, String main_img, GeoPt location,
+			Long price_per_hour, String description, List<Long> degrees,
+			List<Long> objectives)
+	{
+		super();
+		this.id = id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.gender = gender;
+		this.birth_date = birth_date;
+		this.main_img = main_img;
+		this.location = location;
+		this.price_per_hour = price_per_hour;
+		this.description = description;
+		this.degrees = degrees;
+		this.objectives = objectives;
+	}
 
 	public Long getId()
 	{
@@ -138,5 +159,26 @@ public class UserPojo
 	public void setObjectives(List<Long> objectives)
 	{
 		this.objectives = objectives;
+	}
+
+	public static UserPojo getFromUser(User user)
+	{
+		return new UserPojo(user.getId(), user.getFirst_name(),
+				user.getLast_name(), user.getGender(), user.getBirth_date(),
+				user.getMain_img(), user.getLocation(),
+				user.getPrice_per_hour(), user.getDescription(),
+				user.getDegrees(), user.getObjectives());
+	}
+
+	public static List<UserPojo> getFromUsers(List<User> users)
+	{
+		List<UserPojo> returnVal = new ArrayList<UserPojo>();
+
+		for (User user : users)
+		{
+			returnVal.add(getFromUser(user));
+		}
+
+		return returnVal;
 	}
 }

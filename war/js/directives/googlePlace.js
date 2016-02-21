@@ -4,8 +4,8 @@
 
 angular.module('myApp.directives').directive('googleplace', function() {
     return {
-        require: 'ngModel',
-        scope:{location:'='},
+        //require: 'ngModel',
+        scope:{location:'@'},
         link: function(scope, element, attrs, model) {
             var options = {
                 types: ['geocode'],
