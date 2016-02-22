@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td >{{'User.Details.Coach_Location' | translate}} :</td>
-                <td ><reverse-geocode ng-if="user.location" location={{user.location}}/></td>
+                <td ><reverse-geocode ng-if="user.location" location={{user.location}}></reverse-geocode></td>
             </tr>
             <tr >
                 <td >{{'User.Details.Email' | translate}} :</td>
@@ -111,10 +111,10 @@
     </tr>
     <tr>
         <td>
-	        <md-input-container>
+	        <md-input-container ng-class="{'md-input-has-placeholder, md-input-has-value':updatedUser.location !== undefined}">
 	            <label>{{"User.Details.Coach_Location" | translate}}</label>
-	            <input placeholder="" googleplace location="{{updatedUser.location}}"  > 
-	            </input>	            
+                <reverse-geocode style="position:absolute" ng-if="updatedUser.location && city === undefined" location={{updatedUser.location}}></reverse-geocode>
+	            <input placeholder="" googleplace location="updatedUser.location" ng-click="city=''"/>
 	        </md-input-container>
         <td>
     </tr>

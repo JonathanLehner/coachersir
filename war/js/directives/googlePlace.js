@@ -5,7 +5,7 @@
 angular.module('myApp.directives').directive('googleplace', function() {
     return {
         //require: 'ngModel',
-        scope:{location:'@'},
+        scope:{location:'='},
         link: function(scope, element, attrs, model) {
             var options = {
                 types: ['geocode'],
@@ -18,8 +18,7 @@ angular.module('myApp.directives').directive('googleplace', function() {
                     var place = scope.gPlace.getPlace();
                     scope.location = {"latitude":place.geometry.location.lat(),
                                       "longitude":place.geometry.location.lng()};
-                    model.$setViewValue(element.val());
-                });
+               });
             });
         }
     };

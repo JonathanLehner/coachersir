@@ -9,6 +9,7 @@ angular.module('myApp.directives')
             link: function (scope, element, attrs) {
         		var geocoder = new google.maps.Geocoder();
         		var locationObj = angular.fromJson(scope.location);
+                if(locationObj !== undefined){
                 var latlng = new google.maps.LatLng(locationObj.latitude, locationObj.longitude);
                 geocoder.geocode({ 'latLng': latlng }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
@@ -21,6 +22,7 @@ angular.module('myApp.directives')
                         element.text(' ' + status);
                     }
                 });
+                }
             },
             replace: true
         }
