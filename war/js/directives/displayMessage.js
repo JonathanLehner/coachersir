@@ -7,20 +7,17 @@ angular.module('myApp.directives').directive('displayMessage', function() {
         	error: '@'
         },
         link: function(scope, element, attributes) {
-        	if(scope.error === "true"){
-        		element.css("color","red");
-        	}else{
-        		element.css("color","green");
-        	}
-        },
-        controller: function ($scope) { 
-            $scope.getStyle = function () {
-            	if($scope.error === true){
-            		return {color:'red'};
+        	var adjustColor = function(error){
+        		if(error === "true"){
+            		element.css("color","red");
             	}else{
-            		return {color:'green'};
+            		element.css("color","green");
             	}
-            };
+        	};
+        	
+        	scope.$watch('error', function(newValue) {
+                adjustColor(newValue);
+            });   
         }
     };
 });
