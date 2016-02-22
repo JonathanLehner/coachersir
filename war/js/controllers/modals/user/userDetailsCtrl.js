@@ -24,12 +24,8 @@ angular.module('myApp.controllers')
         		
         	}
         };
-
-        $scope.notEditMode = function(){
-            $scope.editMode= !$scope.editMode;
-        }
         
-        // for facebook comments
+        // for facebook comments and share
         $scope.getLocation = function(){
             return document.location.href; 
         };

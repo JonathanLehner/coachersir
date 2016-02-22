@@ -180,7 +180,23 @@ angular.module('myApp.services')
 	    	$http({
                 method: 'POST',
                 url: url_prefix + '/logout',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {'Content-Type': 'application/json'}
+	    	}).then(function(response){
+            	resolve(null, response, deferred);
+            },function(error){
+            	resolve(error, null, deferred);
+            });
+	    	
+	    	return deferred.promise;
+	    };
+	    
+	    serv.verifyEmail = function(email, v){
+	    	var deferred = $q.defer();
+	    	
+	    	$http({
+                method: 'POST',
+                url: url_prefix + '/verifyEmail?email='+email+'&v='+v,
+                headers: {'Content-Type': 'application/json'}
 	    	}).then(function(response){
             	resolve(null, response, deferred);
             },function(error){

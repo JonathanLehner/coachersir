@@ -40,13 +40,21 @@ public class UserController
 		userService = new UserService();
 	}
 
-	@GET
+	@POST
 	@Path("verifyEmail")
 	public User verifyEmail(@Context HttpServletRequest req,
 			@QueryParam("email") String email,
 			@QueryParam("v") String verifyToken)
 	{
-		return userService.verifyEmail(email, verifyToken);
+		User user = userService.verifyEmail(email, verifyToken);
+
+		if (user != null)
+		{
+			SessionUtils.addUserToSession(req, user.getId());
+			return user;
+		}
+
+		throw new NotFoundException("User not verified");
 	}
 
 	@POST

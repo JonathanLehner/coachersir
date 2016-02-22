@@ -1,6 +1,6 @@
 angular.module('myApp.controllers.main')
     .controller('loginCtrl',['$scope','$modalInstance','$translate','$timeout','staticDataService','loginService','errorService','userService',
-                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , errorService, userService){
+                     function($scope , $modalInstance , $translate , $timeout , staticDataService , loginService , errorService , userService){
 
         var init = function(){
             $scope.forgotPassword = false;
@@ -27,7 +27,6 @@ angular.module('myApp.controllers.main')
         		$scope.displayMessage="";
         		$scope.displayMessageError=false;
         	}
-        		
         };
         
         $scope.resetPassword = function(){

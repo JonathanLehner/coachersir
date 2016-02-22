@@ -83,6 +83,15 @@ angular.module('myApp')
                     templateUrl: 'app/main/contactUs/contactUs.html'}
             }
         })
+        .state('main.verifyEmail',{
+            url:'verifyEmail?email&v',
+            parent:'main',
+            controller: 'verifyEmailCtrl',
+            views: {
+                app: {
+                    templateUrl: 'app/main/verifyEmail.html'}
+            }
+        })
         .state('modal', {
             url: 'coach/:id',
             parent:'main',

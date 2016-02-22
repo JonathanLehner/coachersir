@@ -21,7 +21,9 @@
         "ReadMore":"קרא עוד",
       	"ToCoach":"לדף המאמן",
         "Next":"הבא",
-        "Prev":"הקודם"
+        "Prev":"הקודם",
+        "Wait_While_Verifying":"מאמת את הנתונים...",
+        "Verify_Successfull":"האימות עבר בהצלחה מיד תועבר לדף הראשי"
 	},
 	"Login":{
 	    "Coach":"מאמן",
