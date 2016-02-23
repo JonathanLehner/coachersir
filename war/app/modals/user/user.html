@@ -11,6 +11,30 @@
             <li ui-sref-active="active"><a data-toggle="tab" data-target="#images" ui-sref="images" >{{'General.Images' | translate}}</a></li>
             <li ui-sref-active="active"><a data-toggle="tab" data-target="#videos" ui-sref="videos" >{{'General.Videos' | translate}}</a></li>
             <li ui-sref-active="active"><a data-toggle="tab" data-target="#articles" ui-sref="articles" >{{'General.Articles' | translate}}</a></li>
-        </ul>	
-    <div class="section1" class="ui" ui-view="userView" style=""></div>
+        </ul>
+
+    <div class="icon-div">
+         <span ng-if="status.editEnabled">
+                <span ng-show="!status.editClicked" class="user-icon glyphicon glyphicon-pencil" ng-click="clicked('edit')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Edit_Mode' | translate}}">
+            </span>
+            <span ng-show="status.editClicked"  class="user-icon glyphicon glyphicon-arrow-right" ng-click="clicked('edit')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Back' | translate}}">
+                 </span>
+          </span>
+
+            <span ng-if="status.addEnabled">
+                <span ng-show="!status.addClicked" class="user-icon glyphicon glyphicon-plus" ng-click="clicked('add')"  data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Add_Content' | translate}}">
+                </span>
+                <span ng-show="status.addClicked" class="user-icon glyphicon glyphicon-minus" ng-click="clicked('add')" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Hide_Content' | translate}}">
+                </span>
+            </span>
+
+            <span ng-if="(status.editClicked || status.addClicked) && status.saveEnabled">
+                <span ng-show="!status.saveClicked" class="user-icon glyphicon glyphicon-floppy-disk" ng-click="saveContentButton()" data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Save' | translate}}">
+                </span>
+            </span>
+    </div>
+
+
+        <div class="section1" class="ui" ui-view="userView" style=""></div>
+
 </div>

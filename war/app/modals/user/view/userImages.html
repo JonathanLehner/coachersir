@@ -1,10 +1,9 @@
-<div ng-controller="userImagesCtrl" >
-<div ng-if="myPageViewed" user-menu type="Image" user="user" data="getData()" add="true" tags="true" edit="true" save="true"></div>
-<!--
-    <add-content ng-if="myPageViewed" url="Image" user="user"></add-content>
--->
+<div ng-controller="userImagesCtrl" id="user-image">
 
-    <div id="user-image" style="margin-top:5%">
+    <add-content ng-if="status.addClicked" url="Image" user="user" data="getData()">
+    </add-content>
+
+    <div  style="margin-top:5%">
         <div ng-if="images.length == 0 && !myPageViewed" class="no-data">
             {{"User.No_Data" | translate}}
         </div>

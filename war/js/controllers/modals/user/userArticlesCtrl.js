@@ -5,6 +5,10 @@ angular.module('myApp.controllers')
     	
     	$scope.articles = [];
 
+        $scope.initParam("add");
+        $scope.initParam("edit");
+        $scope.initParam("save");
+
         var init = function(){
             $scope.getData();
         };

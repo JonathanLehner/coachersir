@@ -12,6 +12,10 @@ angular.module('myApp.controllers')
             getVideos();
         };
 
+        $scope.initParam("add");
+        $scope.initParam("edit");
+        $scope.initParam("save");
+
         $scope.hoverLi = function (videoId){
             var doc = document.getElementById(videoId);
 

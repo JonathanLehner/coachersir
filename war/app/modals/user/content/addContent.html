@@ -11,7 +11,7 @@
             <input id="imageDescription" placeholder="" ng-model="content.description"/>
         </md-input-container>
     </br>
-    <div class="tags" ng-if="tagsEnabled">
+    <div class="tags">
         <div style="float:right">
 
             <md-content layout-padding class="autocomplete" layout="column">
@@ -29,18 +29,11 @@
                         <span md-highlight-text="searchText">{{item.name}}</span>
                     </md-autocomplete>
                     <md-chip-template>
-          <span>
-          <strong>{{$chip.name}}</strong>
-        </span>
+                      <span>
+                      <strong>{{$chip.name}}</strong>
+                    </span>
                     </md-chip-template>
                 </md-chips>
-
-
-                <div class="md-2-line" ng-repeat="veg in vegetables">
-                    <h3>{{veg.name}}</h3>
-                    <p>{{veg.type}}</p>
-                    <hr />
-                </div>
 
             </md-content>
 

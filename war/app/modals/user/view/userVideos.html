@@ -1,8 +1,9 @@
-<div ng-controller="userVideosCtrl" >
+<div ng-controller="userVideosCtrl" id="user-videos">
 
-    <div ng-if="myPageViewed" user-menu type="Video" tags="true" user="user" data="getData()" add="true" edit="true" save="true"></div>
+    <add-content ng-if="status.addClicked" url="Video" user="user" data="getData()">
+    </add-content>
 
-    <div id="user-videos" class="user-videos">
+    <div  class="user-videos">
         <div ng-if="videos.length == 0 && !myPageViewed" class="no-data">
             {{"User.No_Data" | translate}}
         </div>

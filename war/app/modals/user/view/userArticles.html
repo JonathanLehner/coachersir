@@ -1,7 +1,8 @@
-<div ng-controller="userArticlesCtrl" >
-    <div ng-if="myPageViewed" user-menu type="Article" user="user" data="getData()" add="true" edit="true" save="true" tags="true"></div>
+<div ng-controller="userArticlesCtrl" id="user-article">
+    <add-content ng-if="status.addClicked" url="Article" user="user" data="getData()">
+    </add-content>
 
-    <div id="user-article" class="user-article">
+    <div  class="user-article">
         <div ng-if="articles.length == 0 && !myPageViewed" class="no-data">
             {{"User.No_Data" | translate}}
         </div>
@@ -11,7 +12,7 @@
         <div ng-if="articles.length != 0">
             <ul class="row">
                 <li ng-repeat="article in articles | orderBy: article.id ">
-                    <md-card class="article-content" >
+                    <md-card id="article.id" class="article-content" >
                         <md-card-content>
                             <h2>{{article.headline}}</h2>
                             <div ng-bind-html="article.content">  </div>

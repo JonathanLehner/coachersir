@@ -1,21 +1,9 @@
 /**
  * Created by itay on 2/5/2016.
  */
-angular.module('myApp.directives').directive('userMenu', function() {
-    return {
-        restrict: 'A',
-        templateUrl:"/app/modals/user/userMenu.html",
-        scope: {
-            type:'@',
-            user:'=',
-            data:'&',
-            add:'=',
-            edit:'=',
-            save:'=',
-            tags:'='
-        },
-        link: function($scope) {
-            $scope.status = {}
+angular.module('myApp.directives').controller('userMenuCtrl', function() {
+
+            $scope.status = {};
 
             $scope.status.addClicked = false;
 
@@ -41,11 +29,5 @@ angular.module('myApp.directives').directive('userMenu', function() {
                 $scope.data();
             };
 
-            $scope.saveContentButton = function(){
-                     $scope.status.addClicked = false;
-                    $scope.$broadcast ('saveContent');
-            }
 
-        }
-    };
 });

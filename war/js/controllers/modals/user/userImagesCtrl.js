@@ -3,12 +3,18 @@ angular.module('myApp.controllers')
                           function($scope , staticDataService , Upload , $stateParams , imageService , loadingSpinnerService , $http,$compile,$rootScope){
 
     	var user = $scope.$parent.user;
-    	
+
         $scope.id = $stateParams.id;
         
         var init = function(){
             getImages();
         };
+
+
+      $scope.initParam("add");
+      $scope.initParam("edit");
+      $scope.initParam("save");
+
 
         var getImages = function(){
             loadingSpinnerService.showProgress("user-image");

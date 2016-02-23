@@ -99,16 +99,16 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
                 $scope.userTags.forEach(function(tag){
                     $scope.tags.push(tag.id);
                 });
-                loadingSpinnerService.showProgress("user-menu");
+                loadingSpinnerService.showProgress("user-loading");
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                         $timeout(function(){
                         $scope.data();
-                            loadingSpinnerService.hideProgress("user-menu");
+                            loadingSpinnerService.hideProgress("user-loading");
                     },200);
                 }).catch(function(data){
                     console.log("no content" + data);
-                    loadingSpinnerService.hideProgress("user-menu");
+                    loadingSpinnerService.hideProgress("user-loading");
                 });
             };
 
