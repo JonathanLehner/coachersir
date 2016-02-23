@@ -5,7 +5,10 @@ angular.module('myApp.controllers')
         $scope.editMode = false;
         $scope.displayMessage="";
 		$scope.displayMessageError=false;
-		
+		$scope.city = undefined;
+
+        $scope.destroyAllParam();
+
         $scope.toggleEditMode = function(){
         	$scope.editMode= !$scope.editMode;
         	
@@ -13,7 +16,7 @@ angular.module('myApp.controllers')
         	
         	// we are editing
         	if($scope.editMode === true){
-        		$scope.updatedUser = jQuery.extend(true, {}, $scope.user);
+        		$scope.updatedUser = angular.extend(true, {}, $scope.user);
                 $scope.updatedUser.gender = true;
                 if($scope.user.birth_date){
                 	$scope.updatedUser.birth_date = new Date($scope.user.birth_date);
@@ -114,7 +117,7 @@ angular.module('myApp.controllers')
                             $scope.displayMessage = $translate.instant("User.Details.Not_Updated") + error;
                             $scope.displayMessageError=true;
                         });
-                    }
+                    };
 
 
                     if(dropzone.files[0]) {
