@@ -53,7 +53,8 @@
 		"Required_Message":"שכחת למלא שדה זה..",
 		"Password_Match":"הסיסמה לא תואמת",
         "Submit":"הרשם",
-      	"Short_Password":"מינימום 6 תווים"
+      	"Short_Password":"מינימום 6 תווים",
+      	"Complete_Verify":"הרישום הצליח, אנא אמת את האימייל על מנת להמשיך..."
 	},
   	"Menu":{
     	"Home":"בית",

@@ -19,6 +19,7 @@ import com.google.appengine.api.datastore.GeoPt;
 import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.UserDAO;
 import com.ir.productions.coachers.entities.User;
+import com.ir.productions.coachers.pojos.AuthUser;
 import com.ir.productions.coachers.pojos.UserPojo;
 import com.ir.productions.coachers.services.UserService;
 import com.sun.jersey.api.NotFoundException;
@@ -42,7 +43,7 @@ public class UserController
 
 	@POST
 	@Path("verifyEmail")
-	public User verifyEmail(@Context HttpServletRequest req,
+	public AuthUser verifyEmail(@Context HttpServletRequest req,
 			@QueryParam("email") String email,
 			@QueryParam("v") String verifyToken)
 	{
@@ -51,7 +52,7 @@ public class UserController
 		if (user != null)
 		{
 			SessionUtils.addUserToSession(req, user.getId());
-			return user;
+			return AuthUser.getFromUser(user);
 		}
 
 		throw new NotFoundException("User not verified");
@@ -59,13 +60,17 @@ public class UserController
 
 	@POST
 	@Path("refreshAuthUser")
-	public User refreshAuthUser(@Context HttpServletRequest req)
+	public AuthUser refreshAuthUser(@Context HttpServletRequest req)
 	{
 		Long userId = SessionUtils.getUserIdOnSession(req);
 
 		if (userId != null)
 		{
-			return userDAO.findById(userId);
+			User authUser = userDAO.findById(userId);
+			if (authUser != null)
+			{
+				return AuthUser.getFromUser(authUser);
+			}
 		}
 
 		return null;
@@ -80,7 +85,7 @@ public class UserController
 
 	@POST
 	@Path("login")
-	public User login(@Context HttpServletRequest req, User user)
+	public AuthUser login(@Context HttpServletRequest req, User user)
 	{
 		User authUser = null;
 
@@ -96,7 +101,7 @@ public class UserController
 		if (authUser != null)
 		{
 			SessionUtils.addUserToSession(req, authUser.getId());
-			return authUser;
+			return AuthUser.getFromUser(authUser);
 		}
 
 		throw new NotFoundException("User not found by email and password");
@@ -104,7 +109,7 @@ public class UserController
 
 	@POST
 	@Path("providerLogin")
-	public User providerLogin(@Context HttpServletRequest req, User user)
+	public AuthUser providerLogin(@Context HttpServletRequest req, User user)
 	{
 		User authUser = null;
 
@@ -116,13 +121,11 @@ public class UserController
 			if (authUser != null)
 			{
 				SessionUtils.addUserToSession(req, authUser.getId());
-			} else
-			{
-				throw new NotFoundException("User not found by provider");
+				return AuthUser.getFromUser(authUser);
 			}
 		}
 
-		return authUser;
+		throw new NotFoundException("User not found by provider");
 	}
 
 	@POST

@@ -37,15 +37,7 @@ angular.module('myApp.controllers.main')
                 $modalInstance.dismiss();
             },100);
         };
-/*
-        $scope.getStyle = function () {
-        	if($scope.displayMessageError === true){
-        		return {'color':'red'};
-        	}else{
-        		return {'color':'green'};
-        	}
-        };
-  */      
+      
     	$scope.createNewUser = function(){
     		$scope.user.provider='local';
     		
@@ -53,14 +45,11 @@ angular.module('myApp.controllers.main')
                 userService.signUpCoach($scope.user).then(
                 		function(response){
                 			console.log('signUp succeeded! ' + response);
-                			loginService.setCurrentUser(response.id,
-                					response.first_name,
-                					response.last_name,
-                					response.provider,
-                					response.provider_id,
-                					response.main_img);
+                			$scope.displayMessage=$translate.instant("SignUp.Complete_Verify");
                 			
-                			$modalInstance.dismiss();
+                			$timeout(function() {
+                				$modalInstance.dismiss();
+                 		    }, 2000);
                 		},
                 		function(error){
                 			console.log('signUp error ' + error);
