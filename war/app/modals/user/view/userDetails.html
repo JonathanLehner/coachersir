@@ -113,7 +113,7 @@
         <td>
 	        <md-input-container  ng-class="{'md-input-has-placeholder, md-input-has-value':(updatedUser.location !== undefined && (city === undefined || city === ' '))}" >
 	            <label>{{"User.Details.Coach_Location" | translate}}</label>
-                <reverse-geocode style="position:fixed" ng-if="updatedUser.location && city === undefined" location={{updatedUser.location}}></reverse-geocode>
+                <reverse-geocode style="position:absolute" ng-if="updatedUser.location && city === undefined" location={{updatedUser.location}}></reverse-geocode>
                 <input style="cursor: auto; position: relative" ng-click="city=' '" placeholder="" googleplace location="updatedUser.location" />
 
             </md-input-container>
