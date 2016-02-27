@@ -16,8 +16,10 @@ angular.module('myApp.controllers')
         	
         	// we are editing
         	if($scope.editMode === true){
-        		$scope.updatedUser = angular.extend(true, {}, $scope.user);
-                $scope.updatedUser.gender = true;
+        		$scope.updatedUser = angular.copy($scope.user);
+                if($scope.updatedUser.gender === undefined){
+                	$scope.updatedUser.gender = true;
+                }
                 if($scope.user.birth_date){
                 	$scope.updatedUser.birth_date = new Date($scope.user.birth_date);
                 }else{
