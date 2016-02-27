@@ -8,14 +8,32 @@ angular.module('myApp.controllers.main')
         };
 
         $scope.user = undefined;
-
+        $scope.deletedContent = [];
         $scope.status = {};
         $scope.type = undefined;
 
 
         $scope.saveContentButton = function(){
-            $scope.status.addClicked = false;
-            $scope.$broadcast('saveContent');
+            if($scope.status.addClicked === true){
+                $scope.status.addClicked = false;
+                $scope.$broadcast('saveContent');
+            }
+
+            if($scope.deletedContent.length > 0){
+                //TODO: Delete Content
+            }
+
+            $scope.deletedContent = [];
+
+        };
+
+        $scope.isDeleted = function(item) {
+                return !($scope.deletedContent.indexOf(item) > -1);
+        };
+                        
+        $scope.deleteContent = function(contentID){
+            $scope.deletedContent.push(contentID);
+
         };
 
         $scope.initParam = function(parameter){
@@ -27,8 +45,10 @@ angular.module('myApp.controllers.main')
             $scope.status = {};
         };
 
+
         $scope.clicked =function(parameter){
             $scope.status[parameter+'Clicked'] = !$scope.status[parameter+'Clicked'];
+            $scope.deletedContent = [];
         };
 
     	var setMyPage = function(){

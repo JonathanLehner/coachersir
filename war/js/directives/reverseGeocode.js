@@ -13,8 +13,8 @@ angular.module('myApp.directives')
                 var latlng = new google.maps.LatLng(locationObj.latitude, locationObj.longitude);
                 geocoder.geocode({ 'latLng': latlng }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[1]) {
-                            element.text(results[1].formatted_address);
+                        if (results[0]) {
+                            element.text(results[0].address_components[2].short_name);
                         } else {
                             element.text('Location not found');
                         }
