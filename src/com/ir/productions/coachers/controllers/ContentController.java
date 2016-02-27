@@ -167,4 +167,22 @@ public class ContentController
 					"Content sent to remove not found.");
 		}
 	}
+
+	@POST
+	@Path("removeAll")
+	public void removeAll(@QueryParam("ids") List<Long> ids)
+			throws EntityNotFoundException
+	{
+		if (ids != null && !ids.isEmpty())
+		{
+			for (Long id : ids)
+			{
+				contentDAO.delete(id);
+			}
+		} else
+		{
+			throw new EntityNotFoundException(
+					"Content sent to remove not found.");
+		}
+	}
 }
