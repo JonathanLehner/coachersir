@@ -6,7 +6,10 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import com.ir.productions.coachers.SystemUtils;
+import com.ir.productions.coachers.tokens.JwplayerToken;
 import com.ir.productions.coachers.tokens.UploadToken;
 
 public class VideoUploadService extends UploadService
@@ -37,7 +40,17 @@ public class VideoUploadService extends UploadService
 			LOG.log(Level.SEVERE, e.getMessage(), e);
 		}
 		LOG.info("returning video token: " + s);
-		return new UploadToken("jwplayer", s.toString());
+		ObjectMapper mapper = new ObjectMapper();
+		Object token = null;
+		try
+		{
+			token = mapper.readValue(s.toString(), Object.class);
+		} catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new JwplayerToken(token);
 	}
 
 	public String getHost()
