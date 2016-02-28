@@ -94,10 +94,9 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                         $timeout(function(){
-
-                            loadingSpinnerService.hideProgress("user-content");
+                        loadingSpinnerService.hideProgress("user-content");
                         $scope.data();
-                    },200);
+                    },400);
                 }).catch(function(data){
                     console.log("no content" + data);
                     loadingSpinnerService.hideProgress("user-content");

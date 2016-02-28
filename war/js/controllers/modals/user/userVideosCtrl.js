@@ -49,6 +49,7 @@ angular.module('myApp.controllers')
             getVideos();
         };
 
+
         init();
     	
     }]);

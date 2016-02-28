@@ -11,7 +11,7 @@
         </div>
         <div ng-if="articles.length != 0">
             <ul class="row">
-                <li ng-repeat="article in articles | orderBy: article.id ">
+                <li ng-repeat="article in articles | orderBy: article.id " ng-show="alreadyDeleted(article.id)">
                     <md-card id="article.id" class="article-content" ng-show="isDeleted(article.id)">
                         <label  ng-if="status.editClicked"><a ng-click="deleteContent(article.id)" class="fa fa-trash" style="font-size: medium"></a></label>
                         <md-card-content>
