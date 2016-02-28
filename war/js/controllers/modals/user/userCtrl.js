@@ -70,7 +70,7 @@ angular.module('myApp.controllers.main')
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();
-    	    $scope.user =  $scope.currentUser;
+    	   // $scope.user =  $scope.currentUser;
             setMyPage();
     	});
         
