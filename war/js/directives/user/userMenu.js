@@ -1,6 +1,3 @@
-/**
- * Created by itay on 2/5/2016.
- */
 angular.module('myApp.directives').controller('userMenuCtrl', function() {
 
             $scope.status = {};

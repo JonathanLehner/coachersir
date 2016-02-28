@@ -66,7 +66,10 @@ angular.module('myApp.directives').directive('displayContent', function() {
             $scope.coacherClicked = function(content){
                 $state.go('details',{ id: content.id});
             };
-
+            
+            $scope.$on('$destroy', function(){
+            	
+            });
         }
     };
 })

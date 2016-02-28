@@ -23,7 +23,7 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
 
             $scope.addContentUrl = "app/modals/user/content/add"+$scope.url+".html";
 
-           var getTags = function(){
+            var getTags = function(){
                 var tags = staticDataService.allTags();
                 if(tags === undefined){
                     staticDataService.getAllTags().then(function(response){
@@ -107,6 +107,13 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             $scope.hide = function(){
                 $scope.isClicked = false;
             }
+            
+            $scope.$on('$destroy', function(){
+            	createFilterFor=undefined;
+            	getTags=undefined;
+            	getNotSelected=undefined;
+            	show=undefined;
+            });
         }
     };
 }]);
