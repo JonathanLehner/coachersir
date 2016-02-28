@@ -68,11 +68,15 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             var show = function(){
                 if($scope.url === "Image") {
                     service = imageService;
+                    uploadTokenService.getUploadToken('image').then(function(data) {
+                        console.log('image upload token ' + data);
+                        imageService.initImageToken(data);
+                    });
                 }else if($scope.url === "Video"){
                     service = videoService;
                     uploadTokenService.getUploadToken('video').then(function(data) {
                         console.log('video upload token ' + data);
-                        videoService.initVideo(data);
+                        videoService.initVideoToken(data);
                     });
                 }else if($scope.url === "Article"){
                     service = articleService;

@@ -1,29 +1,25 @@
 angular.module('myApp.controllers')
-    .controller('userVideosCtrl',['$scope','videoService','$stateParams','$translate','loadingSpinnerService',function($scope, videoService,$stateParams,$translate,loadingSpinnerService){
+    .controller('userVideosCtrl',['$scope','videoService','$stateParams','$translate','loadingSpinnerService',
+                          function($scope , videoService , $stateParams , $translate , loadingSpinnerService){
 
-    	$scope.videos = {};
-        $scope.readonly = false;
-        
-    	var user = $scope.$parent.user;
-
-        $scope.id = $stateParams.id;
-
-        var init = function(){
-            getVideos();
-        };
-
-        $scope.initParam("add");
+    	$scope.initParam("add");
         $scope.initParam("edit");
         $scope.initParam("save");
 
+        $scope.id = $stateParams.id;        
+        $scope.videos = [];
+        
+        $scope.readonly = false;
+        
+        var init = function(){
+            getVideos();
+        };
+        
         $scope.hoverLi = function (videoId){
             var doc = document.getElementById(videoId);
-
             doc.play();
             doc.removeAttribute("muted");
-
             doc.setAttribute("controls", "controls");
-
             document.getElementById("duration"+videoId).innerHTML = $translate.instant("User.Video.Time_Duration") +" "+ doc.duration;
         };
 
@@ -51,5 +47,4 @@ angular.module('myApp.controllers')
 
 
         init();
-    	
-    }]);
+  }]);

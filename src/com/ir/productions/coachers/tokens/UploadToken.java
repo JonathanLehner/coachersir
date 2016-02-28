@@ -1,9 +1,16 @@
-package com.ir.productions.coachers.pojos;
+package com.ir.productions.coachers.tokens;
 
 public class UploadToken
 {
 	private String provider;
 	private Object token;
+
+	public UploadToken(String provider, Object token)
+	{
+		super();
+		this.provider = provider;
+		this.token = token;
+	}
 
 	public String getProvider()
 	{

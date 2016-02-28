@@ -3,6 +3,8 @@ package com.ir.productions.coachers.services;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import com.ir.productions.coachers.tokens.UploadToken;
+
 public class ContentService
 {
 	private static final Logger LOG = Logger.getLogger(ContentService.class
@@ -20,16 +22,18 @@ public class ContentService
 		videoUploadService = new VideoUploadService();
 	}
 
-	public String getUploadTokten(String type) throws IOException
+	public UploadToken getUploadTokten(String type) throws IOException
 	{
 		if (type.equals(UPLOAD_VIDEO_TYPE))
 		{
-			String token = videoUploadService.getUploadToken();
+			UploadToken token = videoUploadService.getUploadToken();
 			LOG.info("received token for video upload: " + token);
 			return token;
 		} else if (type.equals(UPLOAD_IMAGE_TYPE))
 		{
-			return imageUploadService.getUploadToken();
+			UploadToken token = imageUploadService.getUploadToken();
+			LOG.info("received token for image upload: " + token);
+			return token;
 		}
 
 		throw new IOException("wrong type");

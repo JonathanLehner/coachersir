@@ -20,6 +20,7 @@ import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
 import com.ir.productions.coachers.pojos.ArrayHolder;
 import com.ir.productions.coachers.services.ContentService;
+import com.ir.productions.coachers.tokens.UploadToken;
 
 @Path("contentEndpoint")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -37,7 +38,7 @@ public class ContentController
 
 	@GET
 	@Path("getUploadToken")
-	public String getUploadToken(@Context HttpServletRequest req,
+	public UploadToken getUploadToken(@Context HttpServletRequest req,
 			@QueryParam("type") String type) throws UnauthorizedException,
 			IOException
 	{

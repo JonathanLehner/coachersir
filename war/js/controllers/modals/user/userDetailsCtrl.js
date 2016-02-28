@@ -1,6 +1,6 @@
 angular.module('myApp.controllers')
-    .controller('userDetailsCtrl',['$scope','$rootScope','$translate','userService','facebookService','loadingSpinnerService','loginService','staticDataService','imageService',
-                           function($scope , $rootScope , $translate , userService , facebookService , loadingSpinnerService , loginService , staticDataService,imageService){
+    .controller('userDetailsCtrl',['$scope','$rootScope','$translate','userService','facebookService','loadingSpinnerService','loginService','staticDataService','imageService','uploadTokenService',
+                           function($scope , $rootScope , $translate , userService , facebookService , loadingSpinnerService , loginService , staticDataService , imageService , uploadTokenService){
 
         $scope.editMode = false;
         $scope.displayMessage="";
@@ -121,20 +121,20 @@ angular.module('myApp.controllers')
                         });
                     };
 
-
                     if(dropzone.files[0]) {
-                        imageService.addMainImg().then(function (data) {
-                            $scope.updatedUser.main_img = data;
-                            return true;
-                        }).then(function(){
-                            update();
+                    	uploadTokenService.getUploadToken('image').then(function(data) {
+                            console.log('image upload token ' + data);
+                            imageService.initImageToken(data);
+                            imageService.addMainImg().then(function (data) {
+                                $scope.updatedUser.main_img = data;
+                                return true;
+                            }).then(function(){
+                                update();
+                            });
                         });
                     }else{
                         update();
                     }
-	        	
-
-
 	        	}
         	}
         };

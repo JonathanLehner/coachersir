@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.ir.productions.coachers.SystemUtils;
+import com.ir.productions.coachers.tokens.UploadToken;
 
 public class VideoUploadService extends UploadService
 {
@@ -14,7 +15,7 @@ public class VideoUploadService extends UploadService
 			.getName());
 
 	@Override
-	public String getUploadToken()
+	public UploadToken getUploadToken()
 	{
 		StringBuilder s = new StringBuilder("");
 
@@ -35,8 +36,8 @@ public class VideoUploadService extends UploadService
 		{
 			LOG.log(Level.SEVERE, e.getMessage(), e);
 		}
-		LOG.info("returning token: " + s);
-		return s.toString();
+		LOG.info("returning video token: " + s);
+		return new UploadToken("jwplayer", s.toString());
 	}
 
 	public String getHost()

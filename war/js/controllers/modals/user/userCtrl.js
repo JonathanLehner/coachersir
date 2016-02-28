@@ -7,10 +7,9 @@ angular.module('myApp.controllers.main')
             $modalInstance.close();
         };
 
-        $scope.user = {};
+        $scope.user = undefined;
         $scope.deletedContent = [];
         $scope.status = {};
-        $scope.deleted = [];
         $scope.type = undefined;
 
         $scope.saveContentButton = function(){
@@ -22,17 +21,8 @@ angular.module('myApp.controllers.main')
             if($scope.deletedContent.length > 0){
                 
             	contentService.removeAll($scope.deletedContent);
-                $scope.deleted.push.apply($scope.deleted,$scope.deletedContent);
             	$scope.deletedContent = [];
             }
-        };
-
-        $scope.alreadyDeleted = function(item){
-            "use strict";
-            if($scope.deleted.length === 0){
-                return true;
-            }
-            return $scope.deleted.indexOf(item) === -1;
         };
 
         $scope.isDeleted = function(item) {
@@ -70,7 +60,7 @@ angular.module('myApp.controllers.main')
     	$scope.$watch(loginService.isLoggedIn, function (isLoggedIn) {
     	    $scope.isLoggedIn = isLoggedIn;
     	    $scope.currentUser = loginService.currentUser();
-    	   // $scope.user =  $scope.currentUser;
+    	    $scope.user = $scope.currentUser;
             setMyPage();
     	});
         

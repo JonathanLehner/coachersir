@@ -63,6 +63,14 @@ angular.module('myApp.services')
 	    	return contentService.getByUser(userId,type);
 	    };
        	
+	    var resolve = function(errorVal, returnVal, deferred) {
+			if (errorVal) {
+			  deferred.reject(errorVal);
+			} else {
+			  deferred.resolve(returnVal);
+			}
+        };
+	    
        	return serv;
     }
 ]);

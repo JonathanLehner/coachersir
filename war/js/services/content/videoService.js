@@ -11,64 +11,70 @@ angular.module('myApp.services')
 		var serv={};
 		var type='video';
 		serv.videos = undefined;
+		var uploadToken;
 
-        serv.initVideo = function(data){
-
-            if(BotrUpload.resumeSupported()) {
-                data['resumable'] = 'resumable';
-            }
-
-            //Attach a BotrUpload instance to the form.
-            var uploadBotr = new BotrUpload(data.link, data.session_id
-                ,{"url": window.location.href,
-                  "params":{
-                	  "video_key": data.media.key
-                   }
-                }
-            );
-
-            var filename;
-
-            uploadBotr.useForm($("#uploadFile").get(0));
-            $("#addVideoDiv").append(uploadBotr.getIframe());
-            uploadBotr.pollInterval = 1000;
-
-            //When the upload starts, we hide the input, show the progress and disable the button.
-            uploadBotr.onStart = function() {
-                filename = $("#uploadFile").val().split(/[\/\\]/).pop();
-            };
-
-            //During upload, we update both the progress div and the text below it.
-            uploadBotr.onProgress = function(bytes, total) {
-                //todo: find out why not coming here?!
-                //Round to one decimal
-                var pct = Math.floor(bytes * 1000 / total) / 10;
-                $("#uploadProgress").animate({'width': pct + '%'}, 400);
-                $("#uploadText").html('Uploading ' + filename + ' (' + pct + '%) ...');
-            };
-
-            uploadBotr.onError = function(msg) {
-                this._log(msg);
-
-                deferred.resolve();
-            };
-
-            uploadBotr.onCompleted = function(size, redirect) {
-                this._log("Finished uploading " + size + " bytes.");
-
-                var video={
-                    "user_id": scope.user.id,
-                    "headline": scope.headline,
-                    "description": scope.description,
-                    "tags":scope.tags,
-                    "content": 'http://content.jwplatform.com/videos/' + data.media.key + '-zBiwxusV.mp4'
-                };
-
-                serv.insertToDB(video).then(function(data){
-                        deferred.resolve(data);
-                    }
-                );
-            };
+        serv.initVideoToken = function(data){
+            
+        	uploadToken = data;
+        	
+        	if(data.provider === 'jwplayer'){
+	        	if(BotrUpload.resumeSupported()) {
+	                data['resumable'] = 'resumable';
+	            }
+	
+	            //Attach a BotrUpload instance to the form.
+	            var uploadBotr = new BotrUpload(data.token.link, data.token.session_id
+	                ,{"url": window.location.href,
+	                  "params":{
+	                	  "video_key": data.token.media.key
+	                   }
+	                }
+	            );
+	
+	            var filename;
+	
+	            uploadBotr.useForm($("#uploadFile").get(0));
+	            $("#addVideoDiv").append(uploadBotr.getIframe());
+	            uploadBotr.pollInterval = 1000;
+	
+	            uploadBotr.onStart = function() {
+	                filename = $("#uploadFile").val().split(/[\/\\]/).pop();
+	            };
+	
+	            uploadBotr.onProgress = function(bytes, total) {
+	                //todo: find out why not coming here?!
+	                //Round to one decimal
+	                var pct = Math.floor(bytes * 1000 / total) / 10;
+	                $("#uploadProgress").animate({'width': pct + '%'}, 400);
+	                $("#uploadText").html('Uploading ' + filename + ' (' + pct + '%) ...');
+	            };
+	
+	            uploadBotr.onError = function(msg) {
+	                this._log(msg);
+	
+	                deferred.resolve();
+	            };
+	
+	            uploadBotr.onCompleted = function(size, redirect) {
+	                this._log("Finished uploading " + size + " bytes.");
+	
+	                var video={
+	                    "user_id": scope.user.id,
+	                    "headline": scope.headline,
+	                    "description": scope.description,
+	                    "tags":scope.tags,
+	                    "content": 'http://content.jwplatform.com/videos/' + data.token.media.key + '-zBiwxusV.mp4'
+	                };
+	
+	                contentService.insert(video,'video').then(function(response){
+	                        deferred.resolve(response);
+	                    }
+	                );
+	            };
+        	}//end if provider===jwplayer
+        	else{
+        		alert('not supported upload provider');
+        	}
         };
 
          serv.insertToDB = function(video){
@@ -123,6 +129,14 @@ angular.module('myApp.services')
 	    	return contentService.getByUser(userId,type);
 	    };
         
+	    var resolve = function(errorVal, returnVal, deferred) {
+			if (errorVal) {
+			  deferred.reject(errorVal);
+			} else {
+			  deferred.resolve(returnVal);
+			}
+        };
+	    
 	    return serv;
     }
 ]);
