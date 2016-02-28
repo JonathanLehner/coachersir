@@ -1,4 +1,5 @@
-angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout','loadingSpinnerService','staticDataService','$filter', function(articleService,imageService,videoService,uploadTokenService,$timeout,loadingSpinnerService,staticDataService,$filter) {
+angular.module('myApp.directives').directive('addContent',['articleService','imageService','videoService','uploadTokenService','$timeout','loadingSpinnerService','staticDataService','$filter', 
+                                                   function(articleService,imageService,videoService,uploadTokenService,$timeout,loadingSpinnerService,staticDataService,$filter) {
     return {
         restrict: 'E',
         templateUrl:"/app/modals/user/content/addContent.html",
@@ -54,38 +55,29 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
 
             var createFilterFor = function(query) {
                 return function filterFn(tag) {
-                    return (tag.name.indexOf(query) != -1);;
+                    return (tag.name.indexOf(query) != -1);
                 };
             };
 
             var getNotSelected = function(){
                 return function filterFn(tag) {
-                    return ($scope.userTags.indexOf(tag) === -1);;
+                    return ($scope.userTags.indexOf(tag) === -1);
+                };
             };
 
-            }
-
-
             var show = function(){
-
                 if($scope.url === "Image") {
                     service = imageService;
-
                 }else if($scope.url === "Video"){
                     service = videoService;
-
                     uploadTokenService.getUploadToken('video').then(function(data) {
                         console.log('video upload token ' + data);
-
                         videoService.initVideo(data);
                     });
-
-
                 }else if($scope.url === "Article"){
                     service = articleService;
                     setTimeout(function(){
-                    service.init();
-
+                    	service.init();
                     },400);
                 }
             };

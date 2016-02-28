@@ -1,15 +1,16 @@
 angular.module('myApp.services')
-    .factory('videoService',['$modal','$http','$resource','$httpParamSerializerJQLike','$q', 
-                     function($modal , $http , $resource , $httpParamSerializerJQLike , $q) {
+    .factory('videoService',['$modal','$http','$resource','$q','contentService',
+                     function($modal , $http , $resource , $q , contentService){
         
 		"use strict";
 		
-		//var url_prefix = '_ah/api/contentEndpoint/v1';
 		var url_prefix = 'api/contentEndpoint';
 
         var deferred;
         var scope;
 		var serv={};
+		var type='video';
+		serv.videos = undefined;
 
         serv.initVideo = function(data){
 
@@ -19,12 +20,10 @@ angular.module('myApp.services')
 
             //Attach a BotrUpload instance to the form.
             var uploadBotr = new BotrUpload(data.link, data.session_id
-                , {
-                    //"url": "http://localhost:8080/show.php",// todo: change to my redirect
-                    "url": window.location.href,
-                    params: {
-                        "video_key": data.media.key//,
-                    }
+                ,{"url": window.location.href,
+                  "params":{
+                	  "video_key": data.media.key
+                   }
                 }
             );
 
@@ -36,14 +35,11 @@ angular.module('myApp.services')
 
             //When the upload starts, we hide the input, show the progress and disable the button.
             uploadBotr.onStart = function() {
-
-
                 filename = $("#uploadFile").val().split(/[\/\\]/).pop();
             };
 
             //During upload, we update both the progress div and the text below it.
             uploadBotr.onProgress = function(bytes, total) {
-
                 //todo: find out why not coming here?!
                 //Round to one decimal
                 var pct = Math.floor(bytes * 1000 / total) / 10;
@@ -72,12 +68,9 @@ angular.module('myApp.services')
                         deferred.resolve(data);
                     }
                 );
-
             };
         };
-
-        serv.videos = undefined;
-
+        
         serv.getVideos = function(){
             return serv.videos;
         };
@@ -100,54 +93,6 @@ angular.module('myApp.services')
             });
         };
 	    
-	    serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
-	    };
-	    
-	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/listVideos').query().$promise;
-	    };
-	    
-	    serv.getByUser = function(userId){
-	    	return $resource(url_prefix + '/videosByUser?userId=' + userId).query().$promise;
-	    };
-	    
-	    serv.insertToDB = function(video){
-	    	var data = video;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/insertVideo',
-                headers: {'Content-Type': 'application/json'},
-                data: data
-
-            });
-	    };
-	    
-	    serv.update = function(video){
-	    	var data = video;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/update',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).$promise;
-	    };
-	    
-	    serv.remove = function(id){
-	    	var data = {id: id};
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/remove',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).$promise;
-	    };
-
         serv.insert = function(data){
             var deferredFunct = $q.defer();
             document.getElementById("uploadButton").click();
@@ -157,6 +102,14 @@ angular.module('myApp.services')
 
             return deferredFunct.promise;
         };
+        
+        serv.getAll = function(){
+	    	return contentService.getAll(type);
+	    };
+	    
+	    serv.getByUser = function(userId){
+	    	return contentService.getByUser(userId,type);
+	    };
         
 	    return serv;
     }

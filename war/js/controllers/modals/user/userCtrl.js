@@ -1,7 +1,7 @@
 var angular;
 angular.module('myApp.controllers.main')
-    .controller('userCtrl',['$scope','$state','$modalInstance','$translate','$timeout','$stateParams','staticDataService','userService','loginService',
-                    function($scope , $state , $modalInstance , $translate , $timeout , $stateParams , staticDataService , userService , loginService){
+    .controller('userCtrl',['$scope','$state','$modalInstance','$translate','$timeout','$stateParams','staticDataService','userService','contentService','loginService',
+                    function($scope , $state , $modalInstance , $translate , $timeout , $stateParams , staticDataService , userService , contentService , loginService){
 
         $scope.close = function(){
             $modalInstance.close();
@@ -12,7 +12,6 @@ angular.module('myApp.controllers.main')
         $scope.status = {};
         $scope.type = undefined;
 
-
         $scope.saveContentButton = function(){
             if($scope.status.addClicked === true){
                 $scope.status.addClicked = false;
@@ -20,20 +19,18 @@ angular.module('myApp.controllers.main')
             }
 
             if($scope.deletedContent.length > 0){
-                //TODO: Delete Content
+                
+            	contentService.removeAll($scope.deletedContent);
+            	$scope.deletedContent = [];
             }
-
-            $scope.deletedContent = [];
-
         };
 
         $scope.isDeleted = function(item) {
-                return !($scope.deletedContent.indexOf(item) > -1);
+        	return !($scope.deletedContent.indexOf(item) > -1);
         };
                         
         $scope.deleteContent = function(contentID){
             $scope.deletedContent.push(contentID);
-
         };
 
         $scope.initParam = function(parameter){
@@ -44,7 +41,6 @@ angular.module('myApp.controllers.main')
         $scope.destroyAllParam = function(){
             $scope.status = {};
         };
-
 
         $scope.clicked =function(parameter){
             $scope.status[parameter+'Clicked'] = !$scope.status[parameter+'Clicked'];

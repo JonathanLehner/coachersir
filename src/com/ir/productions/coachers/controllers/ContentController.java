@@ -18,6 +18,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
 import com.ir.productions.coachers.SessionUtils;
 import com.ir.productions.coachers.daos.ContentDAO;
 import com.ir.productions.coachers.entities.Content;
+import com.ir.productions.coachers.pojos.ArrayHolder;
 import com.ir.productions.coachers.services.ContentService;
 
 @Path("contentEndpoint")
@@ -144,8 +145,10 @@ public class ContentController
 
 	@POST
 	@Path("update")
-	public Content update(Content content) throws EntityNotFoundException
+	public Content update(@Context HttpServletRequest req, Content content)
+			throws EntityNotFoundException, UnauthorizedException
 	{
+		SessionUtils.verifyUserOnSession(req);
 		if (content.getId() != null)
 		{
 			return contentDAO.update(content);
@@ -155,9 +158,11 @@ public class ContentController
 
 	@POST
 	@Path("remove")
-	public void remove(@QueryParam("id") Long id)
-			throws EntityNotFoundException
+	public void remove(@Context HttpServletRequest req,
+			@QueryParam("id") Long id) throws EntityNotFoundException,
+			UnauthorizedException
 	{
+		SessionUtils.verifyUserOnSession(req);
 		if (id != null)
 		{
 			contentDAO.delete(id);
@@ -170,19 +175,16 @@ public class ContentController
 
 	@POST
 	@Path("removeAll")
-	public void removeAll(@QueryParam("ids") List<Long> ids)
-			throws EntityNotFoundException
+	public void removeAll(@Context HttpServletRequest req, ArrayHolder array)
+			throws EntityNotFoundException, UnauthorizedException
 	{
-		if (ids != null && !ids.isEmpty())
+		SessionUtils.verifyUserOnSession(req);
+		if (array.longs != null && !array.longs.isEmpty())
 		{
-			for (Long id : ids)
+			for (Long id : array.longs)
 			{
 				contentDAO.delete(id);
 			}
-		} else
-		{
-			throw new EntityNotFoundException(
-					"Content sent to remove not found.");
 		}
 	}
 }

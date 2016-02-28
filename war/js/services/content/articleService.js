@@ -1,13 +1,14 @@
 angular.module('myApp.services')
-    .factory('articleService',['$modal','$http','$resource','$translate', 
-                       function($modal , $http , $resource , $translate) {
+    .factory('articleService',['$modal','$http','$resource','$translate','contentService', 
+                       function($modal , $http , $resource , $translate , contentService) {
         
 		"use strict";
 	
 		var url_prefix = 'api/contentEndpoint';
 
 		var serv={};
-        serv.articles = undefined;
+		var type='article';
+		serv.articles = undefined;
 
         serv.init = function(){
             CKEDITOR.replace( 'articleEditor', {
@@ -25,77 +26,43 @@ angular.module('myApp.services')
         serv.setArticlesData = function(articles){
             serv.articles = articles;
         }
-	    
-	    serv.getById = function(id){
-	    	return $resource(url_prefix + '/get?id=' + id).get().$promise;
-	    };
-	    
-	    serv.getAll = function(){
-	    	return $resource(url_prefix + '/listArticles').query().$promise;
-	    };
-	    
-	    serv.getByUser = function(userId){
-	    	return $resource(url_prefix + '/articlesByUser?userId=' + userId).query().$promise;
-	    };
-	    
+        
 	    serv.insert = function(scope){
 
             var articleContent = CKEDITOR.instances.articleEditor.getData();
 
-            var content = {
+            var article = {
                 headline:scope.content.headline,
                 content:articleContent,
                 tags:scope.tags,
                 user_id:scope.user.id
             };
-	    	var data = content;
 
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/insertArticle',
-                headers: {'Content-Type': 'application/json'},
-                data: data
+            return contentService.insert(article,'article');
+	    };
+
+	    serv.readArticle =  function(contentObj){
+	    	var articleModal = $modal.open({
+			    templateUrl:'/app/modals/articles/articleReader.html',
+			    keyboard: true,
+			    controller:'articleReaderCtrl',
+			    backdrop:'static',
+			    resolve:{
+                    articleObj: function(){
+                        return contentObj;
+                    }
+                }
             });
-	    };
+       	};
 
-       serv.readArticle =  function(contentObj){
-           var articleModal = $modal.open({
-               templateUrl:'/app/modals/articles/articleReader.html',
-               keyboard: true,
-               controller:'articleReaderCtrl',
-               backdrop:'static',
-               resolve:{
-                   articleObj: function(){
-                       return contentObj;
-                   }
-               }
-           });
-       };
-	    
-	    serv.update = function(article){
-	    	var data = article;
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/update',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).$promise;
+	    serv.getAll = function(){
+	    	return contentService.getAll(type);
 	    };
 	    
-	    serv.remove = function(id){
-	    	var data = {id: id};
-
-            return $http({
-                method: 'POST',
-                url: url_prefix + '/remove',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: $httpParamSerializerJQLike(data)
-
-            }).$promise;
+	    serv.getByUser = function(userId){
+	    	return contentService.getByUser(userId,type);
 	    };
-	
-	    return serv;
+       	
+       	return serv;
     }
 ]);
