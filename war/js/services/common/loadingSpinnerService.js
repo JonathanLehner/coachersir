@@ -29,7 +29,11 @@ angular.module('myApp.services')
                 if(ajaxContainer.scope!== undefined && ajaxContainer.scope() !== undefined){
                  var newElement = $compile('<loading-spinner></loading-spinner>')(ajaxContainer.scope());
                 }else{
-                    var newElement = $compile('<loading-spinner></loading-spinner>')($scope);
+                    try{
+                        var newElement = $compile('<loading-spinner></loading-spinner>')($scope);
+                    }catch (err){
+                        console.log(err);
+                    }
                 }
                 ajaxContainer.append(newElement);
                 //$.compile(ajaxContainer);

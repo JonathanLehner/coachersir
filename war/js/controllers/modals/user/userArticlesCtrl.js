@@ -14,14 +14,14 @@ angular.module('myApp.controllers')
         };
 
         $scope.getData = function(){
-            loadingSpinnerService.showProgress("user-article");
+            loadingSpinnerService.showProgress("user-content");
             articleService.getByUser($scope.id).then(function(data){
                 $scope.articles = data;
 
-                loadingSpinnerService.hideProgress("user-article");
+                loadingSpinnerService.hideProgress("user-content");
 
             }),function(error){
-                loadingSpinnerService.hideProgress("user-article");
+                loadingSpinnerService.hideProgress("user-content");
             };
         };
 

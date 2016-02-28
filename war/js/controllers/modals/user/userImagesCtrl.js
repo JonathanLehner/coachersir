@@ -8,20 +8,20 @@ angular.module('myApp.controllers')
         $scope.id = $stateParams.id;
 
           var getImages = function(){
-              loadingSpinnerService.showProgress("user-image");
+              loadingSpinnerService.showProgress("user-content");
               imageService.getByUser($scope.id).then(function(response){
                   $scope.images = response;
                   if($scope.images.length !== 0)
                   {
                       setTimeout(function(){
                           $scope.jssor_1_slider_init();
-                          loadingSpinnerService.hideProgress("user-image");
+                          loadingSpinnerService.hideProgress("user-content");
                       },300);
                   }else{
-                      loadingSpinnerService.hideProgress("user-image");
+                      loadingSpinnerService.hideProgress("user-content");
                   }
               },function(error){
-                  loadingSpinnerService.hideProgress("user-image");
+                  loadingSpinnerService.hideProgress("user-content");
                   alert(error);
               });
           };

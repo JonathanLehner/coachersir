@@ -85,22 +85,22 @@ angular.module('myApp.directives').directive('addContent',['articleService','ima
             show();
 
             $scope.saveButtonClicked = function(){
-                $scope.$parent.status.addClicked = false;
                 $scope.isUploading = true;
                 $scope.tags = [];
                 $scope.userTags.forEach(function(tag){
                     $scope.tags.push(tag.id);
                 });
-                loadingSpinnerService.showProgress("user-loading");
+                loadingSpinnerService.showProgress("user-content");
                 service.insert($scope).then(function(data){
                     $scope.isClicked = false;
                         $timeout(function(){
+
+                            loadingSpinnerService.hideProgress("user-content");
                         $scope.data();
-                            loadingSpinnerService.hideProgress("user-loading");
                     },200);
                 }).catch(function(data){
                     console.log("no content" + data);
-                    loadingSpinnerService.hideProgress("user-loading");
+                    loadingSpinnerService.hideProgress("user-content");
                 });
             };
 

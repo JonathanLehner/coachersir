@@ -70,6 +70,18 @@ angular.module('myApp.services')
                 );
             };
         };
+
+         serv.insertToDB = function(video){
+             var data = video;
+
+             return $http({
+                 method: 'POST',
+                 url: url_prefix + '/insertVideo',
+                 headers: {'Content-Type': 'application/json'},
+                 data: data
+
+             });
+         };
         
         serv.getVideos = function(){
             return serv.videos;
