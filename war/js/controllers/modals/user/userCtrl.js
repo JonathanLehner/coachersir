@@ -7,7 +7,7 @@ angular.module('myApp.controllers.main')
             $modalInstance.close();
         };
 
-        $scope.user = undefined;
+        $scope.user = {};
         $scope.deletedContent = [];
         $scope.status = {};
         $scope.deleted = [];
