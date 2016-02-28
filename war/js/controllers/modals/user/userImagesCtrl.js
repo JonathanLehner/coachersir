@@ -1,3 +1,4 @@
+var angular;
 angular.module('myApp.controllers')
     .controller('userImagesCtrl',['$scope','staticDataService','Upload','$stateParams','imageService','loadingSpinnerService','$http','$compile','$rootScope',
                           function($scope , staticDataService , Upload , $stateParams , imageService , loadingSpinnerService , $http,$compile,$rootScope){
@@ -5,7 +6,27 @@ angular.module('myApp.controllers')
     	var user = $scope.$parent.user;
 
         $scope.id = $stateParams.id;
-        
+
+          var getImages = function(){
+              loadingSpinnerService.showProgress("user-image");
+              imageService.getByUser($scope.id).then(function(response){
+                  $scope.images = response;
+                  if($scope.images.length !== 0)
+                  {
+                      setTimeout(function(){
+                          $scope.jssor_1_slider_init();
+                          loadingSpinnerService.hideProgress("user-image");
+                      },300);
+                  }else{
+                      loadingSpinnerService.hideProgress("user-image");
+                  }
+              },function(error){
+                  loadingSpinnerService.hideProgress("user-image");
+                  alert(error);
+              });
+          };
+
+
         var init = function(){
             getImages();
         };
@@ -16,24 +37,6 @@ angular.module('myApp.controllers')
       $scope.initParam("save");
 
 
-        var getImages = function(){
-            loadingSpinnerService.showProgress("user-image");
-            imageService.getByUser($scope.id).then(function(response){
-                $scope.images = response;
-                if($scope.images.length !== 0)
-                {
-                    setTimeout(function(){
-                        $scope.jssor_1_slider_init();
-                        loadingSpinnerService.hideProgress("user-image");
-                    },300);
-                }else{
-                    loadingSpinnerService.hideProgress("user-image");
-                }
-            },function(error){
-                loadingSpinnerService.hideProgress("user-image");
-                alert(error);
-            });
-        };
 
 
           $scope.getData = function(){
@@ -42,7 +45,7 @@ angular.module('myApp.controllers')
           };
 
 
-      var jssor_1_slider = undefined;
+      var jssor_1_slider;
         $scope.jssor_1_slider_init = function() {
 
             var jssor_1_options = {
