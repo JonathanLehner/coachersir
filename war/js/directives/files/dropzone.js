@@ -24,10 +24,8 @@ angular.module('myApp.directives')
                         scope.fileAdded = true;
                     });
                 },
-
                 'success': function (file, response) {
                 }
-
             };
 
             dropzone = new Dropzone(element[0], config);
@@ -42,7 +40,6 @@ angular.module('myApp.directives')
                         data.append("fullPath", file.fullPath);
                     }
                 });
-
             });
 
             scope.processDropzone = function() {
@@ -52,6 +49,10 @@ angular.module('myApp.directives')
             scope.resetDropzone = function() {
                 dropzone.removeAllFiles();
             }
+            
+            scope.$on('$destroy', function(){
+            	dropzone.removeAllFiles(true);
+            });
         }
     }
 });

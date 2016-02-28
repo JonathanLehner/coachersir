@@ -18,6 +18,10 @@ angular.module('myApp.directives').directive('displayMessage', function() {
         	scope.$watch('error', function(newValue) {
                 adjustColor(newValue);
             });   
+        	
+        	scope.$on('$destroy', function(){
+        		adjustColor=undefined;
+            });
         }
     };
 });

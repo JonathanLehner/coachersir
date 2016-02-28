@@ -21,9 +21,7 @@ angular.module('myApp.directives').directive('loadingSpinner',['$interval', func
 
             // Iterate every 100ms, non-stop
             $interval(function () {
-
                 // Increment the Determinate loader
-
                 scope.determinateValue += 1;
                 if (scope.determinateValue > 100) {
                     scope.determinateValue = 30;
@@ -39,9 +37,6 @@ angular.module('myApp.directives').directive('loadingSpinner',['$interval', func
 
             }, 100, 0, true);
         }
+    };
 
-
-    }
-
-    }]
-);
+    }]);
