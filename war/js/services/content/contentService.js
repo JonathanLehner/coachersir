@@ -14,11 +14,11 @@ angular.module('myApp.services')
 	    
 	    serv.insert = function(content,type){
 	    	if(type === 'article'){
-	    		insertToDB(content, 'Article');
+	    		return insertToDB(content, 'Article');
 	    	}else if(type === 'image'){
-	    		insertToDB(content, 'Image');
+	    		return insertToDB(content, 'Image');
 	    	}else if(type === 'video'){
-	    		insertToDB(content, 'Video');
+	    		return insertToDB(content, 'Video');
 	    	}
 	    };
 	    	    
