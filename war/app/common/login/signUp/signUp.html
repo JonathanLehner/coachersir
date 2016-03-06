@@ -1,0 +1,64 @@
+<div class="container loginModal signUp-modal" style="">
+    <div class="row">
+        <div ng-click="close()" class="glyphicon glyphicon-remove-circle remove-class close-login close-signUpModal"> </div>
+    <div style="transition: width 1s ease;">
+        <a href="#" class="glyphicon glyphicon-arrow-right" ng-click="backPressed()">
+        </a>
+        <legend>{{'SignUp.Welcome' | translate}}</legend>
+        <form class="form-horizontal" role="form" name="signUpForm" action='' method="POST">
+            <fieldset>
+                <div class="form-signUp">
+                    <label for="inputUsername">*{{'User.Details.First_Name' | translate}} </label>
+                    <input type="text" class="form-control" id="inputUsername" ng-model="user.first_name" required="required">
+                </div>
+
+                <div class="form-signUp">
+                    <label for="inputUserLastName">*{{'User.Details.Last_Name' | translate}} </label>
+                    <input type="text" class="form-control" id="inputUserLastName" ng-model="user.last_name" required="required">
+                </div>
+
+                <div class="form-signUp">
+                    <label>*{{'User.Details.Email' | translate}} </label>
+                    <input type="email" class="form-control" id="SignUpUsernameEmail" ng-model="user.email" required="required">
+                </div>
+
+                <div class="form-signUp">
+                    <label>*{{'User.Details.Password' | translate}}   </label>
+                    <input type="password" class="form-control" id="SignUpPassword" ng-model="user.password" required="required">
+                    <div ng-if="user.password.length < 6" style = "color:red; position: absolute;"> {{'SignUp.Short_Password' | translate}}   </div>
+                </div>
+
+                <div class="form-signUp">
+                    <label>*{{'SignUp.Password_Confirm' | translate}}   </label>
+                    <input type="password" class="form-control" id="SignUpConfirmPassword" ng-model="passwordConfirm" required="required">
+                    <div ng-if="passwordConfirm !== user.password" style = "color:red; position: absolute;"> {{'SignUp.Password_Match' | translate}}   </div>
+                </div>
+
+                <div class="form-signUp">
+                    <label>{{'User.Details.Birth_Day' | translate}}</label>
+                    <input type="date" class="form-control" ng-model="user.birth_date" required="required"/>
+                </div>
+
+                <div class="form-signUp" >
+                    <label>*{{'User.Details.Gender' | translate}}</label>
+                    <div class="btn-group" data-toggle="buttons" style="display: inline-flex" >
+                        <label class="btn btn-default form-control" style="width: 45px; margin-left: 10px; border-radius: 3px;">
+                            <input type="radio" ng-value=true ng-model="user.gender" checked="" /> {{'User.Gender.Male' | translate}}
+                        </label>
+                        <label class="btn btn-default form-control" style="width: 45px; margin-left: 10px; border-radius: 3px;">
+                            <input type="radio" ng-value=false ng-model="user.gender"/> {{'User.Gender.Female' | translate}}
+                        </label>
+                    </div>
+                </div>
+
+
+            </fieldset>
+            <display-message ng-style="getStyle()" message="{{displayMessage}}" error="{{displayMessageError}}">
+			</display-message>
+            <button type="button" class="btn btn-primary btn-md btn-block center" ng-click="createNewUser()" ng-disabled="signUpForm.$invalid || passwordConfirm !== user.password || user.password.length < 6">
+                {{'SignUp.Submit' | translate}}
+            </button>
+        </form>
+    </div>
+</div>
+</div>

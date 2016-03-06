@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" 
+    	content="36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com">
+	
+    <title>myCoach</title>
+    
+    <meta property="fb:app_id" content="1679389075631663" />
+    <meta property="og:url"           content="http://www.mycoach.org.il" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="myCoach" />
+	<meta property="og:description"   content="פורטל המאמנים של ישראל" />
+	<meta property="og:image"         content="http://www.mycoach.org.il/img/logos/logo_with_sentence.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="gXP_oJ2EwvN_tURHAbqVwU0EmaaPHmOtRYVh5DU1mMc" />
+    <link rel="shortcut icon" href="img/logos/Whisler.ico">
+
+   	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.css">
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/carousel-3d.css" />
+    <link rel="stylesheet" href="styleSheet/stylesheets/angular-material-1.0.0.min.css">
+    <link rel="stylesheet" href="styleSheet/stylesheets/main/portfolio.css">
+
+
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/index.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/main/coachers/coachers.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/main/home/home.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/modals/login.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/user/details.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/user/img.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/modals/user.css">
+    <link rel="stylesheet" type="text/css" href="styleSheet/stylesheets/main/articles/articles.css">
+	
+	<!-- External js -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-sanitize.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+    <script src="https://rawgit.com/angular-ui/angular-google-maps/2.2.1/dist/angular-google-maps.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places,geometry&sensor=false&v=3&language=he"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.0/angular-translate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-loader-url/2.8.0/angular-translate-loader-url.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bower-angular-translate-loader-static-files/2.7.2/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-resource.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>
+    <script src="https://rawgithub.com/cletourneau/angular-bootstrap-datepicker/master/dist/angular-bootstrap-datepicker.js" charset="utf-8"></script>
+
+    <!--Ng-Upload-File -->
+    <script type="text/javascript" src = "js/ng-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src = "js/ng-file-upload.min.js"></script>
+
+    <!-- -->
+    <script type="text/javascript" src="js/jssor.slider.min.js"></script>
+
+    <!-- Carousel 3d-->
+    <script src="js/angular-swipe.js"></script>
+    <script src="js/Carousel-3d.js"></script>
+
+    <!-- Local js -->
+    <script src="app.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="botr/botrUpload.js"></script>
+
+    <!-- Configuration -->
+	<script src="js/configuration/common/dropzone.js"></script>
+	<script src="js/configuration/common/translation.js"></script>
+	<script src="js/configuration/filters/filters.js"></script>
+    <script src="js/configuration/filters/trustUrl.js"></script>
+
+
+    <!-- Services -->
+    <script src="js/services/common/errorService.js"></script>
+    <script src="js/services/common/loadingSpinnerService.js"></script>
+    <script src="js/services/common/staticDataService.js"></script>
+    <script src="js/services/common/uploadTokenService.js"></script>
+
+	<script src="js/services/content/contentService.js"></script>
+    <script src="js/services/content/articleService.js"></script>
+    <script src="js/services/content/imageService.js"></script>
+    <script src="js/services/content/videoService.js"></script>
+
+    <script src="js/services/login/loginService.js"></script>
+    <script src="js/services/login/facebookService.js"></script>
+    <script src="js/services/login/googleService.js"></script>
+
+    <script src="js/services/user/userService.js"></script>
+
+
+    <!-- Directives -->
+    <script src="js/directives/files/dropzone.js"></script>
+    <script src="js/directives/checklist-model.js"></script>
+    <script src="js/directives/content/displayContent.js"></script>
+    <script src="js/directives/user/addContent.js"></script>
+    <script src="js/directives/user/userMenu.js"></script>
+    <script src="js/directives/user/addJssor.js"></script>
+
+    <script src="js/directives/search/checkBoxFilters.js"></script>
+    <script src="js/directives/displayMessage.js"></script>
+    <script src="js/directives/googlePlace.js"></script>
+    <script src="js/directives/googleMap.js"></script>
+    <script src="js/directives/loadingSpinner.js"></script>
+    <script src="js/directives/reverseGeocode.js"></script>
+    <!-- <script src="js/directives/user/removeContent.js"></script> -->
+
+	<!-- Controllers -->
+    <script src="js/controllers/main/mainCtrl.js"></script>
+    <script src="js/controllers/main/verifyEmailCtrl.js"></script>
+    <script src="js/controllers/main/aboutUs/aboutUsCtrl.js"></script>
+    <script src="js/controllers/main/articles/articlesCtrl.js"></script>
+    <script src="js/controllers/main/coachers/coachersCtrl.js"></script>
+    <script src="js/controllers/main/contactUs/contactUsCtrl.js"></script>
+    <script src="js/controllers/main/home/homeCtrl.js"></script>
+	
+	<script src="js/controllers/modals/login/loginCtrl.js"></script>
+	<script src="js/controllers/modals/login/signUpCtrl.js"></script>
+    
+    <script src="js/controllers/modals/user/addArticleCtrl.js"></script>
+    <script src="js/controllers/modals/user/addVideoCtrl.js"></script>
+    <script src="js/controllers/modals/user/addImageCtrl.js"></script>
+    <script src="js/controllers/modals/user/userArticlesCtrl.js"></script>
+    <script src="js/controllers/modals/user/userCtrl.js"></script>
+    <script src="js/controllers/modals/user/userDetailsCtrl.js"></script>
+    <script src="js/controllers/modals/user/userImagesCtrl.js"></script>
+    <script src="js/controllers/modals/user/userVideosCtrl.js"></script>
+    <script src="js/controllers/modals/videoPlayerCtrl.js"></script>
+    <script src="js/controllers/modals/articleReaderCtrl.js"></script>
+
+
+
+
+    <script src="states.js"></script>
+    
+    <script src="https://code.ospry.io/v1/ospry.js"></script>
+</head>
+<body ng-app="myApp">
+	
+	<div id="fb-root"></div>
+    <!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BSXNF"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5BSXNF');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Google sdk -->
+	<script src="https://apis.google.com/js/platform.js?onload=onGoogleLoaded" async defer></script>
+	<script>
+		window.onGoogleLoaded = function(){
+			gapi.load('auth2', function() {
+				gapi.auth2.init({
+			    	client_id: '36220948397-o3i72noo8flkppesr1anaod07hig4v6r.apps.googleusercontent.com',
+			  	});
+			});
+		};
+	</script>
+	<div
+  		class="fb-like"
+  		data-share="true"
+  		data-width="450"
+  		data-show-faces="true">
+	</div>
+		
+    <div ui-view></div>
+    
+</body>
+</html>

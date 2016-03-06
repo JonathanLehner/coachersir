@@ -1,0 +1,160 @@
+{
+	"General":{
+		"Save": "שמור",
+		"Delete": "מחק",
+		"Choose": "בחר",
+		"Add": "הוסף",
+		"Edit": "ערוך",
+		"Send":"שלח",
+		"Headline": "כותרת",
+		"Description": "תיאור",
+		"Content": "תוכן",
+		"Articles": "מאמרים",
+		"Images": "תמונות",
+		"Videos": "סרטונים",
+      	"Male":"זכר",
+      	"Female":"נקבה",
+		"Article": "מאמר",
+		"Image": "תמונה",
+		"Main_Img": "תמונה ראשית",
+		"Video": "סרטון",
+        "ReadMore":"קרא עוד",
+      	"ToCoach":"לדף המאמן",
+        "Next":"הבא",
+        "Prev":"הקודם",
+        "Wait_While_Verifying":"מאמת את הנתונים...",
+        "Verify_Successfull":"האימות עבר בהצלחה מיד תועבר לדף הראשי"
+	},
+	"Login":{
+	    "Coach":"מאמן",
+	    "Trained":"מתאמן",
+	    "Remember_Me":"זכור אותי",
+	    "Login":"התחבר",
+	    "Logout":"התנתק",
+	    "Hello":"שלום ",
+	    "My_Page":"הדף שלי",
+	    "Not_Member":"חדש באתר? הרשם!",
+	    "Forgot_Password":"שכחת סיסמה?",
+	    "Reset_Password":"אפס סיסמה",
+	    "Insert_Email_And_Press": "הכנס אימייל ולחץ על ",
+	    "New_Password_Sent":"סיסמה חדשה נשלחה למייל",
+	    "Email_Not_Found":"המייל לא נמצא במערכת",
+	    "SignIn_Incorrect":"שם המשתמש או הסיסמה שגויים",
+	    "Fill_The_Inputs":"מלא בבקשה את כל השדות",
+	    "Coach_Login":"התחברות מאמן"
+  	},
+  	"Tags": {
+    	"Enter_Tag": "הכנס תגיות"
+  	},
+	"SignUp":{
+		"Welcome":"ברוכים הבאים!",
+		"Password_Confirm":"סיסמה (אימות)",
+		"Drop_Img":"גרור תמונה ראשית או הקלק",
+		"Required_Message":"שכחת למלא שדה זה..",
+		"Password_Match":"הסיסמה לא תואמת",
+        "Submit":"הרשם",
+      	"Short_Password":"מינימום 6 תווים",
+      	"Complete_Verify":"הרישום הצליח, אנא אמת את האימייל על מנת להמשיך...",
+		"Coach":"הרשם בתור מאמן"
+	},
+  	"Menu":{
+    	"Home":"בית",
+    	"Coachers":"מאמנים",
+    	"Articles":"מאמרים",
+    	"AboutUs":"קצת עלינו",
+    	"ContactUs":"צור קשר",
+    	"AboutUsContent":{
+    		"Headline":"פורטל המאמנים של ישראל",
+    		"Description":"האתר myCoach יוצר מהפכה בתחום האימונים האישיים ומאפשר פלטפורמה קלה מהירה ויעילה למציאת מאמן אישי בסביבתך והעומד בכל קריטריון שתרצו",
+    		"Objectives":{
+	    		"Headline":"מטרות myCoach",
+	    		"List1":"ליצור מאגר מאמנים אישיים המאפשר למאמני הכושר לפרסם את עצמם ולעלות תוכן שמייחד אותם",
+	    		"List2":"להנגיש את המאמנים לקהל הרחב בעזרת קריטריוני חיפוש קלים ומהירים",
+				"List3":"לאפשר למועדוני כושר ומאמנים מציאת מאמן מחליף בכל מקרה שנדרשת החלפה לאימון",
+	    		"List4":"ועוד..."
+    		}
+    	},
+    	"ContactUsContent":{
+    		"Full_Name":"שם מלא",
+    		"Message":"פנייתך",
+    		"MessageGood":"פנייתך נשלחה בהצלחה",
+    		"MessageBad":"בעיה בשליחת הפנייה"
+    	}
+  	},
+	"Search":{
+      "Distance":{
+		  "Five":"5 קילומטר",
+		  "Ten":"10 קילומטר",
+		  "Twenty":"20 קילומטר",
+		  "Everywhere":"לכל מקום"
+	  }
+    },
+  	"Google":{
+    	"Maps": "הצג מפה",
+    	"Location":"בחר עיר או רחוב"
+  	},
+  	"Video":{
+    	"ToCoach":"לדף המאמן",
+    	"ReadMore":"קרא עוד"
+	},
+  	"Coaches":{
+    	"Degrees":"מתמחה ב:",
+    	"More":"ועוד..",
+    	"Location":"מאמן באיזור"
+  	},
+  	"Article":{
+    	"ToCoach":"לדף המאמן",
+    	"From":"מאת: "
+  	},
+  	"User":{
+        "No_Data":"לצערנו למשתמש אין כרגע מידע למסך זה.",
+        "No_Data_My":"היי, חבר.. אין לך שום תוכן למסך.",
+    	"User_Details":"פרטים",
+    	"Details":{
+	      	"First_Name":"שם פרטי",
+	      	"Last_Name":"שם משפחה",
+	      	"Phone":"טלפון",
+	      	"Coach_Location":"מאמן באזור",
+	      	"Trained_Location":"אזור מגורים",
+	      	"Email":"אימייל",
+	      	"Password":"סיסמה",
+			"Description":"קצת על עצמי",
+			"Price_Per_Hour":"מחיר לשעת אימון",
+	      	"Gender":"מין",
+	      	"Birth_Day":"תאריך לידה",
+	      	"Main_Img":"תמונה ראשית",
+	      	"Age":"גיל",
+		    "Coach_Degrees":"הכשרות והסמכות",
+		    "Trained_Objectives":"יעדים ומטרות",
+		    "Updated_Successfully":"הפרטים עודכנו בהצלחה",
+		    "Not_Updated":"הפרטים לא עודכנו: "
+    	},
+    	"Gender":{
+      		"Female":"נקבה",
+      		"Male":"זכר"
+    	},
+  		"Video":{
+    		"Time_Duration":"אורך סרטון:"
+  		},
+  		"Article":{
+  			"Insert_Here":"הכנס תוכן כאן."
+  		}
+	},
+  	"Tooltip":{
+	    "Save":"שמירה",
+	    "Hide_Content":"הסתר הוספת תוכן",
+	    "Add_Content":"הוספת תוכן",
+	    "Back":"חזרה למצב צפיה",
+	    "Edit_Mode":"עריכה",
+	    "Trained_Not_Supported":"הרשמת מתאמן אינה נתמכת כרגע"
+  	},
+	"Error":{
+		"Email_Invalid":"האימייל לא תקין",
+		"No_Name":"לא הוזן שם או שם משפחה",
+		"General":"בעיה בשדה ",
+		"Not_Empty":" לא יכול להיות ריק",
+		"Email_Exists":"האימייל הזה כבר קיים במערכת, אנא הזן אימייל אחר",
+		"Email_Not_Verified":"אנא אמת את האימייל בכדי להמשיך בפעולה",
+		"Server_Error":"פעולה זו אינה אפשרית כעת אנא נסה מאוחר יותר"		
+	}
+}

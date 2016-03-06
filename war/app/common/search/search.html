@@ -1,0 +1,48 @@
+<div>
+    <div  class="search">
+        <input type="text" placeholder="בחר עיר" ng-model="chosenPlace" googleplace />
+
+        <md-input-container ng-disabled="chosenPlace !== undefined">
+            <md-select placeholder="מרחק מהכתובת" ng-model="distance">
+                <md-option value=5>
+                    {{'Search.Distance.Five' | translate}}
+                </md-option>
+                <md-option value=10>
+                    {{'Search.Distance.Ten' | translate}}
+                </md-option>
+                <md-option value=20>
+                    {{'Search.Distance.Twenty' | translate}}
+                </md-option>
+                <md-option value=0>
+                    {{'Search.Distance.Everywhere' | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container ng-disabled="chosenPlace !== undefined">
+            <md-select placeholder="איך בא לי לשרוף" ng-model="distance">
+                <md-option value=5>
+                    {{'Search.Distance.Five' | translate}}
+                </md-option>
+                <md-option value=10>
+                    {{'Search.Distance.Ten' | translate}}
+                </md-option>
+                <md-option value=20>
+                    {{'Search.Distance.Twenty' | translate}}
+                </md-option>
+                <md-option value=0>
+                    {{'Search.Distance.Everywhere' | translate}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+    <input type="number" placeholder="עד מחיר" ng-model="price" />
+
+    </div >
+    <div class="search-button">
+        <span class="title-font-size">
+            חפש מאמן
+        </span>
+    </div>
+
+</div>

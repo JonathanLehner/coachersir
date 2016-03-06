@@ -1,9 +1,3 @@
-angular.module('myApp.controllers',['myApp.controllers.main']);
-angular.module('myApp.controllers.main',[]);
-angular.module('myApp.services',[]);
-angular.module('myApp.directives',[]);
-angular.module('myApp.filters',[]);
-
 angular.module('myApp',
     ['ui.router',
      'ngResource',
@@ -11,14 +5,17 @@ angular.module('myApp',
      'ngCookies',
      'ngAnimate',
      'ngFileUpload',
-     'ui.bootstrap',
      'ngMaterial',
      'ngSanitize',
      'ngMessages',
      'pascalprecht.translate',
-     'angular-carousel-3d',
-     'myApp.controllers',
+     'ui.bootstrap',
      'myApp.services',
+     'myApp.controllers',
      'myApp.directives',
      'myApp.filters']);
 
+angular.module('myApp.controllers',[]);
+angular.module('myApp.services',[]);
+angular.module('myApp.directives',[]);
+angular.module('myApp.filters',[]);

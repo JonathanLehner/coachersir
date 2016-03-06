@@ -1,0 +1,85 @@
+@import "compass";
+@import "../common.scss";
+@import "common_folder/login.scss";
+
+.search{
+  opacity: 1;
+  width: 80%;
+  position: absolute;
+  @include center;
+  text-align: center;
+  *{
+    margin-left: 4%;
+    height: 50px;
+    font-size: large;
+    font-weight: 600 ;
+    text-align: center;
+    font-family: $font-default;
+    color: black;
+
+    @include placeholder {
+      color: black;
+    }
+  }
+  input{
+    width:20%;
+
+    @include placeholder {
+      color: black;
+    }
+  }
+  md-input-container{
+    width: 20%;
+    background-color: white;
+    md-select{
+      margin-top: 5px;
+    }
+  }
+
+
+}
+
+.search-button{
+
+  @include background-image("../../../images/common/search/blue_arrow.png");
+  width: 100%;
+  position: absolute;
+  height: $search-blue-bg-height;
+  background-size: cover;
+  background-repeat: round;
+  top: 100%;
+  span{
+    @include background-image("../../../images/common/search/find_coach_button.png");
+    @include center;
+    width: 30%;
+    cursor: pointer;
+    position: absolute;
+    background-size: cover;
+    background-repeat: round;
+    height: 43%;
+    text-align: center;
+    font-family: $font-default;
+    font-size: xx-large;
+  }
+}
+
+
+@media screen and (max-width: $screen-width) {
+  $media-background-repeat:round;
+  .search-button {
+    background-repeat: $media-background-repeat;
+    span{
+      background-repeat: $media-background-repeat;
+    }
+}
+  .search{
+    width: 100%;
+      input {
+        width: 40%;
+      }
+
+      md-input-container{
+        width: 40%;
+      }
+    }
+}

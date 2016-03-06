@@ -1,0 +1,24 @@
+.login{
+  position: absolute;
+  margin-top: 3%;
+  z-index: 1;
+  ul{
+    li{
+        display: inline-block;
+        a{
+          font-size: 25px;
+          color:black;
+          cursor: hand;
+        }
+      a:focus,a:hover {
+          text-decoration: none;
+        }
+      a:active{
+        color:$grey
+      }
+        .border{
+          border: thin solid #0a0a0a;
+        }
+    }
+  }
+}

@@ -1,90 +1,124 @@
-@import "compass";
-$font-style: "Helvetica Neue" , Helvetica, Arial, sans-serif;
+@import "compass/css3/user-interface";
+$screen-width:800px;
 
-.font{
-  font-family: $font-style;
+$font-default:Ariel, sans-serif;
+$background-white:white;
+$blue:rgb(40,194,227);
+$grey:rgb(232,232,231);
+$grey-darker:rgb(37,39,38);
+
+$search-blue-bg-height:150%;
+$title-font-size:40px;
+$sub-title-font-size:30px;
+$text-font-size:12px;
+$margin-right:10%;
+$background-size-images:contain;
+$background-repeat-image:no-repeat;
+
+.title-font-size {
+  font-size:$title-font-size;
+  font-weight: bold;
+  font-family:$font-default;
+
 }
 
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  border-radius: $radius;
+.text-font-size {
+  font-size:$text-font-size;
+  font-family:$font-default;
 }
 
-label{
-  font: $font-style;
-  padding-left: 10px;
-  width: 150px;
+.sub-title-font-size {
+  font-size:$sub-title-font-size;
+  font-family:$font-default;
+}
 
-  .title{
-    font-size: 18px;
-    font-weight: bold;
+.sub-title-font-size-small {
+  font-size:$sub-title-font-size - 5px;
+  font-family:$font-default;
+}
+
+
+  @mixin screen-background-round{
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  .details{
-    font-size: 16px;
+  @mixin placeholder() {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}
   }
-}
 
-input{
-  font: $font-style;
-  max-width: 250px;
-  border: 1px solid #ccc;
-  padding-left: 10px;
-  border-radius: 4px;
-
-  .missing{
-    border-color: red;
+  @mixin login-button{
+    @include background-image("../../images/common/login/blue_button.png")
   }
-}
 
-button{
-  max-width: 150px;
-  color: #286090 ;
-  label{
-    width: 100%;
+  @mixin logo{
+    @include background-image("../../images/common/logos/logo.png");
+    float: left;
+    height: 18%;
+    width: 30%;
+    position: absolute;
+
+    background-repeat: no-repeat;
+    left: 0px;
+    z-index: 1;
+    cursor: pointer;
   }
-}
 
-.font-large{
-  font-size: large;
-}
-
-.font-medium{
-  font-size: medium;
-}
-
-.font-small{
-  font-size: small;
-}
-
-.font-header{
-  padding:20px;
-  text-align: center;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-
-.modal{
-  margin: 25px auto 0;
-   .container{
-   background-color: #ffffff;
-    @include border-radius(5px);
+  @mixin text-style{
+    font:$font-default;
   }
-  .videoModal{
-    background-color: transparent;
-    position: fixed;
-    margin: 7%;
-    margin-right: 21%;
 
+  @mixin background-image($url){
+    background-image: url($url) ;
+    background-repeat: $background-repeat-image;
+    background-size: $background-size-images;
   }
+
+
+  @mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+  @mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+  .center {
+    @include center;
+  }
+
+   .parent {
+    position: relative;
+  }
+  .child {
+    @include center;
+  }
+
   iframe{
-    border-radius: 5px;
-
+    position: absolute;
+    width: 1px;
+    display: none;
+    height: 1px;
+    left: 0px;
   }
-}
+
+  li {
+    list-style-type: none;
+  }
+
+@media screen and (max-width: $screen-width) {
+  $media-background-repeat:no-repeat;
+  .logo{
+    background-repeat: $media-background-repeat;
+  }
+  }

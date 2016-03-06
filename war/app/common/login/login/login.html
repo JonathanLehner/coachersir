@@ -1,0 +1,60 @@
+<div class="container loginModal">
+    <div class="row mar-login">
+        <div ng-click="close()" class="glyphicon glyphicon-remove-circle remove-class close-login close-loginModal"> </div>
+		
+		<h1>
+			{{'Login.Coach_Login' | translate}}
+		</h1>
+		
+		<div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a class="btn btn-block btn-social btn-facebook" ng-click="facebookLogin()">
+                    <i class="fa fa-facebook"></i>  Facebook
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <a class="btn btn-block btn-social btn-google" ng-click="googleLogin()">
+                    <i class="fa fa-google-plus"></i>  Google+
+                </a>
+            </div>
+        </div>
+        <br/>
+
+        <form role="form">
+            <div class="form-group">
+                <label for="inputUsernameEmail">{{'User.Details.Email' | translate}} </label>
+                <input type="email" class="form-control" id="inputUsernameEmail" ng-model="user.email">
+            </div>
+            <div ng-if="!forgotPassword" class="form-group">
+                <label for="inputPassword"> {{'User.Details.Password' | translate}}   </label>
+                <input type="password" class="form-control" id="inputPassword" ng-model="user.password">
+            </div>
+            <a class="pull-right" ng-click="toggleForgotPassword()" href="#">{{'Login.Forgot_Password' | translate}} </a>
+            <div class="form-group">
+                <button ng-if="!forgotPassword" type="button" class="btn btn btn-primary submit" ng-click="userLogin()">
+                    {{'Login.Login' | translate}}
+                </button>
+                <button ng-if="forgotPassword" type="button" class="btn btn btn-primary submit" ng-click="resetPassword()">
+                    {{'Login.Reset_Password' | translate}}
+                </button>
+            </div>
+            
+            <display-message ng-style="getStyle()" message="{{displayMessage}}" error="{{displayMessageError}}">
+			</display-message>
+            
+            <hr>
+            <label class="font-medium"> {{'Login.Not_Member' | translate}}</label>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-md btn-primary btn-block" ng-click="signUp(1)">{{'Login.Coach' | translate}}</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+
+                    <button type="button" disabled 	class="btn btn-md btn-primary btn-block"
+                            data-toggle="tooltip" data-placement="bottom" title="{{'Tooltip.Trained_Not_Supported' | translate}}"
+          				ng-click="" >{{'Login.Trained' | translate}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
