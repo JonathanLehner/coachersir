@@ -1,20 +1,19 @@
 <div ng-controller="homeVideosCtrl">
-    <ul>
-        <!--ng-click="playVideo(video)"
-        ng-mouseover="playBackground(video.id)
+    <ul class="">
+        <li  ng-repeat="video in videos | limitTo: 8">
 
-            ng-mouseout="stopBackground(video.id)""-->
-        <li ng-repeat="video in videos | limitTo: 8">
-            <div id="video1">
-                <video id={{video.id}} name="media" preload="metadata" loop muted>
+            <div>
+
+                <div class="hover-video"></div>
+
+                <video video-hover="hover" name="media" preload="metadata" loop muted>
                     <source src="{{ video.contentOffset | trustUrl }}" >
                 </video>
-<!--
-                <div class="details">
-                    <label>{{video.headline}}</label>
-                    <label>{{video.shortDesc}}<span ng-show="video.flag">{{'Video.ReadMore' | translate}}</span></label>
-                </div>-->
+
+                <button><span class="glyphicon glyphicon-link col-md-3 col-md-offset-3"></span></button>
+                <button><span class="glyphicon glyphicon-search col-md-6 col-md-offset-6"></span> </button>
             </div>
+
         </li>
     </ul>
 </div>

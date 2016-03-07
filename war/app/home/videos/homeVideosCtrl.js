@@ -15,7 +15,7 @@ angular.module('myApp.controllers')
 
                     $scope.videos = data.map(function (video) {
                         if(video.content !== undefined && video.content != null){
-                            video.contentOffset = video.content + "#t=3";
+                            video.contentOffset = video.content;
                         }else{
                             video.contentOffset = undefined;
                         }
@@ -40,6 +40,10 @@ angular.module('myApp.controllers')
         $scope.playVideo = function (video){
             homeVideoService.playVideo(video);
         };
+
+        angular.element("video").mouseover(function(){
+            angular.element(this).play();
+        });
 
         $scope.playBackground = function (videoId){
             document.getElementById(videoId).play();

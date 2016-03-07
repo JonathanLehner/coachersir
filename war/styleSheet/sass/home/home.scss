@@ -169,6 +169,49 @@ $home-videos:$tags-top;
 }
 
 
+.home-video{
+  position: absolute;
+  top:$home-videos;
+  margin-top:$tags-grey-height;
+  ul{
+    padding-right: 0;
+    width: 100%;
+    li{
+      display: inline-block;
+        width: 25%;
+      video{
+        width: 100%;
+      }
+    }
+  }
+
+  .hover-video{
+    position: absolute;
+    display: none;
+    height: 50%;
+    width: 25%;
+    opacity: 0.2;
+    background-color: black;
+  }
+
+  .hover-video:hover{
+    display: block;
+  }
+
+
+  button{
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    height: 6%;
+  }
+}
+
+
+/********************Media ****************************/
+
+
+
 @media screen and (max-width: $screen-width) {
   $media-background-repeat:no-repeat;
   .menu-img-about{
@@ -234,11 +277,12 @@ $home-videos:$tags-top;
       @include screen-background-round;
     }
   }
-}
 
-.home-video{
-  position: absolute;
-  top:$home-videos;
-  margin-top:$tags-grey-height;
-
+  .home-video{
+    ul{
+      li{
+        width: 50%;
+      }
+    }
+  }
 }
