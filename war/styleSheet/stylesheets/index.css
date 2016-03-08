@@ -6,24 +6,29 @@
 }
 
 /* line 25, ../sass/common.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 29, ../sass/common.scss */
 .text-font-size {
   font-size: 12px;
   font-family: Ariel, sans-serif;
 }
 
-/* line 30, ../sass/common.scss */
+/* line 34, ../sass/common.scss */
 .sub-title-font-size {
   font-size: 30px;
   font-family: Ariel, sans-serif;
 }
 
-/* line 35, ../sass/common.scss */
+/* line 39, ../sass/common.scss */
 .sub-title-font-size-small {
   font-size: 25px;
   font-family: Ariel, sans-serif;
 }
 
-/* line 96, ../sass/common.scss */
+/* line 100, ../sass/common.scss */
 .center {
   position: absolute;
   top: 50%;
@@ -31,12 +36,12 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 100, ../sass/common.scss */
+/* line 104, ../sass/common.scss */
 .parent {
   position: relative;
 }
 
-/* line 103, ../sass/common.scss */
+/* line 107, ../sass/common.scss */
 .child {
   position: absolute;
   top: 50%;
@@ -44,7 +49,7 @@
   transform: translate(-50%, -50%);
 }
 
-/* line 107, ../sass/common.scss */
+/* line 111, ../sass/common.scss */
 iframe {
   position: absolute;
   width: 1px;
@@ -53,13 +58,13 @@ iframe {
   left: 0px;
 }
 
-/* line 115, ../sass/common.scss */
+/* line 119, ../sass/common.scss */
 li {
   list-style-type: none;
 }
 
 @media screen and (max-width: 800px) {
-  /* line 121, ../sass/common.scss */
+  /* line 125, ../sass/common.scss */
   .logo {
     background-repeat: no-repeat;
   }

@@ -9,11 +9,10 @@ angular.module('myApp.directives').directive('videoHover', function () {
         },
         link: function (scope, element) {
             element.on('mouseenter', function() {
-                element.addClass(scope.hoverClass);
-                element.context.play();
+                element.context.firstElementChild.play();
             });
             element.on('mouseleave', function() {
-                element.context.pause();
+                element.context.firstElementChild.pause();
             });
 
             element.on('$destroy', function () {

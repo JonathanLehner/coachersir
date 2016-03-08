@@ -13,6 +13,8 @@ $energy-top:15%;
 $tags-top:$main-img-height +25%;
 $challenge-top:$tags-top - 3%;
 $home-videos:$tags-top;
+$home-favorites:$home-videos+40%;
+$home-favorites-screen:$home-videos+90%;
 
 
 @mixin menu-position{
@@ -176,34 +178,55 @@ $home-videos:$tags-top;
   ul{
     padding-right: 0;
     width: 100%;
+    position: relative;
     li{
       display: inline-block;
         width: 25%;
+      .video-wrapper{
+        position: relative;
+      }
       video{
         width: 100%;
+        position: relative;
       }
     }
   }
 
+
   .hover-video{
+    opacity: 0;
+    background: black;
     position: absolute;
-    display: none;
-    height: 50%;
-    width: 25%;
-    opacity: 0.2;
-    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+    button{
+      background-color: white;
+      border-radius: 5px;
+      position: relative;
+      top: 40%;
+      right: 35%;
+      margin-left: 2%;
+    }
   }
-
   .hover-video:hover{
-    display: block;
+    transition: 2s;
+    opacity: 0.75;
   }
+}
 
-
-  button{
-    position: absolute;
-    background-color: white;
-    border-radius: 5px;
-    height: 6%;
+.home-favorites{
+  width: 100%;
+  position: absolute;
+  top:$home-favorites;
+  margin-top:$tags-grey-height;
+  li{
+    width: 33%;
+    display: inline-block;
+    img{
+      width: 33%;
+    }
   }
 }
 
@@ -282,6 +305,17 @@ $home-videos:$tags-top;
     ul{
       li{
         width: 50%;
+      }
+    }
+  }
+
+  .home-favorites{
+    top:$home-favorites-screen;
+    li{
+      width: 100%;
+      display: block;
+      img{
+        width:100%;
       }
     }
   }

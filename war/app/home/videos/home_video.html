@@ -2,16 +2,14 @@
     <ul class="">
         <li  ng-repeat="video in videos | limitTo: 8">
 
-            <div>
-
-                <div class="hover-video"></div>
-
-                <video video-hover="hover" name="media" preload="metadata" loop muted>
+            <div class="video-wrapper" video-hover="hover">
+                <video  name="media" preload="metadata" loop muted>
                     <source src="{{ video.contentOffset | trustUrl }}" >
                 </video>
-
-                <button><span class="glyphicon glyphicon-link col-md-3 col-md-offset-3"></span></button>
-                <button><span class="glyphicon glyphicon-search col-md-6 col-md-offset-6"></span> </button>
+                <div class="hover-video" >
+                    <button><span class="glyphicon glyphicon-link "></span></button>
+                    <button><span class="glyphicon glyphicon-search "></span> </button>
+                </div>
             </div>
 
         </li>
