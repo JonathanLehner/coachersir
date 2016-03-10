@@ -1,0 +1,259 @@
+/* line 18, ../../sass/common.scss */
+.title-font-size {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 25, ../../sass/common.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 29, ../../sass/common.scss */
+.text-font-size {
+  font-size: 12px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 34, ../../sass/common.scss */
+.sub-title-font-size {
+  font-size: 30px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 39, ../../sass/common.scss */
+.sub-title-font-size-small {
+  font-size: 25px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 100, ../../sass/common.scss */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 104, ../../sass/common.scss */
+.parent {
+  position: relative;
+}
+
+/* line 107, ../../sass/common.scss */
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 111, ../../sass/common.scss */
+iframe {
+  position: absolute;
+  width: 1px;
+  display: none;
+  height: 1px;
+  left: 0px;
+}
+
+/* line 119, ../../sass/common.scss */
+li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 125, ../../sass/common.scss */
+  .logo {
+    background-repeat: no-repeat;
+  }
+}
+/* line 1, ../../sass/common/common_folder/login.scss */
+.login {
+  position: absolute;
+  margin-top: 3%;
+  z-index: 1;
+}
+/* line 6, ../../sass/common/common_folder/login.scss */
+.login ul li {
+  display: inline-block;
+}
+/* line 8, ../../sass/common/common_folder/login.scss */
+.login ul li a {
+  font-size: 25px;
+  color: black;
+  cursor: hand;
+}
+/* line 13, ../../sass/common/common_folder/login.scss */
+.login ul li a:focus, .login ul li a:hover {
+  text-decoration: none;
+}
+/* line 16, ../../sass/common/common_folder/login.scss */
+.login ul li a:active {
+  color: #e8e8e7;
+}
+/* line 19, ../../sass/common/common_folder/login.scss */
+.login ul li .border {
+  border: thin solid #0a0a0a;
+}
+
+/* line 18, ../../sass/common/common_folder.scss */
+.search {
+  opacity: 1;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+/* line 51, ../../sass/common.scss */
+.search *::-webkit-input-placeholder {
+  color: black;
+}
+/* line 52, ../../sass/common.scss */
+.search *:-moz-placeholder {
+  color: black;
+}
+/* line 53, ../../sass/common.scss */
+.search *::-moz-placeholder {
+  color: black;
+}
+/* line 54, ../../sass/common.scss */
+.search *:-ms-input-placeholder {
+  color: black;
+}
+/* line 29, ../../sass/common/common_folder.scss */
+.search .search-opacity {
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.6);
+  height: 100px;
+  width: 100%;
+  position: inherit;
+}
+/* line 36, ../../sass/common/common_folder.scss */
+.search .search-input {
+  position: absolute;
+}
+/* line 39, ../../sass/common/common_folder.scss */
+.search input {
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+  font-family: Ariel, sans-serif;
+  color: black;
+  height: 40px;
+  background-color: white;
+  margin-top: 2%;
+  top: 40%;
+}
+/* line 51, ../../sass/common.scss */
+.search input::-webkit-input-placeholder {
+  color: black;
+}
+/* line 52, ../../sass/common.scss */
+.search input:-moz-placeholder {
+  color: black;
+}
+/* line 53, ../../sass/common.scss */
+.search input::-moz-placeholder {
+  color: black;
+}
+/* line 54, ../../sass/common.scss */
+.search input:-ms-input-placeholder {
+  color: black;
+}
+/* line 47, ../../sass/common/common_folder.scss */
+.search md-input-container {
+  background-color: white;
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+  font-family: Ariel, sans-serif;
+  color: black;
+  height: 40px;
+  background-color: white;
+  margin-top: 2%;
+}
+/* line 51, ../../sass/common.scss */
+.search md-input-container *::-webkit-input-placeholder {
+  color: black;
+}
+/* line 52, ../../sass/common.scss */
+.search md-input-container *:-moz-placeholder {
+  color: black;
+}
+/* line 53, ../../sass/common.scss */
+.search md-input-container *::-moz-placeholder {
+  color: black;
+}
+/* line 54, ../../sass/common.scss */
+.search md-input-container *:-ms-input-placeholder {
+  color: black;
+}
+/* line 55, ../../sass/common/common_folder.scss */
+.search md-input-container md-select {
+  margin-top: 5px;
+}
+
+/* line 65, ../../sass/common/common_folder.scss */
+.search-button {
+  background-image: url("../../../images/common/search/blue_arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  position: relative;
+  height: 170px;
+  background-size: cover;
+  background-repeat: round;
+  top: 100%;
+}
+/* line 74, ../../sass/common/common_folder.scss */
+.search-button div {
+  background-image: url("../../../images/common/search/find_coach_button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 30%;
+  cursor: pointer;
+  position: relative;
+  background-size: cover;
+  background-repeat: round;
+  height: 43%;
+  text-align: center;
+  font-family: Ariel, sans-serif;
+  font-size: xx-large;
+  transform: translate(-120%, 50%);
+}
+
+@media screen and (max-width: 800px) {
+  /* line 92, ../../sass/common/common_folder.scss */
+  .search-button {
+    background-repeat: round;
+  }
+  /* line 94, ../../sass/common/common_folder.scss */
+  .search-button span {
+    background-repeat: round;
+    font-size: large;
+  }
+
+  /* line 99, ../../sass/common/common_folder.scss */
+  .search {
+    width: 100%;
+  }
+  /* line 101, ../../sass/common/common_folder.scss */
+  .search input {
+    width: 40%;
+  }
+  /* line 105, ../../sass/common/common_folder.scss */
+  .search .search-opacity {
+    height: 140px;
+    position: absolute;
+  }
+  /* line 109, ../../sass/common/common_folder.scss */
+  .search .search-input {
+    position: relative;
+  }
+  /* line 113, ../../sass/common/common_folder.scss */
+  .search md-input-container {
+    width: 40%;
+  }
+}

@@ -1,0 +1,439 @@
+/* line 18, ../../sass/common.scss */
+.title-font-size {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 25, ../../sass/common.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 29, ../../sass/common.scss */
+.text-font-size {
+  font-size: 12px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 34, ../../sass/common.scss */
+.sub-title-font-size {
+  font-size: 30px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 39, ../../sass/common.scss */
+.sub-title-font-size-small {
+  font-size: 25px;
+  font-family: Ariel, sans-serif;
+}
+
+/* line 100, ../../sass/common.scss */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 104, ../../sass/common.scss */
+.parent {
+  position: relative;
+}
+
+/* line 107, ../../sass/common.scss */
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 111, ../../sass/common.scss */
+iframe {
+  position: absolute;
+  width: 1px;
+  display: none;
+  height: 1px;
+  left: 0px;
+}
+
+/* line 119, ../../sass/common.scss */
+li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 125, ../../sass/common.scss */
+  .logo {
+    background-repeat: no-repeat;
+  }
+}
+/* line 29, ../../sass/home/home.scss */
+.tags {
+  background-image: url("../../../images/home_page/background/gray_gradient_bg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: round;
+}
+/* line 37, ../../sass/home/home.scss */
+.tags .energy {
+  display: block;
+  position: relative;
+  padding-top: 6%;
+}
+/* line 43, ../../sass/home/home.scss */
+.tags .challenge {
+  position: relative;
+  transform: translate(5%, -50%);
+  bottom: 3px;
+  margin-top: 3%;
+}
+/* line 49, ../../sass/home/home.scss */
+.tags ul {
+  width: 100%;
+  padding-bottom: 3%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  list-style: none;
+}
+/* line 56, ../../sass/home/home.scss */
+.tags ul li {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 4%;
+}
+/* line 63, ../../sass/home/home.scss */
+.tags .bicycle {
+  background-image: url("../../../images/home_page/tags/tags_Bicycle.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 66, ../../sass/home/home.scss */
+.tags .football {
+  background-image: url("../../../images/home_page/tags/tags_football.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 69, ../../sass/home/home.scss */
+.tags .exercise {
+  background-image: url("../../../images/home_page/tags/tags_exercise.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 72, ../../sass/home/home.scss */
+.tags .running {
+  background-image: url("../../../images/home_page/tags/tags_running.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 75, ../../sass/home/home.scss */
+.tags .swimming {
+  background-image: url("../../../images/home_page/tags/tags_swimming.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 78, ../../sass/home/home.scss */
+.tags .tennis {
+  background-image: url("../../../images/home_page/tags/tags_tennis.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+/* line 81, ../../sass/home/home.scss */
+.tags .weights {
+  background-image: url("../../../images/home_page/tags/tags_Weights.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 120px;
+  background-size: initial;
+  padding-bottom: 100%;
+  margin-top: 5%;
+}
+
+/* line 87, ../../sass/home/home.scss */
+.main-img {
+  background-image: url("../../../images/home_page/background/main_picture.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+  width: 100%;
+  position: relative;
+  opacity: 0.6;
+  height: 800px;
+  max-height: 100%;
+  min-height: 60%;
+}
+
+/* line 100, ../../sass/home/home.scss */
+.menu-img-article {
+  background-image: url("../../../images/home_page/menu/articles.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: initial;
+  z-index: 1;
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+/* line 107, ../../sass/home/home.scss */
+.menu-img-contact {
+  background-image: url("../../../images/home_page/menu/contact_us.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: initial;
+  z-index: 1;
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+/* line 112, ../../sass/home/home.scss */
+.menu-img-about {
+  background-image: url("../../../images/home_page/menu/about_us.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: initial;
+  z-index: 1;
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+/* line 118, ../../sass/home/home.scss */
+.login-button {
+  background-image: url("../../images/common/login/blue_button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* line 122, ../../sass/home/home.scss */
+.menu {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  bottom: 300px;
+}
+/* line 127, ../../sass/home/home.scss */
+.menu ul {
+  margin-bottom: 10px;
+  width: 100%;
+}
+/* line 130, ../../sass/home/home.scss */
+.menu ul li {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+/* line 139, ../../sass/home/home.scss */
+.home-search {
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  bottom: 296px;
+}
+/* line 144, ../../sass/home/home.scss */
+.home-search search {
+  width: 100%;
+  position: absolute;
+}
+
+/* line 151, ../../sass/home/home.scss */
+.home-video {
+  position: relative;
+}
+/* line 153, ../../sass/home/home.scss */
+.home-video ul {
+  padding-right: 0;
+  width: 100%;
+  position: relative;
+}
+/* line 157, ../../sass/home/home.scss */
+.home-video ul li {
+  display: inline-block;
+  width: 25%;
+}
+/* line 160, ../../sass/home/home.scss */
+.home-video ul li .video-wrapper {
+  position: relative;
+}
+/* line 163, ../../sass/home/home.scss */
+.home-video ul li video {
+  width: 100%;
+  position: relative;
+}
+/* line 171, ../../sass/home/home.scss */
+.home-video .hover-video {
+  opacity: 0;
+  background: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  right: 0%;
+}
+/* line 179, ../../sass/home/home.scss */
+.home-video .hover-video button {
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  top: 40%;
+  right: 35%;
+  margin-left: 2%;
+}
+/* line 188, ../../sass/home/home.scss */
+.home-video .hover-video:hover {
+  transition: 2s;
+  opacity: 0.75;
+}
+
+/* line 194, ../../sass/home/home.scss */
+.home-favorites {
+  width: 100%;
+  position: relative;
+}
+/* line 198, ../../sass/home/home.scss */
+.home-favorites li img {
+  width: 33%;
+}
+
+/********************Media ****************************/
+@media screen and (max-width: 800px) {
+  /* line 211, ../../sass/home/home.scss */
+  .menu-img-about {
+    width: 0;
+  }
+
+  /* line 214, ../../sass/home/home.scss */
+  .menu-img-article {
+    width: 0;
+  }
+
+  /* line 217, ../../sass/home/home.scss */
+  .menu-img-contact {
+    width: 0;
+  }
+
+  /* line 221, ../../sass/home/home.scss */
+  .home-search {
+    bottom: 337px;
+  }
+
+  /* line 228, ../../sass/home/home.scss */
+  .tags {
+    background-image: none;
+    background-color: grey;
+    padding-right: 0px;
+    position: relative;
+  }
+  /* line 233, ../../sass/home/home.scss */
+  .tags label {
+    top: 15px;
+  }
+  /* line 236, ../../sass/home/home.scss */
+  .tags ul {
+    margin-top: 8px;
+    margin-right: 0;
+    display: initial;
+    list-style: initial;
+  }
+  /* line 241, ../../sass/home/home.scss */
+  .tags ul li {
+    padding-right: 0;
+    display: inline-flex;
+  }
+  /* line 249, ../../sass/home/home.scss */
+  .tags .energy, .tags .challenge {
+    display: none;
+    padding-top: 6%;
+  }
+  /* line 254, ../../sass/home/home.scss */
+  .tags .bicycle {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 257, ../../sass/home/home.scss */
+  .tags .football {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 260, ../../sass/home/home.scss */
+  .tags .exercise {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 263, ../../sass/home/home.scss */
+  .tags .running {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 266, ../../sass/home/home.scss */
+  .tags .swimming {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 269, ../../sass/home/home.scss */
+  .tags .tennis {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /* line 272, ../../sass/home/home.scss */
+  .tags .weights {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* line 279, ../../sass/home/home.scss */
+  .home-video ul li {
+    width: 50%;
+  }
+
+  /* line 287, ../../sass/home/home.scss */
+  .home-favorites li img {
+    width: 100%;
+  }
+}
