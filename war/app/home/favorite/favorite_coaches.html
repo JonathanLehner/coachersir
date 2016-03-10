@@ -3,15 +3,15 @@
     <label class="title-font-size text-center">המאמנים הפעילים ביותר באתר </label>
 </div>
 
-    <div>
-        <ul class="">
-            <li class="" ng-repeat="coach in favorites | limitTo:3 track by coach.id">
+    <div class="">
+        <ul class="row">
+            <li class="col-md-4" ng-repeat="coach in favorites | limitTo:3 track by coach.id">
                 <div ng-if="coach.main_img !== null"><img ng-src={{coach.main_img}}></div>
                 <div ng-if="coach.main_img === null"><img ng-src="/images/common/coach/default/NO_PIC.png"></div>
 
                 <div class="sub-title-font-size">{{coach.first_name}} </div>
             <ul class="row">
-                <li class="" ng-repeat="degree in coach.degrees">
+                <li class="col-md-2" ng-repeat="degree in coach.degrees">
                         <label class="sub-title-font-size">degree</label>
                 </li>
             </ul>

@@ -2,39 +2,62 @@
 @import "../common.scss";
 @import "common_folder/login.scss";
 
+@mixin search-input{
+  font-size: large;
+  font-weight: 600 ;
+  text-align: center;
+  font-family: $font-default;
+  color: black;
+  height: 40px;
+  background-color: white;
+  margin-top: 2%;
+
+}
+
+
 .search{
   opacity: 1;
-  width: 80%;
-  position: absolute;
-  @include center;
+  position: relative;
   text-align: center;
+  width: 100%;
+  margin: 0;
   *{
-    margin-left: 4%;
-    height: 50px;
-    font-size: large;
-    font-weight: 600 ;
-    text-align: center;
-    font-family: $font-default;
-    color: black;
-
     @include placeholder {
       color: black;
     }
   }
+  .search-opacity{
+    opacity: 0.8;
+    background:rgba(0,0,0,0.6);
+    height: 100px;
+    width: 100%;
+    position: inherit;
+  }
+  .search-input{
+    position: absolute;
+  }
   input{
-    width:20%;
+    @include search-input;
+    top:40%;
 
     @include placeholder {
       color: black;
     }
   }
   md-input-container{
-    width: 20%;
+    *{
+      @include placeholder {
+        color: black;
+      }
+    }
     background-color: white;
+    @include search-input;
     md-select{
       margin-top: 5px;
     }
   }
+
+
 
 
 }
@@ -43,23 +66,23 @@
 
   @include background-image("../../../images/common/search/blue_arrow.png");
   width: 100%;
-  position: absolute;
+  position: relative;
   height: $search-blue-bg-height;
   background-size: cover;
   background-repeat: round;
   top: 100%;
-  span{
+  div{
     @include background-image("../../../images/common/search/find_coach_button.png");
-    @include center;
     width: 30%;
     cursor: pointer;
-    position: absolute;
+    position: relative;
     background-size: cover;
     background-repeat: round;
     height: 43%;
     text-align: center;
     font-family: $font-default;
     font-size: xx-large;
+    transform: translate(-120%, +50%);
   }
 }
 
@@ -70,6 +93,7 @@
     background-repeat: $media-background-repeat;
     span{
       background-repeat: $media-background-repeat;
+      font-size: large;
     }
 }
   .search{
@@ -77,6 +101,14 @@
       input {
         width: 40%;
       }
+
+    .search-opacity{
+      height: 140px;
+      position: absolute;
+    }
+     .search-input{
+      position: relative;
+    }
 
       md-input-container{
         width: 40%;

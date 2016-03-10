@@ -1,32 +1,15 @@
 @import "compass";
 @import "../common.scss";
 
-$main-img-height:90%;
-$menu-margin-top:($main-img-height - 30%);
-$margin-menu-right: 10%;
-$home-search-height:15%;
-$home-search-margin-top:$main-img-height - $home-search-height;
-$tags-height: $main-img-height;
-$tags-grey-height:400px;
-$tags-grey-height-small:auto;
-$energy-top:15%;
-$tags-top:$main-img-height +25%;
-$challenge-top:$tags-top - 3%;
-$home-videos:$tags-top;
-$home-favorites:$home-videos+40%;
-$home-favorites-screen:$home-videos+90%;
 
 
 @mixin menu-position{
   background-repeat: no-repeat;
   background-size: initial;
   z-index: 1;
-
-  top:$menu-margin-top;
+  position: relative;
   width: 180px;
-  height:180px;/*
-  position: absolute;
-  top: $menu-margin-top;*/
+  height:180px;
 }
 
 @mixin menu-img($name){
@@ -45,23 +28,21 @@ $home-favorites-screen:$home-videos+90%;
 
 .tags {
   @include background-image("../../../images/home_page/background/gray_gradient_bg.png");
-  position: absolute;
-  top: $tags-top;
+  position: relative;
   width: 100%;
-  height: $tags-grey-height;
   text-align: center;
   background-size: cover;
   background-clip: content-box;
   background-repeat: round;
   .energy {
     display: block;
-    margin-top: 6%;
     position: relative;
+    padding-top: 6%;
   }
 
   .challenge{
-    position: absolute;
-    transform: translate(50%, -50%);
+    position: relative;
+    transform: translate(5%, -50%);
     bottom: 3px;
     margin-top: 3%;
   }
@@ -77,10 +58,7 @@ $home-favorites-screen:$home-videos+90%;
       align-items: center;
       padding-left: 4%;
 
-    }/*
-    li:first-child{
-      padding-right: 0%;
-    }*/
+    }
 }
   .bicycle{
       @include tag-img("Bicycle");
@@ -111,11 +89,10 @@ $home-favorites-screen:$home-videos+90%;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight:bold;
-  margin-bottom: 60px;
-  height:$main-img-height;
   width: 100%;
-  position: absolute;
+  position: relative;
   opacity: 0.6;
+  height: 800px;
   max-height: 100%;
   min-height: 60%;
 }
@@ -143,13 +120,11 @@ $home-favorites-screen:$home-videos+90%;
 }
 
 .menu{
-  position: absolute;
-  @include center;
+  position: relative;
   text-align: center;
-  top: $menu-margin-top;
   width: 100%;
+  bottom: 300px;
   ul{
-    @include center;
     margin-bottom: 10px;
     width: 100%;
     li{
@@ -162,19 +137,19 @@ $home-favorites-screen:$home-videos+90%;
 }
 
 .home-search{
-  top:$home-search-margin-top;
-  background:rgba(0,0,0,0.6);
   display: inline-flex;
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: $home-search-height;
+  bottom: 296px;
+  search{
+    width: 100%;
+    position: absolute;
+  }
 }
 
 
 .home-video{
-  position: absolute;
-  top:$home-videos;
-  margin-top:$tags-grey-height;
+  position: relative;
   ul{
     padding-right: 0;
     width: 100%;
@@ -218,12 +193,8 @@ $home-favorites-screen:$home-videos+90%;
 
 .home-favorites{
   width: 100%;
-  position: absolute;
-  top:$home-favorites;
-  margin-top:$tags-grey-height;
+  position: relative;
   li{
-    width: 33%;
-    display: inline-block;
     img{
       width: 33%;
     }
@@ -248,16 +219,17 @@ $home-favorites-screen:$home-videos+90%;
   }
 
   .home-search{
-    top:$home-search-margin-top - 10%;
-    height: $home-search-height + 10%;
+    bottom: 337px;
+    .search{
+
+    }
   }
 
   .tags{
     background-image: none ;
     background-color: grey;
-    height:  $tags-grey-height-small;
     padding-right: 0px;
-    position: absolute;
+    position: relative;
     label{
       top:15px;
     }
@@ -276,6 +248,7 @@ $home-favorites-screen:$home-videos+90%;
 
     .energy, .challenge{
       display: none;
+      padding-top: 6%;
     }
 
     .bicycle{
@@ -310,10 +283,7 @@ $home-favorites-screen:$home-videos+90%;
   }
 
   .home-favorites{
-    top:$home-favorites-screen;
     li{
-      width: 100%;
-      display: block;
       img{
         width:100%;
       }

@@ -1,8 +1,11 @@
-<div>
-    <div  class="search">
-        <input type="text" placeholder="בחר עיר" ng-model="chosenPlace" googleplace />
+<div class="search row">
 
-        <md-input-container ng-disabled="chosenPlace !== undefined">
+    <div  class="search-opacity col-md-12">
+        </div>
+    <div  class="search-input col-md-12  row">
+        <input  class="col-md-2 col-sm-6"  type="text" placeholder="בחר עיר" ng-model="chosenPlace" googleplace />
+
+        <md-input-container class="col-md-2 col-sm-6 col-md-offset-1  col-sm-offset-0"  ng-disabled="chosenPlace !== undefined">
             <md-select placeholder="מרחק מהכתובת" ng-model="distance">
                 <md-option value=5>
                     {{'Search.Distance.Five' | translate}}
@@ -19,7 +22,7 @@
             </md-select>
         </md-input-container>
 
-        <md-input-container ng-disabled="chosenPlace !== undefined">
+        <md-input-container class="col-md-2  col-sm-6 col-md-offset-1  col-sm-offset-0"  ng-disabled="chosenPlace !== undefined">
             <md-select placeholder="איך בא לי לשרוף" ng-model="distance">
                 <md-option value=5>
                     {{'Search.Distance.Five' | translate}}
@@ -36,13 +39,15 @@
             </md-select>
         </md-input-container>
 
-    <input type="number" placeholder="עד מחיר" ng-model="price" />
+    <input class="col-md-2  col-sm-6 col-md-offset-1  col-sm-offset-0"  type="number" placeholder="עד מחיר" ng-model="price" />
 
     </div >
-    <div class="search-button">
-        <span class="title-font-size">
-            חפש מאמן
-        </span>
+    <div class="search-button col-md-12">
+        <div>
+            <span class="title-font-size">
+                    חפש מאמן
+            </span>
+        </div>
     </div>
 
 </div>
