@@ -1,0 +1,58 @@
+{
+  "name": "myCoach",
+  "homepage": "myCoach.org.il",
+  "authors": [
+    "myCoach"
+  ],
+  "description": "Israel's coaches portal",
+  "main": "[\"/dist/css/bootstrap/bootstrap.css\",\"/dist/js/angular/anjular.js\"]",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "\"\""
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-animate":"1.5.0",
+    "angular-cookies":"1.5.0",
+    "angular-bootstrap":"0.6.0",
+    "angular-aria":"1.5.0",
+    "angular-google-maps":"2.3.2",
+    "angular-material":"1.0.6",
+    "angular-messages": "1.5.0",
+    "angular-resource": "1.5.0",
+    "angular-sanitize": "1.5.0",
+    "angular-simple-logger": "0.1.7",
+    "angular-translate": "2.10.0",
+    "angular-translate-loader-static-files": "2.10.0",
+    "angular-translate-loader-url": "2.10.0",
+    "angular-ui": "0.4.0",
+    "angular-ui-bootstrap": "1.2.1",
+    "angular-ui-router": "0.2.18",
+    "bootstrap":"",
+    "bootstrap-datepicker":"",
+    "bootstrap-social":"",
+    "carousel-3d": "0.2.2",
+    "dropzone": "4.3.0",
+    "font-awesome": "4.3.0",
+    "javascript-detect-element-resize": "0.5.3",
+    "jquery":"",
+    "jquery-ui": "1.11.4",
+    "jssor-slider": "20.0.0",
+    "lodash": "4.6.0",
+    "modernizr":"",
+    "ng-file-upload":"",
+    "ui-bootstrap": "0.6.0",
+    "waitForImages": "2.1.0"
+  }
+}

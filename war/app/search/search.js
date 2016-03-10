@@ -7,7 +7,7 @@
 angular.module('myApp.directives').directive('search',['$rootScope', function($rootScope) {
     return {
         restrict: 'E',
-        templateUrl: "/app/common/search/search.html",
+        templateUrl: "/app/search/search.html",
         scope: {},
         link: function ($scope) {
             "use strict";

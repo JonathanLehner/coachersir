@@ -4,7 +4,7 @@
 angular.module('myApp.directives').directive('loginSignup',['loginService',function(loginService) {
         return {
             restrict: 'EA',
-            templateUrl: "/app/common/login/login_menu.html",
+            templateUrl: "/app/login/login_menu.html",
             scope: {
             },
             link: function ($scope) {
